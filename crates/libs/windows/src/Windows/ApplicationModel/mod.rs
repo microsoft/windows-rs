@@ -54,7 +54,7 @@ pub mod VoiceCommands;
 pub mod Wallet;
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AddResourcePackageOptions(pub u32);
 impl AddResourcePackageOptions {
     pub const None: Self = Self(0u32);
@@ -219,7 +219,7 @@ unsafe impl ::core::marker::Send for AppDisplayInfo {}
 unsafe impl ::core::marker::Sync for AppDisplayInfo {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppExecutionContext(pub i32);
 impl AppExecutionContext {
     pub const Unknown: Self = Self(0i32);
@@ -626,7 +626,7 @@ unsafe impl ::core::marker::Send for AppInstallerInfo {}
 unsafe impl ::core::marker::Sync for AppInstallerInfo {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppInstallerPolicySource(pub i32);
 impl AppInstallerPolicySource {
     pub const Default: Self = Self(0i32);
@@ -952,7 +952,7 @@ unsafe impl ::core::marker::Send for EnteredBackgroundEventArgs {}
 unsafe impl ::core::marker::Sync for EnteredBackgroundEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FullTrustLaunchResult(pub i32);
 impl FullTrustLaunchResult {
     pub const Success: Self = Self(0i32);
@@ -2797,7 +2797,7 @@ unsafe impl ::core::marker::Send for LimitedAccessFeatureRequestResult {}
 unsafe impl ::core::marker::Sync for LimitedAccessFeatureRequestResult {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LimitedAccessFeatureStatus(pub i32);
 impl LimitedAccessFeatureStatus {
     pub const Unavailable: Self = Self(0i32);
@@ -4139,7 +4139,7 @@ unsafe impl ::core::marker::Send for PackageContentGroupStagingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageContentGroupStagingEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PackageContentGroupState(pub i32);
 impl PackageContentGroupState {
     pub const NotStaged: Self = Self(0i32);
@@ -4487,7 +4487,7 @@ unsafe impl ::core::marker::Send for PackageInstallingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageInstallingEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PackageSignatureKind(pub i32);
 impl PackageSignatureKind {
     pub const None: Self = Self(0i32);
@@ -5024,7 +5024,7 @@ unsafe impl ::core::marker::Send for PackageUninstallingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageUninstallingEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PackageUpdateAvailability(pub i32);
 impl PackageUpdateAvailability {
     pub const Unknown: Self = Self(0i32);
@@ -5447,7 +5447,7 @@ unsafe impl ::core::marker::Send for StartupTask {}
 unsafe impl ::core::marker::Sync for StartupTask {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StartupTaskState(pub i32);
 impl StartupTaskState {
     pub const Disabled: Self = Self(0i32);

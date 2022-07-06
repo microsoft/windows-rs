@@ -321,7 +321,7 @@ unsafe impl ::core::marker::Send for DateTimeFormatter {}
 unsafe impl ::core::marker::Sync for DateTimeFormatter {}
 #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DayFormat(pub i32);
 impl DayFormat {
     pub const None: Self = Self(0i32);
@@ -355,7 +355,7 @@ unsafe impl ::windows::core::RuntimeType for DayFormat {
 }
 #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DayOfWeekFormat(pub i32);
 impl DayOfWeekFormat {
     pub const None: Self = Self(0i32);
@@ -391,7 +391,7 @@ unsafe impl ::windows::core::RuntimeType for DayOfWeekFormat {
 }
 #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HourFormat(pub i32);
 impl HourFormat {
     pub const None: Self = Self(0i32);
@@ -527,7 +527,7 @@ pub struct IDateTimeFormatterStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MinuteFormat(pub i32);
 impl MinuteFormat {
     pub const None: Self = Self(0i32);
@@ -561,7 +561,7 @@ unsafe impl ::windows::core::RuntimeType for MinuteFormat {
 }
 #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MonthFormat(pub i32);
 impl MonthFormat {
     pub const None: Self = Self(0i32);
@@ -598,7 +598,7 @@ unsafe impl ::windows::core::RuntimeType for MonthFormat {
 }
 #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SecondFormat(pub i32);
 impl SecondFormat {
     pub const None: Self = Self(0i32);
@@ -632,7 +632,7 @@ unsafe impl ::windows::core::RuntimeType for SecondFormat {
 }
 #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct YearFormat(pub i32);
 impl YearFormat {
     pub const None: Self = Self(0i32);

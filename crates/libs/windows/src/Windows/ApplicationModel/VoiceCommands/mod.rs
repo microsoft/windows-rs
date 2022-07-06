@@ -449,7 +449,7 @@ unsafe impl ::core::marker::Send for VoiceCommandCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for VoiceCommandCompletedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VoiceCommandCompletionReason(pub i32);
 impl VoiceCommandCompletionReason {
     pub const Unknown: Self = Self(0i32);
@@ -763,7 +763,7 @@ unsafe impl ::core::marker::Send for VoiceCommandContentTile {}
 unsafe impl ::core::marker::Sync for VoiceCommandContentTile {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VoiceCommandContentTileType(pub i32);
 impl VoiceCommandContentTileType {
     pub const TitleOnly: Self = Self(0i32);

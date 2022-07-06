@@ -113,7 +113,7 @@ pub const AVRF_MAX_TRACES: u32 = 32u32;
 pub type AVRF_RESOURCE_ENUMERATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(resourcedescription: *mut ::core::ffi::c_void, enumerationcontext: *mut ::core::ffi::c_void, enumerationlevel: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VERIFIER_ENUM_RESOURCE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
 pub const AVRF_ENUM_RESOURCES_FLAGS_DONT_RESOLVE_TRACES: VERIFIER_ENUM_RESOURCE_FLAGS = VERIFIER_ENUM_RESOURCE_FLAGS(2u32);
@@ -178,7 +178,7 @@ pub unsafe fn VerifierEnumerateResource<'a, Param0: ::windows::core::IntoParam<'
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAvrfResourceTypes(pub i32);
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
 pub const AvrfResourceHeapAllocation: eAvrfResourceTypes = eAvrfResourceTypes(0i32);
@@ -207,7 +207,7 @@ impl ::core::fmt::Debug for eAvrfResourceTypes {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eHANDLE_TRACE_OPERATIONS(pub i32);
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
 pub const OperationDbUnused: eHANDLE_TRACE_OPERATIONS = eHANDLE_TRACE_OPERATIONS(0i32);
@@ -238,7 +238,7 @@ impl ::core::fmt::Debug for eHANDLE_TRACE_OPERATIONS {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eHeapAllocationState(pub i32);
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
 pub const HeapFullPageHeap: eHeapAllocationState = eHeapAllocationState(1073741824i32);
@@ -267,7 +267,7 @@ impl ::core::fmt::Debug for eHeapAllocationState {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eHeapEnumerationLevel(pub i32);
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
 pub const HeapEnumerationEverything: eHeapEnumerationLevel = eHeapEnumerationLevel(0i32);
@@ -294,7 +294,7 @@ impl ::core::fmt::Debug for eHeapEnumerationLevel {
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eUserAllocationState(pub i32);
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
 pub const AllocationStateUnknown: eUserAllocationState = eUserAllocationState(0i32);

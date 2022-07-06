@@ -273,7 +273,7 @@ unsafe impl ::core::marker::Send for ArcadeStick {}
 unsafe impl ::core::marker::Sync for ArcadeStick {}
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ArcadeStickButtons(pub u32);
 impl ArcadeStickButtons {
     pub const None: Self = Self(0u32);
@@ -654,7 +654,7 @@ unsafe impl ::core::marker::Send for FlightStick {}
 unsafe impl ::core::marker::Sync for FlightStick {}
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FlightStickButtons(pub u32);
 impl FlightStickButtons {
     pub const None: Self = Self(0u32);
@@ -760,7 +760,7 @@ impl ::core::default::Default for FlightStickReading {
 }
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GameControllerButtonLabel(pub i32);
 impl GameControllerButtonLabel {
     pub const None: Self = Self(0i32);
@@ -861,7 +861,7 @@ unsafe impl ::windows::core::RuntimeType for GameControllerButtonLabel {
 }
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GameControllerSwitchKind(pub i32);
 impl GameControllerSwitchKind {
     pub const TwoWay: Self = Self(0i32);
@@ -896,7 +896,7 @@ unsafe impl ::windows::core::RuntimeType for GameControllerSwitchKind {
 }
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GameControllerSwitchPosition(pub i32);
 impl GameControllerSwitchPosition {
     pub const Center: Self = Self(0i32);
@@ -1217,7 +1217,7 @@ unsafe impl ::core::marker::Send for Gamepad {}
 unsafe impl ::core::marker::Sync for Gamepad {}
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GamepadButtons(pub u32);
 impl GamepadButtons {
     pub const None: Self = Self(0u32);
@@ -2168,7 +2168,7 @@ pub struct IUINavigationControllerStatics2_Vtbl {
 }
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OptionalUINavigationButtons(pub u32);
 impl OptionalUINavigationButtons {
     pub const None: Self = Self(0u32);
@@ -2557,7 +2557,7 @@ unsafe impl ::core::marker::Send for RacingWheel {}
 unsafe impl ::core::marker::Sync for RacingWheel {}
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RacingWheelButtons(pub u32);
 impl RacingWheelButtons {
     pub const None: Self = Self(0u32);
@@ -3028,7 +3028,7 @@ unsafe impl ::core::marker::Send for RawGameController {}
 unsafe impl ::core::marker::Sync for RawGameController {}
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RequiredUINavigationButtons(pub u32);
 impl RequiredUINavigationButtons {
     pub const None: Self = Self(0u32);

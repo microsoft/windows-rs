@@ -282,7 +282,7 @@ unsafe impl ::core::marker::Send for DisplayMonitor {}
 unsafe impl ::core::marker::Sync for DisplayMonitor {}
 #[doc = "*Required features: `\"Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayMonitorConnectionKind(pub i32);
 impl DisplayMonitorConnectionKind {
     pub const Internal: Self = Self(0i32);
@@ -318,7 +318,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayMonitorConnectionKind {
 }
 #[doc = "*Required features: `\"Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayMonitorDescriptorKind(pub i32);
 impl DisplayMonitorDescriptorKind {
     pub const Edid: Self = Self(0i32);
@@ -352,7 +352,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayMonitorDescriptorKind {
 }
 #[doc = "*Required features: `\"Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayMonitorPhysicalConnectorKind(pub i32);
 impl DisplayMonitorPhysicalConnectorKind {
     pub const Unknown: Self = Self(0i32);
@@ -392,7 +392,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayMonitorPhysicalConnectorKind
 }
 #[doc = "*Required features: `\"Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayMonitorUsageKind(pub i32);
 impl DisplayMonitorUsageKind {
     pub const Standard: Self = Self(0i32);

@@ -43,7 +43,7 @@ impl ::windows::core::RuntimeName for AsyncCausalityTracer {
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CausalityRelation(pub i32);
 impl CausalityRelation {
     pub const AssignDelegate: Self = Self(0i32);
@@ -80,7 +80,7 @@ unsafe impl ::windows::core::RuntimeType for CausalityRelation {
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CausalitySource(pub i32);
 impl CausalitySource {
     pub const Application: Self = Self(0i32);
@@ -115,7 +115,7 @@ unsafe impl ::windows::core::RuntimeType for CausalitySource {
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CausalitySynchronousWork(pub i32);
 impl CausalitySynchronousWork {
     pub const CompletionNotification: Self = Self(0i32);
@@ -150,7 +150,7 @@ unsafe impl ::windows::core::RuntimeType for CausalitySynchronousWork {
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CausalityTraceLevel(pub i32);
 impl CausalityTraceLevel {
     pub const Required: Self = Self(0i32);
@@ -298,7 +298,7 @@ unsafe impl ::core::marker::Send for ErrorDetails {}
 unsafe impl ::core::marker::Sync for ErrorDetails {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ErrorOptions(pub u32);
 impl ErrorOptions {
     pub const None: Self = Self(0u32);
@@ -2432,7 +2432,7 @@ unsafe impl ::core::marker::Send for LoggingChannelOptions {}
 unsafe impl ::core::marker::Sync for LoggingChannelOptions {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LoggingFieldFormat(pub i32);
 impl LoggingFieldFormat {
     pub const Default: Self = Self(0i32);
@@ -3142,7 +3142,7 @@ unsafe impl ::core::marker::Send for LoggingFields {}
 unsafe impl ::core::marker::Sync for LoggingFields {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LoggingLevel(pub i32);
 impl LoggingLevel {
     pub const Verbose: Self = Self(0i32);
@@ -3179,7 +3179,7 @@ unsafe impl ::windows::core::RuntimeType for LoggingLevel {
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LoggingOpcode(pub i32);
 impl LoggingOpcode {
     pub const Info: Self = Self(0i32);

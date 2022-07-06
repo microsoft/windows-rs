@@ -396,7 +396,7 @@ impl ::core::default::Default for HrtfDirectivityCone {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HrtfDirectivityType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const OmniDirectional: HrtfDirectivityType = HrtfDirectivityType(0i32);
@@ -459,7 +459,7 @@ impl ::core::default::Default for HrtfDistanceDecay {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HrtfDistanceDecayType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const NaturalDecay: HrtfDistanceDecayType = HrtfDistanceDecayType(0i32);
@@ -486,7 +486,7 @@ impl ::core::fmt::Debug for HrtfDistanceDecayType {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HrtfEnvironment(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const Small: HrtfEnvironment = HrtfEnvironment(0i32);
@@ -1764,7 +1764,7 @@ pub const X3DAUDIO_PI: f32 = 3.1415927f32;
 pub const X3DAUDIO_SPEED_OF_SOUND: f32 = 343.5f32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XAPO_BUFFER_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const XAPO_BUFFER_SILENT: XAPO_BUFFER_FLAGS = XAPO_BUFFER_FLAGS(0i32);
@@ -2375,7 +2375,7 @@ impl ::core::default::Default for XAUDIO2_FILTER_PARAMETERS {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XAUDIO2_FILTER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const LowPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(0i32);

@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCN_NOTIFICATIONS(pub i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 pub const HcnNotificationInvalid: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(0i32);
@@ -55,7 +55,7 @@ impl ::core::fmt::Debug for HCN_NOTIFICATIONS {
 pub type HCN_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows::core::HRESULT, notificationdata: ::windows::core::PCWSTR)>;
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCN_PORT_ACCESS(pub i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 pub const HCN_PORT_ACCESS_EXCLUSIVE: HCN_PORT_ACCESS = HCN_PORT_ACCESS(1i32);
@@ -82,7 +82,7 @@ impl ::core::fmt::Debug for HCN_PORT_ACCESS {
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCN_PORT_PROTOCOL(pub i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 pub const HCN_PORT_PROTOCOL_TCP: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(1i32);

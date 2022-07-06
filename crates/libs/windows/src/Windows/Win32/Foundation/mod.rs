@@ -197,7 +197,7 @@ impl<'a> ::windows::core::IntoParam<'a, BOOL> for bool {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BOOLEAN(pub u8);
 impl ::core::default::Default for BOOLEAN {
     fn default() -> Self {
@@ -530,7 +530,7 @@ pub const CERT_E_VALIDITYPERIODNESTING: ::windows::core::HRESULT = ::windows::co
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const CERT_E_WRONG_USAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146762480i32);
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHAR(pub u8);
 impl ::core::default::Default for CHAR {
     fn default() -> Self {
@@ -1785,7 +1785,7 @@ pub const DRAGDROP_S_LAST: i32 = 262415i32;
 pub const DRAGDROP_S_USEDEFAULTCURSORS: ::windows::core::HRESULT = ::windows::core::HRESULT(262402i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DUPLICATE_HANDLE_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const DUPLICATE_CLOSE_SOURCE: DUPLICATE_HANDLE_OPTIONS = DUPLICATE_HANDLE_OPTIONS(1u32);
@@ -3862,7 +3862,7 @@ pub unsafe fn GetLastError() -> WIN32_ERROR {
     ::core::mem::transmute(GetLastError())
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HANDLE(pub isize);
 impl HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -3890,7 +3890,7 @@ unsafe impl ::windows::core::Abi for HANDLE {
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HANDLE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const HANDLE_FLAG_INHERIT: HANDLE_FLAGS = HANDLE_FLAGS(1u32);
@@ -3944,7 +3944,7 @@ impl ::core::ops::Not for HANDLE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HANDLE_PTR(pub usize);
 impl ::core::default::Default for HANDLE_PTR {
     fn default() -> Self {
@@ -4120,7 +4120,7 @@ pub const HCS_E_UNSUPPORTED_PROTOCOL_VERSION: ::windows::core::HRESULT = ::windo
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const HCS_E_WINDOWS_INSIDER_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143878893i32);
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HINSTANCE(pub isize);
 impl HINSTANCE {
     pub fn is_invalid(&self) -> bool {
@@ -4177,7 +4177,7 @@ impl ::core::default::Default for HLSURF__ {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HRSRC(pub isize);
 impl HRSRC {
     pub fn is_invalid(&self) -> bool {
@@ -4420,7 +4420,7 @@ impl ::core::default::Default for HUMPD__ {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HWND(pub isize);
 impl ::core::default::Default for HWND {
     fn default() -> Self {
@@ -4496,7 +4496,7 @@ pub const LANGUAGE_E_DATABASE_NOT_FOUND: ::windows::core::HRESULT = ::windows::c
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const LANGUAGE_S_LARGE_WORD: ::windows::core::HRESULT = ::windows::core::HRESULT(268161i32);
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LPARAM(pub isize);
 impl ::core::default::Default for LPARAM {
     fn default() -> Self {
@@ -4518,7 +4518,7 @@ unsafe impl ::windows::core::Abi for LPARAM {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LRESULT(pub isize);
 impl ::core::default::Default for LRESULT {
     fn default() -> Self {
@@ -5040,7 +5040,7 @@ unsafe impl ::windows::core::Abi for NTSTATUS {
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NTSTATUS_FACILITY_CODE(pub u32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const FACILITY_DEBUGGER: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(1u32);
@@ -5729,7 +5729,7 @@ pub const PRESENTATION_ERROR_LOST: ::windows::core::HRESULT = ::windows::core::H
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub type PROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSID(pub *mut ::core::ffi::c_void);
 impl PSID {
     pub fn is_invalid(&self) -> bool {
@@ -6809,7 +6809,7 @@ pub const SEVERITY_ERROR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const SEVERITY_SUCCESS: u32 = 0u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SHANDLE_PTR(pub isize);
 impl ::core::default::Default for SHANDLE_PTR {
     fn default() -> Self {
@@ -14113,7 +14113,7 @@ pub const WHV_E_VP_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::H
 pub const WHV_E_VP_DOES_NOT_EXIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143878393i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WIN32_ERROR(pub u32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const NO_ERROR: WIN32_ERROR = WIN32_ERROR(0u32);
@@ -20818,7 +20818,7 @@ pub const WINVER: u32 = 1280u32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const WINVER_MAXVER: u32 = 2560u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPARAM(pub usize);
 impl ::core::default::Default for WPARAM {
     fn default() -> Self {

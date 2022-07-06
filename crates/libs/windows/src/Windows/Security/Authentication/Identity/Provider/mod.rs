@@ -503,7 +503,7 @@ unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthentication
 #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SecondaryAuthenticationFactorAuthenticationMessage(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorAuthenticationMessage {
@@ -686,7 +686,7 @@ unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthentication
 #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SecondaryAuthenticationFactorAuthenticationScenario(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorAuthenticationScenario {
@@ -728,7 +728,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthen
 #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SecondaryAuthenticationFactorAuthenticationStage(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorAuthenticationStage {
@@ -1005,7 +1005,7 @@ unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthentication
 #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SecondaryAuthenticationFactorAuthenticationStatus(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorAuthenticationStatus {
@@ -1050,7 +1050,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthen
 #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SecondaryAuthenticationFactorDeviceCapabilities(pub u32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorDeviceCapabilities {
@@ -1131,7 +1131,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevice
 #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SecondaryAuthenticationFactorDeviceFindScope(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorDeviceFindScope {
@@ -1173,7 +1173,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevice
 #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SecondaryAuthenticationFactorDevicePresence(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorDevicePresence {
@@ -1215,7 +1215,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevice
 #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SecondaryAuthenticationFactorDevicePresenceMonitoringMode(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
@@ -1258,7 +1258,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevice
 #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
@@ -1301,7 +1301,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevice
 #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SecondaryAuthenticationFactorFinishAuthenticationStatus(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorFinishAuthenticationStatus {
@@ -1807,7 +1807,7 @@ unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorRegistrationRe
 #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SecondaryAuthenticationFactorRegistrationStatus(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorRegistrationStatus {

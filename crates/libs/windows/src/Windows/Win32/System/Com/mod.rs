@@ -14,7 +14,7 @@ pub mod UI;
 pub mod Urlmon;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ADVF(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const ADVF_NODATA: ADVF = ADVF(1i32);
@@ -81,7 +81,7 @@ pub const APPIDREGFLAGS_RESERVED9: u32 = 16384u32;
 pub const APPIDREGFLAGS_SECURE_SERVER_PROCESS_SD_AND_BIND: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APTTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const APTTYPE_CURRENT: APTTYPE = APTTYPE(-1i32);
@@ -114,7 +114,7 @@ impl ::core::fmt::Debug for APTTYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APTTYPEQUALIFIER(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const APTTYPEQUALIFIER_NONE: APTTYPEQUALIFIER = APTTYPEQUALIFIER(0i32);
@@ -188,7 +188,7 @@ impl ::core::default::Default for AUTHENTICATEINFO {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ApplicationType(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const ServerApplication: ApplicationType = ApplicationType(0i32);
@@ -848,7 +848,7 @@ impl ::core::default::Default for BINDINFO {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BINDINFOF(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const BINDINFOF_URLENCODESTGMEDDATA: BINDINFOF = BINDINFOF(1i32);
@@ -907,7 +907,7 @@ impl ::core::default::Default for BINDPTR {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BIND_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const BIND_MAYBOTHERUSER: BIND_FLAGS = BIND_FLAGS(1i32);
@@ -1142,7 +1142,7 @@ pub unsafe fn BindMoniker<'a, Param0: ::windows::core::IntoParam<'a, IMoniker>>(
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLCONV(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const CC_FASTCALL: CALLCONV = CALLCONV(0i32);
@@ -1187,7 +1187,7 @@ impl ::core::fmt::Debug for CALLCONV {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const CALLTYPE_TOPLEVEL: CALLTYPE = CALLTYPE(1i32);
@@ -1252,7 +1252,7 @@ impl ::core::default::Default for CATEGORYINFO {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLSCTX(pub u32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const CLSCTX_INPROC_SERVER: CLSCTX = CLSCTX(1u32);
@@ -1463,7 +1463,7 @@ impl ::core::default::Default for COAUTHINFO {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COINIT(pub u32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const COINIT_APARTMENTTHREADED: COINIT = COINIT(2u32);
@@ -1522,7 +1522,7 @@ impl ::core::ops::Not for COINIT {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COINITBASE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const COINITBASE_MULTITHREADED: COINITBASE = COINITBASE(0i32);
@@ -1547,7 +1547,7 @@ impl ::core::fmt::Debug for COINITBASE {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMSD(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const SD_LAUNCHPERMISSIONS: COMSD = COMSD(0i32);
@@ -1655,7 +1655,7 @@ impl ::core::default::Default for COSERVERINFO {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COWAIT_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const COWAIT_DEFAULT: COWAIT_FLAGS = COWAIT_FLAGS(0i32);
@@ -1689,7 +1689,7 @@ impl ::core::fmt::Debug for COWAIT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CO_DEVICE_CATALOG_COOKIE(pub isize);
 impl CO_DEVICE_CATALOG_COOKIE {
     pub fn is_invalid(&self) -> bool {
@@ -1717,7 +1717,7 @@ unsafe impl ::windows::core::Abi for CO_DEVICE_CATALOG_COOKIE {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CO_MARSHALING_CONTEXT_ATTRIBUTES(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const CO_MARSHALING_SOURCE_IS_APP_CONTAINER: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(0i32);
@@ -1777,7 +1777,7 @@ impl ::core::fmt::Debug for CO_MARSHALING_CONTEXT_ATTRIBUTES {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CO_MTA_USAGE_COOKIE(pub isize);
 impl CO_MTA_USAGE_COOKIE {
     pub fn is_invalid(&self) -> bool {
@@ -1908,7 +1908,7 @@ impl ::core::default::Default for CUSTDATAITEM {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CWMO_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const CWMO_DEFAULT: CWMO_FLAGS = CWMO_FLAGS(0i32);
@@ -2910,7 +2910,7 @@ pub unsafe fn CreateUriWithFragment<'a, Param0: ::windows::core::IntoParam<'a, :
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DATADIR(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const DATADIR_GET: DATADIR = DATADIR(1i32);
@@ -2949,7 +2949,7 @@ pub const DCOMSCM_RESOLVE_DISALLOW_UNSECURE_CALL: u32 = 8u32;
 pub const DCOMSCM_RESOLVE_USE_ALL_AUTHNSERVICES: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DCOM_CALL_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const DCOM_NONE: DCOM_CALL_STATE = DCOM_CALL_STATE(0i32);
@@ -2978,7 +2978,7 @@ impl ::core::fmt::Debug for DCOM_CALL_STATE {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DESCKIND(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const DESCKIND_NONE: DESCKIND = DESCKIND(0i32);
@@ -3056,7 +3056,7 @@ impl ::core::default::Default for DISPPARAMS {
 pub const DMUS_ERRBASE: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVASPECT(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const DVASPECT_CONTENT: DVASPECT = DVASPECT(1i32);
@@ -3228,7 +3228,7 @@ impl ::core::default::Default for ELEMDESC_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EOLE_AUTHENTICATION_CAPABILITIES(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const EOAC_NONE: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(0i32);
@@ -3337,7 +3337,7 @@ impl ::core::default::Default for EXCEPINFO {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXTCONN(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const EXTCONN_STRONG: EXTCONN = EXTCONN(1i32);
@@ -3539,7 +3539,7 @@ impl ::core::default::Default for FUNCDESC {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FUNCKIND(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const FUNC_VIRTUAL: FUNCKIND = FUNCKIND(0i32);
@@ -3639,7 +3639,7 @@ impl ::core::default::Default for GDI_OBJECT_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GLOBALOPT_EH_VALUES(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const COMGLB_EXCEPTION_HANDLE: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(0i32);
@@ -3670,7 +3670,7 @@ impl ::core::fmt::Debug for GLOBALOPT_EH_VALUES {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GLOBALOPT_PROPERTIES(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const COMGLB_EXCEPTION_HANDLING: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(1i32);
@@ -3709,7 +3709,7 @@ impl ::core::fmt::Debug for GLOBALOPT_PROPERTIES {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GLOBALOPT_RO_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const COMGLB_STA_MODALLOOP_REMOVE_TOUCH_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(1i32);
@@ -3754,7 +3754,7 @@ impl ::core::fmt::Debug for GLOBALOPT_RO_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GLOBALOPT_RPCTP_VALUES(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const COMGLB_RPC_THREADPOOL_SETTING_DEFAULT_POOL: GLOBALOPT_RPCTP_VALUES = GLOBALOPT_RPCTP_VALUES(0i32);
@@ -3781,7 +3781,7 @@ impl ::core::fmt::Debug for GLOBALOPT_RPCTP_VALUES {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GLOBALOPT_UNMARSHALING_POLICY_VALUES(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const COMGLB_UNMARSHALING_POLICY_NORMAL: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(0i32);
@@ -8047,7 +8047,7 @@ impl ::core::default::Default for INTERFACEINFO {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INVOKEKIND(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const INVOKE_FUNC: INVOKEKIND = INVOKEKIND(1i32);
@@ -12604,7 +12604,7 @@ pub const MARSHALINTERFACE_MIN: u32 = 500u32;
 pub const MAXLSN: u64 = 9223372036854775807u64;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEMCTX(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const MEMCTX_TASK: MEMCTX = MEMCTX(1i32);
@@ -12637,7 +12637,7 @@ impl ::core::fmt::Debug for MEMCTX {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MKREDUCE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const MKRREDUCE_ONE: MKREDUCE = MKREDUCE(196608i32);
@@ -12668,7 +12668,7 @@ impl ::core::fmt::Debug for MKREDUCE {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MKSYS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const MKSYS_NONE: MKSYS = MKSYS(0i32);
@@ -12711,7 +12711,7 @@ impl ::core::fmt::Debug for MKSYS {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSHCTX(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const MSHCTX_LOCAL: MSHCTX = MSHCTX(0i32);
@@ -12746,7 +12746,7 @@ impl ::core::fmt::Debug for MSHCTX {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSHLFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const MSHLFLAGS_NORMAL: MSHLFLAGS = MSHLFLAGS(0i32);
@@ -12875,7 +12875,7 @@ pub unsafe fn MonikerRelativePathTo<'a, Param0: ::windows::core::IntoParam<'a, I
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PENDINGMSG(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const PENDINGMSG_CANCELCALL: PENDINGMSG = PENDINGMSG(0i32);
@@ -12904,7 +12904,7 @@ impl ::core::fmt::Debug for PENDINGMSG {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PENDINGTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const PENDINGTYPE_TOPLEVEL: PENDINGTYPE = PENDINGTYPE(1i32);
@@ -12977,7 +12977,7 @@ impl ::core::default::Default for QUERYCONTEXT {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REGCLS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const REGCLS_SINGLEUSE: REGCLS = REGCLS(0i32);
@@ -13050,7 +13050,7 @@ impl ::core::default::Default for RPCOLEMESSAGE {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPCOPT_PROPERTIES(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const COMBND_RPCTIMEOUT: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(1i32);
@@ -13085,7 +13085,7 @@ impl ::core::fmt::Debug for RPCOPT_PROPERTIES {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPCOPT_SERVER_LOCALITY_VALUES(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const SERVER_LOCALITY_PROCESS_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(0i32);
@@ -13114,7 +13114,7 @@ impl ::core::fmt::Debug for RPCOPT_SERVER_LOCALITY_VALUES {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPC_C_AUTHN_LEVEL(pub u32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const RPC_C_AUTHN_LEVEL_DEFAULT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(0u32);
@@ -13151,7 +13151,7 @@ impl ::core::fmt::Debug for RPC_C_AUTHN_LEVEL {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPC_C_IMP_LEVEL(pub u32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const RPC_C_IMP_LEVEL_DEFAULT: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(0u32);
@@ -13320,7 +13320,7 @@ impl ::core::default::Default for SChannelHookCallInfo {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVERCALL(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const SERVERCALL_ISHANDLED: SERVERCALL = SERVERCALL(0i32);
@@ -13556,7 +13556,7 @@ impl ::core::default::Default for STATSTG {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STGC(pub u32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const STGC_DEFAULT: STGC = STGC(0u32);
@@ -13685,7 +13685,7 @@ impl ::core::default::Default for STGMEDIUM_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STGTY(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const STGTY_STORAGE: STGTY = STGTY(1i32);
@@ -13724,7 +13724,7 @@ pub const STG_LAYOUT_SEQUENTIAL: i32 = 0i32;
 pub const STG_TOEND: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STREAM_SEEK(pub u32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const STREAM_SEEK_SET: STREAM_SEEK = STREAM_SEEK(0u32);
@@ -13753,7 +13753,7 @@ impl ::core::fmt::Debug for STREAM_SEEK {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSKIND(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const SYS_WIN16: SYSKIND = SYSKIND(0i32);
@@ -13793,7 +13793,7 @@ pub unsafe fn SetErrorInfo<'a, Param1: ::windows::core::IntoParam<'a, IErrorInfo
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ShutdownType(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const IdleShutdown: ShutdownType = ShutdownType(0i32);
@@ -13882,7 +13882,7 @@ pub unsafe fn StringFromIID(rclsid: *const ::windows::core::GUID) -> ::windows::
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct THDTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const THDTYPE_BLOCKMESSAGES: THDTYPE = THDTYPE(0i32);
@@ -13944,7 +13944,7 @@ impl ::core::default::Default for TLIBATTR {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TYMED(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const TYMED_HGLOBAL: TYMED = TYMED(1i32);
@@ -14099,7 +14099,7 @@ impl ::core::default::Default for TYPEDESC_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TYPEKIND(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const TKIND_ENUM: TYPEKIND = TYPEKIND(0i32);
@@ -14140,7 +14140,7 @@ impl ::core::fmt::Debug for TYPEKIND {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TYSPEC(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const TYSPEC_CLSID: TYSPEC = TYSPEC(0i32);
@@ -14177,7 +14177,7 @@ impl ::core::fmt::Debug for TYSPEC {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct URI_CREATE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const Uri_CREATE_ALLOW_RELATIVE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(1u32);
@@ -14264,7 +14264,7 @@ impl ::core::ops::Not for URI_CREATE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Uri_PROPERTY(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const Uri_PROPERTY_ABSOLUTE_URI: Uri_PROPERTY = Uri_PROPERTY(0i32);
@@ -14610,7 +14610,7 @@ impl ::core::default::Default for VARIANT_0_0_0_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VARKIND(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const VAR_PERINSTANCE: VARKIND = VARKIND(0i32);

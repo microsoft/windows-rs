@@ -764,7 +764,7 @@ unsafe impl ::core::marker::Send for SpeechContinuousRecognitionCompletedEventAr
 unsafe impl ::core::marker::Sync for SpeechContinuousRecognitionCompletedEventArgs {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechContinuousRecognitionMode(pub i32);
 impl SpeechContinuousRecognitionMode {
     pub const Default: Self = Self(0i32);
@@ -1055,7 +1055,7 @@ unsafe impl ::core::marker::Send for SpeechContinuousRecognitionSession {}
 unsafe impl ::core::marker::Sync for SpeechContinuousRecognitionSession {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechRecognitionAudioProblem(pub i32);
 impl SpeechRecognitionAudioProblem {
     pub const None: Self = Self(0i32);
@@ -1179,7 +1179,7 @@ unsafe impl ::core::marker::Send for SpeechRecognitionCompilationResult {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionCompilationResult {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechRecognitionConfidence(pub i32);
 impl SpeechRecognitionConfidence {
     pub const High: Self = Self(0i32);
@@ -1215,7 +1215,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConfidence {
 }
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechRecognitionConstraintProbability(pub i32);
 impl SpeechRecognitionConstraintProbability {
     pub const Default: Self = Self(0i32);
@@ -1250,7 +1250,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConstraintProbabil
 }
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechRecognitionConstraintType(pub i32);
 impl SpeechRecognitionConstraintType {
     pub const Topic: Self = Self(0i32);
@@ -2054,7 +2054,7 @@ unsafe impl ::core::marker::Send for SpeechRecognitionResult {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionResult {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechRecognitionResultStatus(pub i32);
 impl SpeechRecognitionResultStatus {
     pub const Success: Self = Self(0i32);
@@ -2097,7 +2097,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionResultStatus {
 }
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechRecognitionScenario(pub i32);
 impl SpeechRecognitionScenario {
     pub const WebSearch: Self = Self(0i32);
@@ -2847,7 +2847,7 @@ unsafe impl ::core::marker::Send for SpeechRecognizer {}
 unsafe impl ::core::marker::Sync for SpeechRecognizer {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechRecognizerState(pub i32);
 impl SpeechRecognizerState {
     pub const Idle: Self = Self(0i32);

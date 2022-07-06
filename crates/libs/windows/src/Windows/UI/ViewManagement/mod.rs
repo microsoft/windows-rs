@@ -700,7 +700,7 @@ unsafe impl ::core::marker::Send for ApplicationView {}
 unsafe impl ::core::marker::Sync for ApplicationView {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ApplicationViewBoundsMode(pub i32);
 impl ApplicationViewBoundsMode {
     pub const UseVisible: Self = Self(0i32);
@@ -827,7 +827,7 @@ unsafe impl ::core::marker::Send for ApplicationViewConsolidatedEventArgs {}
 unsafe impl ::core::marker::Sync for ApplicationViewConsolidatedEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ApplicationViewMode(pub i32);
 impl ApplicationViewMode {
     pub const Default: Self = Self(0i32);
@@ -861,7 +861,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationViewMode {
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ApplicationViewOrientation(pub i32);
 impl ApplicationViewOrientation {
     pub const Landscape: Self = Self(0i32);
@@ -990,7 +990,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 #[doc = "*Required features: `\"UI_ViewManagement\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ApplicationViewState(pub i32);
 #[cfg(feature = "deprecated")]
 impl ApplicationViewState {
@@ -1135,7 +1135,7 @@ impl ::windows::core::RuntimeName for ApplicationViewSwitcher {
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ApplicationViewSwitchingOptions(pub u32);
 impl ApplicationViewSwitchingOptions {
     pub const Default: Self = Self(0u32);
@@ -1562,7 +1562,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ApplicationViewWindowingMode(pub i32);
 impl ApplicationViewWindowingMode {
     pub const Auto: Self = Self(0i32);
@@ -1599,7 +1599,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationViewWindowingMode {
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FullScreenSystemOverlayMode(pub i32);
 impl FullScreenSystemOverlayMode {
     pub const Standard: Self = Self(0i32);
@@ -1633,7 +1633,7 @@ unsafe impl ::windows::core::RuntimeType for FullScreenSystemOverlayMode {
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HandPreference(pub i32);
 impl HandPreference {
     pub const LeftHanded: Self = Self(0i32);
@@ -3433,7 +3433,7 @@ unsafe impl ::core::marker::Send for StatusBarProgressIndicator {}
 unsafe impl ::core::marker::Sync for StatusBarProgressIndicator {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIColorType(pub i32);
 impl UIColorType {
     pub const Background: Self = Self(0i32);
@@ -3475,7 +3475,7 @@ unsafe impl ::windows::core::RuntimeType for UIColorType {
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIElementType(pub i32);
 impl UIElementType {
     pub const ActiveCaption: Self = Self(0i32);
@@ -4172,7 +4172,7 @@ unsafe impl ::core::marker::Send for UIViewSettings {}
 unsafe impl ::core::marker::Sync for UIViewSettings {}
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserInteractionMode(pub i32);
 impl UserInteractionMode {
     pub const Mouse: Self = Self(0i32);
@@ -4321,7 +4321,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a V
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ViewSizePreference(pub i32);
 impl ViewSizePreference {
     pub const Default: Self = Self(0i32);

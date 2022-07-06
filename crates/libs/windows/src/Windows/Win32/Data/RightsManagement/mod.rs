@@ -2,7 +2,7 @@
 pub const DRMACTSERVINFOVERSION: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRMATTESTTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 pub const DRMATTESTTYPE_FULLENVIRONMENT: DRMATTESTTYPE = DRMATTESTTYPE(0i32);
@@ -380,7 +380,7 @@ pub unsafe fn DRMDuplicateSession(hsessionin: u32, phsessionout: *mut u32) -> ::
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRMENCODINGTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 pub const DRMENCODINGTYPE_BASE64: DRMENCODINGTYPE = DRMENCODINGTYPE(0i32);
@@ -445,7 +445,7 @@ pub unsafe fn DRMEnumerateLicense(hsession: u32, uflags: u32, uindex: u32, pfsha
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRMGLOBALOPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 pub const DRMGLOBALOPTIONS_USE_WINHTTP: DRMGLOBALOPTIONS = DRMGLOBALOPTIONS(0i32);
@@ -927,7 +927,7 @@ pub unsafe fn DRMRepair() -> ::windows::core::Result<()> {
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRMSECURITYPROVIDERTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 pub const DRMSECURITYPROVIDERTYPE_SOFTWARESECREP: DRMSECURITYPROVIDERTYPE = DRMSECURITYPROVIDERTYPE(0i32);
@@ -952,7 +952,7 @@ impl ::core::fmt::Debug for DRMSECURITYPROVIDERTYPE {
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRMSPECTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 pub const DRMSPECTYPE_UNKNOWN: DRMSPECTYPE = DRMSPECTYPE(0i32);
@@ -1046,7 +1046,7 @@ pub unsafe fn DRMSetUsagePolicy<'a, Param2: ::windows::core::IntoParam<'a, super
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRMTIMETYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 pub const DRMTIMETYPE_SYSTEMUTC: DRMTIMETYPE = DRMTIMETYPE(0i32);
@@ -1188,7 +1188,7 @@ pub const DRM_DEFAULTGROUPIDTYPE_PASSPORT: &str = "PassportAuthProvider";
 pub const DRM_DEFAULTGROUPIDTYPE_WINDOWSAUTH: &str = "WindowsAuthProvider";
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRM_DISTRIBUTION_POINT_INFO(pub i32);
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 pub const DRM_DISTRIBUTION_POINT_LICENSE_ACQUISITION: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(0i32);
@@ -1318,7 +1318,7 @@ pub const DRM_SIGN_OFFLINE: u32 = 2u32;
 pub const DRM_SIGN_ONLINE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRM_STATUS_MSG(pub i32);
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 pub const DRM_MSG_ACTIVATE_MACHINE: DRM_STATUS_MSG = DRM_STATUS_MSG(0i32);
@@ -1355,7 +1355,7 @@ impl ::core::fmt::Debug for DRM_STATUS_MSG {
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRM_USAGEPOLICY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 pub const DRM_USAGEPOLICY_TYPE_BYNAME: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(0i32);

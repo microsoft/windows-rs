@@ -118,7 +118,7 @@ unsafe impl ::core::marker::Send for AttributedNetworkUsage {}
 unsafe impl ::core::marker::Sync for AttributedNetworkUsage {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CellularApnAuthenticationType(pub i32);
 impl CellularApnAuthenticationType {
     pub const None: Self = Self(0i32);
@@ -709,7 +709,7 @@ unsafe impl ::core::marker::Send for ConnectionProfile {}
 unsafe impl ::core::marker::Sync for ConnectionProfile {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ConnectionProfileDeleteStatus(pub i32);
 impl ConnectionProfileDeleteStatus {
     pub const Success: Self = Self(0i32);
@@ -1543,7 +1543,7 @@ unsafe impl ::core::marker::Send for DataUsage {}
 unsafe impl ::core::marker::Sync for DataUsage {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DataUsageGranularity(pub i32);
 impl DataUsageGranularity {
     pub const PerMinute: Self = Self(0i32);
@@ -1579,7 +1579,7 @@ unsafe impl ::windows::core::RuntimeType for DataUsageGranularity {
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DomainConnectivityLevel(pub i32);
 impl DomainConnectivityLevel {
     pub const None: Self = Self(0i32);
@@ -2751,7 +2751,7 @@ unsafe impl ::core::marker::Send for NetworkAdapter {}
 unsafe impl ::core::marker::Sync for NetworkAdapter {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NetworkAuthenticationType(pub i32);
 impl NetworkAuthenticationType {
     pub const None: Self = Self(0i32);
@@ -2798,7 +2798,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkAuthenticationType {
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NetworkConnectivityLevel(pub i32);
 impl NetworkConnectivityLevel {
     pub const None: Self = Self(0i32);
@@ -2834,7 +2834,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkConnectivityLevel {
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NetworkCostType(pub i32);
 impl NetworkCostType {
     pub const Unknown: Self = Self(0i32);
@@ -2870,7 +2870,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkCostType {
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NetworkEncryptionType(pub i32);
 impl NetworkEncryptionType {
     pub const None: Self = Self(0i32);
@@ -3411,7 +3411,7 @@ pub struct NetworkStatusChangedEventHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NetworkTypes(pub u32);
 impl NetworkTypes {
     pub const None: Self = Self(0u32);
@@ -3809,7 +3809,7 @@ unsafe impl ::core::marker::Send for ProxyConfiguration {}
 unsafe impl ::core::marker::Sync for ProxyConfiguration {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RoamingStates(pub u32);
 impl RoamingStates {
     pub const None: Self = Self(0u32);
@@ -3985,7 +3985,7 @@ unsafe impl ::core::marker::Send for RoutePolicy {}
 unsafe impl ::core::marker::Sync for RoutePolicy {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TriStates(pub i32);
 impl TriStates {
     pub const DoNotCare: Self = Self(0i32);
@@ -4231,7 +4231,7 @@ unsafe impl ::core::marker::Send for WwanConnectionProfileDetails {}
 unsafe impl ::core::marker::Sync for WwanConnectionProfileDetails {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WwanDataClass(pub u32);
 impl WwanDataClass {
     pub const None: Self = Self(0u32);
@@ -4306,7 +4306,7 @@ unsafe impl ::windows::core::RuntimeType for WwanDataClass {
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WwanNetworkIPKind(pub i32);
 impl WwanNetworkIPKind {
     pub const None: Self = Self(0i32);
@@ -4343,7 +4343,7 @@ unsafe impl ::windows::core::RuntimeType for WwanNetworkIPKind {
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WwanNetworkRegistrationState(pub i32);
 impl WwanNetworkRegistrationState {
     pub const None: Self = Self(0i32);

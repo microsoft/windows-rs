@@ -1095,7 +1095,7 @@ pub const DOMDocument60: ::windows::core::GUID = ::windows::core::GUID::from_u12
 pub const DOMFreeThreadedDocument: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf91_7b36_11d2_b20e_00c04f983e60);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOMNodeType(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub const NODE_INVALID: DOMNodeType = DOMNodeType(0i32);
@@ -18394,7 +18394,7 @@ pub const SAXAttributes60: ::windows::core::GUID = ::windows::core::GUID::from_u
 pub const SAXXMLReader60: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d96a0c_f192_11d4_a65f_0040963251e5);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCHEMACONTENTTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub const SCHEMACONTENTTYPE_EMPTY: SCHEMACONTENTTYPE = SCHEMACONTENTTYPE(0i32);
@@ -18425,7 +18425,7 @@ impl ::core::fmt::Debug for SCHEMACONTENTTYPE {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCHEMADERIVATIONMETHOD(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub const SCHEMADERIVATIONMETHOD_EMPTY: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(0i32);
@@ -18464,7 +18464,7 @@ impl ::core::fmt::Debug for SCHEMADERIVATIONMETHOD {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCHEMAPROCESSCONTENTS(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub const SCHEMAPROCESSCONTENTS_NONE: SCHEMAPROCESSCONTENTS = SCHEMAPROCESSCONTENTS(0i32);
@@ -18495,7 +18495,7 @@ impl ::core::fmt::Debug for SCHEMAPROCESSCONTENTS {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCHEMATYPEVARIETY(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub const SCHEMATYPEVARIETY_NONE: SCHEMATYPEVARIETY = SCHEMATYPEVARIETY(-1i32);
@@ -18526,7 +18526,7 @@ impl ::core::fmt::Debug for SCHEMATYPEVARIETY {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCHEMAUSE(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub const SCHEMAUSE_OPTIONAL: SCHEMAUSE = SCHEMAUSE(0i32);
@@ -18555,7 +18555,7 @@ impl ::core::fmt::Debug for SCHEMAUSE {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCHEMAWHITESPACE(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub const SCHEMAWHITESPACE_NONE: SCHEMAWHITESPACE = SCHEMAWHITESPACE(-1i32);
@@ -18586,7 +18586,7 @@ impl ::core::fmt::Debug for SCHEMAWHITESPACE {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVERXMLHTTP_OPTION(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub const SXH_OPTION_URL: SERVERXMLHTTP_OPTION = SERVERXMLHTTP_OPTION(-1i32);
@@ -18619,7 +18619,7 @@ impl ::core::fmt::Debug for SERVERXMLHTTP_OPTION {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SOMITEMTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub const SOMITEM_SCHEMA: SOMITEMTYPE = SOMITEMTYPE(4096i32);
@@ -18788,7 +18788,7 @@ impl ::core::fmt::Debug for SOMITEMTYPE {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SXH_PROXY_SETTING(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub const SXH_PROXY_SET_DEFAULT: SXH_PROXY_SETTING = SXH_PROXY_SETTING(0i32);
@@ -18819,7 +18819,7 @@ impl ::core::fmt::Debug for SXH_PROXY_SETTING {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SXH_SERVER_CERT_OPTION(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub const SXH_SERVER_CERT_IGNORE_UNKNOWN_CA: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(256i32);
@@ -18853,7 +18853,7 @@ impl ::core::fmt::Debug for SXH_SERVER_CERT_OPTION {
 pub const ServerXMLHTTP60: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d96a0b_f192_11d4_a65f_0040963251e5);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XHR_AUTH(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub const XHR_AUTH_ALL: XHR_AUTH = XHR_AUTH(0i32);
@@ -18913,7 +18913,7 @@ impl ::core::default::Default for XHR_CERT {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XHR_CERT_ERROR_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub const XHR_CERT_ERROR_REVOCATION_FAILED: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(8388608u32);
@@ -18946,7 +18946,7 @@ impl ::core::fmt::Debug for XHR_CERT_ERROR_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XHR_CERT_IGNORE_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub const XHR_CERT_IGNORE_REVOCATION_FAILED: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(128u32);
@@ -19022,7 +19022,7 @@ impl ::core::default::Default for XHR_COOKIE {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XHR_COOKIE_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub const XHR_COOKIE_IS_SECURE: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(1i32);
@@ -19069,7 +19069,7 @@ impl ::core::fmt::Debug for XHR_COOKIE_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XHR_COOKIE_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub const XHR_COOKIE_STATE_UNKNOWN: XHR_COOKIE_STATE = XHR_COOKIE_STATE(0i32);
@@ -19104,7 +19104,7 @@ impl ::core::fmt::Debug for XHR_COOKIE_STATE {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XHR_CRED_PROMPT(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub const XHR_CRED_PROMPT_ALL: XHR_CRED_PROMPT = XHR_CRED_PROMPT(0i32);
@@ -19133,7 +19133,7 @@ impl ::core::fmt::Debug for XHR_CRED_PROMPT {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XHR_PROPERTY(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub const XHR_PROP_NO_CRED_PROMPT: XHR_PROPERTY = XHR_PROPERTY(0i32);
@@ -19271,7 +19271,7 @@ pub const XMLDSOControl: ::windows::core::GUID = ::windows::core::GUID::from_u12
 pub const XMLDocument: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfc399af_d876_11d0_9c10_00c04fc99c8e);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XMLEMEM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 pub const XMLELEMTYPE_ELEMENT: XMLEMEM_TYPE = XMLEMEM_TYPE(0i32);

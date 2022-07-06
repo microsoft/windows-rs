@@ -975,7 +975,7 @@ impl ::core::default::Default for WLX_SC_NOTIFICATION_INFO {
 }
 #[doc = "*Required features: `\"Win32_Security_WinWlx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLX_SHUTDOWN_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_WinWlx\"`*"]
 pub const WLX_SAS_ACTION_SHUTDOWN: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(5u32);

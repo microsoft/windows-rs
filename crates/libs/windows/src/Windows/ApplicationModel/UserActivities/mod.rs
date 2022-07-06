@@ -1654,7 +1654,7 @@ unsafe impl ::core::marker::Send for UserActivitySessionHistoryItem {}
 unsafe impl ::core::marker::Sync for UserActivitySessionHistoryItem {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserActivityState(pub i32);
 impl UserActivityState {
     pub const New: Self = Self(0i32);

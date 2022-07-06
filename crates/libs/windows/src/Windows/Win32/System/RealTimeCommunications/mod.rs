@@ -8083,7 +8083,7 @@ pub const RTCTR_TLS: u32 = 4u32;
 pub const RTCTR_UDP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_ACE_SCOPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCAS_SCOPE_USER: RTC_ACE_SCOPE = RTC_ACE_SCOPE(0i32);
@@ -8112,7 +8112,7 @@ impl ::core::fmt::Debug for RTC_ACE_SCOPE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_ANSWER_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCAM_OFFER_SESSION_EVENT: RTC_ANSWER_MODE = RTC_ANSWER_MODE(0i32);
@@ -8143,7 +8143,7 @@ impl ::core::fmt::Debug for RTC_ANSWER_MODE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_AUDIO_DEVICE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCAD_SPEAKER: RTC_AUDIO_DEVICE = RTC_AUDIO_DEVICE(0i32);
@@ -8170,7 +8170,7 @@ impl ::core::fmt::Debug for RTC_AUDIO_DEVICE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_BUDDY_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCBET_BUDDY_ADD: RTC_BUDDY_EVENT_TYPE = RTC_BUDDY_EVENT_TYPE(0i32);
@@ -8205,7 +8205,7 @@ impl ::core::fmt::Debug for RTC_BUDDY_EVENT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_BUDDY_SUBSCRIPTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCBT_SUBSCRIBED: RTC_BUDDY_SUBSCRIPTION_TYPE = RTC_BUDDY_SUBSCRIPTION_TYPE(0i32);
@@ -8236,7 +8236,7 @@ impl ::core::fmt::Debug for RTC_BUDDY_SUBSCRIPTION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_CLIENT_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCCET_VOLUME_CHANGE: RTC_CLIENT_EVENT_TYPE = RTC_CLIENT_EVENT_TYPE(0i32);
@@ -8267,7 +8267,7 @@ impl ::core::fmt::Debug for RTC_CLIENT_EVENT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_DTMF(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTC_DTMF_0: RTC_DTMF = RTC_DTMF(0i32);
@@ -8324,7 +8324,7 @@ impl ::core::fmt::Debug for RTC_DTMF {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCE_CLIENT: RTC_EVENT = RTC_EVENT(0i32);
@@ -8765,7 +8765,7 @@ pub const RTC_E_TOO_SMALL_EXPIRES_VALUE: ::windows::core::HRESULT = ::windows::c
 pub const RTC_E_UDP_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885954i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_GROUP_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCGET_GROUP_ADD: RTC_GROUP_EVENT_TYPE = RTC_GROUP_EVENT_TYPE(0i32);
@@ -8800,7 +8800,7 @@ impl ::core::fmt::Debug for RTC_GROUP_EVENT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_LISTEN_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCLM_NONE: RTC_LISTEN_MODE = RTC_LISTEN_MODE(0i32);
@@ -8829,7 +8829,7 @@ impl ::core::fmt::Debug for RTC_LISTEN_MODE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_MEDIA_EVENT_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCMER_NORMAL: RTC_MEDIA_EVENT_REASON = RTC_MEDIA_EVENT_REASON(0i32);
@@ -8866,7 +8866,7 @@ impl ::core::fmt::Debug for RTC_MEDIA_EVENT_REASON {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_MEDIA_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCMET_STOPPED: RTC_MEDIA_EVENT_TYPE = RTC_MEDIA_EVENT_TYPE(0i32);
@@ -8895,7 +8895,7 @@ impl ::core::fmt::Debug for RTC_MEDIA_EVENT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_MESSAGING_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCMSET_MESSAGE: RTC_MESSAGING_EVENT_TYPE = RTC_MESSAGING_EVENT_TYPE(0i32);
@@ -8922,7 +8922,7 @@ impl ::core::fmt::Debug for RTC_MESSAGING_EVENT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_MESSAGING_USER_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCMUS_IDLE: RTC_MESSAGING_USER_STATUS = RTC_MESSAGING_USER_STATUS(0i32);
@@ -8949,7 +8949,7 @@ impl ::core::fmt::Debug for RTC_MESSAGING_USER_STATUS {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_OFFER_WATCHER_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCOWM_OFFER_WATCHER_EVENT: RTC_OFFER_WATCHER_MODE = RTC_OFFER_WATCHER_MODE(0i32);
@@ -8976,7 +8976,7 @@ impl ::core::fmt::Debug for RTC_OFFER_WATCHER_MODE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_PARTICIPANT_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCPS_IDLE: RTC_PARTICIPANT_STATE = RTC_PARTICIPANT_STATE(0i32);
@@ -9017,7 +9017,7 @@ impl ::core::fmt::Debug for RTC_PARTICIPANT_STATE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_PORT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCPT_AUDIO_RTP: RTC_PORT_TYPE = RTC_PORT_TYPE(0i32);
@@ -9050,7 +9050,7 @@ impl ::core::fmt::Debug for RTC_PORT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_PRESENCE_PROPERTY(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCPP_PHONENUMBER: RTC_PRESENCE_PROPERTY = RTC_PRESENCE_PROPERTY(0i32);
@@ -9083,7 +9083,7 @@ impl ::core::fmt::Debug for RTC_PRESENCE_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_PRESENCE_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCXS_PRESENCE_OFFLINE: RTC_PRESENCE_STATUS = RTC_PRESENCE_STATUS(0i32);
@@ -9122,7 +9122,7 @@ impl ::core::fmt::Debug for RTC_PRESENCE_STATUS {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_PRIVACY_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCPM_BLOCK_LIST_EXCLUDED: RTC_PRIVACY_MODE = RTC_PRIVACY_MODE(0i32);
@@ -9149,7 +9149,7 @@ impl ::core::fmt::Debug for RTC_PRIVACY_MODE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_PROFILE_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCPFET_PROFILE_GET: RTC_PROFILE_EVENT_TYPE = RTC_PROFILE_EVENT_TYPE(0i32);
@@ -9176,7 +9176,7 @@ impl ::core::fmt::Debug for RTC_PROFILE_EVENT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_PROVIDER_URI(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCPU_URIHOMEPAGE: RTC_PROVIDER_URI = RTC_PROVIDER_URI(0i32);
@@ -9209,7 +9209,7 @@ impl ::core::fmt::Debug for RTC_PROVIDER_URI {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_REGISTRATION_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCRS_NOT_REGISTERED: RTC_REGISTRATION_STATE = RTC_REGISTRATION_STATE(0i32);
@@ -9250,7 +9250,7 @@ impl ::core::fmt::Debug for RTC_REGISTRATION_STATE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_REINVITE_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCRIN_INCOMING: RTC_REINVITE_STATE = RTC_REINVITE_STATE(0i32);
@@ -9279,7 +9279,7 @@ impl ::core::fmt::Debug for RTC_REINVITE_STATE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_RING_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCRT_PHONE: RTC_RING_TYPE = RTC_RING_TYPE(0i32);
@@ -9308,7 +9308,7 @@ impl ::core::fmt::Debug for RTC_RING_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_ROAMING_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCRET_BUDDY_ROAMING: RTC_ROAMING_EVENT_TYPE = RTC_ROAMING_EVENT_TYPE(0i32);
@@ -9341,7 +9341,7 @@ impl ::core::fmt::Debug for RTC_ROAMING_EVENT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_SECURITY_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCSECL_UNSUPPORTED: RTC_SECURITY_LEVEL = RTC_SECURITY_LEVEL(1i32);
@@ -9370,7 +9370,7 @@ impl ::core::fmt::Debug for RTC_SECURITY_LEVEL {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_SECURITY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCSECT_AUDIO_VIDEO_MEDIA_ENCRYPTION: RTC_SECURITY_TYPE = RTC_SECURITY_TYPE(0i32);
@@ -9397,7 +9397,7 @@ impl ::core::fmt::Debug for RTC_SECURITY_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_SESSION_REFER_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCSRS_REFERRING: RTC_SESSION_REFER_STATUS = RTC_SESSION_REFER_STATUS(0i32);
@@ -9432,7 +9432,7 @@ impl ::core::fmt::Debug for RTC_SESSION_REFER_STATUS {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_SESSION_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCSS_IDLE: RTC_SESSION_STATE = RTC_SESSION_STATE(0i32);
@@ -9471,7 +9471,7 @@ impl ::core::fmt::Debug for RTC_SESSION_STATE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_SESSION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCST_PC_TO_PC: RTC_SESSION_TYPE = RTC_SESSION_TYPE(0i32);
@@ -9508,7 +9508,7 @@ impl ::core::fmt::Debug for RTC_SESSION_TYPE {
 pub const RTC_S_ROAMING_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(15597633i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_T120_APPLET(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCTA_WHITEBOARD: RTC_T120_APPLET = RTC_T120_APPLET(0i32);
@@ -9535,7 +9535,7 @@ impl ::core::fmt::Debug for RTC_T120_APPLET {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_TERMINATE_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCTR_NORMAL: RTC_TERMINATE_REASON = RTC_TERMINATE_REASON(0i32);
@@ -9574,7 +9574,7 @@ impl ::core::fmt::Debug for RTC_TERMINATE_REASON {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_USER_SEARCH_COLUMN(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCUSC_URI: RTC_USER_SEARCH_COLUMN = RTC_USER_SEARCH_COLUMN(0i32);
@@ -9617,7 +9617,7 @@ impl ::core::fmt::Debug for RTC_USER_SEARCH_COLUMN {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_USER_SEARCH_PREFERENCE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCUSP_MAX_MATCHES: RTC_USER_SEARCH_PREFERENCE = RTC_USER_SEARCH_PREFERENCE(0i32);
@@ -9644,7 +9644,7 @@ impl ::core::fmt::Debug for RTC_USER_SEARCH_PREFERENCE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_VIDEO_DEVICE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCVD_RECEIVE: RTC_VIDEO_DEVICE = RTC_VIDEO_DEVICE(0i32);
@@ -9671,7 +9671,7 @@ impl ::core::fmt::Debug for RTC_VIDEO_DEVICE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_WATCHER_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCWET_WATCHER_ADD: RTC_WATCHER_EVENT_TYPE = RTC_WATCHER_EVENT_TYPE(0i32);
@@ -9704,7 +9704,7 @@ impl ::core::fmt::Debug for RTC_WATCHER_EVENT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_WATCHER_MATCH_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCWMM_EXACT_MATCH: RTC_WATCHER_MATCH_MODE = RTC_WATCHER_MATCH_MODE(0i32);
@@ -9731,7 +9731,7 @@ impl ::core::fmt::Debug for RTC_WATCHER_MATCH_MODE {
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTC_WATCHER_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const RTCWS_UNKNOWN: RTC_WATCHER_STATE = RTC_WATCHER_STATE(0i32);

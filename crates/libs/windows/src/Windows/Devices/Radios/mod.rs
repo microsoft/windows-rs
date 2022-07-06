@@ -213,7 +213,7 @@ unsafe impl ::core::marker::Send for Radio {}
 unsafe impl ::core::marker::Sync for Radio {}
 #[doc = "*Required features: `\"Devices_Radios\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RadioAccessStatus(pub i32);
 impl RadioAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -249,7 +249,7 @@ unsafe impl ::windows::core::RuntimeType for RadioAccessStatus {
 }
 #[doc = "*Required features: `\"Devices_Radios\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RadioKind(pub i32);
 impl RadioKind {
     pub const Other: Self = Self(0i32);
@@ -286,7 +286,7 @@ unsafe impl ::windows::core::RuntimeType for RadioKind {
 }
 #[doc = "*Required features: `\"Devices_Radios\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RadioState(pub i32);
 impl RadioState {
     pub const Unknown: Self = Self(0i32);

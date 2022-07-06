@@ -566,7 +566,7 @@ pub const RemoteComponentUtil: ::windows::core::GUID = ::windows::core::GUID::fr
 pub const RoleAssociationUtil: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22887_8a19_11d0_81b6_00a0c9231c29);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct __MIDL___MIDL_itf_mtxadmin_0107_0001(pub i32);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsInstallUsers: __MIDL___MIDL_itf_mtxadmin_0107_0001 = __MIDL___MIDL_itf_mtxadmin_0107_0001(1i32);
@@ -591,7 +591,7 @@ impl ::core::fmt::Debug for __MIDL___MIDL_itf_mtxadmin_0107_0001 {
 }
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct __MIDL___MIDL_itf_mtxadmin_0107_0002(pub i32);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsExportUsers: __MIDL___MIDL_itf_mtxadmin_0107_0002 = __MIDL___MIDL_itf_mtxadmin_0107_0002(1i32);
@@ -616,7 +616,7 @@ impl ::core::fmt::Debug for __MIDL___MIDL_itf_mtxadmin_0107_0002 {
 }
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct __MIDL___MIDL_itf_mtxadmin_0107_0003(pub i32);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrObjectErrors: __MIDL___MIDL_itf_mtxadmin_0107_0003 = __MIDL___MIDL_itf_mtxadmin_0107_0003(-2146368511i32);

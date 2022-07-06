@@ -786,7 +786,7 @@ impl ::windows::core::RuntimeName for KnownRetailInfoProperties {
 }
 #[doc = "*Required features: `\"System_Profile\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlatformDataCollectionLevel(pub i32);
 impl PlatformDataCollectionLevel {
     pub const Security: Self = Self(0i32);
@@ -1039,7 +1039,7 @@ unsafe impl ::core::marker::Send for SystemIdentificationInfo {}
 unsafe impl ::core::marker::Sync for SystemIdentificationInfo {}
 #[doc = "*Required features: `\"System_Profile\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemIdentificationSource(pub i32);
 impl SystemIdentificationSource {
     pub const None: Self = Self(0i32);
@@ -1075,7 +1075,7 @@ unsafe impl ::windows::core::RuntimeType for SystemIdentificationSource {
 }
 #[doc = "*Required features: `\"System_Profile\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemOutOfBoxExperienceState(pub i32);
 impl SystemOutOfBoxExperienceState {
     pub const NotStarted: Self = Self(0i32);
@@ -1235,7 +1235,7 @@ unsafe impl ::core::marker::Send for UnsupportedAppRequirement {}
 unsafe impl ::core::marker::Sync for UnsupportedAppRequirement {}
 #[doc = "*Required features: `\"System_Profile\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UnsupportedAppRequirementReasons(pub u32);
 impl UnsupportedAppRequirementReasons {
     pub const Unknown: Self = Self(0u32);

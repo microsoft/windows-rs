@@ -6,7 +6,7 @@ pub mod Core;
 pub mod Preview;
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HandwritingLineHeight(pub i32);
 impl HandwritingLineHeight {
     pub const Small: Self = Self(0i32);
@@ -1814,7 +1814,7 @@ unsafe impl ::core::marker::Send for InkDrawingAttributes {}
 unsafe impl ::core::marker::Sync for InkDrawingAttributes {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkDrawingAttributesKind(pub i32);
 impl InkDrawingAttributesKind {
     pub const Default: Self = Self(0i32);
@@ -1938,7 +1938,7 @@ unsafe impl ::core::marker::Send for InkDrawingAttributesPencilProperties {}
 unsafe impl ::core::marker::Sync for InkDrawingAttributesPencilProperties {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkHighContrastAdjustment(pub i32);
 impl InkHighContrastAdjustment {
     pub const UseSystemColorsWhenNecessary: Self = Self(0i32);
@@ -2192,7 +2192,7 @@ unsafe impl ::core::marker::Send for InkInputProcessingConfiguration {}
 unsafe impl ::core::marker::Sync for InkInputProcessingConfiguration {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkInputProcessingMode(pub i32);
 impl InkInputProcessingMode {
     pub const None: Self = Self(0i32);
@@ -2227,7 +2227,7 @@ unsafe impl ::windows::core::RuntimeType for InkInputProcessingMode {
 }
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkInputRightDragAction(pub i32);
 impl InkInputRightDragAction {
     pub const LeaveUnprocessed: Self = Self(0i32);
@@ -2573,7 +2573,7 @@ impl<'a> ::windows::core::IntoParam<'a, IInkStrokeContainer> for &InkManager {
 }
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkManipulationMode(pub i32);
 impl InkManipulationMode {
     pub const Inking: Self = Self(0i32);
@@ -2726,7 +2726,7 @@ unsafe impl ::core::marker::Send for InkModelerAttributes {}
 unsafe impl ::core::marker::Sync for InkModelerAttributes {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkPersistenceFormat(pub i32);
 impl InkPersistenceFormat {
     pub const GifWithEmbeddedIsf: Self = Self(0i32);
@@ -3123,7 +3123,7 @@ unsafe impl ::core::marker::Send for InkPresenter {}
 unsafe impl ::core::marker::Sync for InkPresenter {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkPresenterPredefinedConfiguration(pub i32);
 impl InkPresenterPredefinedConfiguration {
     pub const SimpleSinglePointer: Self = Self(0i32);
@@ -3646,7 +3646,7 @@ unsafe impl ::core::marker::Send for InkPresenterRuler {}
 unsafe impl ::core::marker::Sync for InkPresenterRuler {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkPresenterStencilKind(pub i32);
 impl InkPresenterStencilKind {
     pub const Other: Self = Self(0i32);
@@ -3785,7 +3785,7 @@ unsafe impl ::core::marker::Send for InkRecognitionResult {}
 unsafe impl ::core::marker::Sync for InkRecognitionResult {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkRecognitionTarget(pub i32);
 impl InkRecognitionTarget {
     pub const All: Self = Self(0i32);
@@ -5488,7 +5488,7 @@ unsafe impl ::core::marker::Send for PenAndInkSettings {}
 unsafe impl ::core::marker::Sync for PenAndInkSettings {}
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PenHandedness(pub i32);
 impl PenHandedness {
     pub const Right: Self = Self(0i32);
@@ -5522,7 +5522,7 @@ unsafe impl ::windows::core::RuntimeType for PenHandedness {
 }
 #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PenTipShape(pub i32);
 impl PenTipShape {
     pub const Circle: Self = Self(0i32);

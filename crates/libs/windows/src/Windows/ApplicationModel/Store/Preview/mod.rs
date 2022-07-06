@@ -2,7 +2,7 @@
 pub mod InstallControl;
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeliveryOptimizationDownloadMode(pub i32);
 impl DeliveryOptimizationDownloadMode {
     pub const Simple: Self = Self(0i32);
@@ -40,7 +40,7 @@ unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationDownloadMode {
 }
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeliveryOptimizationDownloadModeSource(pub i32);
 impl DeliveryOptimizationDownloadModeSource {
     pub const Default: Self = Self(0i32);
@@ -771,7 +771,7 @@ unsafe impl ::core::marker::Send for StoreHardwareManufacturerInfo {}
 unsafe impl ::core::marker::Sync for StoreHardwareManufacturerInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StoreLogOptions(pub u32);
 impl StoreLogOptions {
     pub const None: Self = Self(0u32);
@@ -979,7 +979,7 @@ unsafe impl ::core::marker::Send for StorePreviewProductInfo {}
 unsafe impl ::core::marker::Sync for StorePreviewProductInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorePreviewProductPurchaseStatus(pub i32);
 impl StorePreviewProductPurchaseStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -1249,7 +1249,7 @@ unsafe impl ::core::marker::Send for StorePreviewSkuInfo {}
 unsafe impl ::core::marker::Sync for StorePreviewSkuInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StoreSystemFeature(pub i32);
 impl StoreSystemFeature {
     pub const ArchitectureX86: Self = Self(0i32);

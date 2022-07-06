@@ -595,7 +595,7 @@ unsafe impl ::core::marker::Send for PrintTicketFeature {}
 unsafe impl ::core::marker::Sync for PrintTicketFeature {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintTicketFeatureSelectionType(pub i32);
 impl PrintTicketFeatureSelectionType {
     pub const PickOne: Self = Self(0i32);
@@ -773,7 +773,7 @@ unsafe impl ::core::marker::Send for PrintTicketOption {}
 unsafe impl ::core::marker::Sync for PrintTicketOption {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintTicketParameterDataType(pub i32);
 impl PrintTicketParameterDataType {
     pub const Integer: Self = Self(0i32);
@@ -1158,7 +1158,7 @@ unsafe impl ::core::marker::Send for PrintTicketValue {}
 unsafe impl ::core::marker::Sync for PrintTicketValue {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintTicketValueType(pub i32);
 impl PrintTicketValueType {
     pub const Integer: Self = Self(0i32);

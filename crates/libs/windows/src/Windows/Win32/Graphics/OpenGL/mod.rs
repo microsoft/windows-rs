@@ -1552,7 +1552,7 @@ pub unsafe fn GetPixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::G
     ::core::mem::transmute(GetPixelFormat(hdc.into_param().abi()))
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HGLRC(pub isize);
 impl HGLRC {
     pub fn is_invalid(&self) -> bool {
@@ -1658,7 +1658,7 @@ impl ::core::default::Default for LAYERPLANEDESCRIPTOR {
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PFD_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_DOUBLEBUFFER: PFD_FLAGS = PFD_FLAGS(1u32);
@@ -1747,7 +1747,7 @@ impl ::core::ops::Not for PFD_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PFD_LAYER_TYPE(pub i8);
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_UNDERLAY_PLANE: PFD_LAYER_TYPE = PFD_LAYER_TYPE(-1i8);
@@ -1776,7 +1776,7 @@ impl ::core::fmt::Debug for PFD_LAYER_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PFD_PIXEL_TYPE(pub i8);
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_TYPE_RGBA: PFD_PIXEL_TYPE = PFD_PIXEL_TYPE(0i8);

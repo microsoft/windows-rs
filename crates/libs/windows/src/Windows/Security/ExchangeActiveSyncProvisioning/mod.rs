@@ -508,7 +508,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a E
 }
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EasDisallowConvenienceLogonResult(pub i32);
 impl EasDisallowConvenienceLogonResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -544,7 +544,7 @@ unsafe impl ::windows::core::RuntimeType for EasDisallowConvenienceLogonResult {
 }
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EasEncryptionProviderType(pub i32);
 impl EasEncryptionProviderType {
     pub const NotEvaluated: Self = Self(0i32);
@@ -579,7 +579,7 @@ unsafe impl ::windows::core::RuntimeType for EasEncryptionProviderType {
 }
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EasMaxInactivityTimeLockResult(pub i32);
 impl EasMaxInactivityTimeLockResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -616,7 +616,7 @@ unsafe impl ::windows::core::RuntimeType for EasMaxInactivityTimeLockResult {
 }
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EasMaxPasswordFailedAttemptsResult(pub i32);
 impl EasMaxPasswordFailedAttemptsResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -653,7 +653,7 @@ unsafe impl ::windows::core::RuntimeType for EasMaxPasswordFailedAttemptsResult 
 }
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EasMinPasswordComplexCharactersResult(pub i32);
 impl EasMinPasswordComplexCharactersResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -700,7 +700,7 @@ unsafe impl ::windows::core::RuntimeType for EasMinPasswordComplexCharactersResu
 }
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EasMinPasswordLengthResult(pub i32);
 impl EasMinPasswordLengthResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -747,7 +747,7 @@ unsafe impl ::windows::core::RuntimeType for EasMinPasswordLengthResult {
 }
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EasPasswordExpirationResult(pub i32);
 impl EasPasswordExpirationResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -788,7 +788,7 @@ unsafe impl ::windows::core::RuntimeType for EasPasswordExpirationResult {
 }
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EasPasswordHistoryResult(pub i32);
 impl EasPasswordHistoryResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -825,7 +825,7 @@ unsafe impl ::windows::core::RuntimeType for EasPasswordHistoryResult {
 }
 #[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EasRequireEncryptionResult(pub i32);
 impl EasRequireEncryptionResult {
     pub const NotEvaluated: Self = Self(0i32);

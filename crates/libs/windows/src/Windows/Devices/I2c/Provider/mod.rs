@@ -357,7 +357,7 @@ pub struct IProviderI2cConnectionSettings_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderI2cBusSpeed(pub i32);
 impl ProviderI2cBusSpeed {
     pub const StandardMode: Self = Self(0i32);
@@ -507,7 +507,7 @@ unsafe impl ::core::marker::Send for ProviderI2cConnectionSettings {}
 unsafe impl ::core::marker::Sync for ProviderI2cConnectionSettings {}
 #[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderI2cSharingMode(pub i32);
 impl ProviderI2cSharingMode {
     pub const Exclusive: Self = Self(0i32);
@@ -579,7 +579,7 @@ impl ::core::default::Default for ProviderI2cTransferResult {
 }
 #[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderI2cTransferStatus(pub i32);
 impl ProviderI2cTransferStatus {
     pub const FullTransfer: Self = Self(0i32);

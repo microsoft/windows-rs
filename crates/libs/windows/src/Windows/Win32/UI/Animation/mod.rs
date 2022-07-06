@@ -2693,7 +2693,7 @@ pub const UIAnimationTransitionLibrary: ::windows::core::GUID = ::windows::core:
 pub const UIAnimationTransitionLibrary2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x812f944a_c5c8_4cd9_b0a6_b3da802f228d);
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_DEPENDENCIES(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_DEPENDENCY_NONE: UI_ANIMATION_DEPENDENCIES = UI_ANIMATION_DEPENDENCIES(0u32);
@@ -2754,7 +2754,7 @@ impl ::core::ops::Not for UI_ANIMATION_DEPENDENCIES {
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_IDLE_BEHAVIOR(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_IDLE_BEHAVIOR_CONTINUE: UI_ANIMATION_IDLE_BEHAVIOR = UI_ANIMATION_IDLE_BEHAVIOR(0i32);
@@ -2780,7 +2780,7 @@ impl ::core::fmt::Debug for UI_ANIMATION_IDLE_BEHAVIOR {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_KEYFRAME(pub isize);
 impl ::core::default::Default for UI_ANIMATION_KEYFRAME {
     fn default() -> Self {
@@ -2803,7 +2803,7 @@ unsafe impl ::windows::core::Abi for UI_ANIMATION_KEYFRAME {
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_MANAGER_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_MANAGER_IDLE: UI_ANIMATION_MANAGER_STATUS = UI_ANIMATION_MANAGER_STATUS(0i32);
@@ -2830,7 +2830,7 @@ impl ::core::fmt::Debug for UI_ANIMATION_MANAGER_STATUS {
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_MODE_DISABLED: UI_ANIMATION_MODE = UI_ANIMATION_MODE(0i32);
@@ -2859,7 +2859,7 @@ impl ::core::fmt::Debug for UI_ANIMATION_MODE {
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_PRIORITY_EFFECT(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_PRIORITY_EFFECT_FAILURE: UI_ANIMATION_PRIORITY_EFFECT = UI_ANIMATION_PRIORITY_EFFECT(0i32);
@@ -2892,7 +2892,7 @@ pub const UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_END: i32 = -1i32;
 pub const UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_START: i32 = -2i32;
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_REPEAT_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_REPEAT_MODE_NORMAL: UI_ANIMATION_REPEAT_MODE = UI_ANIMATION_REPEAT_MODE(0i32);
@@ -2919,7 +2919,7 @@ impl ::core::fmt::Debug for UI_ANIMATION_REPEAT_MODE {
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_ROUNDING_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_ROUNDING_NEAREST: UI_ANIMATION_ROUNDING_MODE = UI_ANIMATION_ROUNDING_MODE(0i32);
@@ -2948,7 +2948,7 @@ impl ::core::fmt::Debug for UI_ANIMATION_ROUNDING_MODE {
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_SCHEDULING_RESULT(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_SCHEDULING_UNEXPECTED_FAILURE: UI_ANIMATION_SCHEDULING_RESULT = UI_ANIMATION_SCHEDULING_RESULT(0i32);
@@ -2985,7 +2985,7 @@ pub const UI_ANIMATION_SECONDS_EVENTUALLY: i32 = -1i32;
 pub const UI_ANIMATION_SECONDS_INFINITE: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_SLOPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_SLOPE_INCREASING: UI_ANIMATION_SLOPE = UI_ANIMATION_SLOPE(0i32);
@@ -3012,7 +3012,7 @@ impl ::core::fmt::Debug for UI_ANIMATION_SLOPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_STORYBOARD_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_STORYBOARD_BUILDING: UI_ANIMATION_STORYBOARD_STATUS = UI_ANIMATION_STORYBOARD_STATUS(0i32);
@@ -3051,7 +3051,7 @@ impl ::core::fmt::Debug for UI_ANIMATION_STORYBOARD_STATUS {
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_TIMER_CLIENT_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_TIMER_CLIENT_IDLE: UI_ANIMATION_TIMER_CLIENT_STATUS = UI_ANIMATION_TIMER_CLIENT_STATUS(0i32);
@@ -3078,7 +3078,7 @@ impl ::core::fmt::Debug for UI_ANIMATION_TIMER_CLIENT_STATUS {
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_UPDATE_RESULT(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_UPDATE_NO_CHANGE: UI_ANIMATION_UPDATE_RESULT = UI_ANIMATION_UPDATE_RESULT(0i32);

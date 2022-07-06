@@ -142,7 +142,7 @@ pub unsafe fn FCIDestroy(hfci: *const ::core::ffi::c_void) -> super::super::Foun
 }
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FCIERROR(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 pub const FCIERR_NONE: FCIERROR = FCIERROR(0i32);
@@ -250,7 +250,7 @@ impl ::core::default::Default for FDICABINETINFO {
 }
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FDICREATE_CPU_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 pub const cpuUNKNOWN: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(-1i32);
@@ -491,7 +491,7 @@ impl ::core::default::Default for FDIDECRYPT_0_2 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FDIDECRYPTTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 pub const fdidtNEW_CABINET: FDIDECRYPTTYPE = FDIDECRYPTTYPE(0i32);
@@ -530,7 +530,7 @@ pub unsafe fn FDIDestroy(hfdi: *const ::core::ffi::c_void) -> super::super::Foun
 }
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FDIERROR(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 pub const FDIERROR_NONE: FDIERROR = FDIERROR(0i32);
@@ -631,7 +631,7 @@ impl ::core::default::Default for FDINOTIFICATION {
 }
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FDINOTIFICATIONTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 pub const fdintCABINET_INFO: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(0i32);

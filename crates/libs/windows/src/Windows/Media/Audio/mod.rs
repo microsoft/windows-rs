@@ -287,7 +287,7 @@ unsafe impl ::core::marker::Send for AudioDeviceInputNode {}
 unsafe impl ::core::marker::Sync for AudioDeviceInputNode {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioDeviceNodeCreationStatus(pub i32);
 impl AudioDeviceNodeCreationStatus {
     pub const Success: Self = Self(0i32);
@@ -954,7 +954,7 @@ unsafe impl ::core::marker::Send for AudioFileInputNode {}
 unsafe impl ::core::marker::Sync for AudioFileInputNode {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioFileNodeCreationStatus(pub i32);
 impl AudioFileNodeCreationStatus {
     pub const Success: Self = Self(0i32);
@@ -2489,7 +2489,7 @@ unsafe impl ::core::marker::Send for AudioGraphConnection {}
 unsafe impl ::core::marker::Sync for AudioGraphConnection {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioGraphCreationStatus(pub i32);
 impl AudioGraphCreationStatus {
     pub const Success: Self = Self(0i32);
@@ -2712,7 +2712,7 @@ unsafe impl ::core::marker::Send for AudioGraphSettings {}
 unsafe impl ::core::marker::Sync for AudioGraphSettings {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioGraphUnrecoverableError(pub i32);
 impl AudioGraphUnrecoverableError {
     pub const None: Self = Self(0i32);
@@ -3151,7 +3151,7 @@ unsafe impl ::core::marker::Send for AudioNodeEmitterConeProperties {}
 unsafe impl ::core::marker::Sync for AudioNodeEmitterConeProperties {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioNodeEmitterDecayKind(pub i32);
 impl AudioNodeEmitterDecayKind {
     pub const Natural: Self = Self(0i32);
@@ -3406,7 +3406,7 @@ unsafe impl ::core::marker::Send for AudioNodeEmitterNaturalDecayModelProperties
 unsafe impl ::core::marker::Sync for AudioNodeEmitterNaturalDecayModelProperties {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioNodeEmitterSettings(pub u32);
 impl AudioNodeEmitterSettings {
     pub const None: Self = Self(0u32);
@@ -3580,7 +3580,7 @@ unsafe impl ::core::marker::Send for AudioNodeEmitterShape {}
 unsafe impl ::core::marker::Sync for AudioNodeEmitterShape {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioNodeEmitterShapeKind(pub i32);
 impl AudioNodeEmitterShapeKind {
     pub const Omnidirectional: Self = Self(0i32);
@@ -4039,7 +4039,7 @@ unsafe impl ::core::marker::Send for AudioPlaybackConnectionOpenResult {}
 unsafe impl ::core::marker::Sync for AudioPlaybackConnectionOpenResult {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioPlaybackConnectionOpenResultStatus(pub i32);
 impl AudioPlaybackConnectionOpenResultStatus {
     pub const Success: Self = Self(0i32);
@@ -4075,7 +4075,7 @@ unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnectionOpenResultSt
 }
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioPlaybackConnectionState(pub i32);
 impl AudioPlaybackConnectionState {
     pub const Closed: Self = Self(0i32);
@@ -8419,7 +8419,7 @@ unsafe impl ::core::marker::Send for MediaSourceAudioInputNode {}
 unsafe impl ::core::marker::Sync for MediaSourceAudioInputNode {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaSourceAudioInputNodeCreationStatus(pub i32);
 impl MediaSourceAudioInputNodeCreationStatus {
     pub const Success: Self = Self(0i32);
@@ -8455,7 +8455,7 @@ unsafe impl ::windows::core::RuntimeType for MediaSourceAudioInputNodeCreationSt
 }
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MixedRealitySpatialAudioFormatPolicy(pub i32);
 impl MixedRealitySpatialAudioFormatPolicy {
     pub const UseMixedRealityDefaultSpatialAudioFormat: Self = Self(0i32);
@@ -8489,7 +8489,7 @@ unsafe impl ::windows::core::RuntimeType for MixedRealitySpatialAudioFormatPolic
 }
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QuantumSizeSelectionMode(pub i32);
 impl QuantumSizeSelectionMode {
     pub const SystemDefault: Self = Self(0i32);
@@ -9041,7 +9041,7 @@ unsafe impl ::core::marker::Send for SetDefaultSpatialAudioFormatResult {}
 unsafe impl ::core::marker::Sync for SetDefaultSpatialAudioFormatResult {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SetDefaultSpatialAudioFormatStatus(pub i32);
 impl SetDefaultSpatialAudioFormatStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -9418,7 +9418,7 @@ impl ::windows::core::RuntimeName for SpatialAudioFormatSubtype {
 }
 #[doc = "*Required features: `\"Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialAudioModel(pub i32);
 impl SpatialAudioModel {
     pub const ObjectBased: Self = Self(0i32);

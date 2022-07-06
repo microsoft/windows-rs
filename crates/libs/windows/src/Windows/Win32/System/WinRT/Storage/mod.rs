@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HANDLE_ACCESS_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
 pub const HAO_NONE: HANDLE_ACCESS_OPTIONS = HANDLE_ACCESS_OPTIONS(0u32);
@@ -61,7 +61,7 @@ impl ::core::ops::Not for HANDLE_ACCESS_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HANDLE_CREATION_OPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
 pub const HCO_CREATE_NEW: HANDLE_CREATION_OPTIONS = HANDLE_CREATION_OPTIONS(1i32);
@@ -94,7 +94,7 @@ impl ::core::fmt::Debug for HANDLE_CREATION_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HANDLE_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
 pub const HO_NONE: HANDLE_OPTIONS = HANDLE_OPTIONS(0u32);
@@ -161,7 +161,7 @@ impl ::core::ops::Not for HANDLE_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HANDLE_SHARING_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
 pub const HSO_SHARE_NONE: HANDLE_SHARING_OPTIONS = HANDLE_SHARING_OPTIONS(0u32);

@@ -355,7 +355,7 @@ impl ::core::default::Default for DNS_A_DATA {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DNS_CHARSET(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DnsCharSetUnknown: DNS_CHARSET = DNS_CHARSET(0i32);
@@ -406,7 +406,7 @@ pub const DNS_COMPRESSED_QUESTION_NAME: u32 = 49164u32;
 pub const DNS_CONFIG_FLAG_ALLOC: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DNS_CONFIG_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DnsConfigPrimaryDomainName_W: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(0i32);
@@ -661,7 +661,7 @@ impl ::core::default::Default for DNS_CONNECTION_POLICY_ENTRY_LIST {
 pub const DNS_CONNECTION_POLICY_ENTRY_ONDEMAND: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DNS_CONNECTION_POLICY_TAG(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(0i32);
@@ -890,7 +890,7 @@ pub const DNS_CONNECTION_PROXY_INFO_PASSWORD_MAX_LENGTH: u32 = 128u32;
 pub const DNS_CONNECTION_PROXY_INFO_SERVER_MAX_LENGTH: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DNS_CONNECTION_PROXY_INFO_SWITCH(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNS_CONNECTION_PROXY_INFO_SWITCH_CONFIG: DNS_CONNECTION_PROXY_INFO_SWITCH = DNS_CONNECTION_PROXY_INFO_SWITCH(0i32);
@@ -952,7 +952,7 @@ impl ::core::default::Default for DNS_CONNECTION_PROXY_LIST {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DNS_CONNECTION_PROXY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNS_CONNECTION_PROXY_TYPE_NULL: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(0i32);
@@ -1156,7 +1156,7 @@ impl ::core::default::Default for DNS_DS_DATA {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DNS_FREE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DnsFreeFlat: DNS_FREE_TYPE = DNS_FREE_TYPE(0i32);
@@ -1495,7 +1495,7 @@ impl ::core::default::Default for DNS_MX_DATAW {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DNS_NAME_FORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DnsNameDomain: DNS_NAME_FORMAT = DNS_NAME_FORMAT(0i32);
@@ -1916,7 +1916,7 @@ impl ::core::default::Default for DNS_PROXY_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DNS_PROXY_INFORMATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNS_PROXY_INFORMATION_DIRECT: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(0i32);
@@ -2877,7 +2877,7 @@ pub const DNS_RTYPE_WKS: u32 = 2816u32;
 pub const DNS_RTYPE_X25: u32 = 4864u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DNS_SECTION(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DnsSectionQuestion: DNS_SECTION = DNS_SECTION(0i32);
@@ -4233,7 +4233,7 @@ pub unsafe fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries: *const 
     ::core::mem::transmute(DnsConnectionUpdateIfIndexTable(::core::mem::transmute(pconnectionifindexentries)))
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DnsContextHandle(pub isize);
 impl DnsContextHandle {
     pub fn is_invalid(&self) -> bool {

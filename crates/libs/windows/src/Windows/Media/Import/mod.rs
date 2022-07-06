@@ -447,7 +447,7 @@ pub struct IPhotoImportVideoSegment_Vtbl {
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportAccessMode(pub i32);
 impl PhotoImportAccessMode {
     pub const ReadWrite: Self = Self(0i32);
@@ -482,7 +482,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportAccessMode {
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportConnectionTransport(pub i32);
 impl PhotoImportConnectionTransport {
     pub const Unknown: Self = Self(0i32);
@@ -518,7 +518,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportConnectionTransport {
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportContentType(pub i32);
 impl PhotoImportContentType {
     pub const Unknown: Self = Self(0i32);
@@ -553,7 +553,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportContentType {
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportContentTypeFilter(pub i32);
 impl PhotoImportContentTypeFilter {
     pub const OnlyImages: Self = Self(0i32);
@@ -1301,7 +1301,7 @@ unsafe impl ::core::marker::Send for PhotoImportImportItemsResult {}
 unsafe impl ::core::marker::Sync for PhotoImportImportItemsResult {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportImportMode(pub i32);
 impl PhotoImportImportMode {
     pub const ImportEverything: Self = Self(0i32);
@@ -1614,7 +1614,7 @@ unsafe impl ::core::marker::Send for PhotoImportItemImportedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoImportItemImportedEventArgs {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportItemSelectionMode(pub i32);
 impl PhotoImportItemSelectionMode {
     pub const SelectAll: Self = Self(0i32);
@@ -1805,7 +1805,7 @@ unsafe impl ::core::marker::Send for PhotoImportOperation {}
 unsafe impl ::core::marker::Sync for PhotoImportOperation {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportPowerSource(pub i32);
 impl PhotoImportPowerSource {
     pub const Unknown: Self = Self(0i32);
@@ -2521,7 +2521,7 @@ unsafe impl ::core::marker::Send for PhotoImportSource {}
 unsafe impl ::core::marker::Sync for PhotoImportSource {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportSourceType(pub i32);
 impl PhotoImportSourceType {
     pub const Generic: Self = Self(0i32);
@@ -2560,7 +2560,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportSourceType {
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportStage(pub i32);
 impl PhotoImportStage {
     pub const NotStarted: Self = Self(0i32);
@@ -2734,7 +2734,7 @@ unsafe impl ::core::marker::Send for PhotoImportStorageMedium {}
 unsafe impl ::core::marker::Sync for PhotoImportStorageMedium {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportStorageMediumType(pub i32);
 impl PhotoImportStorageMediumType {
     pub const Undefined: Self = Self(0i32);
@@ -2769,7 +2769,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportStorageMediumType {
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportSubfolderCreationMode(pub i32);
 impl PhotoImportSubfolderCreationMode {
     pub const DoNotCreateSubfolders: Self = Self(0i32);
@@ -2805,7 +2805,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportSubfolderCreationMode {
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportSubfolderDateFormat(pub i32);
 impl PhotoImportSubfolderDateFormat {
     pub const Year: Self = Self(0i32);

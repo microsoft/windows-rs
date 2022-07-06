@@ -56,7 +56,7 @@ pub unsafe fn DMOUnregister(clsiddmo: *const ::windows::core::GUID, guidcategory
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DMO_ENUM_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 pub const DMO_ENUMF_INCLUDE_KEYED: DMO_ENUM_FLAGS = DMO_ENUM_FLAGS(1i32);
@@ -210,7 +210,7 @@ impl ::core::default::Default for DMO_PARTIAL_MEDIATYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DMO_REGISTER_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 pub const DMO_REGISTERF_IS_KEYED: DMO_REGISTER_FLAGS = DMO_REGISTER_FLAGS(1i32);
@@ -825,7 +825,7 @@ pub unsafe fn MoInitMediaType(pmt: *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::wind
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DMO_INPLACE_PROCESS_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 pub const DMO_INPLACE_NORMAL: _DMO_INPLACE_PROCESS_FLAGS = _DMO_INPLACE_PROCESS_FLAGS(0i32);
@@ -852,7 +852,7 @@ impl ::core::fmt::Debug for _DMO_INPLACE_PROCESS_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DMO_INPUT_DATA_BUFFER_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 pub const DMO_INPUT_DATA_BUFFERF_SYNCPOINT: _DMO_INPUT_DATA_BUFFER_FLAGS = _DMO_INPUT_DATA_BUFFER_FLAGS(1i32);
@@ -883,7 +883,7 @@ impl ::core::fmt::Debug for _DMO_INPUT_DATA_BUFFER_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DMO_INPUT_STATUS_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 pub const DMO_INPUT_STATUSF_ACCEPT_DATA: _DMO_INPUT_STATUS_FLAGS = _DMO_INPUT_STATUS_FLAGS(1i32);
@@ -908,7 +908,7 @@ impl ::core::fmt::Debug for _DMO_INPUT_STATUS_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DMO_INPUT_STREAM_INFO_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 pub const DMO_INPUT_STREAMF_WHOLE_SAMPLES: _DMO_INPUT_STREAM_INFO_FLAGS = _DMO_INPUT_STREAM_INFO_FLAGS(1i32);
@@ -939,7 +939,7 @@ impl ::core::fmt::Debug for _DMO_INPUT_STREAM_INFO_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DMO_OUTPUT_DATA_BUFFER_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 pub const DMO_OUTPUT_DATA_BUFFERF_SYNCPOINT: _DMO_OUTPUT_DATA_BUFFER_FLAGS = _DMO_OUTPUT_DATA_BUFFER_FLAGS(1i32);
@@ -972,7 +972,7 @@ impl ::core::fmt::Debug for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DMO_OUTPUT_STREAM_INFO_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 pub const DMO_OUTPUT_STREAMF_WHOLE_SAMPLES: _DMO_OUTPUT_STREAM_INFO_FLAGS = _DMO_OUTPUT_STREAM_INFO_FLAGS(1i32);
@@ -1005,7 +1005,7 @@ impl ::core::fmt::Debug for _DMO_OUTPUT_STREAM_INFO_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DMO_PROCESS_OUTPUT_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 pub const DMO_PROCESS_OUTPUT_DISCARD_WHEN_NO_BUFFER: _DMO_PROCESS_OUTPUT_FLAGS = _DMO_PROCESS_OUTPUT_FLAGS(1i32);
@@ -1030,7 +1030,7 @@ impl ::core::fmt::Debug for _DMO_PROCESS_OUTPUT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DMO_QUALITY_STATUS_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 pub const DMO_QUALITY_STATUS_ENABLED: _DMO_QUALITY_STATUS_FLAGS = _DMO_QUALITY_STATUS_FLAGS(1i32);
@@ -1055,7 +1055,7 @@ impl ::core::fmt::Debug for _DMO_QUALITY_STATUS_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DMO_SET_TYPE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 pub const DMO_SET_TYPEF_TEST_ONLY: _DMO_SET_TYPE_FLAGS = _DMO_SET_TYPE_FLAGS(1i32);
@@ -1082,7 +1082,7 @@ impl ::core::fmt::Debug for _DMO_SET_TYPE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DMO_VIDEO_OUTPUT_STREAM_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 pub const DMO_VOSF_NEEDS_PREVIOUS_SAMPLE: _DMO_VIDEO_OUTPUT_STREAM_FLAGS = _DMO_VIDEO_OUTPUT_STREAM_FLAGS(1i32);

@@ -238,7 +238,7 @@ unsafe impl ::core::marker::Send for AppCapabilityAccessChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCapabilityAccessChangedEventArgs {}
 #[doc = "*Required features: `\"Security_Authorization_AppCapabilityAccess\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppCapabilityAccessStatus(pub i32);
 impl AppCapabilityAccessStatus {
     pub const DeniedBySystem: Self = Self(0i32);

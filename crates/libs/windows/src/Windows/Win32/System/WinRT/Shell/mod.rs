@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_WinRT_Shell\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CreateProcessMethod(pub i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Shell\"`*"]
 pub const CpCreateProcess: CreateProcessMethod = CreateProcessMethod(0i32);

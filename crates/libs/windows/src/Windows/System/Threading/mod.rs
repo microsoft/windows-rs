@@ -518,7 +518,7 @@ pub struct WorkItemHandler_Vtbl {
 }
 #[doc = "*Required features: `\"System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WorkItemOptions(pub u32);
 impl WorkItemOptions {
     pub const None: Self = Self(0u32);
@@ -580,7 +580,7 @@ unsafe impl ::windows::core::RuntimeType for WorkItemOptions {
 }
 #[doc = "*Required features: `\"System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WorkItemPriority(pub i32);
 impl WorkItemPriority {
     pub const Low: Self = Self(-1i32);

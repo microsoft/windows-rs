@@ -930,7 +930,7 @@ impl ::core::default::Default for DFS_INFO_9 {
 pub const DFS_MOVE_FLAG_REPLACE_IF_EXISTS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DFS_NAMESPACE_VERSION_ORIGIN(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 pub const DFS_NAMESPACE_VERSION_ORIGIN_COMBINED: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(0i32);
@@ -1219,7 +1219,7 @@ impl ::core::default::Default for DFS_TARGET_PRIORITY {
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DFS_TARGET_PRIORITY_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 pub const DfsInvalidPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(-1i32);

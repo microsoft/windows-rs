@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPSTATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const ABSENT: APPSTATE = APPSTATE(0i32);
@@ -60,7 +60,7 @@ pub unsafe fn CreateGPOLink<'a, Param0: ::windows::core::IntoParam<'a, ::windows
     CreateGPOLink(lpgpo.into_param().abi(), lpcontainer.into_param().abi(), fhighpriority.into_param().abi()).ok()
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CriticalPolicySectionHandle(pub isize);
 impl CriticalPolicySectionHandle {
     pub fn is_invalid(&self) -> bool {
@@ -176,7 +176,7 @@ pub const GPMBackupDir: ::windows::core::GUID = ::windows::core::GUID::from_u128
 pub const GPMBackupDirEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8c0988a_cf03_4c5b_8be2_2aa9ad32aada);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMBackupType(pub i32);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const typeGPO: GPMBackupType = GPMBackupType(0i32);
@@ -206,7 +206,7 @@ pub const GPMClientSideExtension: ::windows::core::GUID = ::windows::core::GUID:
 pub const GPMConstants: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3855e880_cd9e_4d0c_9eaf_1579283a1888);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMDestinationOption(pub i32);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const opDestinationSameAsSource: GPMDestinationOption = GPMDestinationOption(0i32);
@@ -238,7 +238,7 @@ impl ::core::fmt::Debug for GPMDestinationOption {
 pub const GPMDomain: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x710901be_1050_4cb1_838a_c5cff259e183);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMEntryType(pub i32);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const typeUser: GPMEntryType = GPMEntryType(0i32);
@@ -283,7 +283,7 @@ pub const GPMMigrationTable: ::windows::core::GUID = ::windows::core::GUID::from
 pub const GPMPermission: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5871a40a_e9c0_46ec_913e_944ef9225a94);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMPermissionType(pub i32);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permGPOApply: GPMPermissionType = GPMPermissionType(65536i32);
@@ -345,7 +345,7 @@ impl ::core::fmt::Debug for GPMPermissionType {
 pub const GPMRSOP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x489b0caf_9ec2_4eb7_91f5_b6f71d43da8c);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMRSOPMode(pub i32);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const rsopUnknown: GPMRSOPMode = GPMRSOPMode(0i32);
@@ -374,7 +374,7 @@ impl ::core::fmt::Debug for GPMRSOPMode {
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMReportType(pub i32);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const repXML: GPMReportType = GPMReportType(0i32);
@@ -409,7 +409,7 @@ impl ::core::fmt::Debug for GPMReportType {
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMReportingOptions(pub i32);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const opReportLegacy: GPMReportingOptions = GPMReportingOptions(0i32);
@@ -439,7 +439,7 @@ pub const GPMSOM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32d
 pub const GPMSOMCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24c1f147_3720_4f5b_a9c3_06b4e4f931d2);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMSOMType(pub i32);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const somSite: GPMSOMType = GPMSOMType(0i32);
@@ -469,7 +469,7 @@ impl ::core::fmt::Debug for GPMSOMType {
 pub const GPMSearchCriteria: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17aaca26_5ce0_44fa_8cc0_5259e6483566);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMSearchOperation(pub i32);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const opEquals: GPMSearchOperation = GPMSearchOperation(0i32);
@@ -500,7 +500,7 @@ impl ::core::fmt::Debug for GPMSearchOperation {
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMSearchProperty(pub i32);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const gpoPermissions: GPMSearchProperty = GPMSearchProperty(0i32);
@@ -558,7 +558,7 @@ pub const GPMStarterGPOBackupCollection: ::windows::core::GUID = ::windows::core
 pub const GPMStarterGPOCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82f8aa8b_49ba_43b2_956e_3397f9b94c3a);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMStarterGPOType(pub i32);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const typeSystem: GPMStarterGPOType = GPMStarterGPOType(0i32);
@@ -689,7 +689,7 @@ pub const GPO_INFO_FLAG_SLOWLINK: u32 = 32u32;
 pub const GPO_INFO_FLAG_VERBOSE: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPO_LINK(pub i32);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPLinkUnknown: GPO_LINK = GPO_LINK(0i32);
@@ -768,7 +768,7 @@ pub const GP_PROCESSGROUPPOLICY: &str = "ProcessGroupPolicy";
 pub const GP_REQUIRESSUCCESSFULREGISTRY: &str = "RequiresSuccessfulRegistry";
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GROUP_POLICY_HINT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPHintUnknown: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(0i32);
@@ -929,7 +929,7 @@ impl ::core::default::Default for GROUP_POLICY_OBJECTW {
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GROUP_POLICY_OBJECT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPOTypeLocal: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(0i32);
@@ -8664,7 +8664,7 @@ impl ::core::default::Default for INSTALLSPEC_1 {
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INSTALLSPECTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const APPNAME: INSTALLSPECTYPE = INSTALLSPECTYPE(1i32);
@@ -9155,7 +9155,7 @@ pub unsafe fn RsopSetPolicySettingStatus<'a, Param1: ::windows::core::IntoParam<
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SETTINGSTATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RSOPUnspecified: SETTINGSTATUS = SETTINGSTATUS(0i32);

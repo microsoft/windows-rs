@@ -247,7 +247,7 @@ impl ::windows::core::RuntimeName for DataProtectionManager {
 }
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DataProtectionStatus(pub i32);
 impl DataProtectionStatus {
     pub const ProtectedToOtherIdentity: Self = Self(0i32);
@@ -285,7 +285,7 @@ unsafe impl ::windows::core::RuntimeType for DataProtectionStatus {
 }
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnforcementLevel(pub i32);
 impl EnforcementLevel {
     pub const NoProtection: Self = Self(0i32);
@@ -548,7 +548,7 @@ impl ::windows::core::RuntimeName for FileProtectionManager {
 }
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FileProtectionStatus(pub i32);
 impl FileProtectionStatus {
     pub const Undetermined: Self = Self(0i32);
@@ -1888,7 +1888,7 @@ unsafe impl ::core::marker::Send for ProtectedFileCreateResult {}
 unsafe impl ::core::marker::Sync for ProtectedFileCreateResult {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProtectedImportExportStatus(pub i32);
 impl ProtectedImportExportStatus {
     pub const Ok: Self = Self(0i32);
@@ -1928,7 +1928,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectedImportExportStatus {
 }
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProtectionPolicyAuditAction(pub i32);
 impl ProtectionPolicyAuditAction {
     pub const Decrypt: Self = Self(0i32);
@@ -2112,7 +2112,7 @@ unsafe impl ::core::marker::Send for ProtectionPolicyAuditInfo {}
 unsafe impl ::core::marker::Sync for ProtectionPolicyAuditInfo {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProtectionPolicyEvaluationResult(pub i32);
 impl ProtectionPolicyEvaluationResult {
     pub const Allowed: Self = Self(0i32);
@@ -2553,7 +2553,7 @@ unsafe impl ::core::marker::Send for ProtectionPolicyManager {}
 unsafe impl ::core::marker::Sync for ProtectionPolicyManager {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProtectionPolicyRequestAccessBehavior(pub i32);
 impl ProtectionPolicyRequestAccessBehavior {
     pub const Decrypt: Self = Self(0i32);

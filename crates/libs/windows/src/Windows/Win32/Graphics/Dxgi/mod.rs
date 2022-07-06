@@ -268,7 +268,7 @@ impl ::core::default::Default for DXGI_ADAPTER_DESC3 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_ADAPTER_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_ADAPTER_FLAG_NONE: DXGI_ADAPTER_FLAG = DXGI_ADAPTER_FLAG(0u32);
@@ -325,7 +325,7 @@ impl ::core::ops::Not for DXGI_ADAPTER_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_ADAPTER_FLAG3(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_ADAPTER_FLAG3_NONE: DXGI_ADAPTER_FLAG3 = DXGI_ADAPTER_FLAG3(0u32);
@@ -392,7 +392,7 @@ impl ::core::ops::Not for DXGI_ADAPTER_FLAG3 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_COMPUTE_PREEMPTION_GRANULARITY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_COMPUTE_PREEMPTION_DMA_BUFFER_BOUNDARY: DXGI_COMPUTE_PREEMPTION_GRANULARITY = DXGI_COMPUTE_PREEMPTION_GRANULARITY(0i32);
@@ -433,7 +433,7 @@ pub const DXGI_DEBUG_DX: ::windows::core::GUID = ::windows::core::GUID::from_u12
 pub const DXGI_DEBUG_DXGI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25cddaa4_b1c6_47e1_ac3e_98875b5a2e2a);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_DEBUG_RLO_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_DEBUG_RLO_SUMMARY: DXGI_DEBUG_RLO_FLAGS = DXGI_DEBUG_RLO_FLAGS(1u32);
@@ -625,7 +625,7 @@ pub const DXGI_ERROR_WAIT_TIMEOUT: ::windows::core::HRESULT = ::windows::core::H
 pub const DXGI_ERROR_WAS_STILL_DRAWING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005270518i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_FEATURE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_FEATURE_PRESENT_ALLOW_TEARING: DXGI_FEATURE = DXGI_FEATURE(0i32);
@@ -650,7 +650,7 @@ impl ::core::fmt::Debug for DXGI_FEATURE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_FRAME_PRESENTATION_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_FRAME_PRESENTATION_MODE_COMPOSED: DXGI_FRAME_PRESENTATION_MODE = DXGI_FRAME_PRESENTATION_MODE(0i32);
@@ -751,7 +751,7 @@ impl ::core::default::Default for DXGI_FRAME_STATISTICS_MEDIA {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_GPU_PREFERENCE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_GPU_PREFERENCE_UNSPECIFIED: DXGI_GPU_PREFERENCE = DXGI_GPU_PREFERENCE(0i32);
@@ -780,7 +780,7 @@ impl ::core::fmt::Debug for DXGI_GPU_PREFERENCE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_GRAPHICS_PREEMPTION_GRANULARITY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_GRAPHICS_PREEMPTION_DMA_BUFFER_BOUNDARY: DXGI_GRAPHICS_PREEMPTION_GRANULARITY = DXGI_GRAPHICS_PREEMPTION_GRANULARITY(0i32);
@@ -813,7 +813,7 @@ impl ::core::fmt::Debug for DXGI_GRAPHICS_PREEMPTION_GRANULARITY {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAG_FULLSCREEN: DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS = DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS(1u32);
@@ -937,7 +937,7 @@ impl ::core::default::Default for DXGI_HDR_METADATA_HDR10PLUS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_HDR_METADATA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_HDR_METADATA_TYPE_NONE: DXGI_HDR_METADATA_TYPE = DXGI_HDR_METADATA_TYPE(0i32);
@@ -1069,7 +1069,7 @@ impl ::core::default::Default for DXGI_INFO_QUEUE_MESSAGE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_INFO_QUEUE_MESSAGE_CATEGORY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_INFO_QUEUE_MESSAGE_CATEGORY_UNKNOWN: DXGI_INFO_QUEUE_MESSAGE_CATEGORY = DXGI_INFO_QUEUE_MESSAGE_CATEGORY(0i32);
@@ -1116,7 +1116,7 @@ impl ::core::fmt::Debug for DXGI_INFO_QUEUE_MESSAGE_CATEGORY {
 pub const DXGI_INFO_QUEUE_MESSAGE_ID_STRING_FROM_APPLICATION: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_INFO_QUEUE_MESSAGE_SEVERITY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_INFO_QUEUE_MESSAGE_SEVERITY_CORRUPTION: DXGI_INFO_QUEUE_MESSAGE_SEVERITY = DXGI_INFO_QUEUE_MESSAGE_SEVERITY(0i32);
@@ -1223,7 +1223,7 @@ impl ::core::default::Default for DXGI_MATRIX_3X2_F {
 pub const DXGI_MAX_SWAP_CHAIN_BUFFERS: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_MEMORY_SEGMENT_GROUP(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_MEMORY_SEGMENT_GROUP_LOCAL: DXGI_MEMORY_SEGMENT_GROUP = DXGI_MEMORY_SEGMENT_GROUP(0i32);
@@ -1294,7 +1294,7 @@ impl ::core::default::Default for DXGI_MODE_DESC1 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAG_NOMINAL_RANGE: DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS = DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS(1i32);
@@ -1331,7 +1331,7 @@ pub const DXGI_MWA_NO_WINDOW_CHANGES: u32 = 1u32;
 pub const DXGI_MWA_VALID: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_Message_Id(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_MSG_IDXGISwapChain_CreationOrResizeBuffers_InvalidOutputWindow: DXGI_Message_Id = DXGI_Message_Id(0i32);
@@ -2016,7 +2016,7 @@ impl ::core::fmt::Debug for DXGI_Message_Id {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_OFFER_RESOURCE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_OFFER_RESOURCE_FLAG_ALLOW_DECOMMIT: DXGI_OFFER_RESOURCE_FLAGS = DXGI_OFFER_RESOURCE_FLAGS(1i32);
@@ -2041,7 +2041,7 @@ impl ::core::fmt::Debug for DXGI_OFFER_RESOURCE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_OFFER_RESOURCE_PRIORITY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_OFFER_RESOURCE_PRIORITY_LOW: DXGI_OFFER_RESOURCE_PRIORITY = DXGI_OFFER_RESOURCE_PRIORITY(1i32);
@@ -2110,7 +2110,7 @@ impl ::core::default::Default for DXGI_OUTDUPL_DESC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_OUTDUPL_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_OUTDUPL_COMPOSITED_UI_CAPTURE_ONLY: DXGI_OUTDUPL_FLAG = DXGI_OUTDUPL_FLAG(1i32);
@@ -2309,7 +2309,7 @@ impl ::core::default::Default for DXGI_OUTDUPL_POINTER_SHAPE_INFO {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_OUTDUPL_POINTER_SHAPE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_OUTDUPL_POINTER_SHAPE_TYPE_MONOCHROME: DXGI_OUTDUPL_POINTER_SHAPE_TYPE = DXGI_OUTDUPL_POINTER_SHAPE_TYPE(1i32);
@@ -2446,7 +2446,7 @@ impl ::core::default::Default for DXGI_OUTPUT_DESC1 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG_PRESENT: DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG = DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG(1i32);
@@ -2471,7 +2471,7 @@ impl ::core::fmt::Debug for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_OVERLAY_SUPPORT_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_OVERLAY_SUPPORT_FLAG_DIRECT: DXGI_OVERLAY_SUPPORT_FLAG = DXGI_OVERLAY_SUPPORT_FLAG(1i32);
@@ -2590,7 +2590,7 @@ impl ::core::default::Default for DXGI_QUERY_VIDEO_MEMORY_INFO {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_RECLAIM_RESOURCE_RESULTS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_RECLAIM_RESOURCE_RESULT_OK: DXGI_RECLAIM_RESOURCE_RESULTS = DXGI_RECLAIM_RESOURCE_RESULTS(0i32);
@@ -2619,7 +2619,7 @@ impl ::core::fmt::Debug for DXGI_RECLAIM_RESOURCE_RESULTS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_RESIDENCY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_RESIDENCY_FULLY_RESIDENT: DXGI_RESIDENCY = DXGI_RESIDENCY(1i32);
@@ -2648,7 +2648,7 @@ impl ::core::fmt::Debug for DXGI_RESIDENCY {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_RESOURCE_PRIORITY(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_RESOURCE_PRIORITY_MINIMUM: DXGI_RESOURCE_PRIORITY = DXGI_RESOURCE_PRIORITY(671088640u32);
@@ -2714,7 +2714,7 @@ impl ::core::default::Default for DXGI_RGBA {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_SCALING(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_SCALING_STRETCH: DXGI_SCALING = DXGI_SCALING(0i32);
@@ -2826,7 +2826,7 @@ impl ::core::default::Default for DXGI_SURFACE_DESC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_PRESENT: DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG = DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG(1i32);
@@ -2946,7 +2946,7 @@ impl ::core::default::Default for DXGI_SWAP_CHAIN_DESC1 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_SWAP_CHAIN_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_SWAP_CHAIN_FLAG_NONPREROTATED: DXGI_SWAP_CHAIN_FLAG = DXGI_SWAP_CHAIN_FLAG(1i32);
@@ -3036,7 +3036,7 @@ impl ::core::default::Default for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGI_SWAP_EFFECT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_SWAP_EFFECT_DISCARD: DXGI_SWAP_EFFECT = DXGI_SWAP_EFFECT(0i32);

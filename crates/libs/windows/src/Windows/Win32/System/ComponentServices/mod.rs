@@ -196,7 +196,7 @@ impl ::core::default::Default for ApplicationSummary {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutoSvcs_Error_Constants(pub u32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const mtsErrCtxAborted: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803138u32);
@@ -431,7 +431,7 @@ impl ::core::default::Default for CCLSIDData2 {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminAccessChecksLevelOptions(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminAccessChecksApplicationLevel: COMAdminAccessChecksLevelOptions = COMAdminAccessChecksLevelOptions(0i32);
@@ -458,7 +458,7 @@ impl ::core::fmt::Debug for COMAdminAccessChecksLevelOptions {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminActivationOptions(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminActivationInproc: COMAdminActivationOptions = COMAdminActivationOptions(0i32);
@@ -485,7 +485,7 @@ impl ::core::fmt::Debug for COMAdminActivationOptions {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminApplicationExportOptions(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminExportNoUsers: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(0i32);
@@ -518,7 +518,7 @@ impl ::core::fmt::Debug for COMAdminApplicationExportOptions {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminApplicationInstallOptions(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminInstallNoUsers: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(0i32);
@@ -547,7 +547,7 @@ impl ::core::fmt::Debug for COMAdminApplicationInstallOptions {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminAuthenticationCapabilitiesOptions(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminAuthenticationCapabilitiesNone: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(0i32);
@@ -578,7 +578,7 @@ impl ::core::fmt::Debug for COMAdminAuthenticationCapabilitiesOptions {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminAuthenticationLevelOptions(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminAuthenticationDefault: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(0i32);
@@ -618,7 +618,7 @@ pub const COMAdminCatalogCollection: ::windows::core::GUID = ::windows::core::GU
 pub const COMAdminCatalogObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf618c515_dfb8_11d1_a2cf_00805fc79235);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminComponentFlags(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminCompFlagTypeInfoFound: COMAdminComponentFlags = COMAdminComponentFlags(1i32);
@@ -653,7 +653,7 @@ impl ::core::fmt::Debug for COMAdminComponentFlags {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminComponentType(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdmin32BitComponent: COMAdminComponentType = COMAdminComponentType(1i32);
@@ -680,7 +680,7 @@ impl ::core::fmt::Debug for COMAdminComponentType {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminErrorCodes(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrObjectErrors: COMAdminErrorCodes = COMAdminErrorCodes(-2146368511i32);
@@ -879,7 +879,7 @@ impl ::core::fmt::Debug for COMAdminErrorCodes {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminFileFlags(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagLoadable: COMAdminFileFlags = COMAdminFileFlags(1i32);
@@ -940,7 +940,7 @@ impl ::core::fmt::Debug for COMAdminFileFlags {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminImpersonationLevelOptions(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminImpersonationAnonymous: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(1i32);
@@ -971,7 +971,7 @@ impl ::core::fmt::Debug for COMAdminImpersonationLevelOptions {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminInUse(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminNotInUse: COMAdminInUse = COMAdminInUse(0i32);
@@ -1006,7 +1006,7 @@ impl ::core::fmt::Debug for COMAdminInUse {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminOS(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSNotInitialized: COMAdminOS = COMAdminOS(0i32);
@@ -1103,7 +1103,7 @@ impl ::core::fmt::Debug for COMAdminOS {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminQCMessageAuthenticateOptions(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminQCMessageAuthenticateSecureApps: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(0i32);
@@ -1132,7 +1132,7 @@ impl ::core::fmt::Debug for COMAdminQCMessageAuthenticateOptions {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminServiceOptions(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminServiceLoadBalanceRouter: COMAdminServiceOptions = COMAdminServiceOptions(1i32);
@@ -1157,7 +1157,7 @@ impl ::core::fmt::Debug for COMAdminServiceOptions {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminServiceStatusOptions(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminServiceStopped: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(0i32);
@@ -1196,7 +1196,7 @@ impl ::core::fmt::Debug for COMAdminServiceStatusOptions {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminSynchronizationOptions(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminSynchronizationIgnored: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(0i32);
@@ -1229,7 +1229,7 @@ impl ::core::fmt::Debug for COMAdminSynchronizationOptions {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminThreadingModels(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminThreadingModelApartment: COMAdminThreadingModels = COMAdminThreadingModels(0i32);
@@ -1264,7 +1264,7 @@ impl ::core::fmt::Debug for COMAdminThreadingModels {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminTransactionOptions(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminTransactionIgnored: COMAdminTransactionOptions = COMAdminTransactionOptions(0i32);
@@ -1297,7 +1297,7 @@ impl ::core::fmt::Debug for COMAdminTransactionOptions {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminTxIsolationLevelOptions(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminTxIsolationLevelAny: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(0i32);
@@ -1331,7 +1331,7 @@ impl ::core::fmt::Debug for COMAdminTxIsolationLevelOptions {
 pub const COMEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0ab_7f19_11d2_978e_0000f8757e2a);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPLUS_APPTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const APPTYPE_UNKNOWN: COMPLUS_APPTYPE = COMPLUS_APPTYPE(-1i32);
@@ -1399,7 +1399,7 @@ impl ::core::default::Default for COMSVCSEVENTINFO {
 pub const CRMClerk: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0bd_7f19_11d2_978e_0000f8757e2a);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRMFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRMFLAG_FORGETTARGET: CRMFLAGS = CRMFLAGS(1i32);
@@ -1436,7 +1436,7 @@ impl ::core::fmt::Debug for CRMFLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRMREGFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRMREGFLAG_PREPAREPHASE: CRMREGFLAGS = CRMREGFLAGS(1i32);
@@ -1482,7 +1482,7 @@ pub const CRR_NO_REASON_SUPPLIED: u32 = 0u32;
 pub const CRR_RECYCLED_FROM_UI: u32 = 4294967291u32;
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_Binding(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_NoBinding: CSC_Binding = CSC_Binding(0i32);
@@ -1509,7 +1509,7 @@ impl ::core::fmt::Debug for CSC_Binding {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_COMTIIntrinsicsConfig(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_NoCOMTIIntrinsics: CSC_COMTIIntrinsicsConfig = CSC_COMTIIntrinsicsConfig(0i32);
@@ -1536,7 +1536,7 @@ impl ::core::fmt::Debug for CSC_COMTIIntrinsicsConfig {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_IISIntrinsicsConfig(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_NoIISIntrinsics: CSC_IISIntrinsicsConfig = CSC_IISIntrinsicsConfig(0i32);
@@ -1563,7 +1563,7 @@ impl ::core::fmt::Debug for CSC_IISIntrinsicsConfig {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_InheritanceConfig(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_Inherit: CSC_InheritanceConfig = CSC_InheritanceConfig(0i32);
@@ -1590,7 +1590,7 @@ impl ::core::fmt::Debug for CSC_InheritanceConfig {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_PartitionConfig(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_NoPartition: CSC_PartitionConfig = CSC_PartitionConfig(0i32);
@@ -1619,7 +1619,7 @@ impl ::core::fmt::Debug for CSC_PartitionConfig {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_SxsConfig(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_NoSxs: CSC_SxsConfig = CSC_SxsConfig(0i32);
@@ -1648,7 +1648,7 @@ impl ::core::fmt::Debug for CSC_SxsConfig {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_SynchronizationConfig(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_NoSynchronization: CSC_SynchronizationConfig = CSC_SynchronizationConfig(0i32);
@@ -1679,7 +1679,7 @@ impl ::core::fmt::Debug for CSC_SynchronizationConfig {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_ThreadPool(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_ThreadPoolNone: CSC_ThreadPool = CSC_ThreadPool(0i32);
@@ -1710,7 +1710,7 @@ impl ::core::fmt::Debug for CSC_ThreadPool {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_TrackerConfig(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_DontUseTracker: CSC_TrackerConfig = CSC_TrackerConfig(0i32);
@@ -1737,7 +1737,7 @@ impl ::core::fmt::Debug for CSC_TrackerConfig {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_TransactionConfig(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_NoTransaction: CSC_TransactionConfig = CSC_TransactionConfig(0i32);
@@ -2277,7 +2277,7 @@ impl ::core::default::Default for CrmLogRecordRead {
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CrmTransactionState(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TxState_Active: CrmTransactionState = CrmTransactionState(0i32);
@@ -2310,7 +2310,7 @@ impl ::core::fmt::Debug for CrmTransactionState {
 pub const DATA_NOT_AVAILABLE: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DUMPTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const DUMPTYPE_FULL: DUMPTYPE = DUMPTYPE(0i32);
@@ -2344,7 +2344,7 @@ pub const EventServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(
 pub const GUID_STRING_SIZE: u32 = 40u32;
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GetAppTrackerDataFlags(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const GATD_INCLUDE_PROCESS_EXE_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(1i32);
@@ -12896,7 +12896,7 @@ pub struct ITxProxyHolder_Vtbl {
 pub const LBEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c1_7f19_11d2_978e_0000f8757e2a);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LockModes(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const LockSetGet: LockModes = LockModes(0i32);
@@ -13225,7 +13225,7 @@ pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> ::windows::core::Result<()> 
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ReleaseModes(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const Standard: ReleaseModes = ReleaseModes(0i32);
@@ -13399,7 +13399,7 @@ pub const TRACKER_INIT_EVENT: &str = "Global\\COM+ Tracker Init Event";
 pub const TRACKER_STARTSTOP_EVENT: &str = "Global\\COM+ Tracker Push Event";
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRACKING_COLL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TRKCOLL_PROCESSES: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(0i32);
@@ -13431,7 +13431,7 @@ pub const TransactionContext: ::windows::core::GUID = ::windows::core::GUID::fro
 pub const TransactionContextEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cb66670_d3d4_11cf_acab_00a024a55aef);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TransactionVote(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TxCommit: TransactionVote = TransactionVote(0i32);

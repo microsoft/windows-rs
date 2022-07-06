@@ -753,7 +753,7 @@ unsafe impl ::core::marker::Send for CoreTextFormatUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextFormatUpdatingEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreTextFormatUpdatingReason(pub i32);
 impl CoreTextFormatUpdatingReason {
     pub const None: Self = Self(0i32);
@@ -790,7 +790,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextFormatUpdatingReason {
 }
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreTextFormatUpdatingResult(pub i32);
 impl CoreTextFormatUpdatingResult {
     pub const Succeeded: Self = Self(0i32);
@@ -824,7 +824,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextFormatUpdatingResult {
 }
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreTextInputPaneDisplayPolicy(pub i32);
 impl CoreTextInputPaneDisplayPolicy {
     pub const Automatic: Self = Self(0i32);
@@ -858,7 +858,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextInputPaneDisplayPolicy {
 }
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreTextInputScope(pub i32);
 impl CoreTextInputScope {
     pub const Default: Self = Self(0i32);
@@ -1612,7 +1612,7 @@ unsafe impl ::core::marker::Send for CoreTextSelectionUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextSelectionUpdatingEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreTextSelectionUpdatingResult(pub i32);
 impl CoreTextSelectionUpdatingResult {
     pub const Succeeded: Self = Self(0i32);
@@ -2126,7 +2126,7 @@ unsafe impl ::core::marker::Send for CoreTextTextUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextTextUpdatingEventArgs {}
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreTextTextUpdatingResult(pub i32);
 impl CoreTextTextUpdatingResult {
     pub const Succeeded: Self = Self(0i32);

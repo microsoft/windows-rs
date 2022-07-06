@@ -100,7 +100,7 @@ unsafe impl ::core::marker::Send for DiagnosticActionResult {}
 unsafe impl ::core::marker::Sync for DiagnosticActionResult {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DiagnosticActionState(pub i32);
 impl DiagnosticActionState {
     pub const Initializing: Self = Self(0i32);

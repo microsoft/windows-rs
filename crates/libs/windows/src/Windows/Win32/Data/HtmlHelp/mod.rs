@@ -730,7 +730,7 @@ impl ::core::default::Default for HH_GLOBAL_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HH_GPROPID(pub i32);
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 pub const HH_GPROPID_SINGLETHREAD: HH_GPROPID = HH_GPROPID(1i32);
@@ -1994,7 +1994,7 @@ pub const MAX_COLUMNS: u32 = 256u32;
 pub type PFNCOLHEAPFREE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> i32>;
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRIORITY(pub i32);
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 pub const PRIORITY_LOW: PRIORITY = PRIORITY(0i32);
@@ -2106,7 +2106,7 @@ pub const TYPE_STRING: u32 = 2u32;
 pub const TYPE_VALUE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WORD_WHEEL_OPEN_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 pub const ITWW_OPEN_CONNECT: WORD_WHEEL_OPEN_FLAGS = WORD_WHEEL_OPEN_FLAGS(0u32);

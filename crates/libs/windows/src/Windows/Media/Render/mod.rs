@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Media_Render\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioRenderCategory(pub i32);
 impl AudioRenderCategory {
     pub const Other: Self = Self(0i32);

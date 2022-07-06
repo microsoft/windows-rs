@@ -3926,7 +3926,7 @@ impl ::core::default::Default for WIAS_ENDORSER_VALUE {
 pub const WIAU_DEBUG_TSTR: &str = "S";
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WIAVIDEO_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIAVIDEO_NO_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(1i32);

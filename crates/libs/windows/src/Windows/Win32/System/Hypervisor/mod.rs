@@ -228,7 +228,7 @@ impl ::core::default::Default for GUEST_OS_INFO_1 {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GUEST_OS_MICROSOFT_IDS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const GuestOsMicrosoftUndefined: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(0i32);
@@ -263,7 +263,7 @@ impl ::core::fmt::Debug for GUEST_OS_MICROSOFT_IDS {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GUEST_OS_OPENSOURCE_IDS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const GuestOsOpenSourceUndefined: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(0i32);
@@ -296,7 +296,7 @@ impl ::core::fmt::Debug for GUEST_OS_OPENSOURCE_IDS {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GUEST_OS_VENDOR(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const GuestOsVendorUndefined: GUEST_OS_VENDOR = GUEST_OS_VENDOR(0i32);
@@ -485,7 +485,7 @@ pub unsafe fn GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle: *mut 
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDV_DEVICE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HdvDeviceTypeUndefined: HDV_DEVICE_TYPE = HDV_DEVICE_TYPE(0i32);
@@ -512,7 +512,7 @@ impl ::core::fmt::Debug for HDV_DEVICE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDV_DOORBELL_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_ANY: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(0i32);
@@ -547,7 +547,7 @@ impl ::core::fmt::Debug for HDV_DOORBELL_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDV_MMIO_MAPPING_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HdvMmioMappingFlagNone: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(0u32);
@@ -606,7 +606,7 @@ impl ::core::ops::Not for HDV_MMIO_MAPPING_FLAGS {
 pub const HDV_PCI_BAR_COUNT: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDV_PCI_BAR_SELECTOR(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HDV_PCI_BAR0: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(0i32);
@@ -705,7 +705,7 @@ pub type HDV_PCI_DEVICE_STOP = ::core::option::Option<unsafe extern "system" fn(
 pub type HDV_PCI_DEVICE_TEARDOWN = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDV_PCI_INTERFACE_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HdvPciDeviceInterfaceVersionInvalid: HDV_PCI_INTERFACE_VERSION = HDV_PCI_INTERFACE_VERSION(0i32);
@@ -1059,7 +1059,7 @@ impl ::core::default::Default for MODULE_INFO {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAGING_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const Paging_Invalid: PAGING_MODE = PAGING_MODE(0i32);
@@ -1094,7 +1094,7 @@ impl ::core::fmt::Debug for PAGING_MODE {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REGISTER_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const X64_RegisterRax: REGISTER_ID = REGISTER_ID(0i32);
@@ -1550,7 +1550,7 @@ pub unsafe fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandl
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VIRTUAL_PROCESSOR_ARCH(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const Arch_Unknown: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(0i32);
@@ -1956,7 +1956,7 @@ impl ::core::default::Default for VIRTUAL_PROCESSOR_REGISTER_1_3_0_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VIRTUAL_PROCESSOR_VENDOR(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const ProcessorVendor_Unknown: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(0i32);
@@ -2104,7 +2104,7 @@ impl ::core::default::Default for WHV_ADVISE_GPA_RANGE {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_ADVISE_GPA_RANGE_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvAdviseGpaRangeCodePopulate: WHV_ADVISE_GPA_RANGE_CODE = WHV_ADVISE_GPA_RANGE_CODE(0i32);
@@ -2215,7 +2215,7 @@ impl ::core::default::Default for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvAllocateVpciResourceFlagNone: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(0u32);
@@ -2272,7 +2272,7 @@ impl ::core::ops::Not for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
 pub const WHV_ANY_VP: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_CACHE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCacheTypeUncached: WHV_CACHE_TYPE = WHV_CACHE_TYPE(0i32);
@@ -2353,7 +2353,7 @@ impl ::core::default::Default for WHV_CAPABILITY {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_CAPABILITY_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCapabilityCodeHypervisorPresent: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(0i32);
@@ -2533,7 +2533,7 @@ impl ::core::default::Default for WHV_CPUID_OUTPUT {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_CREATE_VPCI_DEVICE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCreateVpciDeviceFlagNone: WHV_CREATE_VPCI_DEVICE_FLAGS = WHV_CREATE_VPCI_DEVICE_FLAGS(0u32);
@@ -2799,7 +2799,7 @@ impl ::core::default::Default for WHV_EMULATOR_STATUS_0 {
 pub type WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT_CODE, gpa: *mut u64) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_EXCEPTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64ExceptionTypeDivideErrorFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(0i32);
@@ -3036,7 +3036,7 @@ impl ::core::default::Default for WHV_INTERRUPT_CONTROL {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_INTERRUPT_DESTINATION_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64InterruptDestinationModePhysical: WHV_INTERRUPT_DESTINATION_MODE = WHV_INTERRUPT_DESTINATION_MODE(0i32);
@@ -3063,7 +3063,7 @@ impl ::core::fmt::Debug for WHV_INTERRUPT_DESTINATION_MODE {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_INTERRUPT_TRIGGER_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64InterruptTriggerModeEdge: WHV_INTERRUPT_TRIGGER_MODE = WHV_INTERRUPT_TRIGGER_MODE(0i32);
@@ -3090,7 +3090,7 @@ impl ::core::fmt::Debug for WHV_INTERRUPT_TRIGGER_MODE {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_INTERRUPT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64InterruptTypeFixed: WHV_INTERRUPT_TYPE = WHV_INTERRUPT_TYPE(0i32);
@@ -3125,7 +3125,7 @@ impl ::core::fmt::Debug for WHV_INTERRUPT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_MAP_GPA_RANGE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvMapGpaRangeFlagNone: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(0u32);
@@ -3274,7 +3274,7 @@ impl ::core::default::Default for WHV_MEMORY_ACCESS_INFO_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_MEMORY_ACCESS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvMemoryAccessRead: WHV_MEMORY_ACCESS_TYPE = WHV_MEMORY_ACCESS_TYPE(0i32);
@@ -3334,7 +3334,7 @@ impl ::core::default::Default for WHV_MEMORY_RANGE_ENTRY {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_MSR_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvMsrActionArchitectureDefault: WHV_MSR_ACTION = WHV_MSR_ACTION(0i32);
@@ -3479,7 +3479,7 @@ impl ::core::default::Default for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_NOTIFICATION_PORT_PROPERTY_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvNotificationPortPropertyPreferredTargetVp: WHV_NOTIFICATION_PORT_PROPERTY_CODE = WHV_NOTIFICATION_PORT_PROPERTY_CODE(1i32);
@@ -3506,7 +3506,7 @@ impl ::core::fmt::Debug for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_NOTIFICATION_PORT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvNotificationPortTypeEvent: WHV_NOTIFICATION_PORT_TYPE = WHV_NOTIFICATION_PORT_TYPE(2i32);
@@ -3533,7 +3533,7 @@ impl ::core::fmt::Debug for WHV_NOTIFICATION_PORT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_PARTITION_COUNTER_SET(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvPartitionCounterSetMemory: WHV_PARTITION_COUNTER_SET = WHV_PARTITION_COUNTER_SET(0i32);
@@ -3557,7 +3557,7 @@ impl ::core::fmt::Debug for WHV_PARTITION_COUNTER_SET {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_PARTITION_HANDLE(pub isize);
 impl WHV_PARTITION_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -3678,7 +3678,7 @@ impl ::core::default::Default for WHV_PARTITION_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_PARTITION_PROPERTY_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvPartitionPropertyCodeExtendedVmExits: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(1i32);
@@ -3795,7 +3795,7 @@ impl ::core::default::Default for WHV_PROCESSOR_APIC_COUNTERS {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_PROCESSOR_COUNTER_SET(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvProcessorCounterSetRuntime: WHV_PROCESSOR_COUNTER_SET = WHV_PROCESSOR_COUNTER_SET(0i32);
@@ -4271,7 +4271,7 @@ impl ::core::default::Default for WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_PROCESSOR_VENDOR(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvProcessorVendorAmd: WHV_PROCESSOR_VENDOR = WHV_PROCESSOR_VENDOR(0i32);
@@ -4358,7 +4358,7 @@ impl ::core::default::Default for WHV_PROCESSOR_XSAVE_FEATURES_0 {
 pub const WHV_READ_WRITE_GPA_RANGE_MAX_SIZE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_REGISTER_NAME(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64RegisterRax: WHV_REGISTER_NAME = WHV_REGISTER_NAME(0i32);
@@ -4904,7 +4904,7 @@ impl ::core::default::Default for WHV_RUN_VP_CANCELED_CONTEXT {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_RUN_VP_CANCEL_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvRunVpCancelReasonUser: WHV_RUN_VP_CANCEL_REASON = WHV_RUN_VP_CANCEL_REASON(0i32);
@@ -4996,7 +4996,7 @@ impl ::core::default::Default for WHV_RUN_VP_EXIT_CONTEXT_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_RUN_VP_EXIT_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvRunVpExitReasonNone: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(0i32);
@@ -5357,7 +5357,7 @@ impl ::core::default::Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
 pub const WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_TRANSLATE_GVA_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvTranslateGvaFlagNone: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(0u32);
@@ -5455,7 +5455,7 @@ impl ::core::default::Default for WHV_TRANSLATE_GVA_RESULT {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_TRANSLATE_GVA_RESULT_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvTranslateGvaResultSuccess: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(0i32);
@@ -5583,7 +5583,7 @@ impl ::core::default::Default for WHV_TRIGGER_PARAMETERS_0_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_TRIGGER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvTriggerTypeInterrupt: WHV_TRIGGER_TYPE = WHV_TRIGGER_TYPE(0i32);
@@ -5722,7 +5722,7 @@ impl ::core::default::Default for WHV_VIRTUAL_PROCESSOR_PROPERTY_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvVirtualProcessorPropertyCodeNumaNode: WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE = WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE(0i32);
@@ -5747,7 +5747,7 @@ impl ::core::fmt::Debug for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_VIRTUAL_PROCESSOR_STATE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvVirtualProcessorStateTypeSynicMessagePage: WHV_VIRTUAL_PROCESSOR_STATE_TYPE = WHV_VIRTUAL_PROCESSOR_STATE_TYPE(0i32);
@@ -5832,7 +5832,7 @@ impl ::core::default::Default for WHV_VPCI_DEVICE_NOTIFICATION_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_VPCI_DEVICE_NOTIFICATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvVpciDeviceNotificationUndefined: WHV_VPCI_DEVICE_NOTIFICATION_TYPE = WHV_VPCI_DEVICE_NOTIFICATION_TYPE(0i32);
@@ -5861,7 +5861,7 @@ impl ::core::fmt::Debug for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_VPCI_DEVICE_PROPERTY_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvVpciDevicePropertyCodeUndefined: WHV_VPCI_DEVICE_PROPERTY_CODE = WHV_VPCI_DEVICE_PROPERTY_CODE(0i32);
@@ -5922,7 +5922,7 @@ impl ::core::default::Default for WHV_VPCI_DEVICE_REGISTER {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_VPCI_DEVICE_REGISTER_SPACE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvVpciConfigSpace: WHV_VPCI_DEVICE_REGISTER_SPACE = WHV_VPCI_DEVICE_REGISTER_SPACE(-1i32);
@@ -6029,7 +6029,7 @@ impl ::core::default::Default for WHV_VPCI_INTERRUPT_TARGET {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_VPCI_INTERRUPT_TARGET_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvVpciInterruptTargetFlagNone: WHV_VPCI_INTERRUPT_TARGET_FLAGS = WHV_VPCI_INTERRUPT_TARGET_FLAGS(0u32);
@@ -6118,7 +6118,7 @@ impl ::core::default::Default for WHV_VPCI_MMIO_MAPPING {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_VPCI_MMIO_RANGE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvVpciMmioRangeFlagReadAccess: WHV_VPCI_MMIO_RANGE_FLAGS = WHV_VPCI_MMIO_RANGE_FLAGS(1u32);
@@ -6446,7 +6446,7 @@ impl ::core::default::Default for WHV_X64_APIC_WRITE_CONTEXT {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_X64_APIC_WRITE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64ApicWriteTypeLdr: WHV_X64_APIC_WRITE_TYPE = WHV_X64_APIC_WRITE_TYPE(208i32);
@@ -6586,7 +6586,7 @@ impl ::core::default::Default for WHV_X64_CPUID_RESULT2 {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_X64_CPUID_RESULT2_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64CpuidResult2FlagSubleafSpecific: WHV_X64_CPUID_RESULT2_FLAGS = WHV_X64_CPUID_RESULT2_FLAGS(1u32);
@@ -7046,7 +7046,7 @@ impl ::core::default::Default for WHV_X64_IO_PORT_ACCESS_INFO_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_X64_LOCAL_APIC_EMULATION_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64LocalApicEmulationModeNone: WHV_X64_LOCAL_APIC_EMULATION_MODE = WHV_X64_LOCAL_APIC_EMULATION_MODE(0i32);
@@ -7271,7 +7271,7 @@ impl ::core::default::Default for WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_X64_PENDING_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64PendingEventException: WHV_X64_PENDING_EVENT_TYPE = WHV_X64_PENDING_EVENT_TYPE(0i32);
@@ -7470,7 +7470,7 @@ impl ::core::default::Default for WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_X64_PENDING_INTERRUPTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64PendingInterrupt: WHV_X64_PENDING_INTERRUPTION_TYPE = WHV_X64_PENDING_INTERRUPTION_TYPE(0i32);
@@ -7700,7 +7700,7 @@ impl ::core::default::Default for WHV_X64_TABLE_REGISTER {
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_X64_UNSUPPORTED_FEATURE_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvUnsupportedFeatureIntercept: WHV_X64_UNSUPPORTED_FEATURE_CODE = WHV_X64_UNSUPPORTED_FEATURE_CODE(1i32);

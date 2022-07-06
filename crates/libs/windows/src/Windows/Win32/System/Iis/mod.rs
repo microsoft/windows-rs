@@ -741,7 +741,7 @@ pub const FP_MD_ID_BEGIN_RESERVED: u32 = 32768u32;
 pub const FP_MD_ID_END_RESERVED: u32 = 36863u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FTP_ACCESS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const FTP_ACCESS_NONE: FTP_ACCESS = FTP_ACCESS(0i32);
@@ -772,7 +772,7 @@ impl ::core::fmt::Debug for FTP_ACCESS {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FTP_PROCESS_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const FTP_PROCESS_CONTINUE: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(0i32);
@@ -2113,7 +2113,7 @@ pub const HTTP_TRACE_LEVEL_END: u32 = 7u32;
 pub const HTTP_TRACE_LEVEL_START: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_TRACE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const HTTP_TRACE_TYPE_BYTE: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(17i32);
@@ -5109,7 +5109,7 @@ pub const MD_WEB_SVC_EXT_RESTRICTION_LIST: u32 = 2168u32;
 pub const MD_WIN32_ERROR: u32 = 1099u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct METADATATYPES(pub i32);
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const ALL_METADATA: METADATATYPES = METADATATYPES(0i32);
@@ -5564,7 +5564,7 @@ pub const SF_NOTIFY_SEND_RESPONSE: u32 = 64u32;
 pub const SF_NOTIFY_URL_MAP: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SF_PROPERTY_IIS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const SF_PROPERTY_SSL_CTXT: SF_PROPERTY_IIS = SF_PROPERTY_IIS(0i32);
@@ -5591,7 +5591,7 @@ impl ::core::fmt::Debug for SF_PROPERTY_IIS {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SF_REQ_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const SF_REQ_SEND_RESPONSE_HEADER: SF_REQ_TYPE = SF_REQ_TYPE(0i32);
@@ -5632,7 +5632,7 @@ impl ::core::fmt::Debug for SF_REQ_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SF_STATUS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const SF_STATUS_REQ_FINISHED: SF_STATUS_TYPE = SF_STATUS_TYPE(134217728i32);

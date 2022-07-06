@@ -132,7 +132,7 @@ impl ::core::default::Default for D3DVECTOR {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_CBUFFER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_CT_CBUFFER: D3D_CBUFFER_TYPE = D3D_CBUFFER_TYPE(0i32);
@@ -183,7 +183,7 @@ pub const D3D_COMPONENT_MASK_Y: u32 = 2u32;
 pub const D3D_COMPONENT_MASK_Z: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_DRIVER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_DRIVER_TYPE_UNKNOWN: D3D_DRIVER_TYPE = D3D_DRIVER_TYPE(0i32);
@@ -218,7 +218,7 @@ impl ::core::fmt::Debug for D3D_DRIVER_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_FEATURE_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_FEATURE_LEVEL_1_0_CORE: D3D_FEATURE_LEVEL = D3D_FEATURE_LEVEL(4096i32);
@@ -293,7 +293,7 @@ pub const D3D_FL9_3_REQ_TEXTURECUBE_DIMENSION: u32 = 4096u32;
 pub const D3D_FL9_3_SIMULTANEOUS_RENDER_TARGET_COUNT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_INCLUDE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_INCLUDE_LOCAL: D3D_INCLUDE_TYPE = D3D_INCLUDE_TYPE(0i32);
@@ -326,7 +326,7 @@ impl ::core::fmt::Debug for D3D_INCLUDE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_INTERPOLATION_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_INTERPOLATION_UNDEFINED: D3D_INTERPOLATION_MODE = D3D_INTERPOLATION_MODE(0i32);
@@ -365,7 +365,7 @@ impl ::core::fmt::Debug for D3D_INTERPOLATION_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_MIN_PRECISION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_MIN_PRECISION_DEFAULT: D3D_MIN_PRECISION = D3D_MIN_PRECISION(0i32);
@@ -404,7 +404,7 @@ impl ::core::fmt::Debug for D3D_MIN_PRECISION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_NAME(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_NAME_UNDEFINED: D3D_NAME = D3D_NAME(0i32);
@@ -535,7 +535,7 @@ impl ::core::fmt::Debug for D3D_NAME {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_PARAMETER_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_PF_NONE: D3D_PARAMETER_FLAGS = D3D_PARAMETER_FLAGS(0i32);
@@ -566,7 +566,7 @@ impl ::core::fmt::Debug for D3D_PARAMETER_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_PRIMITIVE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_PRIMITIVE_UNDEFINED: D3D_PRIMITIVE = D3D_PRIMITIVE(0i32);
@@ -753,7 +753,7 @@ impl ::core::fmt::Debug for D3D_PRIMITIVE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_PRIMITIVE_TOPOLOGY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_PRIMITIVE_TOPOLOGY_UNDEFINED: D3D_PRIMITIVE_TOPOLOGY = D3D_PRIMITIVE_TOPOLOGY(0i32);
@@ -964,7 +964,7 @@ impl ::core::fmt::Debug for D3D_PRIMITIVE_TOPOLOGY {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_REGISTER_COMPONENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_REGISTER_COMPONENT_UNKNOWN: D3D_REGISTER_COMPONENT_TYPE = D3D_REGISTER_COMPONENT_TYPE(0i32);
@@ -1003,7 +1003,7 @@ impl ::core::fmt::Debug for D3D_REGISTER_COMPONENT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_RESOURCE_RETURN_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_RETURN_TYPE_UNORM: D3D_RESOURCE_RETURN_TYPE = D3D_RESOURCE_RETURN_TYPE(1i32);
@@ -1070,7 +1070,7 @@ impl ::core::fmt::Debug for D3D_RESOURCE_RETURN_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_SHADER_CBUFFER_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_CBF_USERPACKED: D3D_SHADER_CBUFFER_FLAGS = D3D_SHADER_CBUFFER_FLAGS(1i32);
@@ -1157,7 +1157,7 @@ pub const D3D_SHADER_FEATURE_WAVE_MMA: u32 = 134217728u32;
 pub const D3D_SHADER_FEATURE_WAVE_OPS: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_SHADER_INPUT_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_SIF_USERPACKED: D3D_SHADER_INPUT_FLAGS = D3D_SHADER_INPUT_FLAGS(1i32);
@@ -1204,7 +1204,7 @@ impl ::core::fmt::Debug for D3D_SHADER_INPUT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_SHADER_INPUT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_SIT_CBUFFER: D3D_SHADER_INPUT_TYPE = D3D_SHADER_INPUT_TYPE(0i32);
@@ -1310,7 +1310,7 @@ impl ::core::default::Default for D3D_SHADER_MACRO {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_SHADER_VARIABLE_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_SVC_SCALAR: D3D_SHADER_VARIABLE_CLASS = D3D_SHADER_VARIABLE_CLASS(0i32);
@@ -1367,7 +1367,7 @@ impl ::core::fmt::Debug for D3D_SHADER_VARIABLE_CLASS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_SHADER_VARIABLE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_SVF_USERPACKED: D3D_SHADER_VARIABLE_FLAGS = D3D_SHADER_VARIABLE_FLAGS(1i32);
@@ -1408,7 +1408,7 @@ impl ::core::fmt::Debug for D3D_SHADER_VARIABLE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_SHADER_VARIABLE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_SVT_VOID: D3D_SHADER_VARIABLE_TYPE = D3D_SHADER_VARIABLE_TYPE(0i32);
@@ -1663,7 +1663,7 @@ impl ::core::fmt::Debug for D3D_SHADER_VARIABLE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_SRV_DIMENSION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_SRV_DIMENSION_UNKNOWN: D3D_SRV_DIMENSION = D3D_SRV_DIMENSION(0i32);
@@ -1776,7 +1776,7 @@ impl ::core::fmt::Debug for D3D_SRV_DIMENSION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_TESSELLATOR_DOMAIN(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_TESSELLATOR_DOMAIN_UNDEFINED: D3D_TESSELLATOR_DOMAIN = D3D_TESSELLATOR_DOMAIN(0i32);
@@ -1815,7 +1815,7 @@ impl ::core::fmt::Debug for D3D_TESSELLATOR_DOMAIN {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_TESSELLATOR_OUTPUT_PRIMITIVE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_TESSELLATOR_OUTPUT_UNDEFINED: D3D_TESSELLATOR_OUTPUT_PRIMITIVE = D3D_TESSELLATOR_OUTPUT_PRIMITIVE(0i32);
@@ -1858,7 +1858,7 @@ impl ::core::fmt::Debug for D3D_TESSELLATOR_OUTPUT_PRIMITIVE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_TESSELLATOR_PARTITIONING(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_TESSELLATOR_PARTITIONING_UNDEFINED: D3D_TESSELLATOR_PARTITIONING = D3D_TESSELLATOR_PARTITIONING(0i32);

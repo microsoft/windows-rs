@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DataClasses(pub u32);
 impl DataClasses {
     pub const None: Self = Self(0u32);
@@ -373,7 +373,7 @@ unsafe impl ::core::marker::Send for ESimAddedEventArgs {}
 unsafe impl ::core::marker::Sync for ESimAddedEventArgs {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ESimAuthenticationPreference(pub i32);
 impl ESimAuthenticationPreference {
     pub const OnEntry: Self = Self(0i32);
@@ -611,7 +611,7 @@ unsafe impl ::core::marker::Send for ESimDiscoverResult {}
 unsafe impl ::core::marker::Sync for ESimDiscoverResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ESimDiscoverResultKind(pub i32);
 impl ESimDiscoverResultKind {
     pub const None: Self = Self(0i32);
@@ -863,7 +863,7 @@ unsafe impl ::core::marker::Send for ESimOperationResult {}
 unsafe impl ::core::marker::Sync for ESimOperationResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ESimOperationStatus(pub i32);
 impl ESimOperationStatus {
     pub const Success: Self = Self(0i32);
@@ -1178,7 +1178,7 @@ unsafe impl ::core::marker::Send for ESimProfile {}
 unsafe impl ::core::marker::Sync for ESimProfile {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ESimProfileClass(pub i32);
 impl ESimProfileClass {
     pub const Operational: Self = Self(0i32);
@@ -1436,7 +1436,7 @@ unsafe impl ::core::marker::Send for ESimProfileMetadata {}
 unsafe impl ::core::marker::Sync for ESimProfileMetadata {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ESimProfileMetadataState(pub i32);
 impl ESimProfileMetadataState {
     pub const Unknown: Self = Self(0i32);
@@ -1577,7 +1577,7 @@ unsafe impl ::core::marker::Send for ESimProfilePolicy {}
 unsafe impl ::core::marker::Sync for ESimProfilePolicy {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ESimProfileState(pub i32);
 impl ESimProfileState {
     pub const Unknown: Self = Self(0i32);
@@ -1791,7 +1791,7 @@ unsafe impl ::core::marker::Send for ESimServiceInfo {}
 unsafe impl ::core::marker::Sync for ESimServiceInfo {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ESimState(pub i32);
 impl ESimState {
     pub const Unknown: Self = Self(0i32);
@@ -2082,7 +2082,7 @@ unsafe impl ::core::marker::Send for ESimWatcher {}
 unsafe impl ::core::marker::Sync for ESimWatcher {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ESimWatcherStatus(pub i32);
 impl ESimWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -2382,7 +2382,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HotspotAuthenticationResponseCode(pub i32);
 impl HotspotAuthenticationResponseCode {
     pub const NoError: Self = Self(0i32);
@@ -5532,7 +5532,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MobileBroadbandAccountWatcherStatus(pub i32);
 impl MobileBroadbandAccountWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -7777,7 +7777,7 @@ unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceTriggerDetails 
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceTriggerDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MobileBroadbandDeviceType(pub i32);
 impl MobileBroadbandDeviceType {
     pub const Unknown: Self = Self(0i32);
@@ -8273,7 +8273,7 @@ unsafe impl ::core::marker::Send for MobileBroadbandModemIsolation {}
 unsafe impl ::core::marker::Sync for MobileBroadbandModemIsolation {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MobileBroadbandModemStatus(pub i32);
 impl MobileBroadbandModemStatus {
     pub const Success: Self = Self(0i32);
@@ -9033,7 +9033,7 @@ unsafe impl ::core::marker::Send for MobileBroadbandPin {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPin {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MobileBroadbandPinFormat(pub i32);
 impl MobileBroadbandPinFormat {
     pub const Unknown: Self = Self(0i32);
@@ -9068,7 +9068,7 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandPinFormat {
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MobileBroadbandPinLockState(pub i32);
 impl MobileBroadbandPinLockState {
     pub const Unknown: Self = Self(0i32);
@@ -9478,7 +9478,7 @@ unsafe impl ::core::marker::Send for MobileBroadbandPinOperationResult {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPinOperationResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MobileBroadbandPinType(pub i32);
 impl MobileBroadbandPinType {
     pub const None: Self = Self(0i32);
@@ -9521,7 +9521,7 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandPinType {
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MobileBroadbandRadioState(pub i32);
 impl MobileBroadbandRadioState {
     pub const Off: Self = Self(0i32);
@@ -10251,7 +10251,7 @@ unsafe impl ::core::marker::Send for MobileBroadbandSlotManager {}
 unsafe impl ::core::marker::Sync for MobileBroadbandSlotManager {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MobileBroadbandSlotState(pub i32);
 impl MobileBroadbandSlotState {
     pub const Unmanaged: Self = Self(0i32);
@@ -10584,7 +10584,7 @@ unsafe impl ::core::marker::Send for MobileBroadbandUiccApp {}
 unsafe impl ::core::marker::Sync for MobileBroadbandUiccApp {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MobileBroadbandUiccAppOperationStatus(pub i32);
 impl MobileBroadbandUiccAppOperationStatus {
     pub const Success: Self = Self(0i32);
@@ -10933,7 +10933,7 @@ unsafe impl ::core::marker::Send for MobileBroadbandUiccAppsResult {}
 unsafe impl ::core::marker::Sync for MobileBroadbandUiccAppsResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NetworkDeviceStatus(pub i32);
 impl NetworkDeviceStatus {
     pub const DeviceNotReady: Self = Self(0i32);
@@ -10973,7 +10973,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkDeviceStatus {
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NetworkOperatorDataUsageNotificationKind(pub i32);
 impl NetworkOperatorDataUsageNotificationKind {
     pub const DataUsageProgress: Self = Self(0i32);
@@ -11091,7 +11091,7 @@ unsafe impl ::core::marker::Send for NetworkOperatorDataUsageTriggerDetails {}
 unsafe impl ::core::marker::Sync for NetworkOperatorDataUsageTriggerDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NetworkOperatorEventMessageType(pub i32);
 impl NetworkOperatorEventMessageType {
     pub const Gsm: Self = Self(0i32);
@@ -11824,7 +11824,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a N
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NetworkRegistrationState(pub i32);
 impl NetworkRegistrationState {
     pub const None: Self = Self(0i32);
@@ -11863,7 +11863,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkRegistrationState {
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProfileMediaType(pub i32);
 impl ProfileMediaType {
     pub const Wlan: Self = Self(0i32);
@@ -12233,7 +12233,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TetheringCapability(pub i32);
 impl TetheringCapability {
     pub const Enabled: Self = Self(0i32);
@@ -12368,7 +12368,7 @@ unsafe impl ::core::marker::Send for TetheringEntitlementCheckTriggerDetails {}
 unsafe impl ::core::marker::Sync for TetheringEntitlementCheckTriggerDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TetheringOperationStatus(pub i32);
 impl TetheringOperationStatus {
     pub const Success: Self = Self(0i32);
@@ -12409,7 +12409,7 @@ unsafe impl ::windows::core::RuntimeType for TetheringOperationStatus {
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TetheringOperationalState(pub i32);
 impl TetheringOperationalState {
     pub const Unknown: Self = Self(0i32);
@@ -12445,7 +12445,7 @@ unsafe impl ::windows::core::RuntimeType for TetheringOperationalState {
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TetheringWiFiBand(pub i32);
 impl TetheringWiFiBand {
     pub const Auto: Self = Self(0i32);
@@ -12480,7 +12480,7 @@ unsafe impl ::windows::core::RuntimeType for TetheringWiFiBand {
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UiccAccessCondition(pub i32);
 impl UiccAccessCondition {
     pub const AlwaysAllowed: Self = Self(0i32);
@@ -12520,7 +12520,7 @@ unsafe impl ::windows::core::RuntimeType for UiccAccessCondition {
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UiccAppKind(pub i32);
 impl UiccAppKind {
     pub const Unknown: Self = Self(0i32);
@@ -12559,7 +12559,7 @@ unsafe impl ::windows::core::RuntimeType for UiccAppKind {
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UiccAppRecordKind(pub i32);
 impl UiccAppRecordKind {
     pub const Unknown: Self = Self(0i32);
@@ -12813,7 +12813,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UssdResultCode(pub i32);
 impl UssdResultCode {
     pub const NoActionRequired: Self = Self(0i32);

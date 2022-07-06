@@ -1248,7 +1248,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a F
 }
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FrameFlashMode(pub i32);
 impl FrameFlashMode {
     pub const Disable: Self = Self(0i32);

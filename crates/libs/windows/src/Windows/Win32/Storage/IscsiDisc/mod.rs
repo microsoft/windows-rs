@@ -1240,7 +1240,7 @@ impl ::core::default::Default for IKE_AUTHENTICATION_INFORMATION_0 {
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IKE_AUTHENTICATION_METHOD(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const IKE_AUTHENTICATION_PRESHARED_KEY_METHOD: IKE_AUTHENTICATION_METHOD = IKE_AUTHENTICATION_METHOD(1i32);
@@ -1409,7 +1409,7 @@ impl ::core::default::Default for IO_SCSI_CAPABILITIES {
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ISCSI_AUTH_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const ISCSI_NO_AUTH_TYPE: ISCSI_AUTH_TYPES = ISCSI_AUTH_TYPES(0i32);
@@ -1636,7 +1636,7 @@ impl ::core::default::Default for ISCSI_DEVICE_ON_SESSIONW {
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ISCSI_DIGEST_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const ISCSI_DIGEST_TYPE_NONE: ISCSI_DIGEST_TYPES = ISCSI_DIGEST_TYPES(0i32);
@@ -2788,7 +2788,7 @@ impl ::core::default::Default for MP_DEVICE_DATA_SET_RANGE {
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MP_STORAGE_DIAGNOSTIC_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const MpStorageDiagnosticLevelDefault: MP_STORAGE_DIAGNOSTIC_LEVEL = MP_STORAGE_DIAGNOSTIC_LEVEL(0i32);
@@ -2815,7 +2815,7 @@ impl ::core::fmt::Debug for MP_STORAGE_DIAGNOSTIC_LEVEL {
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const MpStorageDiagnosticTargetTypeUndefined: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(0i32);
@@ -3062,7 +3062,7 @@ impl ::core::default::Default for NVCACHE_REQUEST_BLOCK {
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NVCACHE_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const NvCacheStatusUnknown: NVCACHE_STATUS = NVCACHE_STATUS(0i32);
@@ -3093,7 +3093,7 @@ impl ::core::fmt::Debug for NVCACHE_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NVCACHE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const NvCacheTypeUnknown: NVCACHE_TYPE = NVCACHE_TYPE(0i32);
@@ -3264,7 +3264,7 @@ pub const NV_SEP_CACHE_PARAMETER_VERSION: u32 = 1u32;
 pub const NV_SEP_CACHE_PARAMETER_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NV_SEP_WRITE_CACHE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const NVSEPWriteCacheTypeUnknown: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(0i32);
@@ -5056,7 +5056,7 @@ pub unsafe fn SetupPersistentIScsiVolumes() -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TARGETPROTOCOLTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const ISCSI_TCP_PROTOCOL_TYPE: TARGETPROTOCOLTYPE = TARGETPROTOCOLTYPE(0i32);
@@ -5081,7 +5081,7 @@ impl ::core::fmt::Debug for TARGETPROTOCOLTYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TARGET_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const ProtocolType: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(0i32);

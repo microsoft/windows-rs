@@ -332,7 +332,7 @@ impl ::core::default::Default for CREDENTIAL_TARGET_INFORMATIONW {
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREDSPP_SUBMIT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CredsspPasswordCreds: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(2i32);
@@ -447,7 +447,7 @@ pub const CREDSSP_SERVER_AUTH_NEGOTIATE: u32 = 1u32;
 pub const CREDUIWIN_DOWNLEVEL_HELLO_AS_SMART_CARD: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREDUIWIN_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CREDUIWIN_GENERIC: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(1u32);
@@ -518,7 +518,7 @@ impl ::core::ops::Not for CREDUIWIN_FLAGS {
 pub const CREDUIWIN_IGNORE_CLOUDAUTHORITY_NAME: u32 = 262144u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREDUI_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CREDUI_FLAGS_ALWAYS_SHOW_UI: CREDUI_FLAGS = CREDUI_FLAGS(128u32);
@@ -697,7 +697,7 @@ pub const CRED_ALLOW_NAME_RESOLUTION: u32 = 1u32;
 pub const CRED_CACHE_TARGET_INFORMATION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRED_ENUMERATE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CRED_ENUMERATE_ALL_CREDENTIALS: CRED_ENUMERATE_FLAGS = CRED_ENUMERATE_FLAGS(1u32);
@@ -750,7 +750,7 @@ impl ::core::ops::Not for CRED_ENUMERATE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRED_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CRED_FLAGS_PASSWORD_FOR_CERT: CRED_FLAGS = CRED_FLAGS(1u32);
@@ -823,7 +823,7 @@ impl ::core::ops::Not for CRED_FLAGS {
 pub const CRED_LOGON_TYPES_MASK: u32 = 61440u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRED_MARSHAL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CertCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(1i32);
@@ -868,7 +868,7 @@ pub const CRED_MAX_TARGETNAME_NAMESPACE_LENGTH: u32 = 256u32;
 pub const CRED_MAX_VALUE_SIZE: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRED_PACK_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CRED_PACK_PROTECTED_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(1u32);
@@ -927,7 +927,7 @@ impl ::core::ops::Not for CRED_PACK_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRED_PERSIST(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CRED_PERSIST_NONE: CRED_PERSIST = CRED_PERSIST(0u32);
@@ -960,7 +960,7 @@ impl ::core::fmt::Debug for CRED_PERSIST {
 pub const CRED_PRESERVE_CREDENTIAL_BLOB: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRED_PROTECTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CredUnprotected: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(0i32);
@@ -1081,7 +1081,7 @@ pub const CRED_TI_VALID_FLAGS: u32 = 61567u32;
 pub const CRED_TI_WORKGROUP_MEMBER: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRED_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CRED_TYPE_GENERIC: CRED_TYPE = CRED_TYPE(1u32);
@@ -1682,7 +1682,7 @@ impl ::core::default::Default for KeyCredentialManagerInfo {
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KeyCredentialManagerOperationErrorStates(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const KeyCredentialManagerOperationErrorStateNone: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(0u32);
@@ -1749,7 +1749,7 @@ impl ::core::ops::Not for KeyCredentialManagerOperationErrorStates {
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KeyCredentialManagerOperationType(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const KeyCredentialManagerProvisioning: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(0i32);
@@ -2366,7 +2366,7 @@ impl ::core::default::Default for READER_SEL_REQUEST_0_1 {
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct READER_SEL_REQUEST_MATCH_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const RSR_MATCH_TYPE_READER_AND_CONTAINER: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(1i32);
@@ -2665,7 +2665,7 @@ pub const SCARD_READER_TYPE_VENDOR: u32 = 240u32;
 pub const SCARD_RESET_CARD: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCARD_SCOPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const SCARD_SCOPE_USER: SCARD_SCOPE = SCARD_SCOPE(0u32);
@@ -2702,7 +2702,7 @@ pub const SCARD_SHARE_SHARED: u32 = 2u32;
 pub const SCARD_SPECIFIC: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCARD_STATE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const SCARD_STATE_UNAWARE: SCARD_STATE = SCARD_STATE(0u32);

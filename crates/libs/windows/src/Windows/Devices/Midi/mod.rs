@@ -1459,7 +1459,7 @@ unsafe impl ::core::marker::Send for MidiMessageReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MidiMessageReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_Midi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MidiMessageType(pub i32);
 impl MidiMessageType {
     pub const None: Self = Self(0i32);

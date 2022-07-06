@@ -134,7 +134,7 @@ impl ::core::default::Default for BIN_RESULTS {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BIN_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const RequestSize: BIN_TYPES = BIN_TYPES(0i32);
@@ -261,7 +261,7 @@ pub const CAP_SMART_CMD: u32 = 4u32;
 pub const CDB_SIZE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHANGER_DEVICE_PROBLEM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const DeviceProblemNone: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(0i32);
@@ -466,7 +466,7 @@ impl ::core::default::Default for CHANGER_ELEMENT_STATUS_EX {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHANGER_ELEMENT_STATUS_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ELEMENT_STATUS_ACCESS: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(8u32);
@@ -588,7 +588,7 @@ impl ::core::default::Default for CHANGER_EXCHANGE_MEDIUM {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHANGER_FEATURES(pub u32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const CHANGER_BAR_CODE_SCANNER_INSTALLED: CHANGER_FEATURES = CHANGER_FEATURES(1u32);
@@ -1302,7 +1302,7 @@ impl ::core::default::Default for CREATE_USN_JOURNAL_DATA {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSVFS_DISK_CONNECTIVITY(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const CsvFsDiskConnectivityNone: CSVFS_DISK_CONNECTIVITY = CSVFS_DISK_CONNECTIVITY(0i32);
@@ -1333,7 +1333,7 @@ impl ::core::fmt::Debug for CSVFS_DISK_CONNECTIVITY {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSV_CONTROL_OP(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const CsvControlStartRedirectFile: CSV_CONTROL_OP = CSV_CONTROL_OP(2i32);
@@ -1928,7 +1928,7 @@ impl ::core::default::Default for DELETE_USN_JOURNAL_DATA {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DETECTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const DetectNone: DETECTION_TYPE = DETECTION_TYPE(0i32);
@@ -3277,7 +3277,7 @@ impl ::core::default::Default for DEVICE_INTERNAL_STATUS_DATA {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const DeviceInternalStatusDataRequestTypeUndefined: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(0i32);
@@ -3310,7 +3310,7 @@ impl ::core::fmt::Debug for DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_INTERNAL_STATUS_DATA_SET(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const DeviceStatusDataSetUndefined: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(0i32);
@@ -4311,7 +4311,7 @@ impl ::core::default::Default for DISK_CACHE_INFORMATION_0_1 {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISK_CACHE_RETENTION_PRIORITY(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const EqualPriority: DISK_CACHE_RETENTION_PRIORITY = DISK_CACHE_RETENTION_PRIORITY(0i32);
@@ -5316,7 +5316,7 @@ pub const DUPLICATE_EXTENTS_DATA_EX_ASYNC: u32 = 2u32;
 pub const DUPLICATE_EXTENTS_DATA_EX_SOURCE_ATOMIC: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DUPLICATE_EXTENTS_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FileSnapStateInactive: DUPLICATE_EXTENTS_STATE = DUPLICATE_EXTENTS_STATE(0i32);
@@ -5349,7 +5349,7 @@ pub const DeviceDsmActionFlag_NonDestructive: u32 = 2147483648u32;
 pub const EFS_TRACKED_OFFSET_HEADER_FLAG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ELEMENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const AllElements: ELEMENT_TYPE = ELEMENT_TYPE(0i32);
@@ -5786,7 +5786,7 @@ impl ::core::default::Default for FILESYSTEM_STATISTICS_EX {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILESYSTEM_STATISTICS_TYPE(pub u16);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FILESYSTEM_STATISTICS_TYPE_EXFAT: FILESYSTEM_STATISTICS_TYPE = FILESYSTEM_STATISTICS_TYPE(3u16);
@@ -7062,7 +7062,7 @@ impl ::core::default::Default for FILE_STORAGE_TIER {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_STORAGE_TIER_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FileStorageTierClassUnspecified: FILE_STORAGE_TIER_CLASS = FILE_STORAGE_TIER_CLASS(0i32);
@@ -7095,7 +7095,7 @@ impl ::core::fmt::Debug for FILE_STORAGE_TIER_CLASS {
 pub const FILE_STORAGE_TIER_DESCRIPTION_LENGTH: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_STORAGE_TIER_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FILE_STORAGE_TIER_FLAG_NO_SEEK_PENALTY: FILE_STORAGE_TIER_FLAGS = FILE_STORAGE_TIER_FLAGS(131072u32);
@@ -7156,7 +7156,7 @@ pub const FILE_STORAGE_TIER_FLAG_SMR: u32 = 16777216u32;
 pub const FILE_STORAGE_TIER_FLAG_WRITE_BACK_CACHE: u32 = 2097152u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_STORAGE_TIER_MEDIA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FileStorageTierMediaTypeUnspecified: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STORAGE_TIER_MEDIA_TYPE(0i32);
@@ -8298,7 +8298,7 @@ pub const FSCTL_WRITE_USN_CLOSE_RECORD: u32 = 590063u32;
 pub const FSCTL_WRITE_USN_REASON: u32 = 590544u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FS_BPIO_INFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSBPIO_INFL_None: FS_BPIO_INFLAGS = FS_BPIO_INFLAGS(0i32);
@@ -8390,7 +8390,7 @@ impl ::core::default::Default for FS_BPIO_INPUT {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FS_BPIO_OPERATIONS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FS_BPIO_OP_ENABLE: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(1i32);
@@ -8431,7 +8431,7 @@ impl ::core::fmt::Debug for FS_BPIO_OPERATIONS {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FS_BPIO_OUTFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FSBPIO_OUTFL_None: FS_BPIO_OUTFLAGS = FS_BPIO_OUTFLAGS(0i32);
@@ -8676,7 +8676,7 @@ impl ::core::default::Default for GET_CHANGER_PARAMETERS {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_CHANGER_PARAMETERS_FEATURES1(pub u32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const CHANGER_CLEANER_AUTODISMOUNT: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483652u32);
@@ -8942,7 +8942,7 @@ impl ::core::default::Default for GET_MEDIA_TYPES {
 pub const GET_VOLUME_BITMAP_FLAG_MASK_METADATA: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPT_ATTRIBUTES(pub u64);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const GPT_ATTRIBUTE_PLATFORM_REQUIRED: GPT_ATTRIBUTES = GPT_ATTRIBUTES(1u64);
@@ -9764,7 +9764,7 @@ pub const MEDIA_READ_ONLY: u32 = 4u32;
 pub const MEDIA_READ_WRITE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEDIA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const Unknown: MEDIA_TYPE = MEDIA_TYPE(0i32);
@@ -11071,7 +11071,7 @@ pub const PARTITION_SPACES: u32 = 231u32;
 pub const PARTITION_SPACES_DATA: u32 = 215u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PARTITION_STYLE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const PARTITION_STYLE_MBR: PARTITION_STYLE = PARTITION_STYLE(0i32);
@@ -11636,7 +11636,7 @@ pub const QUERY_DEPENDENT_VOLUME_REQUEST_FLAG_GUEST_VOLUMES: u32 = 2u32;
 pub const QUERY_DEPENDENT_VOLUME_REQUEST_FLAG_HOST_VOLUMES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QUERY_FILE_LAYOUT_FILTER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const QUERY_FILE_LAYOUT_FILTER_TYPE_NONE: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(0i32);
@@ -12039,7 +12039,7 @@ pub const RECOVERED_READS_VALID: u32 = 4u32;
 pub const RECOVERED_WRITES_VALID: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REFS_SMR_VOLUME_GC_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const SmrGcActionStart: REFS_SMR_VOLUME_GC_ACTION = REFS_SMR_VOLUME_GC_ACTION(1i32);
@@ -12070,7 +12070,7 @@ impl ::core::fmt::Debug for REFS_SMR_VOLUME_GC_ACTION {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REFS_SMR_VOLUME_GC_METHOD(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const SmrGcMethodCompaction: REFS_SMR_VOLUME_GC_METHOD = REFS_SMR_VOLUME_GC_METHOD(1i32);
@@ -12137,7 +12137,7 @@ impl ::core::default::Default for REFS_SMR_VOLUME_GC_PARAMETERS {
 pub const REFS_SMR_VOLUME_GC_PARAMETERS_VERSION_V1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REFS_SMR_VOLUME_GC_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const SmrGcStateInactive: REFS_SMR_VOLUME_GC_STATE = REFS_SMR_VOLUME_GC_STATE(0i32);
@@ -12833,7 +12833,7 @@ impl ::core::default::Default for SCM_BUS_DEDICATED_MEMORY_STATE {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCM_BUS_FIRMWARE_ACTIVATION_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ScmBusFirmwareActivationState_Idle: SCM_BUS_FIRMWARE_ACTIVATION_STATE = SCM_BUS_FIRMWARE_ACTIVATION_STATE(0i32);
@@ -12862,7 +12862,7 @@ impl ::core::fmt::Debug for SCM_BUS_FIRMWARE_ACTIVATION_STATE {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCM_BUS_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ScmBusProperty_RuntimeFwActivationInfo: SCM_BUS_PROPERTY_ID = SCM_BUS_PROPERTY_ID(0i32);
@@ -12961,7 +12961,7 @@ impl ::core::default::Default for SCM_BUS_PROPERTY_SET {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCM_BUS_QUERY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ScmBusQuery_Descriptor: SCM_BUS_QUERY_TYPE = SCM_BUS_QUERY_TYPE(0i32);
@@ -13084,7 +13084,7 @@ impl ::core::default::Default for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCM_BUS_SET_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ScmBusSet_Descriptor: SCM_BUS_SET_TYPE = SCM_BUS_SET_TYPE(0i32);
@@ -13488,7 +13488,7 @@ impl ::core::default::Default for SCM_PD_FIRMWARE_ACTIVATE {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCM_PD_FIRMWARE_ACTIVATION_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ScmPdFirmwareActivationState_Idle: SCM_PD_FIRMWARE_ACTIVATION_STATE = SCM_PD_FIRMWARE_ACTIVATION_STATE(0i32);
@@ -13691,7 +13691,7 @@ impl ::core::default::Default for SCM_PD_HEALTH_NOTIFICATION_DATA {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCM_PD_HEALTH_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ScmPhysicalDeviceHealth_Unknown: SCM_PD_HEALTH_STATUS = SCM_PD_HEALTH_STATUS(0i32);
@@ -13724,7 +13724,7 @@ impl ::core::fmt::Debug for SCM_PD_HEALTH_STATUS {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCM_PD_LAST_FW_ACTIVATION_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ScmPdLastFwActivationStatus_None: SCM_PD_LAST_FW_ACTIVATION_STATUS = SCM_PD_LAST_FW_ACTIVATION_STATUS(0i32);
@@ -13833,7 +13833,7 @@ impl ::core::default::Default for SCM_PD_MANAGEMENT_STATUS {
 pub const SCM_PD_MAX_OPERATIONAL_STATUS: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCM_PD_MEDIA_REINITIALIZATION_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ScmPhysicalDeviceReinit_Success: SCM_PD_MEDIA_REINITIALIZATION_STATUS = SCM_PD_MEDIA_REINITIALIZATION_STATUS(0i32);
@@ -13864,7 +13864,7 @@ impl ::core::fmt::Debug for SCM_PD_MEDIA_REINITIALIZATION_STATUS {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCM_PD_OPERATIONAL_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ScmPhysicalDeviceOpStatus_Unknown: SCM_PD_OPERATIONAL_STATUS = SCM_PD_OPERATIONAL_STATUS(0i32);
@@ -13905,7 +13905,7 @@ impl ::core::fmt::Debug for SCM_PD_OPERATIONAL_STATUS {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCM_PD_OPERATIONAL_STATUS_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ScmPhysicalDeviceOpReason_Unknown: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(0i32);
@@ -14109,7 +14109,7 @@ impl ::core::default::Default for SCM_PD_PASSTHROUGH_OUTPUT {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCM_PD_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ScmPhysicalDeviceProperty_DeviceInfo: SCM_PD_PROPERTY_ID = SCM_PD_PROPERTY_ID(0i32);
@@ -14222,7 +14222,7 @@ impl ::core::default::Default for SCM_PD_PROPERTY_SET {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCM_PD_QUERY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ScmPhysicalDeviceQuery_Descriptor: SCM_PD_QUERY_TYPE = SCM_PD_QUERY_TYPE(0i32);
@@ -14416,7 +14416,7 @@ impl ::core::default::Default for SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCM_PD_SET_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ScmPhysicalDeviceSet_Descriptor: SCM_PD_SET_TYPE = SCM_PD_SET_TYPE(0i32);
@@ -14598,7 +14598,7 @@ impl ::core::default::Default for SCM_REGIONS {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCM_REGION_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ScmRegionFlagNone: SCM_REGION_FLAG = SCM_REGION_FLAG(0i32);
@@ -15276,7 +15276,7 @@ impl ::core::default::Default for SHRINK_VOLUME_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SHRINK_VOLUME_REQUEST_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ShrinkPrepare: SHRINK_VOLUME_REQUEST_TYPES = SHRINK_VOLUME_REQUEST_TYPES(1i32);
@@ -15763,7 +15763,7 @@ impl ::core::default::Default for STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_ASSOCIATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StorageIdAssocDevice: STORAGE_ASSOCIATION_TYPE = STORAGE_ASSOCIATION_TYPE(0i32);
@@ -15833,7 +15833,7 @@ impl ::core::default::Default for STORAGE_ATTRIBUTE_MGMT {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_ATTRIBUTE_MGMT_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StorAttributeMgmt_ClearAttribute: STORAGE_ATTRIBUTE_MGMT_ACTION = STORAGE_ATTRIBUTE_MGMT_ACTION(0i32);
@@ -15930,7 +15930,7 @@ impl ::core::default::Default for STORAGE_BUS_RESET_REQUEST {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_COMPONENT_HEALTH_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const HealthStatusUnknown: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(0i32);
@@ -16082,7 +16082,7 @@ impl ::core::default::Default for STORAGE_COUNTERS {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_COUNTER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StorageCounterTypeUnknown: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(0i32);
@@ -16151,7 +16151,7 @@ impl ::core::fmt::Debug for STORAGE_COUNTER_TYPE {
 pub const STORAGE_CRASH_TELEMETRY_REGKEY: &str = "\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl\\StorageTelemetry";
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_CRYPTO_ALGORITHM_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StorageCryptoAlgorithmUnknown: STORAGE_CRYPTO_ALGORITHM_ID = STORAGE_CRYPTO_ALGORITHM_ID(0i32);
@@ -16259,7 +16259,7 @@ impl ::core::default::Default for STORAGE_CRYPTO_DESCRIPTOR {
 pub const STORAGE_CRYPTO_DESCRIPTOR_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_CRYPTO_KEY_SIZE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StorageCryptoKeySizeUnknown: STORAGE_CRYPTO_KEY_SIZE = STORAGE_CRYPTO_KEY_SIZE(0i32);
@@ -16458,7 +16458,7 @@ pub const STORAGE_DEVICE_FLAGS_RANDOM_DEVICEGUID_REASON_CONFLICT: u32 = 1u32;
 pub const STORAGE_DEVICE_FLAGS_RANDOM_DEVICEGUID_REASON_NOHWID: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_DEVICE_FORM_FACTOR(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const FormFactorUnknown: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(0i32);
@@ -16830,7 +16830,7 @@ impl ::core::default::Default for STORAGE_DEVICE_POWER_CAP {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_DEVICE_POWER_CAP_UNITS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StorageDevicePowerCapUnitsPercent: STORAGE_DEVICE_POWER_CAP_UNITS = STORAGE_DEVICE_POWER_CAP_UNITS(0i32);
@@ -17042,7 +17042,7 @@ impl ::core::default::Default for STORAGE_DIAGNOSTIC_DATA {
 pub const STORAGE_DIAGNOSTIC_FLAG_ADAPTER_REQUEST: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_DIAGNOSTIC_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StorageDiagnosticLevelDefault: STORAGE_DIAGNOSTIC_LEVEL = STORAGE_DIAGNOSTIC_LEVEL(0i32);
@@ -17103,7 +17103,7 @@ impl ::core::default::Default for STORAGE_DIAGNOSTIC_REQUEST {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_DIAGNOSTIC_TARGET_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StorageDiagnosticTargetTypeUndefined: STORAGE_DIAGNOSTIC_TARGET_TYPE = STORAGE_DIAGNOSTIC_TARGET_TYPE(0i32);
@@ -17136,7 +17136,7 @@ impl ::core::fmt::Debug for STORAGE_DIAGNOSTIC_TARGET_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_DISK_HEALTH_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const DiskHealthUnknown: STORAGE_DISK_HEALTH_STATUS = STORAGE_DISK_HEALTH_STATUS(0i32);
@@ -17169,7 +17169,7 @@ impl ::core::fmt::Debug for STORAGE_DISK_HEALTH_STATUS {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_DISK_OPERATIONAL_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const DiskOpStatusNone: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(0i32);
@@ -17786,7 +17786,7 @@ impl ::core::default::Default for STORAGE_IDENTIFIER {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_IDENTIFIER_CODE_SET(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StorageIdCodeSetReserved: STORAGE_IDENTIFIER_CODE_SET = STORAGE_IDENTIFIER_CODE_SET(0i32);
@@ -17817,7 +17817,7 @@ impl ::core::fmt::Debug for STORAGE_IDENTIFIER_CODE_SET {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_IDENTIFIER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StorageIdTypeVendorSpecific: STORAGE_IDENTIFIER_TYPE = STORAGE_IDENTIFIER_TYPE(0i32);
@@ -17925,7 +17925,7 @@ impl ::core::default::Default for STORAGE_IDLE_POWERUP_REASON {
 pub const STORAGE_IDLE_POWERUP_REASON_VERSION_V1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_ID_NAA_FORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StorageIdNAAFormatIEEEExtended: STORAGE_ID_NAA_FORMAT = STORAGE_ID_NAA_FORMAT(2i32);
@@ -18023,7 +18023,7 @@ impl ::core::default::Default for STORAGE_MEDIA_SERIAL_NUMBER_DATA {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_MEDIA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const DDS_4mm: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(32i32);
@@ -18593,7 +18593,7 @@ impl ::core::default::Default for STORAGE_OPERATIONAL_REASON_0_1 {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_OPERATIONAL_STATUS_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const DiskOpReasonUnknown: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(0i32);
@@ -18807,7 +18807,7 @@ impl ::core::default::Default for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_PORT_CODE_SET(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StoragePortCodeSetReserved: STORAGE_PORT_CODE_SET = STORAGE_PORT_CODE_SET(0i32);
@@ -18846,7 +18846,7 @@ impl ::core::fmt::Debug for STORAGE_PORT_CODE_SET {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_POWERUP_REASON_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StoragePowerupUnknown: STORAGE_POWERUP_REASON_TYPE = STORAGE_POWERUP_REASON_TYPE(0i32);
@@ -18938,7 +18938,7 @@ impl ::core::default::Default for STORAGE_PRIORITY_HINT_SUPPORT {
 pub const STORAGE_PRIORITY_HINT_SUPPORTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StorageDeviceProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(0i32);
@@ -19097,7 +19097,7 @@ impl ::core::default::Default for STORAGE_PROPERTY_SET {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_PROTOCOL_ATA_DATA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const AtaDataTypeUnknown: STORAGE_PROTOCOL_ATA_DATA_TYPE = STORAGE_PROTOCOL_ATA_DATA_TYPE(0i32);
@@ -19318,7 +19318,7 @@ impl ::core::default::Default for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_PROTOCOL_NVME_DATA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const NVMeDataTypeUnknown: STORAGE_PROTOCOL_NVME_DATA_TYPE = STORAGE_PROTOCOL_NVME_DATA_TYPE(0i32);
@@ -19479,7 +19479,7 @@ pub const STORAGE_PROTOCOL_STATUS_THROTTLED_REQUEST: u32 = 8u32;
 pub const STORAGE_PROTOCOL_STRUCTURE_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_PROTOCOL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ProtocolTypeUnknown: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(0i32);
@@ -19518,7 +19518,7 @@ impl ::core::fmt::Debug for STORAGE_PROTOCOL_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_PROTOCOL_UFS_DATA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const UfsDataTypeUnknown: STORAGE_PROTOCOL_UFS_DATA_TYPE = STORAGE_PROTOCOL_UFS_DATA_TYPE(0i32);
@@ -19758,7 +19758,7 @@ impl ::core::default::Default for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_QUERY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const PropertyStandardQuery: STORAGE_QUERY_TYPE = STORAGE_QUERY_TYPE(0i32);
@@ -19886,7 +19886,7 @@ impl ::core::default::Default for STORAGE_REINITIALIZE_MEDIA_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_RESERVE_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StorageReserveIdNone: STORAGE_RESERVE_ID = STORAGE_RESERVE_ID(0i32);
@@ -19919,7 +19919,7 @@ impl ::core::fmt::Debug for STORAGE_RESERVE_ID {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_RPMB_COMMAND_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StorRpmbProgramAuthKey: STORAGE_RPMB_COMMAND_TYPE = STORAGE_RPMB_COMMAND_TYPE(1i32);
@@ -20030,7 +20030,7 @@ impl ::core::default::Default for STORAGE_RPMB_DESCRIPTOR {
 pub const STORAGE_RPMB_DESCRIPTOR_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_RPMB_FRAME_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StorageRpmbFrameTypeUnknown: STORAGE_RPMB_FRAME_TYPE = STORAGE_RPMB_FRAME_TYPE(0i32);
@@ -20061,7 +20061,7 @@ impl ::core::fmt::Debug for STORAGE_RPMB_FRAME_TYPE {
 pub const STORAGE_RPMB_MINIMUM_RELIABLE_WRITE_SIZE: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_SANITIZE_METHOD(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StorageSanitizeMethodDefault: STORAGE_SANITIZE_METHOD = STORAGE_SANITIZE_METHOD(0i32);
@@ -20090,7 +20090,7 @@ impl ::core::fmt::Debug for STORAGE_SANITIZE_METHOD {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_SET_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const PropertyStandardSet: STORAGE_SET_TYPE = STORAGE_SET_TYPE(0i32);
@@ -20407,7 +20407,7 @@ impl ::core::default::Default for STORAGE_TIER {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_TIER_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StorageTierClassUnspecified: STORAGE_TIER_CLASS = STORAGE_TIER_CLASS(0i32);
@@ -20450,7 +20450,7 @@ pub const STORAGE_TIER_FLAG_SMR: u32 = 16777216u32;
 pub const STORAGE_TIER_FLAG_WRITE_BACK_CACHE: u32 = 2097152u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_TIER_MEDIA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const StorageTierMediaTypeUnspecified: STORAGE_TIER_MEDIA_TYPE = STORAGE_TIER_MEDIA_TYPE(0i32);
@@ -20723,7 +20723,7 @@ impl ::core::default::Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_ZONED_DEVICE_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ZonedDeviceTypeUnknown: STORAGE_ZONED_DEVICE_TYPES = STORAGE_ZONED_DEVICE_TYPES(0i32);
@@ -20754,7 +20754,7 @@ impl ::core::fmt::Debug for STORAGE_ZONED_DEVICE_TYPES {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_ZONES_ATTRIBUTES(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ZonesAttributeTypeAndLengthMayDifferent: STORAGE_ZONES_ATTRIBUTES = STORAGE_ZONES_ATTRIBUTES(0i32);
@@ -20785,7 +20785,7 @@ impl ::core::fmt::Debug for STORAGE_ZONES_ATTRIBUTES {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_ZONE_CONDITION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ZoneConditionConventional: STORAGE_ZONE_CONDITION = STORAGE_ZONE_CONDITION(0i32);
@@ -20900,7 +20900,7 @@ impl ::core::default::Default for STORAGE_ZONE_GROUP {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_ZONE_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const ZoneTypeUnknown: STORAGE_ZONE_TYPES = STORAGE_ZONE_TYPES(0i32);
@@ -21875,7 +21875,7 @@ impl ::core::default::Default for TXFS_READ_BACKUP_INFORMATION_OUT_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TXFS_RMF_LAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const TXFS_RM_FLAG_LOGGING_MODE: TXFS_RMF_LAGS = TXFS_RMF_LAGS(1u32);
@@ -22223,7 +22223,7 @@ pub const UNRECOVERED_READS_VALID: u32 = 8u32;
 pub const UNRECOVERED_WRITES_VALID: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USN_DELETE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const USN_DELETE_FLAG_DELETE: USN_DELETE_FLAGS = USN_DELETE_FLAGS(1u32);
@@ -22757,7 +22757,7 @@ impl ::core::default::Default for USN_RECORD_V4 {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USN_SOURCE_INFO_ID(pub u32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const USN_SOURCE_AUXILIARY_DATA: USN_SOURCE_INFO_ID = USN_SOURCE_INFO_ID(2u32);
@@ -22951,7 +22951,7 @@ impl ::core::default::Default for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VIRTUAL_STORAGE_BEHAVIOR_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const VirtualStorageBehaviorUndefined: VIRTUAL_STORAGE_BEHAVIOR_CODE = VIRTUAL_STORAGE_BEHAVIOR_CODE(0i32);
@@ -23417,7 +23417,7 @@ impl ::core::default::Default for WOF_VERSION_INFO {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WRITE_CACHE_CHANGE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const WriteCacheChangeUnknown: WRITE_CACHE_CHANGE = WRITE_CACHE_CHANGE(0i32);
@@ -23446,7 +23446,7 @@ impl ::core::fmt::Debug for WRITE_CACHE_CHANGE {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WRITE_CACHE_ENABLE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const WriteCacheEnableUnknown: WRITE_CACHE_ENABLE = WRITE_CACHE_ENABLE(0i32);
@@ -23475,7 +23475,7 @@ impl ::core::fmt::Debug for WRITE_CACHE_ENABLE {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WRITE_CACHE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const WriteCacheTypeUnknown: WRITE_CACHE_TYPE = WRITE_CACHE_TYPE(0i32);
@@ -23508,7 +23508,7 @@ impl ::core::fmt::Debug for WRITE_CACHE_TYPE {
 pub const WRITE_COMPRESSION_INFO_VALID: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WRITE_THROUGH(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const WriteThroughUnknown: WRITE_THROUGH = WRITE_THROUGH(0i32);
@@ -23568,7 +23568,7 @@ impl ::core::default::Default for WRITE_USN_REASON_INPUT {
 }
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DEVICEDUMP_COLLECTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ioctl\"`*"]
 pub const TCCollectionBugCheck: _DEVICEDUMP_COLLECTION_TYPE = _DEVICEDUMP_COLLECTION_TYPE(1i32);

@@ -805,7 +805,7 @@ unsafe impl ::core::marker::Sync for AllJoynAuthenticationCompleteEventArgs {}
 #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AllJoynAuthenticationMechanism(pub i32);
 #[cfg(feature = "deprecated")]
 impl AllJoynAuthenticationMechanism {
@@ -1165,7 +1165,7 @@ unsafe impl ::core::marker::Sync for AllJoynBusAttachment {}
 #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AllJoynBusAttachmentState(pub i32);
 #[cfg(feature = "deprecated")]
 impl AllJoynBusAttachmentState {
@@ -3010,7 +3010,7 @@ unsafe impl ::core::marker::Sync for AllJoynSessionLostEventArgs {}
 #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AllJoynSessionLostReason(pub i32);
 #[cfg(feature = "deprecated")]
 impl AllJoynSessionLostReason {
@@ -3454,7 +3454,7 @@ impl ::windows::core::RuntimeName for AllJoynStatus {
 #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AllJoynTrafficType(pub i32);
 #[cfg(feature = "deprecated")]
 impl AllJoynTrafficType {

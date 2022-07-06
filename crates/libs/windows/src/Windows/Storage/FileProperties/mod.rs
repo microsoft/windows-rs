@@ -1293,7 +1293,7 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageItemExtraProperties> for &MusicP
 }
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoOrientation(pub i32);
 impl PhotoOrientation {
     pub const Unspecified: Self = Self(0i32);
@@ -1334,7 +1334,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoOrientation {
 }
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PropertyPrefetchOptions(pub u32);
 impl PropertyPrefetchOptions {
     pub const None: Self = Self(0u32);
@@ -1957,7 +1957,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Streams::IRandomAccessStreamWithC
 }
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ThumbnailMode(pub i32);
 impl ThumbnailMode {
     pub const PicturesView: Self = Self(0i32);
@@ -1995,7 +1995,7 @@ unsafe impl ::windows::core::RuntimeType for ThumbnailMode {
 }
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ThumbnailOptions(pub u32);
 impl ThumbnailOptions {
     pub const None: Self = Self(0u32);
@@ -2059,7 +2059,7 @@ unsafe impl ::windows::core::RuntimeType for ThumbnailOptions {
 }
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ThumbnailType(pub i32);
 impl ThumbnailType {
     pub const Image: Self = Self(0i32);
@@ -2093,7 +2093,7 @@ unsafe impl ::windows::core::RuntimeType for ThumbnailType {
 }
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VideoOrientation(pub i32);
 impl VideoOrientation {
     pub const Normal: Self = Self(0i32);

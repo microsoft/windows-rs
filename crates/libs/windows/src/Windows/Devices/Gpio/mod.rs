@@ -219,7 +219,7 @@ unsafe impl ::core::marker::Send for GpioChangeCounter {}
 unsafe impl ::core::marker::Sync for GpioChangeCounter {}
 #[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GpioChangePolarity(pub i32);
 impl GpioChangePolarity {
     pub const Falling: Self = Self(0i32);
@@ -675,7 +675,7 @@ unsafe impl ::core::marker::Send for GpioController {}
 unsafe impl ::core::marker::Sync for GpioController {}
 #[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GpioOpenStatus(pub i32);
 impl GpioOpenStatus {
     pub const PinOpened: Self = Self(0i32);
@@ -901,7 +901,7 @@ unsafe impl ::core::marker::Send for GpioPin {}
 unsafe impl ::core::marker::Sync for GpioPin {}
 #[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GpioPinDriveMode(pub i32);
 impl GpioPinDriveMode {
     pub const Input: Self = Self(0i32);
@@ -941,7 +941,7 @@ unsafe impl ::windows::core::RuntimeType for GpioPinDriveMode {
 }
 #[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GpioPinEdge(pub i32);
 impl GpioPinEdge {
     pub const FallingEdge: Self = Self(0i32);
@@ -975,7 +975,7 @@ unsafe impl ::windows::core::RuntimeType for GpioPinEdge {
 }
 #[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GpioPinValue(pub i32);
 impl GpioPinValue {
     pub const Low: Self = Self(0i32);
@@ -1094,7 +1094,7 @@ unsafe impl ::core::marker::Send for GpioPinValueChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GpioPinValueChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Gpio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GpioSharingMode(pub i32);
 impl GpioSharingMode {
     pub const Exclusive: Self = Self(0i32);

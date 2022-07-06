@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ActivationKind(pub i32);
 impl ActivationKind {
     pub const Launch: Self = Self(0i32);
@@ -76,7 +76,7 @@ unsafe impl ::windows::core::RuntimeType for ActivationKind {
 }
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ApplicationExecutionState(pub i32);
 impl ApplicationExecutionState {
     pub const NotRunning: Self = Self(0i32);

@@ -1155,7 +1155,7 @@ unsafe impl ::core::marker::Send for PrintWorkflowForegroundSetupRequestedEventA
 unsafe impl ::core::marker::Sync for PrintWorkflowForegroundSetupRequestedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintWorkflowJobAbortReason(pub i32);
 impl PrintWorkflowJobAbortReason {
     pub const JobFailed: Self = Self(0i32);
@@ -2063,7 +2063,7 @@ unsafe impl ::core::marker::Send for PrintWorkflowObjectModelTargetPackage {}
 unsafe impl ::core::marker::Sync for PrintWorkflowObjectModelTargetPackage {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintWorkflowPdlConversionType(pub i32);
 impl PrintWorkflowPdlConversionType {
     pub const XpsToPdf: Self = Self(0i32);
@@ -2787,7 +2787,7 @@ unsafe impl ::core::marker::Send for PrintWorkflowPrinterJob {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPrinterJob {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintWorkflowPrinterJobStatus(pub i32);
 impl PrintWorkflowPrinterJobStatus {
     pub const Error: Self = Self(0i32);
@@ -2823,7 +2823,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowPrinterJobStatus {
 }
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintWorkflowSessionStatus(pub i32);
 impl PrintWorkflowSessionStatus {
     pub const Started: Self = Self(0i32);
@@ -3335,7 +3335,7 @@ unsafe impl ::core::marker::Send for PrintWorkflowSubmittedOperation {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSubmittedOperation {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintWorkflowSubmittedStatus(pub i32);
 impl PrintWorkflowSubmittedStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -3721,7 +3721,7 @@ unsafe impl ::core::marker::Send for PrintWorkflowUIActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowUIActivatedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintWorkflowUICompletionStatus(pub i32);
 impl PrintWorkflowUICompletionStatus {
     pub const Completed: Self = Self(0i32);

@@ -292,7 +292,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SearchSuggestionKind(pub i32);
 impl SearchSuggestionKind {
     pub const Query: Self = Self(0i32);

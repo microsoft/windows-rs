@@ -293,7 +293,7 @@ pub const MREGISTER_E_DISCOVERY_REDIRECTED: ::windows::core::HRESULT = ::windows
 pub const MREGISTER_E_REGISTRATION_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145845239i32);
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REGISTRATION_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 pub const DeviceRegistrationBasicInfo: REGISTRATION_INFORMATION_CLASS = REGISTRATION_INFORMATION_CLASS(1i32);

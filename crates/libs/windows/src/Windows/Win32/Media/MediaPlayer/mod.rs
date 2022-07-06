@@ -959,7 +959,7 @@ pub const EFFECT_VARIABLEFREQSTEP: u32 = 4u32;
 pub const EFFECT_WINDOWEDONLY: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEEDS_BACKGROUNDSYNC_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const FBSA_DISABLE: FEEDS_BACKGROUNDSYNC_ACTION = FEEDS_BACKGROUNDSYNC_ACTION(0i32);
@@ -988,7 +988,7 @@ impl ::core::fmt::Debug for FEEDS_BACKGROUNDSYNC_ACTION {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEEDS_BACKGROUNDSYNC_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const FBSS_DISABLED: FEEDS_BACKGROUNDSYNC_STATUS = FEEDS_BACKGROUNDSYNC_STATUS(0i32);
@@ -1015,7 +1015,7 @@ impl ::core::fmt::Debug for FEEDS_BACKGROUNDSYNC_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEEDS_DOWNLOAD_ERROR(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const FDE_NONE: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(0i32);
@@ -1070,7 +1070,7 @@ impl ::core::fmt::Debug for FEEDS_DOWNLOAD_ERROR {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEEDS_DOWNLOAD_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const FDS_NONE: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(0i32);
@@ -1103,7 +1103,7 @@ impl ::core::fmt::Debug for FEEDS_DOWNLOAD_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEEDS_ERROR_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const FEC_E_ERRORBASE: FEEDS_ERROR_CODE = FEEDS_ERROR_CODE(-1073479168i32);
@@ -1132,7 +1132,7 @@ impl ::core::fmt::Debug for FEEDS_ERROR_CODE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEEDS_EVENTS_ITEM_COUNT_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const FEICF_READ_ITEM_COUNT_CHANGED: FEEDS_EVENTS_ITEM_COUNT_FLAGS = FEEDS_EVENTS_ITEM_COUNT_FLAGS(1i32);
@@ -1159,7 +1159,7 @@ impl ::core::fmt::Debug for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEEDS_EVENTS_MASK(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const FEM_FOLDEREVENTS: FEEDS_EVENTS_MASK = FEEDS_EVENTS_MASK(1i32);
@@ -1186,7 +1186,7 @@ impl ::core::fmt::Debug for FEEDS_EVENTS_MASK {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEEDS_EVENTS_SCOPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const FES_ALL: FEEDS_EVENTS_SCOPE = FEEDS_EVENTS_SCOPE(0i32);
@@ -1215,7 +1215,7 @@ impl ::core::fmt::Debug for FEEDS_EVENTS_SCOPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEEDS_SYNC_SETTING(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const FSS_DEFAULT: FEEDS_SYNC_SETTING = FEEDS_SYNC_SETTING(0i32);
@@ -1246,7 +1246,7 @@ impl ::core::fmt::Debug for FEEDS_SYNC_SETTING {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEEDS_XML_FILTER_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const FXFF_ALL: FEEDS_XML_FILTER_FLAGS = FEEDS_XML_FILTER_FLAGS(0i32);
@@ -1275,7 +1275,7 @@ impl ::core::fmt::Debug for FEEDS_XML_FILTER_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEEDS_XML_INCLUDE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const FXIF_NONE: FEEDS_XML_INCLUDE_FLAGS = FEEDS_XML_INCLUDE_FLAGS(0i32);
@@ -1302,7 +1302,7 @@ impl ::core::fmt::Debug for FEEDS_XML_INCLUDE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEEDS_XML_SORT_ORDER(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const FXSO_NONE: FEEDS_XML_SORT_ORDER = FEEDS_XML_SORT_ORDER(0i32);
@@ -1331,7 +1331,7 @@ impl ::core::fmt::Debug for FEEDS_XML_SORT_ORDER {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEEDS_XML_SORT_PROPERTY(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const FXSP_NONE: FEEDS_XML_SORT_PROPERTY = FEEDS_XML_SORT_PROPERTY(0i32);
@@ -18082,7 +18082,7 @@ pub const PLUGIN_TYPE_SEPARATEWINDOW: u32 = 2u32;
 pub const PLUGIN_TYPE_SETTINGSAREA: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlayerState(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const stop_state: PlayerState = PlayerState(0i32);
@@ -18166,7 +18166,7 @@ impl ::core::default::Default for TimedLevel {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPAccountType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmpatBuyOnly: WMPAccountType = WMPAccountType(1i32);
@@ -18195,7 +18195,7 @@ impl ::core::fmt::Debug for WMPAccountType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPBurnFormat(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmpbfAudioCD: WMPBurnFormat = WMPBurnFormat(0i32);
@@ -18222,7 +18222,7 @@ impl ::core::fmt::Debug for WMPBurnFormat {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPBurnState(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmpbsUnknown: WMPBurnState = WMPBurnState(0i32);
@@ -18283,7 +18283,7 @@ pub const WMPCOREEVENT_SEEK_BASE: u32 = 5200u32;
 pub const WMPCOREEVENT_WARNING_BASE: u32 = 5600u32;
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPCallbackNotification(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmpcnLoginStateChange: WMPCallbackNotification = WMPCallbackNotification(1i32);
@@ -18356,7 +18356,7 @@ impl ::core::default::Default for WMPContextMenuInfo {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPDeviceStatus(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmpdsUnknown: WMPDeviceStatus = WMPDeviceStatus(0i32);
@@ -18393,7 +18393,7 @@ impl ::core::fmt::Debug for WMPDeviceStatus {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPFolderScanState(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmpfssUnknown: WMPFolderScanState = WMPFolderScanState(0i32);
@@ -18435,7 +18435,7 @@ pub const WMPGC_FLAGS_USE_CUSTOM_GRAPH: u32 = 16u32;
 pub const WMPLib: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf52a50_394a_11d3_b153_00c04f79faa6);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPLibraryType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmpltUnknown: WMPLibraryType = WMPLibraryType(0i32);
@@ -18472,7 +18472,7 @@ impl ::core::fmt::Debug for WMPLibraryType {
 pub const WMPOCXEVENT_BASE: u32 = 6500u32;
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPOpenState(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmposUndefined: WMPOpenState = WMPOpenState(0i32);
@@ -18539,7 +18539,7 @@ impl ::core::fmt::Debug for WMPOpenState {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPPartnerNotification(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmpsnBackgroundProcessingBegin: WMPPartnerNotification = WMPPartnerNotification(1i32);
@@ -18570,7 +18570,7 @@ impl ::core::fmt::Debug for WMPPartnerNotification {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPPlayState(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmppsUndefined: WMPPlayState = WMPPlayState(0i32);
@@ -18619,7 +18619,7 @@ impl ::core::fmt::Debug for WMPPlayState {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPPlaylistChangeEventType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmplcUnknown: WMPPlaylistChangeEventType = WMPPlaylistChangeEventType(0i32);
@@ -18666,7 +18666,7 @@ impl ::core::fmt::Debug for WMPPlaylistChangeEventType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPPlugin_Caps(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const WMPPlugin_Caps_CannotConvertFormats: WMPPlugin_Caps = WMPPlugin_Caps(1i32);
@@ -18692,7 +18692,7 @@ impl ::core::fmt::Debug for WMPPlugin_Caps {
 pub const WMPRemoteMediaServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf333473_2cf7_4be2_907f_9aad5661364f);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPRipState(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmprsUnknown: WMPRipState = WMPRipState(0i32);
@@ -18721,7 +18721,7 @@ impl ::core::fmt::Debug for WMPRipState {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPServices_StreamState(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const WMPServices_StreamState_Stop: WMPServices_StreamState = WMPServices_StreamState(0i32);
@@ -18750,7 +18750,7 @@ impl ::core::fmt::Debug for WMPServices_StreamState {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPStreamingType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmpstUnknown: WMPStreamingType = WMPStreamingType(0i32);
@@ -18781,7 +18781,7 @@ impl ::core::fmt::Debug for WMPStreamingType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPStringCollectionChangeEventType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmpsccetUnknown: WMPStringCollectionChangeEventType = WMPStringCollectionChangeEventType(0i32);
@@ -18818,7 +18818,7 @@ impl ::core::fmt::Debug for WMPStringCollectionChangeEventType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPSubscriptionDownloadState(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmpsdlsDownloading: WMPSubscriptionDownloadState = WMPSubscriptionDownloadState(0i32);
@@ -18851,7 +18851,7 @@ impl ::core::fmt::Debug for WMPSubscriptionDownloadState {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPSubscriptionServiceEvent(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmpsseCurrentBegin: WMPSubscriptionServiceEvent = WMPSubscriptionServiceEvent(1i32);
@@ -18882,7 +18882,7 @@ impl ::core::fmt::Debug for WMPSubscriptionServiceEvent {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPSyncState(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmpssUnknown: WMPSyncState = WMPSyncState(0i32);
@@ -18915,7 +18915,7 @@ impl ::core::fmt::Debug for WMPSyncState {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPTaskType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmpttBrowse: WMPTaskType = WMPTaskType(1i32);
@@ -18946,7 +18946,7 @@ impl ::core::fmt::Debug for WMPTaskType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPTemplateSize(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmptsSmall: WMPTemplateSize = WMPTemplateSize(0i32);
@@ -18975,7 +18975,7 @@ impl ::core::fmt::Debug for WMPTemplateSize {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMPTransactionType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 pub const wmpttNoTransaction: WMPTransactionType = WMPTransactionType(0i32);

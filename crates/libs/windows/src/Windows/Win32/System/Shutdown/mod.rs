@@ -30,7 +30,7 @@ pub unsafe fn CheckForHiberboot<'a, Param1: ::windows::core::IntoParam<'a, super
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXIT_WINDOWS_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
 pub const EWX_HYBRID_SHUTDOWN: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(4194304u32);
@@ -161,7 +161,7 @@ pub const POLICY_SHOWREASONUI_SERVERONLY: u32 = 3u32;
 pub const POLICY_SHOWREASONUI_WORKSTATIONONLY: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SHUTDOWN_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
 pub const SHUTDOWN_FORCE_OTHERS: SHUTDOWN_FLAGS = SHUTDOWN_FLAGS(1u32);
@@ -246,7 +246,7 @@ impl ::core::ops::Not for SHUTDOWN_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SHUTDOWN_REASON(pub u32);
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
 pub const SHTDN_REASON_NONE: SHUTDOWN_REASON = SHUTDOWN_REASON(0u32);

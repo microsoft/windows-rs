@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Devices_Sms\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CellularClass(pub i32);
 impl CellularClass {
     pub const None: Self = Self(0i32);
@@ -3674,7 +3674,7 @@ unsafe impl ::core::marker::Send for SmsBroadcastMessage {}
 unsafe impl ::core::marker::Sync for SmsBroadcastMessage {}
 #[doc = "*Required features: `\"Devices_Sms\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmsBroadcastType(pub i32);
 impl SmsBroadcastType {
     pub const Other: Self = Self(0i32);
@@ -3721,7 +3721,7 @@ unsafe impl ::windows::core::RuntimeType for SmsBroadcastType {
 }
 #[doc = "*Required features: `\"Devices_Sms\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmsDataFormat(pub i32);
 impl SmsDataFormat {
     pub const Unknown: Self = Self(0i32);
@@ -4334,7 +4334,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 #[doc = "*Required features: `\"Devices_Sms\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmsDeviceStatus(pub i32);
 impl SmsDeviceStatus {
     pub const Off: Self = Self(0i32);
@@ -4515,7 +4515,7 @@ impl ::core::default::Default for SmsEncodedLength {
 }
 #[doc = "*Required features: `\"Devices_Sms\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmsEncoding(pub i32);
 impl SmsEncoding {
     pub const Unknown: Self = Self(0i32);
@@ -4558,7 +4558,7 @@ unsafe impl ::windows::core::RuntimeType for SmsEncoding {
 }
 #[doc = "*Required features: `\"Devices_Sms\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmsFilterActionType(pub i32);
 impl SmsFilterActionType {
     pub const AcceptImmediately: Self = Self(0i32);
@@ -4909,7 +4909,7 @@ unsafe impl ::core::marker::Send for SmsFilterRules {}
 unsafe impl ::core::marker::Sync for SmsFilterRules {}
 #[doc = "*Required features: `\"Devices_Sms\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmsGeographicalScope(pub i32);
 impl SmsGeographicalScope {
     pub const None: Self = Self(0i32);
@@ -4946,7 +4946,7 @@ unsafe impl ::windows::core::RuntimeType for SmsGeographicalScope {
 }
 #[doc = "*Required features: `\"Devices_Sms\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmsMessageClass(pub i32);
 impl SmsMessageClass {
     pub const None: Self = Self(0i32);
@@ -4984,7 +4984,7 @@ unsafe impl ::windows::core::RuntimeType for SmsMessageClass {
 #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmsMessageFilter(pub i32);
 #[cfg(feature = "deprecated")]
 impl SmsMessageFilter {
@@ -5504,7 +5504,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 #[doc = "*Required features: `\"Devices_Sms\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmsMessageType(pub i32);
 impl SmsMessageType {
     pub const Binary: Self = Self(0i32);
@@ -5543,7 +5543,7 @@ unsafe impl ::windows::core::RuntimeType for SmsMessageType {
 }
 #[doc = "*Required features: `\"Devices_Sms\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmsModemErrorCode(pub i32);
 impl SmsModemErrorCode {
     pub const Other: Self = Self(0i32);

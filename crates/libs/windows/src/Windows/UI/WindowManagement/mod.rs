@@ -635,7 +635,7 @@ unsafe impl ::core::marker::Send for AppWindowClosedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowClosedEventArgs {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppWindowClosedReason(pub i32);
 impl AppWindowClosedReason {
     pub const Other: Self = Self(0i32);
@@ -769,7 +769,7 @@ unsafe impl ::core::marker::Send for AppWindowFrame {}
 unsafe impl ::core::marker::Sync for AppWindowFrame {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppWindowFrameStyle(pub i32);
 impl AppWindowFrameStyle {
     pub const Default: Self = Self(0i32);
@@ -991,7 +991,7 @@ unsafe impl ::core::marker::Send for AppWindowPresentationConfiguration {}
 unsafe impl ::core::marker::Sync for AppWindowPresentationConfiguration {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppWindowPresentationKind(pub i32);
 impl AppWindowPresentationKind {
     pub const Default: Self = Self(0i32);
@@ -1521,7 +1521,7 @@ unsafe impl ::core::marker::Send for AppWindowTitleBarOcclusion {}
 unsafe impl ::core::marker::Sync for AppWindowTitleBarOcclusion {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppWindowTitleBarVisibility(pub i32);
 impl AppWindowTitleBarVisibility {
     pub const Default: Self = Self(0i32);
@@ -2915,7 +2915,7 @@ unsafe impl ::core::marker::Send for WindowingEnvironmentChangedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowingEnvironmentChangedEventArgs {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WindowingEnvironmentKind(pub i32);
 impl WindowingEnvironmentKind {
     pub const Unknown: Self = Self(0i32);

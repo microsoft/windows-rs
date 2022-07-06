@@ -97,7 +97,7 @@ unsafe impl ::core::marker::Send for CompositionDebugHeatMaps {}
 unsafe impl ::core::marker::Sync for CompositionDebugHeatMaps {}
 #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionDebugOverdrawContentKinds(pub u32);
 impl CompositionDebugOverdrawContentKinds {
     pub const None: Self = Self(0u32);

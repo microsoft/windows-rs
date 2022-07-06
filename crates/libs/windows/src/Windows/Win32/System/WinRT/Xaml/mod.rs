@@ -1266,7 +1266,7 @@ impl ::core::default::Default for TrackerHandle__ {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XAML_REFERENCETRACKER_DISCONNECT(pub i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 pub const XAML_REFERENCETRACKER_DISCONNECT_DEFAULT: XAML_REFERENCETRACKER_DISCONNECT = XAML_REFERENCETRACKER_DISCONNECT(0i32);

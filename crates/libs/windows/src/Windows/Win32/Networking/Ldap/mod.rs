@@ -624,7 +624,7 @@ pub const LDAP_RES_SEARCH_RESULT: i32 = 101i32;
 pub const LDAP_RES_SESSION: i32 = 114i32;
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LDAP_RETCODE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 pub const LDAP_SUCCESS: LDAP_RETCODE = LDAP_RETCODE(0i32);

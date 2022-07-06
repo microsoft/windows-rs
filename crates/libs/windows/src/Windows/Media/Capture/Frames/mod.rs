@@ -1441,7 +1441,7 @@ unsafe impl ::core::marker::Send for MediaFrameReader {}
 unsafe impl ::core::marker::Sync for MediaFrameReader {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaFrameReaderAcquisitionMode(pub i32);
 impl MediaFrameReaderAcquisitionMode {
     pub const Realtime: Self = Self(0i32);
@@ -1475,7 +1475,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameReaderAcquisitionMode {
 }
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaFrameReaderStartStatus(pub i32);
 impl MediaFrameReaderStartStatus {
     pub const Success: Self = Self(0i32);
@@ -2064,7 +2064,7 @@ unsafe impl ::core::marker::Send for MediaFrameSourceGetPropertyResult {}
 unsafe impl ::core::marker::Sync for MediaFrameSourceGetPropertyResult {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaFrameSourceGetPropertyStatus(pub i32);
 impl MediaFrameSourceGetPropertyStatus {
     pub const Success: Self = Self(0i32);
@@ -2394,7 +2394,7 @@ unsafe impl ::core::marker::Send for MediaFrameSourceInfo {}
 unsafe impl ::core::marker::Sync for MediaFrameSourceInfo {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaFrameSourceKind(pub i32);
 impl MediaFrameSourceKind {
     pub const Custom: Self = Self(0i32);
@@ -2433,7 +2433,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameSourceKind {
 }
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaFrameSourceSetPropertyStatus(pub i32);
 impl MediaFrameSourceSetPropertyStatus {
     pub const Success: Self = Self(0i32);
@@ -2710,7 +2710,7 @@ unsafe impl ::core::marker::Send for MultiSourceMediaFrameReader {}
 unsafe impl ::core::marker::Sync for MultiSourceMediaFrameReader {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MultiSourceMediaFrameReaderStartStatus(pub i32);
 impl MultiSourceMediaFrameReaderStartStatus {
     pub const Success: Self = Self(0i32);

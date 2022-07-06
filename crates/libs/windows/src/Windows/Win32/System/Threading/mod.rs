@@ -33,7 +33,7 @@ impl ::core::default::Default for APP_MEMORY_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AVRT_PRIORITY(pub i32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const AVRT_PRIORITY_VERYLOW: AVRT_PRIORITY = AVRT_PRIORITY(-2i32);
@@ -257,7 +257,7 @@ pub unsafe fn AvSetMmThreadPriority<'a, Param0: ::windows::core::IntoParam<'a, s
     ::core::mem::transmute(AvSetMmThreadPriority(avrthandle.into_param().abi(), ::core::mem::transmute(priority)))
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BoundaryDescriptorHandle(pub isize);
 impl BoundaryDescriptorHandle {
     pub fn is_invalid(&self) -> bool {
@@ -287,7 +287,7 @@ unsafe impl ::windows::core::Abi for BoundaryDescriptorHandle {
 pub const CONDITION_VARIABLE_LOCKMODE_SHARED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_EVENT(pub u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const CREATE_EVENT_INITIAL_SET: CREATE_EVENT = CREATE_EVENT(2u32);
@@ -344,7 +344,7 @@ impl ::core::ops::Not for CREATE_EVENT {
 pub const CREATE_MUTEX_INITIAL_OWNER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_PROCESS_LOGON_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const LOGON_WITH_PROFILE: CREATE_PROCESS_LOGON_FLAGS = CREATE_PROCESS_LOGON_FLAGS(1u32);
@@ -1148,7 +1148,7 @@ pub unsafe fn FreeLibraryWhenCallbackReturns<'a, Param1: ::windows::core::IntoPa
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_GUI_RESOURCES_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const GR_GDIOBJECTS: GET_GUI_RESOURCES_FLAGS = GET_GUI_RESOURCES_FLAGS(0u32);
@@ -2050,7 +2050,7 @@ pub unsafe fn IsWow64Process2<'a, Param0: ::windows::core::IntoParam<'a, super::
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type LPFIBER_START_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpfiberparameter: *mut ::core::ffi::c_void)>;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LPPROC_THREAD_ATTRIBUTE_LIST(pub *mut ::core::ffi::c_void);
 impl LPPROC_THREAD_ATTRIBUTE_LIST {
     pub fn is_invalid(&self) -> bool {
@@ -2100,7 +2100,7 @@ pub unsafe fn LeaveCriticalSectionWhenCallbackReturns(pci: *mut TP_CALLBACK_INST
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MACHINE_ATTRIBUTES(pub u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const UserEnabled: MACHINE_ATTRIBUTES = MACHINE_ATTRIBUTES(1u32);
@@ -2157,7 +2157,7 @@ impl ::core::ops::Not for MACHINE_ATTRIBUTES {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEMORY_PRIORITY(pub u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const MEMORY_PRIORITY_VERY_LOW: MEMORY_PRIORITY = MEMORY_PRIORITY(1u32);
@@ -2221,7 +2221,7 @@ impl ::core::default::Default for MEMORY_PRIORITY_INFORMATION {
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const MUTEX_MODIFY_STATE: u32 = 1u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NamespaceHandle(pub isize);
 impl NamespaceHandle {
     pub fn is_invalid(&self) -> bool {
@@ -2521,7 +2521,7 @@ pub const PME_FAILFAST_ON_COMMIT_FAIL_DISABLE: u32 = 0u32;
 pub const PME_FAILFAST_ON_COMMIT_FAIL_ENABLE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_REQUEST_CONTEXT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const POWER_REQUEST_CONTEXT_DETAILED_STRING: POWER_REQUEST_CONTEXT_FLAGS = POWER_REQUEST_CONTEXT_FLAGS(2u32);
@@ -2552,7 +2552,7 @@ pub type PPS_POST_PROCESS_INIT_ROUTINE = ::core::option::Option<unsafe extern "s
 pub const PRIVATE_NAMESPACE_FLAG_DESTROY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROCESSINFOCLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const ProcessBasicInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(0i32);
@@ -2585,7 +2585,7 @@ impl ::core::fmt::Debug for PROCESSINFOCLASS {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROCESSOR_FEATURE_ID(pub u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const PF_ARM_64BIT_LOADSTORE_ATOMIC: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(25u32);
@@ -2664,7 +2664,7 @@ impl ::core::fmt::Debug for PROCESSOR_FEATURE_ID {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROCESS_ACCESS_RIGHTS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const PROCESS_TERMINATE: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(1u32);
@@ -2757,7 +2757,7 @@ impl ::core::ops::Not for PROCESS_ACCESS_RIGHTS {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROCESS_AFFINITY_AUTO_UPDATE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const PROCESS_AFFINITY_DISABLE_AUTO_UPDATE: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS = PROCESS_AFFINITY_AUTO_UPDATE_FLAGS(0u32);
@@ -2826,7 +2826,7 @@ impl ::core::default::Default for PROCESS_BASIC_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROCESS_CREATION_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const DEBUG_PROCESS: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(1u32);
@@ -2939,7 +2939,7 @@ impl ::core::ops::Not for PROCESS_CREATION_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROCESS_DEP_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const PROCESS_DEP_ENABLE: PROCESS_DEP_FLAGS = PROCESS_DEP_FLAGS(1u32);
@@ -3166,7 +3166,7 @@ impl ::core::default::Default for PROCESS_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROCESS_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const ProcessMemoryPriority: PROCESS_INFORMATION_CLASS = PROCESS_INFORMATION_CLASS(0i32);
@@ -3311,7 +3311,7 @@ impl ::core::default::Default for PROCESS_MEMORY_EXHAUSTION_INFO {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROCESS_MEMORY_EXHAUSTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const PMETypeFailFastOnCommitFailure: PROCESS_MEMORY_EXHAUSTION_TYPE = PROCESS_MEMORY_EXHAUSTION_TYPE(0i32);
@@ -3338,7 +3338,7 @@ impl ::core::fmt::Debug for PROCESS_MEMORY_EXHAUSTION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROCESS_MITIGATION_POLICY(pub i32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const ProcessDEPPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(0i32);
@@ -3397,7 +3397,7 @@ impl ::core::fmt::Debug for PROCESS_MITIGATION_POLICY {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROCESS_NAME_FORMAT(pub u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const PROCESS_NAME_WIN32: PROCESS_NAME_FORMAT = PROCESS_NAME_FORMAT(0u32);
@@ -3462,7 +3462,7 @@ impl ::core::default::Default for PROCESS_POWER_THROTTLING_STATE {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROCESS_PROTECTION_LEVEL(pub u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const PROTECTION_LEVEL_WINTCB_LIGHT: PROCESS_PROTECTION_LEVEL = PROCESS_PROTECTION_LEVEL(0u32);
@@ -3559,7 +3559,7 @@ pub const PROC_THREAD_ATTRIBUTE_MITIGATION_AUDIT_POLICY: u32 = 131096u32;
 pub const PROC_THREAD_ATTRIBUTE_MITIGATION_POLICY: u32 = 131079u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROC_THREAD_ATTRIBUTE_NUM(pub u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const ProcThreadAttributeParentProcess: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(0u32);
@@ -3644,7 +3644,7 @@ pub type PTIMERAPCROUTINE = ::core::option::Option<unsafe extern "system" fn(lpa
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(objectcontext: *mut ::core::ffi::c_void, cleanupcontext: *mut ::core::ffi::c_void)>;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PTP_POOL(pub isize);
 impl ::core::default::Default for PTP_POOL {
     fn default() -> Self {
@@ -3687,7 +3687,7 @@ pub unsafe fn PulseEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QUEUE_USER_APC_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const QUEUE_USER_APC_FLAGS_NONE: QUEUE_USER_APC_FLAGS = QUEUE_USER_APC_FLAGS(0i32);
@@ -4130,7 +4130,7 @@ impl ::core::default::Default for RTL_SRWLOCK {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTL_UMS_THREAD_INFO_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const UmsThreadInvalidInfoClass: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(0i32);
@@ -4524,7 +4524,7 @@ impl ::core::default::Default for STARTUPINFOW {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STARTUPINFOW_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const STARTF_FORCEONFEEDBACK: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(64u32);
@@ -5104,7 +5104,7 @@ pub unsafe fn SwitchToThread() -> super::super::Foundation::BOOL {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct THREADINFOCLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const ThreadIsIoPending: THREADINFOCLASS = THREADINFOCLASS(16i32);
@@ -5131,7 +5131,7 @@ impl ::core::fmt::Debug for THREADINFOCLASS {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct THREAD_ACCESS_RIGHTS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const THREAD_TERMINATE: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(1u32);
@@ -5220,7 +5220,7 @@ impl ::core::ops::Not for THREAD_ACCESS_RIGHTS {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct THREAD_CREATION_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const THREAD_CREATE_RUN_IMMEDIATELY: THREAD_CREATION_FLAGS = THREAD_CREATION_FLAGS(0u32);
@@ -5277,7 +5277,7 @@ impl ::core::ops::Not for THREAD_CREATION_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct THREAD_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const ThreadMemoryPriority: THREAD_INFORMATION_CLASS = THREAD_INFORMATION_CLASS(0i32);
@@ -5348,7 +5348,7 @@ impl ::core::default::Default for THREAD_POWER_THROTTLING_STATE {
 pub const THREAD_POWER_THROTTLING_VALID_FLAGS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct THREAD_PRIORITY(pub i32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const THREAD_MODE_BACKGROUND_BEGIN: THREAD_PRIORITY = THREAD_PRIORITY(65536i32);
@@ -5485,7 +5485,7 @@ impl ::core::default::Default for TP_CALLBACK_ENVIRON_V3_1_0 {
 pub struct TP_CALLBACK_INSTANCE(pub u8);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TP_CALLBACK_PRIORITY(pub i32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const TP_CALLBACK_PRIORITY_HIGH: TP_CALLBACK_PRIORITY = TP_CALLBACK_PRIORITY(0i32);
@@ -5576,7 +5576,7 @@ pub unsafe fn TerminateThread<'a, Param0: ::windows::core::IntoParam<'a, super::
     ::core::mem::transmute(TerminateThread(hthread.into_param().abi(), ::core::mem::transmute(dwexitcode)))
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TimerQueueHandle(pub isize);
 impl TimerQueueHandle {
     pub fn is_invalid(&self) -> bool {
@@ -5856,7 +5856,7 @@ pub const WAIT_IO_COMPLETION: u32 = 192u32;
 pub const WAIT_OBJECT_0: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WORKER_THREAD_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const WT_EXECUTEDEFAULT: WORKER_THREAD_FLAGS = WORKER_THREAD_FLAGS(0u32);

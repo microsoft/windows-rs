@@ -250,7 +250,7 @@ unsafe impl ::core::marker::Send for DevicePortalConnectionClosedEventArgs {}
 unsafe impl ::core::marker::Sync for DevicePortalConnectionClosedEventArgs {}
 #[doc = "*Required features: `\"System_Diagnostics_DevicePortal\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DevicePortalConnectionClosedReason(pub i32);
 impl DevicePortalConnectionClosedReason {
     pub const Unknown: Self = Self(0i32);

@@ -6184,7 +6184,7 @@ pub struct IWICStreamProvider_Vtbl {
 pub type PFNProgressNotification = ::core::option::Option<unsafe extern "system" fn(pvdata: *const ::core::ffi::c_void, uframenum: u32, operation: WICProgressOperation, dblprogress: f64) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WIC8BIMIptcDigestProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WIC8BIMIptcDigestPString: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(1u32);
@@ -6213,7 +6213,7 @@ impl ::core::fmt::Debug for WIC8BIMIptcDigestProperties {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WIC8BIMIptcProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WIC8BIMIptcPString: WIC8BIMIptcProperties = WIC8BIMIptcProperties(0u32);
@@ -6242,7 +6242,7 @@ impl ::core::fmt::Debug for WIC8BIMIptcProperties {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WIC8BIMResolutionInfoProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WIC8BIMResolutionInfoPString: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(1u32);
@@ -6281,7 +6281,7 @@ impl ::core::fmt::Debug for WIC8BIMResolutionInfoProperties {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICBitmapAlphaChannelOption(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICBitmapUseAlpha: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(0i32);
@@ -6312,7 +6312,7 @@ impl ::core::fmt::Debug for WICBitmapAlphaChannelOption {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICBitmapCreateCacheOption(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICBitmapNoCache: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(0i32);
@@ -6343,7 +6343,7 @@ impl ::core::fmt::Debug for WICBitmapCreateCacheOption {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICBitmapDecoderCapabilities(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICBitmapDecoderCapabilitySameEncoder: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(1i32);
@@ -6378,7 +6378,7 @@ impl ::core::fmt::Debug for WICBitmapDecoderCapabilities {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICBitmapDitherType(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICBitmapDitherTypeNone: WICBitmapDitherType = WICBitmapDitherType(0i32);
@@ -6423,7 +6423,7 @@ impl ::core::fmt::Debug for WICBitmapDitherType {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICBitmapEncoderCacheOption(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICBitmapEncoderCacheInMemory: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(0i32);
@@ -6454,7 +6454,7 @@ impl ::core::fmt::Debug for WICBitmapEncoderCacheOption {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICBitmapInterpolationMode(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICBitmapInterpolationModeNearestNeighbor: WICBitmapInterpolationMode = WICBitmapInterpolationMode(0i32);
@@ -6489,7 +6489,7 @@ impl ::core::fmt::Debug for WICBitmapInterpolationMode {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICBitmapLockFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICBitmapLockRead: WICBitmapLockFlags = WICBitmapLockFlags(1i32);
@@ -6518,7 +6518,7 @@ impl ::core::fmt::Debug for WICBitmapLockFlags {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICBitmapPaletteType(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICBitmapPaletteTypeCustom: WICBitmapPaletteType = WICBitmapPaletteType(0i32);
@@ -6678,7 +6678,7 @@ impl ::core::default::Default for WICBitmapPlaneDescription {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICBitmapTransformOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICBitmapTransformRotate0: WICBitmapTransformOptions = WICBitmapTransformOptions(0i32);
@@ -6715,7 +6715,7 @@ impl ::core::fmt::Debug for WICBitmapTransformOptions {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICColorContextType(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICColorContextUninitialized: WICColorContextType = WICColorContextType(0i32);
@@ -6744,7 +6744,7 @@ impl ::core::fmt::Debug for WICColorContextType {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICComponentEnumerateOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICComponentEnumerateDefault: WICComponentEnumerateOptions = WICComponentEnumerateOptions(0i32);
@@ -6779,7 +6779,7 @@ impl ::core::fmt::Debug for WICComponentEnumerateOptions {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICComponentSigning(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICComponentSigned: WICComponentSigning = WICComponentSigning(1i32);
@@ -6812,7 +6812,7 @@ impl ::core::fmt::Debug for WICComponentSigning {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICComponentType(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICDecoder: WICComponentType = WICComponentType(1i32);
@@ -6883,7 +6883,7 @@ pub unsafe fn WICCreateBitmapFromSectionEx<'a, Param3: ::windows::core::IntoPara
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICDdsAlphaMode(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICDdsAlphaModeUnknown: WICDdsAlphaMode = WICDdsAlphaMode(0i32);
@@ -6918,7 +6918,7 @@ impl ::core::fmt::Debug for WICDdsAlphaMode {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICDdsDimension(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICDdsTexture1D: WICDdsDimension = WICDdsDimension(0i32);
@@ -7037,7 +7037,7 @@ impl ::core::default::Default for WICDdsParameters {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICDecodeOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICDecodeMetadataCacheOnDemand: WICDecodeOptions = WICDecodeOptions(0i32);
@@ -7076,7 +7076,7 @@ pub unsafe fn WICGetMetadataContentSize<'a, Param1: ::windows::core::IntoParam<'
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICGifApplicationExtensionProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICGifApplicationExtensionApplication: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(1u32);
@@ -7105,7 +7105,7 @@ impl ::core::fmt::Debug for WICGifApplicationExtensionProperties {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICGifCommentExtensionProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICGifCommentExtensionText: WICGifCommentExtensionProperties = WICGifCommentExtensionProperties(1u32);
@@ -7132,7 +7132,7 @@ impl ::core::fmt::Debug for WICGifCommentExtensionProperties {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICGifGraphicControlExtensionProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICGifGraphicControlExtensionDisposal: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(1u32);
@@ -7167,7 +7167,7 @@ impl ::core::fmt::Debug for WICGifGraphicControlExtensionProperties {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICGifImageDescriptorProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICGifImageDescriptorLeft: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(1u32);
@@ -7208,7 +7208,7 @@ impl ::core::fmt::Debug for WICGifImageDescriptorProperties {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICGifLogicalScreenDescriptorProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICGifLogicalScreenSignature: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(1u32);
@@ -7251,7 +7251,7 @@ impl ::core::fmt::Debug for WICGifLogicalScreenDescriptorProperties {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICHeifHdrProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICHeifHdrMaximumLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(1u32);
@@ -7286,7 +7286,7 @@ impl ::core::fmt::Debug for WICHeifHdrProperties {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICHeifProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICHeifOrientation: WICHeifProperties = WICHeifProperties(1u32);
@@ -7357,7 +7357,7 @@ impl ::core::default::Default for WICImageParameters {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICJpegChrominanceProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICJpegChrominanceTable: WICJpegChrominanceProperties = WICJpegChrominanceProperties(1u32);
@@ -7384,7 +7384,7 @@ impl ::core::fmt::Debug for WICJpegChrominanceProperties {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICJpegCommentProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICJpegCommentText: WICJpegCommentProperties = WICJpegCommentProperties(1u32);
@@ -7448,7 +7448,7 @@ impl ::core::default::Default for WICJpegFrameHeader {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICJpegIndexingOptions(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICJpegIndexingOptionsGenerateOnDemand: WICJpegIndexingOptions = WICJpegIndexingOptions(0u32);
@@ -7477,7 +7477,7 @@ impl ::core::fmt::Debug for WICJpegIndexingOptions {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICJpegLuminanceProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICJpegLuminanceTable: WICJpegLuminanceProperties = WICJpegLuminanceProperties(1u32);
@@ -7550,7 +7550,7 @@ impl ::core::default::Default for WICJpegScanHeader {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICJpegScanType(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICJpegScanTypeInterleaved: WICJpegScanType = WICJpegScanType(0u32);
@@ -7581,7 +7581,7 @@ impl ::core::fmt::Debug for WICJpegScanType {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICJpegTransferMatrix(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICJpegTransferMatrixIdentity: WICJpegTransferMatrix = WICJpegTransferMatrix(0u32);
@@ -7610,7 +7610,7 @@ impl ::core::fmt::Debug for WICJpegTransferMatrix {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICJpegYCrCbSubsamplingOption(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICJpegYCrCbSubsamplingDefault: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(0i32);
@@ -7684,7 +7684,7 @@ pub unsafe fn WICMatchMetadataContent<'a, Param2: ::windows::core::IntoParam<'a,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICMetadataCreationOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICMetadataCreationDefault: WICMetadataCreationOptions = WICMetadataCreationOptions(0i32);
@@ -7782,7 +7782,7 @@ impl ::core::default::Default for WICMetadataPattern {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICNamedWhitePoint(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICWhitePointDefault: WICNamedWhitePoint = WICNamedWhitePoint(1i32);
@@ -7829,7 +7829,7 @@ impl ::core::fmt::Debug for WICNamedWhitePoint {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPersistOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPersistOptionDefault: WICPersistOptions = WICPersistOptions(0i32);
@@ -7866,7 +7866,7 @@ impl ::core::fmt::Debug for WICPersistOptions {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPixelFormatNumericRepresentation(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPixelFormatNumericRepresentationUnspecified: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(0u32);
@@ -7903,7 +7903,7 @@ impl ::core::fmt::Debug for WICPixelFormatNumericRepresentation {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPlanarOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPlanarOptionsDefault: WICPlanarOptions = WICPlanarOptions(0i32);
@@ -7932,7 +7932,7 @@ impl ::core::fmt::Debug for WICPlanarOptions {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPngBkgdProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPngBkgdBackgroundColor: WICPngBkgdProperties = WICPngBkgdProperties(1u32);
@@ -7959,7 +7959,7 @@ impl ::core::fmt::Debug for WICPngBkgdProperties {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPngChrmProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPngChrmWhitePointX: WICPngChrmProperties = WICPngChrmProperties(1u32);
@@ -8000,7 +8000,7 @@ impl ::core::fmt::Debug for WICPngChrmProperties {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPngFilterOption(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPngFilterUnspecified: WICPngFilterOption = WICPngFilterOption(0i32);
@@ -8039,7 +8039,7 @@ impl ::core::fmt::Debug for WICPngFilterOption {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPngGamaProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPngGamaGamma: WICPngGamaProperties = WICPngGamaProperties(1u32);
@@ -8066,7 +8066,7 @@ impl ::core::fmt::Debug for WICPngGamaProperties {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPngHistProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPngHistFrequencies: WICPngHistProperties = WICPngHistProperties(1u32);
@@ -8093,7 +8093,7 @@ impl ::core::fmt::Debug for WICPngHistProperties {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPngIccpProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPngIccpProfileName: WICPngIccpProperties = WICPngIccpProperties(1u32);
@@ -8122,7 +8122,7 @@ impl ::core::fmt::Debug for WICPngIccpProperties {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPngItxtProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPngItxtKeyword: WICPngItxtProperties = WICPngItxtProperties(1u32);
@@ -8157,7 +8157,7 @@ impl ::core::fmt::Debug for WICPngItxtProperties {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPngSrgbProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPngSrgbRenderingIntent: WICPngSrgbProperties = WICPngSrgbProperties(1u32);
@@ -8184,7 +8184,7 @@ impl ::core::fmt::Debug for WICPngSrgbProperties {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPngTimeProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPngTimeYear: WICPngTimeProperties = WICPngTimeProperties(1u32);
@@ -8221,7 +8221,7 @@ impl ::core::fmt::Debug for WICPngTimeProperties {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICProgressNotification(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICProgressNotificationBegin: WICProgressNotification = WICProgressNotification(65536i32);
@@ -8254,7 +8254,7 @@ impl ::core::fmt::Debug for WICProgressNotification {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICProgressOperation(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICProgressOperationCopyPixels: WICProgressOperation = WICProgressOperation(1i32);
@@ -8285,7 +8285,7 @@ impl ::core::fmt::Debug for WICProgressOperation {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICRawCapabilities(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICRawCapabilityNotSupported: WICRawCapabilities = WICRawCapabilities(0i32);
@@ -8410,7 +8410,7 @@ pub const WICRawChangeNotification_Tint: u32 = 256u32;
 pub const WICRawChangeNotification_ToneCurve: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICRawParameterSet(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICAsShotParameterSet: WICRawParameterSet = WICRawParameterSet(1i32);
@@ -8441,7 +8441,7 @@ impl ::core::fmt::Debug for WICRawParameterSet {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICRawRenderMode(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICRawRenderModeDraft: WICRawRenderMode = WICRawRenderMode(1i32);
@@ -8472,7 +8472,7 @@ impl ::core::fmt::Debug for WICRawRenderMode {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICRawRotationCapabilities(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICRawRotationCapabilityNotSupported: WICRawRotationCapabilities = WICRawRotationCapabilities(0i32);
@@ -8600,7 +8600,7 @@ impl ::core::default::Default for WICRect {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICSectionAccessLevel(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICSectionAccessLevelRead: WICSectionAccessLevel = WICSectionAccessLevel(1u32);
@@ -8639,7 +8639,7 @@ pub unsafe fn WICSerializeMetadataContent<'a, Param1: ::windows::core::IntoParam
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICTiffCompressionOption(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICTiffCompressionDontCare: WICTiffCompressionOption = WICTiffCompressionOption(0i32);
@@ -8680,7 +8680,7 @@ impl ::core::fmt::Debug for WICTiffCompressionOption {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICWebpAnimProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICWebpAnimLoopCount: WICWebpAnimProperties = WICWebpAnimProperties(1u32);
@@ -8707,7 +8707,7 @@ impl ::core::fmt::Debug for WICWebpAnimProperties {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICWebpAnmfProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICWebpAnmfFrameDuration: WICWebpAnmfProperties = WICWebpAnmfProperties(1u32);

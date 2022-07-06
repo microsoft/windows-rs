@@ -2,7 +2,7 @@
 pub mod Common;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACCESS_MASKENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PERM_EXCLUSIVE: ACCESS_MASKENUM = ACCESS_MASKENUM(512i32);
@@ -92,7 +92,7 @@ impl ::core::default::Default for AUTHENTICATION_INFO {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTH_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const eAUTH_TYPE_ANONYMOUS: AUTH_TYPE = AUTH_TYPE(0i32);
@@ -216,7 +216,7 @@ pub const BUCKET_EXPONENTIAL: u32 = 1u32;
 pub const BUCKET_LINEAR: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CASE_REQUIREMENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const CASE_REQUIREMENT_ANY: CASE_REQUIREMENT = CASE_REQUIREMENT(0i32);
@@ -374,7 +374,7 @@ pub const CDBSELFDISPIDS: u32 = 8u32;
 pub const CERT_E_NOT_FOUND_OR_NO_PERMISSSION: i32 = -2147211263i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHANNEL_AGENT_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const CHANNEL_AGENT_DYNAMIC_SCHEDULE: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FLAGS(1i32);
@@ -442,7 +442,7 @@ pub const CLSID_SQLOLEDB_ENUMERATOR: ::windows::core::GUID = ::windows::core::GU
 pub const CLSID_SQLOLEDB_ERROR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0932c62_38e5_11d0_97ab_00c04fc2ad98);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSION_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const CLUSIONREASON_UNKNOWNSCOPE: CLUSION_REASON = CLUSION_REASON(0i32);
@@ -566,7 +566,7 @@ impl ::core::default::Default for COLUMNSET {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONDITION_CREATION_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const CONDITION_CREATION_DEFAULT: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(0u32);
@@ -690,7 +690,7 @@ pub const CQUERYMETADISPIDS: u32 = 10u32;
 pub const CQUERYPROPERTY: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATESUBSCRIPTIONFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const CREATESUBS_ADDTOFAVORITES: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTIONFLAGS(1i32);
@@ -825,7 +825,7 @@ pub const CSearchRoot: ::windows::core::GUID = ::windows::core::GUID::from_u128(
 pub const CSearchScopeRule: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe63de750_3bd7_4be5_9c84_6b4281988c44);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CatalogPausedReason(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const CATALOG_PAUSED_REASON_NONE: CatalogPausedReason = CatalogPausedReason(0i32);
@@ -870,7 +870,7 @@ impl ::core::fmt::Debug for CatalogPausedReason {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CatalogStatus(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const CATALOG_STATUS_IDLE: CatalogStatus = CatalogStatus(0i32);
@@ -941,7 +941,7 @@ impl ::core::default::Default for DATE_STRUCT {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBACCESSORFLAGSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBACCESSOR_INVALID: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(0i32);
@@ -976,7 +976,7 @@ impl ::core::fmt::Debug for DBACCESSORFLAGSENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBASYNCHOPENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBASYNCHOP_OPEN: DBASYNCHOPENUM = DBASYNCHOPENUM(0i32);
@@ -1001,7 +1001,7 @@ impl ::core::fmt::Debug for DBASYNCHOPENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBASYNCHPHASEENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBASYNCHPHASE_INITIALIZATION: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(0i32);
@@ -1098,7 +1098,7 @@ impl ::core::default::Default for DBBINDEXT {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBBINDFLAGENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBBINDFLAG_HTML: DBBINDFLAGENUM = DBBINDFLAGENUM(1i32);
@@ -1232,7 +1232,7 @@ impl ::core::default::Default for DBBINDING {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBBINDSTATUSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBBINDSTATUS_OK: DBBINDSTATUSENUM = DBBINDSTATUSENUM(0i32);
@@ -1269,7 +1269,7 @@ impl ::core::fmt::Debug for DBBINDSTATUSENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBBINDURLFLAGENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBBINDURLFLAG_READ: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(1i32);
@@ -1326,7 +1326,7 @@ impl ::core::fmt::Debug for DBBINDURLFLAGENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBBINDURLSTATUSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBBINDURLSTATUS_S_OK: DBBINDURLSTATUSENUM = DBBINDURLSTATUSENUM(0i32);
@@ -1357,7 +1357,7 @@ impl ::core::fmt::Debug for DBBINDURLSTATUSENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBBOOKMARK(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBBMK_INVALID: DBBOOKMARK = DBBOOKMARK(0i32);
@@ -1574,7 +1574,7 @@ impl ::core::default::Default for DBCOLUMNDESC {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBCOLUMNDESCFLAGSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBCOLUMNDESCFLAGS_TYPENAME: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(1i32);
@@ -1615,7 +1615,7 @@ impl ::core::fmt::Debug for DBCOLUMNDESCFLAGSENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBCOLUMNFLAGS15ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBCOLUMNFLAGS_ISCHAPTER: DBCOLUMNFLAGS15ENUM = DBCOLUMNFLAGS15ENUM(8192i32);
@@ -1640,7 +1640,7 @@ impl ::core::fmt::Debug for DBCOLUMNFLAGS15ENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBCOLUMNFLAGSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBCOLUMNFLAGS_ISBOOKMARK: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(1i32);
@@ -1685,7 +1685,7 @@ impl ::core::fmt::Debug for DBCOLUMNFLAGSENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBCOLUMNFLAGSENUM20(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBCOLUMNFLAGS_SCALEISNEGATIVE: DBCOLUMNFLAGSENUM20 = DBCOLUMNFLAGSENUM20(16384i32);
@@ -1712,7 +1712,7 @@ impl ::core::fmt::Debug for DBCOLUMNFLAGSENUM20 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBCOLUMNFLAGSENUM21(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBCOLUMNFLAGS_ISROWURL: DBCOLUMNFLAGSENUM21 = DBCOLUMNFLAGSENUM21(65536i32);
@@ -1741,7 +1741,7 @@ impl ::core::fmt::Debug for DBCOLUMNFLAGSENUM21 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBCOLUMNFLAGSENUM26(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBCOLUMNFLAGS_ISSTREAM: DBCOLUMNFLAGSENUM26 = DBCOLUMNFLAGSENUM26(524288i32);
@@ -1863,7 +1863,7 @@ impl ::core::default::Default for DBCOLUMNINFO {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBCOMMANDPERSISTFLAGENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBCOMMANDPERSISTFLAG_NOSAVE: DBCOMMANDPERSISTFLAGENUM = DBCOMMANDPERSISTFLAGENUM(1i32);
@@ -1888,7 +1888,7 @@ impl ::core::fmt::Debug for DBCOMMANDPERSISTFLAGENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBCOMMANDPERSISTFLAGENUM21(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBCOMMANDPERSISTFLAG_DEFAULT: DBCOMMANDPERSISTFLAGENUM21 = DBCOMMANDPERSISTFLAGENUM21(0i32);
@@ -1917,7 +1917,7 @@ impl ::core::fmt::Debug for DBCOMMANDPERSISTFLAGENUM21 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBCOMPAREENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBCOMPARE_LT: DBCOMPAREENUM = DBCOMPAREENUM(0i32);
@@ -1950,7 +1950,7 @@ impl ::core::fmt::Debug for DBCOMPAREENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBCOMPAREOPSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBCOMPAREOPS_LT: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(0i32);
@@ -1995,7 +1995,7 @@ impl ::core::fmt::Debug for DBCOMPAREOPSENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBCOMPAREOPSENUM20(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBCOMPAREOPS_NOTBEGINSWITH: DBCOMPAREOPSENUM20 = DBCOMPAREOPSENUM20(9i32);
@@ -2132,7 +2132,7 @@ impl ::core::default::Default for DBCONSTRAINTDESC {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBCONSTRAINTTYPEENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBCONSTRAINTTYPE_UNIQUE: DBCONSTRAINTTYPEENUM = DBCONSTRAINTTYPEENUM(0i32);
@@ -2163,7 +2163,7 @@ impl ::core::fmt::Debug for DBCONSTRAINTTYPEENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBCONVERTFLAGSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBCONVERTFLAGS_COLUMN: DBCONVERTFLAGSENUM = DBCONVERTFLAGSENUM(0i32);
@@ -2190,7 +2190,7 @@ impl ::core::fmt::Debug for DBCONVERTFLAGSENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBCONVERTFLAGSENUM20(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBCONVERTFLAGS_ISLONG: DBCONVERTFLAGSENUM20 = DBCONVERTFLAGSENUM20(2i32);
@@ -2219,7 +2219,7 @@ impl ::core::fmt::Debug for DBCONVERTFLAGSENUM20 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBCOPYFLAGSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBCOPY_ASYNC: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(256i32);
@@ -2320,7 +2320,7 @@ impl ::core::default::Default for DBCOST {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBCOSTUNITENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBUNIT_INVALID: DBCOSTUNITENUM = DBCOSTUNITENUM(0i32);
@@ -2379,7 +2379,7 @@ impl ::core::fmt::Debug for DBCOSTUNITENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBDATACONVERTENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBDATACONVERT_DEFAULT: DBDATACONVERTENUM = DBDATACONVERTENUM(0i32);
@@ -2444,7 +2444,7 @@ impl ::core::default::Default for DBDATE {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBDEFERRABILITYENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBDEFERRABILITY_DEFERRED: DBDEFERRABILITYENUM = DBDEFERRABILITYENUM(1i32);
@@ -2471,7 +2471,7 @@ impl ::core::fmt::Debug for DBDEFERRABILITYENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBDELETEFLAGSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBDELETE_ASYNC: DBDELETEFLAGSENUM = DBDELETEFLAGSENUM(256i32);
@@ -2498,7 +2498,7 @@ impl ::core::fmt::Debug for DBDELETEFLAGSENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBEVENTPHASEENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBEVENTPHASE_OKTODO: DBEVENTPHASEENUM = DBEVENTPHASEENUM(0i32);
@@ -2531,7 +2531,7 @@ impl ::core::fmt::Debug for DBEVENTPHASEENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBEXECLIMITSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBEXECLIMITS_ABORT: DBEXECLIMITSENUM = DBEXECLIMITSENUM(1i32);
@@ -2768,7 +2768,7 @@ impl ::core::default::Default for DBINDEXCOLUMNDESC {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBINDEX_COL_ORDERENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBINDEX_COL_ORDER_ASC: DBINDEX_COL_ORDERENUM = DBINDEX_COL_ORDERENUM(0i32);
@@ -2795,7 +2795,7 @@ impl ::core::fmt::Debug for DBINDEX_COL_ORDERENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBLITERALENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBLITERAL_INVALID: DBLITERALENUM = DBLITERALENUM(0i32);
@@ -2860,7 +2860,7 @@ impl ::core::fmt::Debug for DBLITERALENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBLITERALENUM20(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBLITERAL_CUBE_NAME: DBLITERALENUM20 = DBLITERALENUM20(21i32);
@@ -2899,7 +2899,7 @@ impl ::core::fmt::Debug for DBLITERALENUM20 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBLITERALENUM21(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBLITERAL_ESCAPE_PERCENT_SUFFIX: DBLITERALENUM21 = DBLITERALENUM21(29i32);
@@ -3014,7 +3014,7 @@ impl ::core::default::Default for DBLITERALINFO {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBMATCHTYPEENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBMATCHTYPE_FULL: DBMATCHTYPEENUM = DBMATCHTYPEENUM(0i32);
@@ -3045,7 +3045,7 @@ impl ::core::fmt::Debug for DBMATCHTYPEENUM {
 pub const DBMAXCHAR: u32 = 8001u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBMEMOWNERENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBMEMOWNER_CLIENTOWNED: DBMEMOWNERENUM = DBMEMOWNERENUM(0i32);
@@ -3072,7 +3072,7 @@ impl ::core::fmt::Debug for DBMEMOWNERENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBMOVEFLAGSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBMOVE_REPLACE_EXISTING: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(1i32);
@@ -3245,7 +3245,7 @@ impl ::core::default::Default for DBPARAMBINDINFO {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPARAMFLAGSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPARAMFLAGS_ISINPUT: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(1i32);
@@ -3278,7 +3278,7 @@ impl ::core::fmt::Debug for DBPARAMFLAGSENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPARAMFLAGSENUM20(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPARAMFLAGS_SCALEISNEGATIVE: DBPARAMFLAGSENUM20 = DBPARAMFLAGSENUM20(256i32);
@@ -3391,7 +3391,7 @@ impl ::core::default::Default for DBPARAMINFO {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPARAMIOENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPARAMIO_NOTPARAM: DBPARAMIOENUM = DBPARAMIOENUM(0i32);
@@ -3496,7 +3496,7 @@ pub const DBPARAMTYPE_OUTPUT: u32 = 3u32;
 pub const DBPARAMTYPE_RETURNVALUE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPARTENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPART_INVALID: DBPARTENUM = DBPARTENUM(0i32);
@@ -3527,7 +3527,7 @@ impl ::core::fmt::Debug for DBPARTENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPENDINGSTATUSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPENDINGSTATUS_NEW: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(1i32);
@@ -3560,7 +3560,7 @@ impl ::core::fmt::Debug for DBPENDINGSTATUSENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPOSITIONFLAGSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPOSITION_OK: DBPOSITIONFLAGSENUM = DBPOSITIONFLAGSENUM(0i32);
@@ -3591,7 +3591,7 @@ impl ::core::fmt::Debug for DBPOSITIONFLAGSENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPROMPTOPTIONSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPROMPTOPTIONS_NONE: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(0i32);
@@ -3707,7 +3707,7 @@ impl ::core::default::Default for DBPROP {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPROPENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPROP_ABORTPRESERVE: DBPROPENUM = DBPROPENUM(2i32);
@@ -4050,7 +4050,7 @@ impl ::core::fmt::Debug for DBPROPENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPROPENUM15(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPROP_FILTERCOMPAREOPS: DBPROPENUM15 = DBPROPENUM15(209i32);
@@ -4105,7 +4105,7 @@ impl ::core::fmt::Debug for DBPROPENUM15 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPROPENUM20(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPROP_IMultipleResults: DBPROPENUM20 = DBPROPENUM20(217i32);
@@ -4214,7 +4214,7 @@ impl ::core::fmt::Debug for DBPROPENUM20 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPROPENUM21(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPROP_TRUSTEE_USERNAME: DBPROPENUM21 = DBPROPENUM21(241i32);
@@ -4279,7 +4279,7 @@ impl ::core::fmt::Debug for DBPROPENUM21 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPROPENUM25(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPROP_COL_SEED: DBPROPENUM25 = DBPROPENUM25(282i32);
@@ -4310,7 +4310,7 @@ impl ::core::fmt::Debug for DBPROPENUM25 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPROPENUM25_DEPRECATED(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPROP_ICommandCost: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(141i32);
@@ -4365,7 +4365,7 @@ impl ::core::fmt::Debug for DBPROPENUM25_DEPRECATED {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPROPENUM26(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPROP_OUTPUTSTREAM: DBPROPENUM26 = DBPROPENUM26(286i32);
@@ -4400,7 +4400,7 @@ impl ::core::fmt::Debug for DBPROPENUM26 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPROPFLAGSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPROPFLAGS_NOTSUPPORTED: DBPROPFLAGSENUM = DBPROPFLAGSENUM(0i32);
@@ -4451,7 +4451,7 @@ impl ::core::fmt::Debug for DBPROPFLAGSENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPROPFLAGSENUM21(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPROPFLAGS_TRUSTEE: DBPROPFLAGSENUM21 = DBPROPFLAGSENUM21(8192i32);
@@ -4476,7 +4476,7 @@ impl ::core::fmt::Debug for DBPROPFLAGSENUM21 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPROPFLAGSENUM25(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPROPFLAGS_VIEW: DBPROPFLAGSENUM25 = DBPROPFLAGSENUM25(16384i32);
@@ -4501,7 +4501,7 @@ impl ::core::fmt::Debug for DBPROPFLAGSENUM25 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPROPFLAGSENUM26(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPROPFLAGS_STREAM: DBPROPFLAGSENUM26 = DBPROPFLAGSENUM26(32768i32);
@@ -4757,7 +4757,7 @@ impl ::core::default::Default for DBPROPINFOSET {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPROPOPTIONSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPROPOPTIONS_REQUIRED: DBPROPOPTIONSENUM = DBPROPOPTIONSENUM(0i32);
@@ -4885,7 +4885,7 @@ pub const DBPROPSET_SQLSERVERSESSION: ::windows::core::GUID = ::windows::core::G
 pub const DBPROPSET_SQLSERVERSTREAM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f79c073_8a6d_4bca_a8a8_c9b79a9b962d);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPROPSTATUSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPROPSTATUS_OK: DBPROPSTATUSENUM = DBPROPSTATUSENUM(0i32);
@@ -4926,7 +4926,7 @@ impl ::core::fmt::Debug for DBPROPSTATUSENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBPROPSTATUSENUM21(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPROPSTATUS_NOTAVAILABLE: DBPROPSTATUSENUM21 = DBPROPSTATUSENUM21(9i32);
@@ -5341,7 +5341,7 @@ pub const DBPROP_PersistSchema: u32 = 3u32;
 pub const DBPROP_Unicode: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBRANGEENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBRANGE_INCLUSIVESTART: DBRANGEENUM = DBRANGEENUM(0i32);
@@ -5378,7 +5378,7 @@ impl ::core::fmt::Debug for DBRANGEENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBRANGEENUM20(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBRANGE_MATCH_N_SHIFT: DBRANGEENUM20 = DBRANGEENUM20(24i32);
@@ -5405,7 +5405,7 @@ impl ::core::fmt::Debug for DBRANGEENUM20 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBREASONENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBREASON_ROWSET_FETCHPOSITIONCHANGE: DBREASONENUM = DBREASONENUM(0i32);
@@ -5458,7 +5458,7 @@ impl ::core::fmt::Debug for DBREASONENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBREASONENUM15(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBREASON_ROWPOSITION_CHANGED: DBREASONENUM15 = DBREASONENUM15(15i32);
@@ -5489,7 +5489,7 @@ impl ::core::fmt::Debug for DBREASONENUM15 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBREASONENUM25(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBREASON_ROWSET_ROWSADDED: DBREASONENUM25 = DBREASONENUM25(19i32);
@@ -5518,7 +5518,7 @@ impl ::core::fmt::Debug for DBREASONENUM25 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBRESOURCEKINDENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBRESOURCE_INVALID: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(0i32);
@@ -5559,7 +5559,7 @@ impl ::core::fmt::Debug for DBRESOURCEKINDENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBRESULTFLAGENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBRESULTFLAG_DEFAULT: DBRESULTFLAGENUM = DBRESULTFLAGENUM(0i32);
@@ -5588,7 +5588,7 @@ impl ::core::fmt::Debug for DBRESULTFLAGENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBROWCHANGEKINDENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBROWCHANGEKIND_INSERT: DBROWCHANGEKINDENUM = DBROWCHANGEKINDENUM(0i32);
@@ -5619,7 +5619,7 @@ impl ::core::fmt::Debug for DBROWCHANGEKINDENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBROWSTATUSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBROWSTATUS_S_OK: DBROWSTATUSENUM = DBROWSTATUSENUM(0i32);
@@ -5678,7 +5678,7 @@ impl ::core::fmt::Debug for DBROWSTATUSENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBROWSTATUSENUM20(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBROWSTATUS_S_NOCHANGE: DBROWSTATUSENUM20 = DBROWSTATUSENUM20(20i32);
@@ -5704,7 +5704,7 @@ impl ::core::fmt::Debug for DBROWSTATUSENUM20 {
 pub const DBSCHEMA_LINKEDSERVERS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9093caf4_2eac_11d1_9809_00c04fc2ad98);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBSEEKENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBSEEK_INVALID: DBSEEKENUM = DBSEEKENUM(0i32);
@@ -5741,7 +5741,7 @@ impl ::core::fmt::Debug for DBSEEKENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBSORTENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBSORT_ASCENDING: DBSORTENUM = DBSORTENUM(0i32);
@@ -5768,7 +5768,7 @@ impl ::core::fmt::Debug for DBSORTENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBSOURCETYPEENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBSOURCETYPE_DATASOURCE: DBSOURCETYPEENUM = DBSOURCETYPEENUM(1i32);
@@ -5795,7 +5795,7 @@ impl ::core::fmt::Debug for DBSOURCETYPEENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBSOURCETYPEENUM20(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBSOURCETYPE_DATASOURCE_TDP: DBSOURCETYPEENUM20 = DBSOURCETYPEENUM20(1i32);
@@ -5822,7 +5822,7 @@ impl ::core::fmt::Debug for DBSOURCETYPEENUM20 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBSOURCETYPEENUM25(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBSOURCETYPE_BINDER: DBSOURCETYPEENUM25 = DBSOURCETYPEENUM25(4i32);
@@ -5847,7 +5847,7 @@ impl ::core::fmt::Debug for DBSOURCETYPEENUM25 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBSTATUSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBSTATUS_S_OK: DBSTATUSENUM = DBSTATUSENUM(0i32);
@@ -5898,7 +5898,7 @@ impl ::core::fmt::Debug for DBSTATUSENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBSTATUSENUM20(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const MDSTATUS_S_CELLEMPTY: DBSTATUSENUM20 = DBSTATUSENUM20(14i32);
@@ -5925,7 +5925,7 @@ impl ::core::fmt::Debug for DBSTATUSENUM20 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBSTATUSENUM21(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBSTATUS_E_DOESNOTEXIST: DBSTATUSENUM21 = DBSTATUSENUM21(16i32);
@@ -5970,7 +5970,7 @@ impl ::core::fmt::Debug for DBSTATUSENUM21 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBSTATUSENUM25(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBSTATUS_E_CANCELED: DBSTATUSENUM25 = DBSTATUSENUM25(27i32);
@@ -5997,7 +5997,7 @@ impl ::core::fmt::Debug for DBSTATUSENUM25 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBSTATUSENUM26(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBSTATUS_S_ROWSETCOLUMN: DBSTATUSENUM26 = DBSTATUSENUM26(29i32);
@@ -6022,7 +6022,7 @@ impl ::core::fmt::Debug for DBSTATUSENUM26 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBTABLESTATISTICSTYPE26(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBSTAT_HISTOGRAM: DBTABLESTATISTICSTYPE26 = DBTABLESTATISTICSTYPE26(1i32);
@@ -6159,7 +6159,7 @@ impl ::core::default::Default for DBTIMESTAMP {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBTYPEENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBTYPE_EMPTY: DBTYPEENUM = DBTYPEENUM(0i32);
@@ -6250,7 +6250,7 @@ impl ::core::fmt::Debug for DBTYPEENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBTYPEENUM15(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBTYPE_HCHAPTER: DBTYPEENUM15 = DBTYPEENUM15(136i32);
@@ -6275,7 +6275,7 @@ impl ::core::fmt::Debug for DBTYPEENUM15 {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBTYPEENUM20(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBTYPE_FILETIME: DBTYPEENUM20 = DBTYPEENUM20(64i32);
@@ -6306,7 +6306,7 @@ impl ::core::fmt::Debug for DBTYPEENUM20 {
 pub const DBTYPE_SQLVARIANT: u32 = 144u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBUPDELRULEENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBUPDELRULE_NOACTION: DBUPDELRULEENUM = DBUPDELRULEENUM(0i32);
@@ -6403,7 +6403,7 @@ impl ::core::default::Default for DBVECTOR {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBWATCHMODEENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBWATCHMODE_ALL: DBWATCHMODEENUM = DBWATCHMODEENUM(1i32);
@@ -6434,7 +6434,7 @@ impl ::core::fmt::Debug for DBWATCHMODEENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBWATCHNOTIFYENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBWATCHNOTIFY_ROWSCHANGED: DBWATCHNOTIFYENUM = DBWATCHNOTIFYENUM(1i32);
@@ -6976,7 +6976,7 @@ impl ::core::default::Default for DCINFO {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DCINFOTYPEENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DCINFOTYPE_VERSION: DCINFOTYPEENUM = DCINFOTYPEENUM(1i32);
@@ -7001,7 +7001,7 @@ impl ::core::fmt::Debug for DCINFOTYPEENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DELIVERY_AGENT_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DELIVERY_AGENT_FLAG_NO_BROADCAST: DELIVERY_AGENT_FLAGS = DELIVERY_AGENT_FLAGS(4i32);
@@ -7363,7 +7363,7 @@ pub struct DataSourceObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EBindInfoOptions(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const BIO_BINDER: EBindInfoOptions = EBindInfoOptions(1i32);
@@ -7945,7 +7945,7 @@ pub const FLTRDMN_E_QI_FILTER_FAILED: i32 = -2147212286i32;
 pub const FLTRDMN_E_UNEXPECTED: i32 = -2147212287i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FOLLOW_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const FF_INDEXCOMPLEXURLS: FOLLOW_FLAGS = FOLLOW_FLAGS(1i32);
@@ -13416,7 +13416,7 @@ pub const INET_S_AGENT_INCREASED_CACHE_SIZE: ::windows::core::HRESULT = ::window
 pub const INET_S_AGENT_PART_FAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(790401i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERVAL_LIMIT_KIND(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const ILK_EXPLICIT_INCLUDED: INTERVAL_LIMIT_KIND = INTERVAL_LIMIT_KIND(0i32);
@@ -22877,7 +22877,7 @@ impl ::core::default::Default for KAGREQDIAG {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KAGREQDIAGFLAGSENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const KAGREQDIAGFLAGS_HEADER: KAGREQDIAGFLAGSENUM = KAGREQDIAGFLAGSENUM(1i32);
@@ -22904,7 +22904,7 @@ impl ::core::fmt::Debug for KAGREQDIAGFLAGSENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOCKMODEENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const LOCKMODE_INVALID: LOCKMODEENUM = LOCKMODEENUM(0i32);
@@ -23327,7 +23327,7 @@ pub const MSDAORA8_ERROR: ::windows::core::GUID = ::windows::core::GUID::from_u1
 pub const MSDAORA_ERROR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8cc4cbf_fdff_11d0_b865_00a0c9081c1d);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSDSDBINITPROPENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPROP_MSDS_DBINIT_DATAPROVIDER: MSDSDBINITPROPENUM = MSDSDBINITPROPENUM(2i32);
@@ -23352,7 +23352,7 @@ impl ::core::fmt::Debug for MSDSDBINITPROPENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSDSSESSIONPROPENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const DBPROP_MSDS_SESS_UNIQUENAMES: MSDSSESSIONPROPENUM = MSDSSESSIONPROPENUM(2i32);
@@ -23421,7 +23421,7 @@ pub const MSS_E_UNICODEFILEHEADERMISSING: i32 = -2147213051i32;
 pub const MS_PERSIST_PROGID: &str = "MSPersist";
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NAMED_ENTITY_CERTAINTY(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const NEC_LOW: NAMED_ENTITY_CERTAINTY = NAMED_ENTITY_CERTAINTY(0i32);
@@ -24039,7 +24039,7 @@ pub const OLEDBVER: u32 = 624u32;
 pub const OLEDB_BINDER_CUSTOM_ERROR: i32 = -2147212032i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OSPCOMP(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const OSPCOMP_EQ: OSPCOMP = OSPCOMP(1i32);
@@ -24076,7 +24076,7 @@ impl ::core::fmt::Debug for OSPCOMP {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OSPFIND(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const OSPFIND_DEFAULT: OSPFIND = OSPFIND(0i32);
@@ -24107,7 +24107,7 @@ impl ::core::fmt::Debug for OSPFIND {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OSPFORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const OSPFORMAT_RAW: OSPFORMAT = OSPFORMAT(0i32);
@@ -24138,7 +24138,7 @@ impl ::core::fmt::Debug for OSPFORMAT {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OSPRW(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const OSPRW_DEFAULT: OSPRW = OSPRW(1i32);
@@ -24169,7 +24169,7 @@ impl ::core::fmt::Debug for OSPRW {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OSPXFER(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const OSPXFER_COMPLETE: OSPXFER = OSPXFER(0i32);
@@ -24245,7 +24245,7 @@ pub const PRAllBits: u32 = 7u32;
 pub const PRAny: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRIORITIZE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PRIORITIZE_FLAG_RETRYFAILEDITEMS: PRIORITIZE_FLAGS = PRIORITIZE_FLAGS(1i32);
@@ -24272,7 +24272,7 @@ impl ::core::fmt::Debug for PRIORITIZE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRIORITY_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PRIORITY_LEVEL_FOREGROUND: PRIORITY_LEVEL = PRIORITY_LEVEL(0i32);
@@ -24345,7 +24345,7 @@ pub const PROPID_DBBMK_CHAPTER: u32 = 3u32;
 pub const PROPID_DBSELF_SELF: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROXY_ACCESS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const PROXY_ACCESS_PRECONFIG: PROXY_ACCESS = PROXY_ACCESS(0i32);
@@ -24554,7 +24554,7 @@ pub const QUERY_E_TOP_LEVEL_IN_GROUP: ::windows::core::HRESULT = ::windows::core
 pub const QUERY_E_UPGRADEINPROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215848i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QUERY_PARSER_MANAGER_OPTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const QPMO_SCHEMA_BINARY_NAME: QUERY_PARSER_MANAGER_OPTION = QUERY_PARSER_MANAGER_OPTION(0i32);
@@ -24833,7 +24833,7 @@ impl ::core::default::Default for RMTPACK {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ROWSETEVENT_ITEMSTATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const ROWSETEVENT_ITEMSTATE_NOTINROWSET: ROWSETEVENT_ITEMSTATE = ROWSETEVENT_ITEMSTATE(0i32);
@@ -24862,7 +24862,7 @@ impl ::core::fmt::Debug for ROWSETEVENT_ITEMSTATE {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ROWSETEVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const ROWSETEVENT_TYPE_DATAEXPIRED: ROWSETEVENT_TYPE = ROWSETEVENT_TYPE(0i32);
@@ -25011,7 +25011,7 @@ impl ::core::default::Default for SEARCH_COLUMN_PROPERTIES {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SEARCH_INDEXING_PHASE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SEARCH_INDEXING_PHASE_GATHERER: SEARCH_INDEXING_PHASE = SEARCH_INDEXING_PHASE(0i32);
@@ -25146,7 +25146,7 @@ impl ::core::default::Default for SEARCH_ITEM_PERSISTENT_CHANGE {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SEARCH_KIND_OF_CHANGE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SEARCH_CHANGE_ADD: SEARCH_KIND_OF_CHANGE = SEARCH_KIND_OF_CHANGE(0i32);
@@ -25183,7 +25183,7 @@ impl ::core::fmt::Debug for SEARCH_KIND_OF_CHANGE {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SEARCH_NOTIFICATION_PRIORITY(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SEARCH_NORMAL_PRIORITY: SEARCH_NOTIFICATION_PRIORITY = SEARCH_NOTIFICATION_PRIORITY(0i32);
@@ -25210,7 +25210,7 @@ impl ::core::fmt::Debug for SEARCH_NOTIFICATION_PRIORITY {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SEARCH_QUERY_SYNTAX(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SEARCH_NO_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = SEARCH_QUERY_SYNTAX(0i32);
@@ -25239,7 +25239,7 @@ impl ::core::fmt::Debug for SEARCH_QUERY_SYNTAX {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SEARCH_TERM_EXPANSION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SEARCH_TERM_NO_EXPANSION: SEARCH_TERM_EXPANSION = SEARCH_TERM_EXPANSION(0i32);
@@ -26748,7 +26748,7 @@ pub const SQLINT4: u32 = 56u32;
 pub const SQLINT8: u32 = 127u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SQLINTERVAL(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQL_IS_YEAR: SQLINTERVAL = SQLINTERVAL(1i32);
@@ -27467,7 +27467,7 @@ pub const SQLVARBINARY: u32 = 37u32;
 pub const SQLVARCHAR: u32 = 39u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SQLVARENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const VT_SS_EMPTY: SQLVARENUM = SQLVARENUM(0i32);
@@ -31199,7 +31199,7 @@ pub const STREAM_FLAGS_DONTCACHEXSL: u32 = 32u32;
 pub const STREAM_FLAGS_RESERVED: u32 = 4294901760u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STRUCTURED_QUERY_MULTIOPTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQMO_VIRTUAL_PROPERTY: STRUCTURED_QUERY_MULTIOPTION = STRUCTURED_QUERY_MULTIOPTION(0i32);
@@ -31230,7 +31230,7 @@ impl ::core::fmt::Debug for STRUCTURED_QUERY_MULTIOPTION {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STRUCTURED_QUERY_PARSE_ERROR(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQPE_NONE: STRUCTURED_QUERY_PARSE_ERROR = STRUCTURED_QUERY_PARSE_ERROR(0i32);
@@ -31267,7 +31267,7 @@ impl ::core::fmt::Debug for STRUCTURED_QUERY_PARSE_ERROR {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STRUCTURED_QUERY_RESOLVE_OPTION(pub u32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQRO_DEFAULT: STRUCTURED_QUERY_RESOLVE_OPTION = STRUCTURED_QUERY_RESOLVE_OPTION(0u32);
@@ -31340,7 +31340,7 @@ impl ::core::ops::Not for STRUCTURED_QUERY_RESOLVE_OPTION {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STRUCTURED_QUERY_SINGLE_OPTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQSO_SCHEMA: STRUCTURED_QUERY_SINGLE_OPTION = STRUCTURED_QUERY_SINGLE_OPTION(0i32);
@@ -31385,7 +31385,7 @@ impl ::core::fmt::Debug for STRUCTURED_QUERY_SINGLE_OPTION {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STRUCTURED_QUERY_SYNTAX(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQS_NO_SYNTAX: STRUCTURED_QUERY_SYNTAX = STRUCTURED_QUERY_SYNTAX(0i32);
@@ -31530,7 +31530,7 @@ impl ::core::default::Default for SUBSCRIPTIONINFO {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SUBSCRIPTIONINFOFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SUBSINFO_SCHEDULE: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(1i32);
@@ -31615,7 +31615,7 @@ impl ::core::default::Default for SUBSCRIPTIONITEMINFO {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SUBSCRIPTIONSCHEDULE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SUBSSCHED_AUTO: SUBSCRIPTIONSCHEDULE = SUBSCRIPTIONSCHEDULE(0i32);
@@ -31648,7 +31648,7 @@ impl ::core::fmt::Debug for SUBSCRIPTIONSCHEDULE {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SUBSCRIPTIONTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SUBSTYPE_URL: SUBSCRIPTIONTYPE = SUBSCRIPTIONTYPE(0i32);
@@ -31876,7 +31876,7 @@ impl ::core::default::Default for VECTORRESTRICTION {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WEBCRAWL_RECURSEFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const WEBCRAWL_DONT_MAKE_STICKY: WEBCRAWL_RECURSEFLAGS = WEBCRAWL_RECURSEFLAGS(1i32);

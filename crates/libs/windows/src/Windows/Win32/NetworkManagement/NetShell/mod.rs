@@ -168,7 +168,7 @@ pub const NETSH_MAX_TOKEN_LENGTH: u32 = 64u32;
 pub const NETSH_VERSION_50: u32 = 20480u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NS_CMD_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const CMD_FLAG_PRIVATE: NS_CMD_FLAGS = NS_CMD_FLAGS(1i32);
@@ -322,7 +322,7 @@ impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES_0_0 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NS_EVENTS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NS_EVENT_LOOP: NS_EVENTS = NS_EVENTS(65536i32);
@@ -442,7 +442,7 @@ impl ::core::default::Default for NS_HELPER_ATTRIBUTES_0_0 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NS_MODE_CHANGE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NETSH_COMMIT: NS_MODE_CHANGE = NS_MODE_CHANGE(0i32);
@@ -475,7 +475,7 @@ impl ::core::fmt::Debug for NS_MODE_CHANGE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NS_REQS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NS_REQ_ZERO: NS_REQS = NS_REQS(0i32);

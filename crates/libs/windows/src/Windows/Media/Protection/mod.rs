@@ -200,7 +200,7 @@ impl ::windows::core::RuntimeName for ComponentRenewal {
 }
 #[doc = "*Required features: `\"Media_Protection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GraphicsTrustStatus(pub i32);
 impl GraphicsTrustStatus {
     pub const TrustNotRequired: Self = Self(0i32);
@@ -238,7 +238,7 @@ unsafe impl ::windows::core::RuntimeType for GraphicsTrustStatus {
 }
 #[doc = "*Required features: `\"Media_Protection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HdcpProtection(pub i32);
 impl HdcpProtection {
     pub const Off: Self = Self(0i32);
@@ -430,7 +430,7 @@ unsafe impl ::core::marker::Send for HdcpSession {}
 unsafe impl ::core::marker::Sync for HdcpSession {}
 #[doc = "*Required features: `\"Media_Protection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HdcpSetProtectionResult(pub i32);
 impl HdcpSetProtectionResult {
     pub const Success: Self = Self(0i32);
@@ -1192,7 +1192,7 @@ unsafe impl ::core::marker::Send for ProtectionCapabilities {}
 unsafe impl ::core::marker::Sync for ProtectionCapabilities {}
 #[doc = "*Required features: `\"Media_Protection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProtectionCapabilityResult(pub i32);
 impl ProtectionCapabilityResult {
     pub const NotSupported: Self = Self(0i32);
@@ -1312,7 +1312,7 @@ pub struct RebootNeededEventHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Media_Protection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RenewalStatus(pub i32);
 impl RenewalStatus {
     pub const NotStarted: Self = Self(0i32);
@@ -1552,7 +1552,7 @@ unsafe impl ::core::marker::Send for RevocationAndRenewalItem {}
 unsafe impl ::core::marker::Sync for RevocationAndRenewalItem {}
 #[doc = "*Required features: `\"Media_Protection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RevocationAndRenewalReasons(pub u32);
 impl RevocationAndRenewalReasons {
     pub const UserModeComponentLoad: Self = Self(1u32);

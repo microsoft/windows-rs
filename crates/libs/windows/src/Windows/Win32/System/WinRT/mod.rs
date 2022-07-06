@@ -30,7 +30,7 @@ pub mod Storage;
 pub mod Xaml;
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACTIVATIONTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const ACTIVATIONTYPE_UNCATEGORIZED: ACTIVATIONTYPE = ACTIVATIONTYPE(0i32);
@@ -64,7 +64,7 @@ impl ::core::fmt::Debug for ACTIVATIONTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE(pub isize);
 impl APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
     pub fn is_invalid(&self) -> bool {
@@ -92,7 +92,7 @@ unsafe impl ::windows::core::Abi for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AgileReferenceOptions(pub i32);
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
@@ -119,7 +119,7 @@ impl ::core::fmt::Debug for AgileReferenceOptions {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BSOS_OPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const BSOS_DEFAULT: BSOS_OPTIONS = BSOS_OPTIONS(0i32);
@@ -146,7 +146,7 @@ impl ::core::fmt::Debug for BSOS_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CASTING_CONNECTION_ERROR_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CASTING_CONNECTION_ERROR_STATUS_SUCCEEDED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(0i32);
@@ -183,7 +183,7 @@ impl ::core::fmt::Debug for CASTING_CONNECTION_ERROR_STATUS {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CASTING_CONNECTION_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CASTING_CONNECTION_STATE_DISCONNECTED: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(0i32);
@@ -294,7 +294,7 @@ pub unsafe fn CreateStreamOverRandomAccessStream<'a, Param0: ::windows::core::In
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPATCHERQUEUE_THREAD_APARTMENTTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const DQTAT_COM_NONE: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(0i32);
@@ -323,7 +323,7 @@ impl ::core::fmt::Debug for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPATCHERQUEUE_THREAD_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const DQTYPE_THREAD_DEDICATED: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(1i32);
@@ -421,7 +421,7 @@ pub unsafe fn GetRestrictedErrorInfo() -> ::windows::core::Result<IRestrictedErr
     GetRestrictedErrorInfo(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRestrictedErrorInfo>(result__)
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HSTRING_BUFFER(pub isize);
 impl HSTRING_BUFFER {
     pub fn is_invalid(&self) -> bool {
@@ -3411,7 +3411,7 @@ pub type PINSPECT_HSTRING_CALLBACK2 = ::core::option::Option<unsafe extern "syst
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub type PINSPECT_MEMORY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows::core::HRESULT>;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ROPARAMIIDHANDLE(pub isize);
 impl ROPARAMIIDHANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -3439,7 +3439,7 @@ unsafe impl ::windows::core::Abi for ROPARAMIIDHANDLE {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RO_ERROR_REPORTING_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const RO_ERROR_REPORTING_NONE: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(0u32);
@@ -3500,7 +3500,7 @@ impl ::core::ops::Not for RO_ERROR_REPORTING_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RO_INIT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const RO_INIT_SINGLETHREADED: RO_INIT_TYPE = RO_INIT_TYPE(0i32);
@@ -3863,7 +3863,7 @@ pub unsafe fn SetRestrictedErrorInfo<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TrustLevel(pub i32);
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const BaseTrust: TrustLevel = TrustLevel(0i32);

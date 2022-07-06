@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AddFileResult(pub i32);
 impl AddFileResult {
     pub const Added: Self = Self(0i32);
@@ -460,7 +460,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a F
 }
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FileSelectionMode(pub i32);
 impl FileSelectionMode {
     pub const Single: Self = Self(0i32);
@@ -938,7 +938,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SetFileNameResult(pub i32);
 impl SetFileNameResult {
     pub const Succeeded: Self = Self(0i32);

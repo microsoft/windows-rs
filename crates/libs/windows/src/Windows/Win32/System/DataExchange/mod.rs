@@ -148,7 +148,7 @@ impl ::core::default::Default for CONVINFO {
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONVINFO_CONVERSATION_STATE(pub u32);
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const XST_ADVACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(13u32);
@@ -205,7 +205,7 @@ impl ::core::fmt::Debug for CONVINFO_CONVERSATION_STATE {
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONVINFO_STATUS(pub u32);
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const ST_ADVISE: CONVINFO_STATUS = CONVINFO_STATUS(2u32);
@@ -562,7 +562,7 @@ impl ::core::default::Default for DDEUP {
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DDE_CLIENT_TRANSACTION_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const XTYP_ADVSTART: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(4144u32);
@@ -615,7 +615,7 @@ impl ::core::fmt::Debug for DDE_CLIENT_TRANSACTION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DDE_ENABLE_CALLBACK_CMD(pub u32);
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const EC_ENABLEALL: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(0u32);
@@ -662,7 +662,7 @@ pub const DDE_FRELEASE: u32 = 8192u32;
 pub const DDE_FREQUESTED: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DDE_INITIALIZE_COMMAND(pub u32);
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const APPCLASS_MONITOR: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1u32);
@@ -759,7 +759,7 @@ impl ::core::ops::Not for DDE_INITIALIZE_COMMAND {
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DDE_NAME_SERVICE_CMD(pub u32);
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const DNS_REGISTER: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(1u32);
@@ -1377,7 +1377,7 @@ pub unsafe fn GlobalGetAtomNameW(natom: u16, lpbuffer: &mut [u16]) -> u32 {
     ::core::mem::transmute(GlobalGetAtomNameW(::core::mem::transmute(natom), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _))
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCONV(pub isize);
 impl HCONV {
     pub fn is_invalid(&self) -> bool {
@@ -1404,7 +1404,7 @@ unsafe impl ::windows::core::Abi for HCONV {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCONVLIST(pub isize);
 impl HCONVLIST {
     pub fn is_invalid(&self) -> bool {
@@ -1433,7 +1433,7 @@ unsafe impl ::windows::core::Abi for HCONVLIST {
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const HDATA_APPOWNED: u32 = 1u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDDEDATA(pub isize);
 impl HDDEDATA {
     pub fn is_invalid(&self) -> bool {
@@ -1460,7 +1460,7 @@ unsafe impl ::windows::core::Abi for HDDEDATA {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HSZ(pub isize);
 impl HSZ {
     pub fn is_invalid(&self) -> bool {

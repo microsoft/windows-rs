@@ -669,7 +669,7 @@ pub struct IWindowsMediaLibrarySharingServices_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WindowsMediaLibrarySharingDeviceAuthorizationStatus(pub i32);
 #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
 pub const DEVICE_AUTHORIZATION_UNKNOWN: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(0i32);

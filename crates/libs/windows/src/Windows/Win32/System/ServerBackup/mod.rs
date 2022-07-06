@@ -278,7 +278,7 @@ impl ::core::default::Default for WSB_OB_STATUS_ENTRY {
 }
 #[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSB_OB_STATUS_ENTRY_PAIR_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
 pub const WSB_OB_ET_UNDEFINED: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(0i32);

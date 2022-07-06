@@ -75,7 +75,7 @@ pub struct IWebAuthenticationResult_Vtbl {
 }
 #[doc = "*Required features: `\"Security_Authentication_Web\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TokenBindingKeyType(pub i32);
 impl TokenBindingKeyType {
     pub const Rsa2048: Self = Self(0i32);
@@ -182,7 +182,7 @@ impl ::windows::core::RuntimeName for WebAuthenticationBroker {
 }
 #[doc = "*Required features: `\"Security_Authentication_Web\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WebAuthenticationOptions(pub u32);
 impl WebAuthenticationOptions {
     pub const None: Self = Self(0u32);
@@ -346,7 +346,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a W
 }
 #[doc = "*Required features: `\"Security_Authentication_Web\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WebAuthenticationStatus(pub i32);
 impl WebAuthenticationStatus {
     pub const Success: Self = Self(0i32);

@@ -2330,7 +2330,7 @@ impl ::windows::core::RuntimeName for CurrencyIdentifiers {
 }
 #[doc = "*Required features: `\"Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DayOfWeek(pub i32);
 impl DayOfWeek {
     pub const Sunday: Self = Self(0i32);
@@ -3622,7 +3622,7 @@ unsafe impl ::core::marker::Send for Language {}
 unsafe impl ::core::marker::Sync for Language {}
 #[doc = "*Required features: `\"Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LanguageLayoutDirection(pub i32);
 impl LanguageLayoutDirection {
     pub const Ltr: Self = Self(0i32);

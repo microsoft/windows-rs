@@ -32,7 +32,7 @@ impl ::core::default::Default for ACCESSTIMEOUT {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACC_UTILITY_STATE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ANRUS_ON_SCREEN_KEYBOARD_ACTIVE: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(1u32);
@@ -155,7 +155,7 @@ pub unsafe fn AccessibleObjectFromWindow<'a, Param0: ::windows::core::IntoParam<
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ActiveEnd(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ActiveEnd_None: ActiveEnd = ActiveEnd(0i32);
@@ -185,7 +185,7 @@ impl ::core::fmt::Debug for ActiveEnd {
 pub const ActiveTextPositionChanged_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5c09e9c_c77d_4f25_b491_e5bb7017cbd4);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnimationStyle(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnimationStyle_None: AnimationStyle = AnimationStyle(0i32);
@@ -224,7 +224,7 @@ impl ::core::fmt::Debug for AnimationStyle {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnnoScope(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ANNO_THIS: AnnoScope = AnnoScope(0i32);
@@ -337,7 +337,7 @@ pub const AriaProperties_Property_GUID: ::windows::core::GUID = ::windows::core:
 pub const AriaRole_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd207b95_be4a_4e0d_b727_63ace94b6916);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AsyncContentLoadedState(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AsyncContentLoadedState_Beginning: AsyncContentLoadedState = AsyncContentLoadedState(0i32);
@@ -367,7 +367,7 @@ impl ::core::fmt::Debug for AsyncContentLoadedState {
 pub const AsyncContentLoaded_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fdee11c_d2fa_4fb9_904e_5cbee894d5ef);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutomationElementMode(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AutomationElementMode_None: AutomationElementMode = AutomationElementMode(0i32);
@@ -396,7 +396,7 @@ pub const AutomationFocusChanged_Event_GUID: ::windows::core::GUID = ::windows::
 pub const AutomationId_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc82c0500_b60e_4310_a267_303c531f8ee5);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutomationIdentifierType(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AutomationIdentifierType_Property: AutomationIdentifierType = AutomationIdentifierType(0i32);
@@ -439,7 +439,7 @@ pub const AutomationPropertyChanged_Event_GUID: ::windows::core::GUID = ::window
 pub const BoundingRectangle_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bbfe8b2_3bfc_48dd_b729_c794b846e9a1);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BulletStyle(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const BulletStyle_None: BulletStyle = BulletStyle(0i32);
@@ -483,7 +483,7 @@ pub const CUIAutomationRegistrar: ::windows::core::GUID = ::windows::core::GUID:
 pub const Calendar_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8913eb88_00e5_46bc_8e4e_14a786e165a1);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CapStyle(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CapStyle_None: CapStyle = CapStyle(0i32);
@@ -522,7 +522,7 @@ impl ::core::fmt::Debug for CapStyle {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CaretBidiMode(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CaretBidiMode_LTR: CaretBidiMode = CaretBidiMode(0i32);
@@ -549,7 +549,7 @@ impl ::core::fmt::Debug for CaretBidiMode {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CaretPosition(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CaretPosition_Unknown: CaretPosition = CaretPosition(0i32);
@@ -584,7 +584,7 @@ pub const ClassName_Property_GUID: ::windows::core::GUID = ::windows::core::GUID
 pub const ClickablePoint_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0196903b_b203_4818_a9f3_f08e675f2341);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoalesceEventsOptions(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CoalesceEventsOptions_Disabled: CoalesceEventsOptions = CoalesceEventsOptions(0i32);
@@ -612,7 +612,7 @@ impl ::core::fmt::Debug for CoalesceEventsOptions {
 pub const ComboBox_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54cb426c_2f33_4fff_aaa1_aef60dac5deb);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ConditionType(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ConditionType_True: ConditionType = ConditionType(0i32);
@@ -647,7 +647,7 @@ impl ::core::fmt::Debug for ConditionType {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ConnectionRecoveryBehaviorOptions(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ConnectionRecoveryBehaviorOptions_Disabled: ConnectionRecoveryBehaviorOptions = ConnectionRecoveryBehaviorOptions(0i32);
@@ -759,7 +759,7 @@ pub unsafe fn DockPattern_SetDockPosition<'a, Param0: ::windows::core::IntoParam
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DockPosition(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DockPosition_Top: DockPosition = DockPosition(0i32);
@@ -812,7 +812,7 @@ pub const DropTarget_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID
 pub const Edit_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6504a5c8_2c86_4f87_ae7b_1abddc810cf9);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EventArgsType(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const EventArgsType_Simple: EventArgsType = EventArgsType(0i32);
@@ -873,7 +873,7 @@ pub unsafe fn ExpandCollapsePattern_Expand<'a, Param0: ::windows::core::IntoPara
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ExpandCollapseState(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ExpandCollapseState_Collapsed: ExpandCollapseState = ExpandCollapseState(0i32);
@@ -979,7 +979,7 @@ impl ::core::default::Default for FILTERKEYS {
 pub const FillColor_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e0ec4d0_e2a8_4a56_9de7_953389933b39);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FillType(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const FillType_None: FillType = FillType(0i32);
@@ -1013,7 +1013,7 @@ impl ::core::fmt::Debug for FillType {
 pub const FillType_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6fc74e4_8cb9_429c_a9e1_9bc4ac372b62);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FlowDirections(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const FlowDirections_Default: FlowDirections = FlowDirections(0i32);
@@ -1176,7 +1176,7 @@ impl ::core::default::Default for HIGHCONTRASTW {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HIGHCONTRASTW_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HCF_HIGHCONTRASTON: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(1u32);
@@ -1242,7 +1242,7 @@ impl ::core::ops::Not for HIGHCONTRASTW_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HUIAEVENT(pub isize);
 impl HUIAEVENT {
     pub fn is_invalid(&self) -> bool {
@@ -1269,7 +1269,7 @@ unsafe impl ::windows::core::Abi for HUIAEVENT {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HUIANODE(pub isize);
 impl HUIANODE {
     pub fn is_invalid(&self) -> bool {
@@ -1296,7 +1296,7 @@ unsafe impl ::windows::core::Abi for HUIANODE {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HUIAPATTERNOBJECT(pub isize);
 impl HUIAPATTERNOBJECT {
     pub fn is_invalid(&self) -> bool {
@@ -1323,7 +1323,7 @@ unsafe impl ::windows::core::Abi for HUIAPATTERNOBJECT {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HUIATEXTRANGE(pub isize);
 impl HUIATEXTRANGE {
     pub fn is_invalid(&self) -> bool {
@@ -1350,7 +1350,7 @@ unsafe impl ::windows::core::Abi for HUIATEXTRANGE {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HWINEVENTHOOK(pub isize);
 impl HWINEVENTHOOK {
     pub fn is_invalid(&self) -> bool {
@@ -1403,7 +1403,7 @@ pub const HeadingLevel_Property_GUID: ::windows::core::GUID = ::windows::core::G
 pub const HelpText_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08555685_0977_45c7_a7a6_abaf5684121a);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HorizontalTextAlignment(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HorizontalTextAlignment_Left: HorizontalTextAlignment = HorizontalTextAlignment(0i32);
@@ -22029,7 +22029,7 @@ pub const List_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from
 pub const LiveRegionChanged_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x102d5e90_e6a9_41b6_b1c5_a9b1929d9510);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LiveSetting(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Off: LiveSetting = LiveSetting(0i32);
@@ -22191,7 +22191,7 @@ pub const NAVDIR_UP: u32 = 1u32;
 pub const Name_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3a6921b_4a99_44f1_bca6_61187052c431);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NavigateDirection(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NavigateDirection_Parent: NavigateDirection = NavigateDirection(0i32);
@@ -22225,7 +22225,7 @@ impl ::core::fmt::Debug for NavigateDirection {
 pub const NewNativeWindowHandle_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5196b33b_380a_4982_95e1_91f3ef60e024);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NormalizeState(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NormalizeState_None: NormalizeState = NormalizeState(0i32);
@@ -22254,7 +22254,7 @@ impl ::core::fmt::Debug for NormalizeState {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NotificationKind(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NotificationKind_ItemAdded: NotificationKind = NotificationKind(0i32);
@@ -22287,7 +22287,7 @@ impl ::core::fmt::Debug for NotificationKind {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NotificationProcessing(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NotificationProcessing_ImportantAll: NotificationProcessing = NotificationProcessing(0i32);
@@ -22343,7 +22343,7 @@ pub const ObjectModel_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUI
 pub const OptimizeForVisualContent_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a852250_c75a_4e5d_b858_e381b0f78861);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OrientationType(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const OrientationType_None: OrientationType = OrientationType(0i32);
@@ -22374,7 +22374,7 @@ pub const Orientation_Property_GUID: ::windows::core::GUID = ::windows::core::GU
 pub const OutlineColor_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc395d6c0_4b55_4762_a073_fd303a634f52);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OutlineStyles(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const OutlineStyles_None: OutlineStyles = OutlineStyles(0i32);
@@ -22437,7 +22437,7 @@ pub const ProcessId_Property_GUID: ::windows::core::GUID = ::windows::core::GUID
 pub const ProgressBar_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x228c9f86_c36c_47bb_9fb6_a5834bfc53a4);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PropertyConditionFlags(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PropertyConditionFlags_None: PropertyConditionFlags = PropertyConditionFlags(0i32);
@@ -22467,7 +22467,7 @@ impl ::core::fmt::Debug for PropertyConditionFlags {
 pub const ProviderDescription_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdca5708a_c16b_4cd9_b889_beb16a804904);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderOptions(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ProviderOptions_ClientSideProvider: ProviderOptions = ProviderOptions(1i32);
@@ -22508,7 +22508,7 @@ impl ::core::fmt::Debug for ProviderOptions {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderType(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ProviderType_BaseHwnd: ProviderType = ProviderType(0i32);
@@ -22703,7 +22703,7 @@ pub unsafe fn RegisterPointerInputTargetEx<'a, Param0: ::windows::core::IntoPara
 pub const Rotation_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x767cdc7d_aec0_4110_ad32_30edd403492e);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RowOrColumnMajor(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const RowOrColumnMajor_RowMajor: RowOrColumnMajor = RowOrColumnMajor(0i32);
@@ -22819,7 +22819,7 @@ impl ::core::default::Default for SERIALKEYSW {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERIALKEYS_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SERKF_AVAILABLE: SERIALKEYS_FLAGS = SERIALKEYS_FLAGS(2u32);
@@ -22986,7 +22986,7 @@ impl ::core::default::Default for SOUNDSENTRYW {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SOUNDSENTRY_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SSF_SOUNDSENTRYON: SOUNDSENTRY_FLAGS = SOUNDSENTRY_FLAGS(1u32);
@@ -23043,7 +23043,7 @@ impl ::core::ops::Not for SOUNDSENTRY_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SOUNDSENTRY_TEXT_EFFECT(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SSTF_BORDER: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(2u32);
@@ -23074,7 +23074,7 @@ impl ::core::fmt::Debug for SOUNDSENTRY_TEXT_EFFECT {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SOUNDSENTRY_WINDOWS_EFFECT(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SSWF_CUSTOM: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(4u32);
@@ -23107,7 +23107,7 @@ impl ::core::fmt::Debug for SOUNDSENTRY_WINDOWS_EFFECT {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SOUND_SENTRY_GRAPHICS_EFFECT(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SSGF_DISPLAY: SOUND_SENTRY_GRAPHICS_EFFECT = SOUND_SENTRY_GRAPHICS_EFFECT(3u32);
@@ -23169,7 +23169,7 @@ impl ::core::default::Default for STICKYKEYS {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STICKYKEYS_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_STICKYKEYSON: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(1u32);
@@ -23270,7 +23270,7 @@ impl ::core::ops::Not for STICKYKEYS_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SayAsInterpretAs(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_None: SayAsInterpretAs = SayAsInterpretAs(0i32);
@@ -23347,7 +23347,7 @@ impl ::core::fmt::Debug for SayAsInterpretAs {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ScrollAmount(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ScrollAmount_LargeDecrement: ScrollAmount = ScrollAmount(0i32);
@@ -23482,7 +23482,7 @@ pub const Spreadsheet_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUI
 pub const StatusBar_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd45e7d1b_5873_475f_95a4_0433e1f1b00a);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StructureChangeType(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StructureChangeType_ChildAdded: StructureChangeType = StructureChangeType(0i32);
@@ -23581,7 +23581,7 @@ pub const Styles_StyleId_Property_GUID: ::windows::core::GUID = ::windows::core:
 pub const Styles_StyleName_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c12b035_05d1_4f55_9e8e_1489f3ff550d);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SupportedTextSelection(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SupportedTextSelection_None: SupportedTextSelection = SupportedTextSelection(0i32);
@@ -23628,7 +23628,7 @@ pub unsafe fn SynchronizedInputPattern_StartListening<'a, Param0: ::windows::cor
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SynchronizedInputType(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SynchronizedInputType_KeyUp: SynchronizedInputType = SynchronizedInputType(1i32);
@@ -23707,7 +23707,7 @@ pub const Table_RowOrColumnMajor_Property_GUID: ::windows::core::GUID = ::window
 pub const TextChild_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7533cab7_3bfe_41ef_9e85_e2638cbe169e);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextDecorationLineStyle(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_None: TextDecorationLineStyle = TextDecorationLineStyle(0i32);
@@ -23768,7 +23768,7 @@ impl ::core::fmt::Debug for TextDecorationLineStyle {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextEditChangeType(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextEditChangeType_None: TextEditChangeType = TextEditChangeType(0i32);
@@ -23804,7 +23804,7 @@ pub const TextEdit_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::
 pub const TextEdit_TextChanged_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x120b0308_ec22_4eb8_9c98_9867cda1b165);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextPatternRangeEndpoint(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextPatternRangeEndpoint_Start: TextPatternRangeEndpoint = TextPatternRangeEndpoint(0i32);
@@ -24057,7 +24057,7 @@ pub unsafe fn TextRange_Select<'a, Param0: ::windows::core::IntoParam<'a, HUIATE
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextUnit(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextUnit_Character: TextUnit = TextUnit(0i32);
@@ -24156,7 +24156,7 @@ pub unsafe fn TogglePattern_Toggle<'a, Param0: ::windows::core::IntoParam<'a, HU
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ToggleState(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ToggleState_Off: ToggleState = ToggleState(0i32);
@@ -24228,7 +24228,7 @@ pub const Transform_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID:
 pub const TreeItem_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62c9feb9_8ffc_4878_a3a4_96b030315c18);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TreeScope(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TreeScope_None: TreeScope = TreeScope(0i32);
@@ -24265,7 +24265,7 @@ impl ::core::fmt::Debug for TreeScope {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TreeTraversalOptions(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TreeTraversalOptions_Default: TreeTraversalOptions = TreeTraversalOptions(0i32);
@@ -25204,7 +25204,7 @@ impl ::core::default::Default for UIAutomationPropertyInfo {
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIAutomationType(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_Int: UIAutomationType = UIAutomationType(1i32);
@@ -26326,7 +26326,7 @@ pub unsafe fn VirtualizedItemPattern_Realize<'a, Param0: ::windows::core::IntoPa
 pub const VirtualizedItem_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf510173e_2e71_45e9_a6e5_62f6ed8289d5);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VisualEffects(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const VisualEffects_None: VisualEffects = VisualEffects(0i32);
@@ -26376,7 +26376,7 @@ pub unsafe fn WindowFromAccessibleObject<'a, Param0: ::windows::core::IntoParam<
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WindowInteractionState(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const WindowInteractionState_Running: WindowInteractionState = WindowInteractionState(0i32);
@@ -26437,7 +26437,7 @@ pub unsafe fn WindowPattern_WaitForInputIdle<'a, Param0: ::windows::core::IntoPa
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WindowVisualState(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const WindowVisualState_Normal: WindowVisualState = WindowVisualState(0i32);
@@ -26476,7 +26476,7 @@ pub const Window_WindowOpened_Event_GUID: ::windows::core::GUID = ::windows::cor
 pub const Window_WindowVisualState_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ab7905f_e860_453e_a30a_f6431e5daad5);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ZoomUnit(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ZoomUnit_NoAmount: ZoomUnit = ZoomUnit(0i32);

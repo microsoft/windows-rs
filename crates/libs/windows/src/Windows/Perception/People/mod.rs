@@ -122,7 +122,7 @@ unsafe impl ::core::marker::Send for EyesPose {}
 unsafe impl ::core::marker::Sync for EyesPose {}
 #[doc = "*Required features: `\"Perception_People\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HandJointKind(pub i32);
 impl HandJointKind {
     pub const Palm: Self = Self(0i32);
@@ -860,7 +860,7 @@ impl ::core::default::Default for JointPose {
 }
 #[doc = "*Required features: `\"Perception_People\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JointPoseAccuracy(pub i32);
 impl JointPoseAccuracy {
     pub const High: Self = Self(0i32);

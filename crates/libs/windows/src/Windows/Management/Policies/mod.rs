@@ -263,7 +263,7 @@ unsafe impl ::core::marker::Send for NamedPolicyData {}
 unsafe impl ::core::marker::Sync for NamedPolicyData {}
 #[doc = "*Required features: `\"Management_Policies\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NamedPolicyKind(pub i32);
 impl NamedPolicyKind {
     pub const Invalid: Self = Self(0i32);

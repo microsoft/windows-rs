@@ -989,7 +989,7 @@ unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionPl
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
 #[doc = "*Required features: `\"Media_Control\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackStatus(pub i32);
 impl GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     pub const Closed: Self = Self(0i32);

@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceDiscoveryMechanism(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const MulticastDiscovery: DeviceDiscoveryMechanism = DeviceDiscoveryMechanism(0i32);
@@ -3500,7 +3500,7 @@ pub unsafe fn WSDDetachLinkedMemory(pvoid: *mut ::core::ffi::c_void) {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSDEventType(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSDET_NONE: WSDEventType = WSDEventType(0i32);
@@ -3580,7 +3580,7 @@ pub unsafe fn WSDSetConfigurationOption(dwoption: u32, pvoid: *const ::core::ffi
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSDUdpMessageType(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const ONE_WAY: WSDUdpMessageType = WSDUdpMessageType(0i32);
@@ -3923,7 +3923,7 @@ impl ::core::default::Default for WSDXML_NODE {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSDXML_OP(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const OpNone: WSDXML_OP = WSDXML_OP(0i32);
@@ -4261,7 +4261,7 @@ impl ::core::default::Default for WSD_CONFIG_PARAM {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSD_CONFIG_PARAM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_CONFIG_MAX_INBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(1i32);
@@ -5163,7 +5163,7 @@ impl ::core::default::Default for WSD_PROBE_MATCH_LIST {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSD_PROTOCOL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 pub const WSD_PT_NONE: WSD_PROTOCOL_TYPE = WSD_PROTOCOL_TYPE(0i32);

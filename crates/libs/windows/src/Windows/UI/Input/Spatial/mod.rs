@@ -1242,7 +1242,7 @@ unsafe impl ::core::marker::Send for SpatialGestureRecognizer {}
 unsafe impl ::core::marker::Sync for SpatialGestureRecognizer {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialGestureSettings(pub u32);
 impl SpatialGestureSettings {
     pub const None: Self = Self(0u32);
@@ -2249,7 +2249,7 @@ unsafe impl ::core::marker::Send for SpatialInteractionManager {}
 unsafe impl ::core::marker::Sync for SpatialInteractionManager {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialInteractionPressKind(pub i32);
 impl SpatialInteractionPressKind {
     pub const None: Self = Self(0i32);
@@ -2540,7 +2540,7 @@ unsafe impl ::core::marker::Send for SpatialInteractionSourceEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialInteractionSourceEventArgs {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialInteractionSourceHandedness(pub i32);
 impl SpatialInteractionSourceHandedness {
     pub const Unspecified: Self = Self(0i32);
@@ -2575,7 +2575,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceHandedness 
 }
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialInteractionSourceKind(pub i32);
 impl SpatialInteractionSourceKind {
     pub const Other: Self = Self(0i32);
@@ -2740,7 +2740,7 @@ unsafe impl ::core::marker::Send for SpatialInteractionSourceLocation {}
 unsafe impl ::core::marker::Sync for SpatialInteractionSourceLocation {}
 #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialInteractionSourcePositionAccuracy(pub i32);
 impl SpatialInteractionSourcePositionAccuracy {
     pub const High: Self = Self(0i32);

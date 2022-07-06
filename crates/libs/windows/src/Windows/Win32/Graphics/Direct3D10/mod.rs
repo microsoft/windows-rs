@@ -354,7 +354,7 @@ pub const D3D10_APPSIZE_STRING: &str = "Size";
 pub const D3D10_ARRAY_AXIS_ADDRESS_RANGE_BIT_COUNT: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_ASYNC_GETDATA_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_ASYNC_GETDATA_DONOTFLUSH: D3D10_ASYNC_GETDATA_FLAG = D3D10_ASYNC_GETDATA_FLAG(1i32);
@@ -379,7 +379,7 @@ impl ::core::fmt::Debug for D3D10_ASYNC_GETDATA_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_BIND_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_BIND_VERTEX_BUFFER: D3D10_BIND_FLAG = D3D10_BIND_FLAG(1i32);
@@ -416,7 +416,7 @@ impl ::core::fmt::Debug for D3D10_BIND_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_BLEND(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_BLEND_ZERO: D3D10_BLEND = D3D10_BLEND(1i32);
@@ -559,7 +559,7 @@ impl ::core::default::Default for D3D10_BLEND_DESC1 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_BLEND_OP(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_BLEND_OP_ADD: D3D10_BLEND_OP = D3D10_BLEND_OP(1i32);
@@ -825,7 +825,7 @@ impl ::core::default::Default for D3D10_BUFFER_SRV_1 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_CLEAR_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_CLEAR_DEPTH: D3D10_CLEAR_FLAG = D3D10_CLEAR_FLAG(1i32);
@@ -856,7 +856,7 @@ pub const D3D10_CLIP_OR_CULL_DISTANCE_COUNT: u32 = 8u32;
 pub const D3D10_CLIP_OR_CULL_DISTANCE_ELEMENT_COUNT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_COLOR_WRITE_ENABLE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_COLOR_WRITE_ENABLE_RED: D3D10_COLOR_WRITE_ENABLE = D3D10_COLOR_WRITE_ENABLE(1i32);
@@ -959,7 +959,7 @@ pub const D3D10_COMMONSHADER_TEXEL_OFFSET_MAX_POSITIVE: u32 = 7u32;
 pub const D3D10_COMPARISON_FILTERING_BIT: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_COMPARISON_FUNC(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_COMPARISON_NEVER: D3D10_COMPARISON_FUNC = D3D10_COMPARISON_FUNC(1i32);
@@ -998,7 +998,7 @@ impl ::core::fmt::Debug for D3D10_COMPARISON_FUNC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_COUNTER(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_COUNTER_GPU_IDLE: D3D10_COUNTER = D3D10_COUNTER(0i32);
@@ -1122,7 +1122,7 @@ impl ::core::default::Default for D3D10_COUNTER_INFO {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_COUNTER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_COUNTER_TYPE_FLOAT32: D3D10_COUNTER_TYPE = D3D10_COUNTER_TYPE(0i32);
@@ -1153,7 +1153,7 @@ impl ::core::fmt::Debug for D3D10_COUNTER_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_CPU_ACCESS_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_CPU_ACCESS_WRITE: D3D10_CPU_ACCESS_FLAG = D3D10_CPU_ACCESS_FLAG(65536i32);
@@ -1180,7 +1180,7 @@ impl ::core::fmt::Debug for D3D10_CPU_ACCESS_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_CREATE_DEVICE_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_CREATE_DEVICE_SINGLETHREADED: D3D10_CREATE_DEVICE_FLAG = D3D10_CREATE_DEVICE_FLAG(1i32);
@@ -1221,7 +1221,7 @@ impl ::core::fmt::Debug for D3D10_CREATE_DEVICE_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_CULL_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_CULL_NONE: D3D10_CULL_MODE = D3D10_CULL_MODE(1i32);
@@ -1457,7 +1457,7 @@ impl ::core::default::Default for D3D10_DEPTH_STENCIL_VIEW_DESC_0 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_DEPTH_WRITE_MASK(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_DEPTH_WRITE_MASK_ZERO: D3D10_DEPTH_WRITE_MASK = D3D10_DEPTH_WRITE_MASK(0i32);
@@ -1484,7 +1484,7 @@ impl ::core::fmt::Debug for D3D10_DEPTH_WRITE_MASK {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_DEVICE_STATE_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_DST_SO_BUFFERS: D3D10_DEVICE_STATE_TYPES = D3D10_DEVICE_STATE_TYPES(1i32);
@@ -1555,7 +1555,7 @@ impl ::core::fmt::Debug for D3D10_DEVICE_STATE_TYPES {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_DRIVER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_DRIVER_TYPE_HARDWARE: D3D10_DRIVER_TYPE = D3D10_DRIVER_TYPE(0i32);
@@ -1588,7 +1588,7 @@ impl ::core::fmt::Debug for D3D10_DRIVER_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_DSV_DIMENSION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_DSV_DIMENSION_UNKNOWN: D3D10_DSV_DIMENSION = D3D10_DSV_DIMENSION(0i32);
@@ -1810,7 +1810,7 @@ pub const D3D10_ENABLE_BREAK_ON_MESSAGE: &str = "EnableBreakOnMessage";
 pub const D3D10_ENABLE_UNBOUNDED_DESCRIPTOR_TABLES: u32 = 1048576u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_FEATURE_LEVEL1(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_FEATURE_LEVEL_10_0: D3D10_FEATURE_LEVEL1 = D3D10_FEATURE_LEVEL1(40960i32);
@@ -1843,7 +1843,7 @@ impl ::core::fmt::Debug for D3D10_FEATURE_LEVEL1 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_FILL_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_FILL_WIREFRAME: D3D10_FILL_MODE = D3D10_FILL_MODE(2i32);
@@ -1870,7 +1870,7 @@ impl ::core::fmt::Debug for D3D10_FILL_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_FILTER(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_FILTER_MIN_MAG_MIP_POINT: D3D10_FILTER = D3D10_FILTER(0i32);
@@ -1931,7 +1931,7 @@ impl ::core::fmt::Debug for D3D10_FILTER {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_FILTER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_FILTER_TYPE_POINT: D3D10_FILTER_TYPE = D3D10_FILTER_TYPE(0i32);
@@ -1978,7 +1978,7 @@ pub const D3D10_FLOAT_TO_SRGB_SCALE_2: f32 = 1.055f32;
 pub const D3D10_FLOAT_TO_SRGB_THRESHOLD: f32 = 0.0031308f32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_FORMAT_SUPPORT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_FORMAT_SUPPORT_BUFFER: D3D10_FORMAT_SUPPORT = D3D10_FORMAT_SUPPORT(1i32);
@@ -2181,7 +2181,7 @@ impl ::core::default::Default for D3D10_INFO_QUEUE_FILTER_DESC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_INPUT_CLASSIFICATION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_INPUT_PER_VERTEX_DATA: D3D10_INPUT_CLASSIFICATION = D3D10_INPUT_CLASSIFICATION(0i32);
@@ -2260,7 +2260,7 @@ pub const D3D10_LINEAR_GAMMA: f32 = 1f32;
 pub const D3D10_MAG_FILTER_SHIFT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_MAP(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_MAP_READ: D3D10_MAP = D3D10_MAP(1i32);
@@ -2356,7 +2356,7 @@ impl ::core::default::Default for D3D10_MAPPED_TEXTURE3D {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_MAP_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_MAP_FLAG_DO_NOT_WAIT: D3D10_MAP_FLAG = D3D10_MAP_FLAG(1048576i32);
@@ -2427,7 +2427,7 @@ impl ::core::default::Default for D3D10_MESSAGE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_MESSAGE_CATEGORY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_MESSAGE_CATEGORY_APPLICATION_DEFINED: D3D10_MESSAGE_CATEGORY = D3D10_MESSAGE_CATEGORY(0i32);
@@ -2472,7 +2472,7 @@ impl ::core::fmt::Debug for D3D10_MESSAGE_CATEGORY {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_MESSAGE_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_MESSAGE_ID_UNKNOWN: D3D10_MESSAGE_ID = D3D10_MESSAGE_ID(0i32);
@@ -3509,7 +3509,7 @@ impl ::core::fmt::Debug for D3D10_MESSAGE_ID {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_MESSAGE_SEVERITY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_MESSAGE_SEVERITY_CORRUPTION: D3D10_MESSAGE_SEVERITY = D3D10_MESSAGE_SEVERITY(0i32);
@@ -3676,7 +3676,7 @@ pub const D3D10_PS_OUTPUT_REGISTER_COUNT: u32 = 8u32;
 pub const D3D10_PS_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.5f32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_QUERY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_QUERY_EVENT: D3D10_QUERY = D3D10_QUERY(0i32);
@@ -3853,7 +3853,7 @@ impl ::core::default::Default for D3D10_QUERY_DESC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_QUERY_MISC_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_QUERY_MISC_PREDICATEHINT: D3D10_QUERY_MISC_FLAG = D3D10_QUERY_MISC_FLAG(1i32);
@@ -3878,7 +3878,7 @@ impl ::core::fmt::Debug for D3D10_QUERY_MISC_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_RAISE_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_RAISE_FLAG_DRIVER_INTERNAL_ERROR: D3D10_RAISE_FLAG = D3D10_RAISE_FLAG(1i32);
@@ -4129,7 +4129,7 @@ pub const D3D10_REQ_TEXTURECUBE_DIMENSION: u32 = 8192u32;
 pub const D3D10_RESINFO_INSTRUCTION_MISSING_COMPONENT_RETVAL: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_RESOURCE_DIMENSION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_RESOURCE_DIMENSION_UNKNOWN: D3D10_RESOURCE_DIMENSION = D3D10_RESOURCE_DIMENSION(0i32);
@@ -4162,7 +4162,7 @@ impl ::core::fmt::Debug for D3D10_RESOURCE_DIMENSION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_RESOURCE_MISC_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_RESOURCE_MISC_GENERATE_MIPS: D3D10_RESOURCE_MISC_FLAG = D3D10_RESOURCE_MISC_FLAG(1i32);
@@ -4195,7 +4195,7 @@ impl ::core::fmt::Debug for D3D10_RESOURCE_MISC_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_RTV_DIMENSION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_RTV_DIMENSION_UNKNOWN: D3D10_RTV_DIMENSION = D3D10_RTV_DIMENSION(0i32);
@@ -4606,7 +4606,7 @@ impl ::core::default::Default for D3D10_SHADER_DEBUG_OUTPUTVAR {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_SHADER_DEBUG_REGTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_SHADER_DEBUG_REG_INPUT: D3D10_SHADER_DEBUG_REGTYPE = D3D10_SHADER_DEBUG_REGTYPE(0i32);
@@ -4657,7 +4657,7 @@ impl ::core::fmt::Debug for D3D10_SHADER_DEBUG_REGTYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_SHADER_DEBUG_SCOPETYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_SHADER_DEBUG_SCOPE_GLOBAL: D3D10_SHADER_DEBUG_SCOPETYPE = D3D10_SHADER_DEBUG_SCOPETYPE(0i32);
@@ -4814,7 +4814,7 @@ impl ::core::default::Default for D3D10_SHADER_DEBUG_TOKEN_INFO {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_SHADER_DEBUG_VARTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_SHADER_DEBUG_VAR_VARIABLE: D3D10_SHADER_DEBUG_VARTYPE = D3D10_SHADER_DEBUG_VARTYPE(0i32);
@@ -5412,7 +5412,7 @@ pub const D3D10_STANDARD_COMPONENT_BIT_COUNT_DOUBLED: u32 = 64u32;
 pub const D3D10_STANDARD_MAXIMUM_ELEMENT_ALIGNMENT_BYTE_MULTIPLE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_STANDARD_MULTISAMPLE_PATTERN: D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS = D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS(-1i32);
@@ -5527,7 +5527,7 @@ impl ::core::default::Default for D3D10_STATE_BLOCK_MASK {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_STENCIL_OP(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_STENCIL_OP_KEEP: D3D10_STENCIL_OP = D3D10_STENCIL_OP(1i32);
@@ -6460,7 +6460,7 @@ impl ::core::default::Default for D3D10_TEXTURE3D_DESC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_TEXTURECUBE_FACE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_TEXTURECUBE_FACE_POSITIVE_X: D3D10_TEXTURECUBE_FACE = D3D10_TEXTURECUBE_FACE(0i32);
@@ -6495,7 +6495,7 @@ impl ::core::fmt::Debug for D3D10_TEXTURECUBE_FACE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_TEXTURE_ADDRESS_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_TEXTURE_ADDRESS_WRAP: D3D10_TEXTURE_ADDRESS_MODE = D3D10_TEXTURE_ADDRESS_MODE(1i32);
@@ -6534,7 +6534,7 @@ pub const D3D10_UNBOUND_MEMORY_ACCESS_RESULT: u32 = 0u32;
 pub const D3D10_UNMUTE_SEVERITY_INFO: &str = "Unmute_SEVERITY_INFO";
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D10_USAGE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 pub const D3D10_USAGE_DEFAULT: D3D10_USAGE = D3D10_USAGE(0i32);

@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EDefaultDevmodeType(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 pub const kUserDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(0i32);
@@ -27,7 +27,7 @@ impl ::core::fmt::Debug for EDefaultDevmodeType {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EPrintTicketScope(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 pub const kPTPageScope: EPrintTicketScope = EPrintTicketScope(0i32);

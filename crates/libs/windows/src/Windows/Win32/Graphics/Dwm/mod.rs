@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWMFLIP3DWINDOWPOLICY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMFLIP3D_DEFAULT: DWMFLIP3DWINDOWPOLICY = DWMFLIP3DWINDOWPOLICY(0i32);
@@ -31,7 +31,7 @@ impl ::core::fmt::Debug for DWMFLIP3DWINDOWPOLICY {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWMNCRENDERINGPOLICY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMNCRP_USEWINDOWSTYLE: DWMNCRENDERINGPOLICY = DWMNCRENDERINGPOLICY(0i32);
@@ -62,7 +62,7 @@ impl ::core::fmt::Debug for DWMNCRENDERINGPOLICY {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWMTRANSITION_OWNEDWINDOW_TARGET(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMTRANSITION_OWNEDWINDOW_NULL: DWMTRANSITION_OWNEDWINDOW_TARGET = DWMTRANSITION_OWNEDWINDOW_TARGET(-1i32);
@@ -93,7 +93,7 @@ pub const DWMWA_COLOR_DEFAULT: u32 = 4294967295u32;
 pub const DWMWA_COLOR_NONE: u32 = 4294967294u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWMWINDOWATTRIBUTE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_NCRENDERING_ENABLED: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(1i32);
@@ -256,7 +256,7 @@ impl ::core::default::Default for DWM_PRESENT_PARAMETERS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWM_SHOWCONTACT(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMSC_DOWN: DWM_SHOWCONTACT = DWM_SHOWCONTACT(1u32);
@@ -323,7 +323,7 @@ impl ::core::ops::Not for DWM_SHOWCONTACT {
 pub const DWM_SIT_DISPLAYFRAME: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWM_SOURCE_FRAME_SAMPLING(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_SOURCE_FRAME_SAMPLING_POINT: DWM_SOURCE_FRAME_SAMPLING = DWM_SOURCE_FRAME_SAMPLING(0i32);
@@ -352,7 +352,7 @@ impl ::core::fmt::Debug for DWM_SOURCE_FRAME_SAMPLING {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWM_TAB_WINDOW_REQUIREMENTS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMTWR_NONE: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(0u32);
@@ -536,7 +536,7 @@ pub const DWM_TNP_SOURCECLIENTAREAONLY: u32 = 16u32;
 pub const DWM_TNP_VISIBLE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWM_WINDOW_CORNER_PREFERENCE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWCP_DEFAULT: DWM_WINDOW_CORNER_PREFERENCE = DWM_WINDOW_CORNER_PREFERENCE(0i32);
@@ -878,7 +878,7 @@ pub unsafe fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GESTURE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const GT_PEN_TAP: GESTURE_TYPE = GESTURE_TYPE(0i32);

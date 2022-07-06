@@ -780,7 +780,7 @@ unsafe impl ::core::marker::Send for SpatialAnchor {}
 unsafe impl ::core::marker::Sync for SpatialAnchor {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialAnchorExportPurpose(pub i32);
 impl SpatialAnchorExportPurpose {
     pub const Relocalization: Self = Self(0i32);
@@ -2328,7 +2328,7 @@ unsafe impl ::core::marker::Send for SpatialEntityWatcher {}
 unsafe impl ::core::marker::Sync for SpatialEntityWatcher {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialEntityWatcherStatus(pub i32);
 impl SpatialEntityWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -2366,7 +2366,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialEntityWatcherStatus {
 }
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialLocatability(pub i32);
 impl SpatialLocatability {
     pub const Unavailable: Self = Self(0i32);
@@ -2976,7 +2976,7 @@ unsafe impl ::core::marker::Send for SpatialLocatorPositionalTrackingDeactivatin
 unsafe impl ::core::marker::Sync for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialLookDirectionRange(pub i32);
 impl SpatialLookDirectionRange {
     pub const ForwardOnly: Self = Self(0i32);
@@ -3010,7 +3010,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialLookDirectionRange {
 }
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialMovementRange(pub i32);
 impl SpatialMovementRange {
     pub const NoMovement: Self = Self(0i32);
@@ -3044,7 +3044,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialMovementRange {
 }
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialPerceptionAccessStatus(pub i32);
 impl SpatialPerceptionAccessStatus {
     pub const Unspecified: Self = Self(0i32);

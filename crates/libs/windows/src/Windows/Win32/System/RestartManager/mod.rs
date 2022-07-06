@@ -6,7 +6,7 @@ pub const CCH_RM_MAX_SVC_NAME: u32 = 63u32;
 pub const CCH_RM_SESSION_KEY: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RM_APP_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmStatusUnknown: RM_APP_STATUS = RM_APP_STATUS(0i32);
@@ -47,7 +47,7 @@ impl ::core::fmt::Debug for RM_APP_STATUS {
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RM_APP_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmUnknownApp: RM_APP_TYPE = RM_APP_TYPE(0i32);
@@ -84,7 +84,7 @@ impl ::core::fmt::Debug for RM_APP_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RM_FILTER_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmInvalidFilterAction: RM_FILTER_ACTION = RM_FILTER_ACTION(0i32);
@@ -182,7 +182,7 @@ impl ::core::default::Default for RM_FILTER_INFO_0 {
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RM_FILTER_TRIGGER(pub i32);
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmFilterTriggerInvalid: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(0i32);
@@ -261,7 +261,7 @@ impl ::core::default::Default for RM_PROCESS_INFO {
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RM_REBOOT_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmRebootReasonNone: RM_REBOOT_REASON = RM_REBOOT_REASON(0i32);
@@ -296,7 +296,7 @@ impl ::core::fmt::Debug for RM_REBOOT_REASON {
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RM_SHUTDOWN_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmForceShutdown: RM_SHUTDOWN_TYPE = RM_SHUTDOWN_TYPE(1i32);

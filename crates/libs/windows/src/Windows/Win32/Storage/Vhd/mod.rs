@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPLY_SNAPSHOT_VHDSET_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const APPLY_SNAPSHOT_VHDSET_FLAG_NONE: APPLY_SNAPSHOT_VHDSET_FLAG = APPLY_SNAPSHOT_VHDSET_FLAG(0u32);
@@ -137,7 +137,7 @@ impl ::core::default::Default for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPLY_SNAPSHOT_VHDSET_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const APPLY_SNAPSHOT_VHDSET_VERSION_UNSPECIFIED: APPLY_SNAPSHOT_VHDSET_VERSION = APPLY_SNAPSHOT_VHDSET_VERSION(0i32);
@@ -164,7 +164,7 @@ impl ::core::fmt::Debug for APPLY_SNAPSHOT_VHDSET_VERSION {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ATTACH_VIRTUAL_DISK_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const ATTACH_VIRTUAL_DISK_FLAG_NONE: ATTACH_VIRTUAL_DISK_FLAG = ATTACH_VIRTUAL_DISK_FLAG(0u32);
@@ -350,7 +350,7 @@ impl ::core::default::Default for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ATTACH_VIRTUAL_DISK_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const ATTACH_VIRTUAL_DISK_VERSION_UNSPECIFIED: ATTACH_VIRTUAL_DISK_VERSION = ATTACH_VIRTUAL_DISK_VERSION(0i32);
@@ -419,7 +419,7 @@ pub unsafe fn BreakMirrorVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPACT_VIRTUAL_DISK_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const COMPACT_VIRTUAL_DISK_FLAG_NONE: COMPACT_VIRTUAL_DISK_FLAG = COMPACT_VIRTUAL_DISK_FLAG(0u32);
@@ -557,7 +557,7 @@ impl ::core::default::Default for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPACT_VIRTUAL_DISK_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const COMPACT_VIRTUAL_DISK_VERSION_UNSPECIFIED: COMPACT_VIRTUAL_DISK_VERSION = COMPACT_VIRTUAL_DISK_VERSION(0i32);
@@ -584,7 +584,7 @@ impl ::core::fmt::Debug for COMPACT_VIRTUAL_DISK_VERSION {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_VIRTUAL_DISK_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const CREATE_VIRTUAL_DISK_FLAG_NONE: CREATE_VIRTUAL_DISK_FLAG = CREATE_VIRTUAL_DISK_FLAG(0u32);
@@ -920,7 +920,7 @@ pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_BLOCK_SIZE: u32 = 0u32;
 pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_SECTOR_SIZE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_VIRTUAL_DISK_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const CREATE_VIRTUAL_DISK_VERSION_UNSPECIFIED: CREATE_VIRTUAL_DISK_VERSION = CREATE_VIRTUAL_DISK_VERSION(0i32);
@@ -983,7 +983,7 @@ pub unsafe fn CreateVirtualDisk<'a, Param1: ::windows::core::IntoParam<'a, ::win
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DELETE_SNAPSHOT_VHDSET_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const DELETE_SNAPSHOT_VHDSET_FLAG_NONE: DELETE_SNAPSHOT_VHDSET_FLAG = DELETE_SNAPSHOT_VHDSET_FLAG(0u32);
@@ -1119,7 +1119,7 @@ impl ::core::default::Default for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DELETE_SNAPSHOT_VHDSET_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const DELETE_SNAPSHOT_VHDSET_VERSION_UNSPECIFIED: DELETE_SNAPSHOT_VHDSET_VERSION = DELETE_SNAPSHOT_VHDSET_VERSION(0i32);
@@ -1146,7 +1146,7 @@ impl ::core::fmt::Debug for DELETE_SNAPSHOT_VHDSET_VERSION {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEPENDENT_DISK_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const DEPENDENT_DISK_FLAG_NONE: DEPENDENT_DISK_FLAG = DEPENDENT_DISK_FLAG(0u32);
@@ -1227,7 +1227,7 @@ impl ::core::ops::Not for DEPENDENT_DISK_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DETACH_VIRTUAL_DISK_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const DETACH_VIRTUAL_DISK_FLAG_NONE: DETACH_VIRTUAL_DISK_FLAG = DETACH_VIRTUAL_DISK_FLAG(0u32);
@@ -1310,7 +1310,7 @@ pub unsafe fn DetachVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXPAND_VIRTUAL_DISK_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const EXPAND_VIRTUAL_DISK_FLAG_NONE: EXPAND_VIRTUAL_DISK_FLAG = EXPAND_VIRTUAL_DISK_FLAG(0u32);
@@ -1446,7 +1446,7 @@ impl ::core::default::Default for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXPAND_VIRTUAL_DISK_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const EXPAND_VIRTUAL_DISK_VERSION_UNSPECIFIED: EXPAND_VIRTUAL_DISK_VERSION = EXPAND_VIRTUAL_DISK_VERSION(0i32);
@@ -1493,7 +1493,7 @@ pub unsafe fn ExpandVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FORK_VIRTUAL_DISK_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const FORK_VIRTUAL_DISK_FLAG_NONE: FORK_VIRTUAL_DISK_FLAG = FORK_VIRTUAL_DISK_FLAG(0u32);
@@ -1629,7 +1629,7 @@ impl ::core::default::Default for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FORK_VIRTUAL_DISK_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const FORK_VIRTUAL_DISK_VERSION_UNSPECIFIED: FORK_VIRTUAL_DISK_VERSION = FORK_VIRTUAL_DISK_VERSION(0i32);
@@ -1666,7 +1666,7 @@ pub unsafe fn ForkVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_STORAGE_DEPENDENCY_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const GET_STORAGE_DEPENDENCY_FLAG_NONE: GET_STORAGE_DEPENDENCY_FLAG = GET_STORAGE_DEPENDENCY_FLAG(0u32);
@@ -1962,7 +1962,7 @@ impl ::core::default::Default for GET_VIRTUAL_DISK_INFO_0_3 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_VIRTUAL_DISK_INFO_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const GET_VIRTUAL_DISK_INFO_UNSPECIFIED: GET_VIRTUAL_DISK_INFO_VERSION = GET_VIRTUAL_DISK_INFO_VERSION(0i32);
@@ -2079,7 +2079,7 @@ pub unsafe fn GetVirtualDiskPhysicalPath<'a, Param0: ::windows::core::IntoParam<
 pub const MERGE_VIRTUAL_DISK_DEFAULT_MERGE_DEPTH: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MERGE_VIRTUAL_DISK_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const MERGE_VIRTUAL_DISK_FLAG_NONE: MERGE_VIRTUAL_DISK_FLAG = MERGE_VIRTUAL_DISK_FLAG(0u32);
@@ -2245,7 +2245,7 @@ impl ::core::default::Default for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MERGE_VIRTUAL_DISK_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const MERGE_VIRTUAL_DISK_VERSION_UNSPECIFIED: MERGE_VIRTUAL_DISK_VERSION = MERGE_VIRTUAL_DISK_VERSION(0i32);
@@ -2274,7 +2274,7 @@ impl ::core::fmt::Debug for MERGE_VIRTUAL_DISK_VERSION {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIRROR_VIRTUAL_DISK_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const MIRROR_VIRTUAL_DISK_FLAG_NONE: MIRROR_VIRTUAL_DISK_FLAG = MIRROR_VIRTUAL_DISK_FLAG(0u32);
@@ -2416,7 +2416,7 @@ impl ::core::default::Default for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIRROR_VIRTUAL_DISK_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const MIRROR_VIRTUAL_DISK_VERSION_UNSPECIFIED: MIRROR_VIRTUAL_DISK_VERSION = MIRROR_VIRTUAL_DISK_VERSION(0i32);
@@ -2443,7 +2443,7 @@ impl ::core::fmt::Debug for MIRROR_VIRTUAL_DISK_VERSION {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MODIFY_VHDSET_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const MODIFY_VHDSET_FLAG_NONE: MODIFY_VHDSET_FLAG = MODIFY_VHDSET_FLAG(0u32);
@@ -2582,7 +2582,7 @@ impl ::core::default::Default for MODIFY_VHDSET_PARAMETERS_0_0 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MODIFY_VHDSET_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const MODIFY_VHDSET_UNSPECIFIED: MODIFY_VHDSET_VERSION = MODIFY_VHDSET_VERSION(0i32);
@@ -2643,7 +2643,7 @@ pub unsafe fn ModifyVhdSet<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPEN_VIRTUAL_DISK_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const OPEN_VIRTUAL_DISK_FLAG_NONE: OPEN_VIRTUAL_DISK_FLAG = OPEN_VIRTUAL_DISK_FLAG(0u32);
@@ -2908,7 +2908,7 @@ impl ::core::default::Default for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
 pub const OPEN_VIRTUAL_DISK_RW_DEPTH_DEFAULT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPEN_VIRTUAL_DISK_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const OPEN_VIRTUAL_DISK_VERSION_UNSPECIFIED: OPEN_VIRTUAL_DISK_VERSION = OPEN_VIRTUAL_DISK_VERSION(0i32);
@@ -2949,7 +2949,7 @@ pub unsafe fn OpenVirtualDisk<'a, Param1: ::windows::core::IntoParam<'a, ::windo
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QUERY_CHANGES_VIRTUAL_DISK_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const QUERY_CHANGES_VIRTUAL_DISK_FLAG_NONE: QUERY_CHANGES_VIRTUAL_DISK_FLAG = QUERY_CHANGES_VIRTUAL_DISK_FLAG(0u32);
@@ -3044,7 +3044,7 @@ pub unsafe fn QueryChangesVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a,
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RAW_SCSI_VIRTUAL_DISK_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const RAW_SCSI_VIRTUAL_DISK_FLAG_NONE: RAW_SCSI_VIRTUAL_DISK_FLAG = RAW_SCSI_VIRTUAL_DISK_FLAG(0u32);
@@ -3291,7 +3291,7 @@ impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RAW_SCSI_VIRTUAL_DISK_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const RAW_SCSI_VIRTUAL_DISK_VERSION_UNSPECIFIED: RAW_SCSI_VIRTUAL_DISK_VERSION = RAW_SCSI_VIRTUAL_DISK_VERSION(0i32);
@@ -3318,7 +3318,7 @@ impl ::core::fmt::Debug for RAW_SCSI_VIRTUAL_DISK_VERSION {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RESIZE_VIRTUAL_DISK_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const RESIZE_VIRTUAL_DISK_FLAG_NONE: RESIZE_VIRTUAL_DISK_FLAG = RESIZE_VIRTUAL_DISK_FLAG(0u32);
@@ -3456,7 +3456,7 @@ impl ::core::default::Default for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RESIZE_VIRTUAL_DISK_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const RESIZE_VIRTUAL_DISK_VERSION_UNSPECIFIED: RESIZE_VIRTUAL_DISK_VERSION = RESIZE_VIRTUAL_DISK_VERSION(0i32);
@@ -3652,7 +3652,7 @@ impl ::core::default::Default for SET_VIRTUAL_DISK_INFO_0_1 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SET_VIRTUAL_DISK_INFO_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const SET_VIRTUAL_DISK_INFO_UNSPECIFIED: SET_VIRTUAL_DISK_INFO_VERSION = SET_VIRTUAL_DISK_INFO_VERSION(0i32);
@@ -3822,7 +3822,7 @@ impl ::core::default::Default for STORAGE_DEPENDENCY_INFO_TYPE_2 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_DEPENDENCY_INFO_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const STORAGE_DEPENDENCY_INFO_VERSION_UNSPECIFIED: STORAGE_DEPENDENCY_INFO_VERSION = STORAGE_DEPENDENCY_INFO_VERSION(0i32);
@@ -3871,7 +3871,7 @@ pub unsafe fn SetVirtualDiskMetadata<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAKE_SNAPSHOT_VHDSET_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const TAKE_SNAPSHOT_VHDSET_FLAG_NONE: TAKE_SNAPSHOT_VHDSET_FLAG = TAKE_SNAPSHOT_VHDSET_FLAG(0u32);
@@ -4007,7 +4007,7 @@ impl ::core::default::Default for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAKE_SNAPSHOT_VHDSET_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const TAKE_SNAPSHOT_VHDSET_VERSION_UNSPECIFIED: TAKE_SNAPSHOT_VHDSET_VERSION = TAKE_SNAPSHOT_VHDSET_VERSION(0i32);
@@ -4044,7 +4044,7 @@ pub unsafe fn TakeSnapshotVhdSet<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VIRTUAL_DISK_ACCESS_MASK(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const VIRTUAL_DISK_ACCESS_NONE: VIRTUAL_DISK_ACCESS_MASK = VIRTUAL_DISK_ACCESS_MASK(0u32);

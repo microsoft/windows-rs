@@ -207,7 +207,7 @@ pub struct IInputInjectorStatics2_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InjectedInputButtonChangeKind(pub i32);
 impl InjectedInputButtonChangeKind {
     pub const None: Self = Self(0i32);
@@ -438,7 +438,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InjectedInputKeyOptions(pub u32);
 impl InjectedInputKeyOptions {
     pub const None: Self = Self(0u32);
@@ -771,7 +771,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InjectedInputMouseOptions(pub u32);
 impl InjectedInputMouseOptions {
     pub const None: Self = Self(0u32);
@@ -846,7 +846,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputMouseOptions {
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InjectedInputPenButtons(pub u32);
 impl InjectedInputPenButtons {
     pub const None: Self = Self(0u32);
@@ -1083,7 +1083,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InjectedInputPenParameters(pub u32);
 impl InjectedInputPenParameters {
     pub const None: Self = Self(0u32);
@@ -1227,7 +1227,7 @@ impl ::core::default::Default for InjectedInputPointerInfo {
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InjectedInputPointerOptions(pub u32);
 impl InjectedInputPointerOptions {
     pub const None: Self = Self(0u32);
@@ -1340,7 +1340,7 @@ impl ::core::default::Default for InjectedInputRectangle {
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InjectedInputShortcut(pub i32);
 impl InjectedInputShortcut {
     pub const Back: Self = Self(0i32);
@@ -1522,7 +1522,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InjectedInputTouchParameters(pub u32);
 impl InjectedInputTouchParameters {
     pub const None: Self = Self(0u32);
@@ -1586,7 +1586,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputTouchParameters {
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InjectedInputVisualizationMode(pub i32);
 impl InjectedInputVisualizationMode {
     pub const None: Self = Self(0i32);

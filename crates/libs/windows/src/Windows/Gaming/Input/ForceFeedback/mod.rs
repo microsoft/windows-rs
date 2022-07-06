@@ -156,7 +156,7 @@ unsafe impl ::core::marker::Send for ConditionForceEffect {}
 unsafe impl ::core::marker::Sync for ConditionForceEffect {}
 #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ConditionForceEffectKind(pub i32);
 impl ConditionForceEffectKind {
     pub const Spring: Self = Self(0i32);
@@ -341,7 +341,7 @@ unsafe impl ::core::marker::Send for ConstantForceEffect {}
 unsafe impl ::core::marker::Sync for ConstantForceEffect {}
 #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ForceFeedbackEffectAxes(pub u32);
 impl ForceFeedbackEffectAxes {
     pub const None: Self = Self(0u32);
@@ -405,7 +405,7 @@ unsafe impl ::windows::core::RuntimeType for ForceFeedbackEffectAxes {
 }
 #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ForceFeedbackEffectState(pub i32);
 impl ForceFeedbackEffectState {
     pub const Stopped: Self = Self(0i32);
@@ -441,7 +441,7 @@ unsafe impl ::windows::core::RuntimeType for ForceFeedbackEffectState {
 }
 #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ForceFeedbackLoadEffectResult(pub i32);
 impl ForceFeedbackLoadEffectResult {
     pub const Succeeded: Self = Self(0i32);
@@ -1069,7 +1069,7 @@ unsafe impl ::core::marker::Send for PeriodicForceEffect {}
 unsafe impl ::core::marker::Sync for PeriodicForceEffect {}
 #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PeriodicForceEffectKind(pub i32);
 impl PeriodicForceEffectKind {
     pub const SquareWave: Self = Self(0i32);

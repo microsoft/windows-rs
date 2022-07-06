@@ -2362,7 +2362,7 @@ pub const PROVIDERWSD_QUERYCONSTRAINT_SSL_CERT_FOR_CLIENT_AUTH: &str = "SSLClien
 pub const PROVIDERWSD_QUERYCONSTRAINT_TYPE: &str = "Type";
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PropertyConstraint(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
 pub const QC_EQUALS: PropertyConstraint = PropertyConstraint(0i32);
@@ -2407,7 +2407,7 @@ pub const PropertyStore: ::windows::core::GUID = ::windows::core::GUID::from_u12
 pub const PropertyStoreCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedd36029_d753_4862_aa5b_5bccad2a4d29);
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QueryCategoryType(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
 pub const QCT_PROVIDER: QueryCategoryType = QueryCategoryType(0i32);
@@ -2434,7 +2434,7 @@ impl ::core::fmt::Debug for QueryCategoryType {
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QueryUpdateAction(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
 pub const QUA_ADD: QueryUpdateAction = QueryUpdateAction(0i32);
@@ -2483,7 +2483,7 @@ pub const SSDP_CONSTRAINTVALUE_TYPE_ROOT: &str = "upnp:rootdevice";
 pub const SSDP_CONSTRAINTVALUE_TYPE_SVC_PREFIX: &str = "urn:schemas-upnp-org:service:";
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemVisibilityFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
 pub const SVF_SYSTEM: SystemVisibilityFlags = SystemVisibilityFlags(0i32);

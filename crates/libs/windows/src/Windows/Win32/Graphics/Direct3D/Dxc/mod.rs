@@ -49,7 +49,7 @@ pub const DXC_ARG_SKIP_VALIDATION: &str = "-Vd";
 pub const DXC_ARG_WARNINGS_ARE_ERRORS: &str = "-WX";
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXC_CP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_CP_ACP: DXC_CP = DXC_CP(0u32);
@@ -84,7 +84,7 @@ pub const DXC_EXTRA_OUTPUT_NAME_STDOUT: &str = "*stdout*";
 pub const DXC_HASHFLAG_INCLUDES_SOURCE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXC_OUT_KIND(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_OUT_NONE: DXC_OUT_KIND = DXC_OUT_KIND(0i32);

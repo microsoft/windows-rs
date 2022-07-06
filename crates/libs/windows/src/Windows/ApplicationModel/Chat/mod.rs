@@ -662,7 +662,7 @@ unsafe impl ::core::marker::Send for ChatConversationThreadingInfo {}
 unsafe impl ::core::marker::Sync for ChatConversationThreadingInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ChatConversationThreadingKind(pub i32);
 impl ChatConversationThreadingKind {
     pub const Participants: Self = Self(0i32);
@@ -698,7 +698,7 @@ unsafe impl ::windows::core::RuntimeType for ChatConversationThreadingKind {
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ChatItemKind(pub i32);
 impl ChatItemKind {
     pub const Message: Self = Self(0i32);
@@ -1667,7 +1667,7 @@ unsafe impl ::core::marker::Send for ChatMessageChangeTracker {}
 unsafe impl ::core::marker::Sync for ChatMessageChangeTracker {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ChatMessageChangeType(pub i32);
 impl ChatMessageChangeType {
     pub const MessageCreated: Self = Self(0i32);
@@ -1870,7 +1870,7 @@ unsafe impl ::core::marker::Send for ChatMessageChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ChatMessageChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ChatMessageKind(pub i32);
 impl ChatMessageKind {
     pub const Standard: Self = Self(0i32);
@@ -2100,7 +2100,7 @@ unsafe impl ::core::marker::Send for ChatMessageNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for ChatMessageNotificationTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ChatMessageOperatorKind(pub i32);
 impl ChatMessageOperatorKind {
     pub const Unspecified: Self = Self(0i32);
@@ -2231,7 +2231,7 @@ unsafe impl ::core::marker::Send for ChatMessageReader {}
 unsafe impl ::core::marker::Sync for ChatMessageReader {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ChatMessageStatus(pub i32);
 impl ChatMessageStatus {
     pub const Draft: Self = Self(0i32);
@@ -2959,7 +2959,7 @@ unsafe impl ::core::marker::Send for ChatMessageTransportConfiguration {}
 unsafe impl ::core::marker::Sync for ChatMessageTransportConfiguration {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ChatMessageTransportKind(pub i32);
 impl ChatMessageTransportKind {
     pub const Text: Self = Self(0i32);
@@ -3107,7 +3107,7 @@ unsafe impl ::core::marker::Send for ChatMessageValidationResult {}
 unsafe impl ::core::marker::Sync for ChatMessageValidationResult {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ChatMessageValidationStatus(pub i32);
 impl ChatMessageValidationStatus {
     pub const Valid: Self = Self(0i32);
@@ -3417,7 +3417,7 @@ unsafe impl ::core::marker::Send for ChatRecipientDeliveryInfo {}
 unsafe impl ::core::marker::Sync for ChatRecipientDeliveryInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ChatRestoreHistorySpan(pub i32);
 impl ChatRestoreHistorySpan {
     pub const LastMonth: Self = Self(0i32);
@@ -3547,7 +3547,7 @@ unsafe impl ::core::marker::Send for ChatSearchReader {}
 unsafe impl ::core::marker::Sync for ChatSearchReader {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ChatStoreChangedEventKind(pub i32);
 impl ChatStoreChangedEventKind {
     pub const NotificationsMissed: Self = Self(0i32);
@@ -3816,7 +3816,7 @@ unsafe impl ::core::marker::Send for ChatSyncManager {}
 unsafe impl ::core::marker::Sync for ChatSyncManager {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ChatTransportErrorCodeCategory(pub i32);
 impl ChatTransportErrorCodeCategory {
     pub const None: Self = Self(0i32);
@@ -3852,7 +3852,7 @@ unsafe impl ::windows::core::RuntimeType for ChatTransportErrorCodeCategory {
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ChatTransportInterpretedErrorCode(pub i32);
 impl ChatTransportInterpretedErrorCode {
     pub const None: Self = Self(0i32);
@@ -5661,7 +5661,7 @@ impl ::windows::core::RuntimeName for RcsManager {
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RcsServiceKind(pub i32);
 impl RcsServiceKind {
     pub const Chat: Self = Self(0i32);

@@ -156,7 +156,7 @@ impl ::core::default::Default for CERT_SELECT_STRUCT_A {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_SELECT_STRUCT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 pub const CSS_HIDE_PROPERTIES: CERT_SELECT_STRUCT_FLAGS = CERT_SELECT_STRUCT_FLAGS(1u32);
@@ -497,7 +497,7 @@ impl ::core::default::Default for CERT_VIEWPROPERTIES_STRUCT_A {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_VIEWPROPERTIES_STRUCT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 pub const CM_ENABLEHOOK: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(1u32);
@@ -833,7 +833,7 @@ pub const CRYPTUI_SELECT_ISSUEDTO_COLUMN: u64 = 1u64;
 pub const CRYPTUI_SELECT_LOCATION_COLUMN: u64 = 16u64;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPTUI_VIEWCERTIFICATE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 pub const CRYPTUI_HIDE_HIERARCHYPAGE: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(1u32);
@@ -1088,7 +1088,7 @@ impl ::core::default::Default for CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN: CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE = CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE(1u32);
@@ -1117,7 +1117,7 @@ impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_CERT: CRYPTUI_WIZ_DIGITAL_SIGN = CRYPTUI_WIZ_DIGITAL_SIGN(1u32);
@@ -1459,7 +1459,7 @@ impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE: CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION = CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION(1u32);
@@ -1486,7 +1486,7 @@ impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_COMMERCIAL: CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE = CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE(1u32);
@@ -1555,7 +1555,7 @@ impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_BLOB: CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT = CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT(2u32);
@@ -1627,7 +1627,7 @@ impl ::core::default::Default for CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPTUI_WIZ_EXPORT_FORMAT(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 pub const CRYPTUI_WIZ_EXPORT_FORMAT_DER: CRYPTUI_WIZ_EXPORT_FORMAT = CRYPTUI_WIZ_EXPORT_FORMAT(1u32);
@@ -1736,7 +1736,7 @@ impl ::core::default::Default for CRYPTUI_WIZ_EXPORT_INFO_0 {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPTUI_WIZ_EXPORT_SUBJECT(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 pub const CRYPTUI_WIZ_EXPORT_CERT_CONTEXT: CRYPTUI_WIZ_EXPORT_SUBJECT = CRYPTUI_WIZ_EXPORT_SUBJECT(1u32);
@@ -1769,7 +1769,7 @@ impl ::core::fmt::Debug for CRYPTUI_WIZ_EXPORT_SUBJECT {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPTUI_WIZ_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 pub const CRYPTUI_WIZ_NO_UI: CRYPTUI_WIZ_FLAGS = CRYPTUI_WIZ_FLAGS(1u32);
@@ -1916,7 +1916,7 @@ impl ::core::default::Default for CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 pub const CRYPTUI_WIZ_IMPORT_SUBJECT_FILE: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION(1u32);
@@ -1993,7 +1993,7 @@ impl ::core::default::Default for CTL_MODIFY_REQUEST {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CTL_MODIFY_REQUEST_OPERATION(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`*"]
 pub const CTL_MODIFY_REQUEST_ADD_TRUSTED: CTL_MODIFY_REQUEST_OPERATION = CTL_MODIFY_REQUEST_OPERATION(3u32);

@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCS_CREATE_OPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 pub const HcsCreateOptions_1: HCS_CREATE_OPTIONS = HCS_CREATE_OPTIONS(65536i32);
@@ -102,7 +102,7 @@ impl ::core::default::Default for HCS_EVENT {
 pub type HCS_EVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCS_EVENT_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 pub const HcsEventOptionNone: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(0u32);
@@ -157,7 +157,7 @@ impl ::core::ops::Not for HCS_EVENT_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCS_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 pub const HcsEventInvalid: HCS_EVENT_TYPE = HCS_EVENT_TYPE(0i32);
@@ -200,7 +200,7 @@ impl ::core::fmt::Debug for HCS_EVENT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCS_NOTIFICATIONS(pub i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 pub const HcsNotificationInvalid: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(0i32);
@@ -267,7 +267,7 @@ impl ::core::fmt::Debug for HCS_NOTIFICATIONS {
 pub type HCS_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows::core::HRESULT, notificationdata: ::windows::core::PCWSTR)>;
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCS_NOTIFICATION_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 pub const HcsNotificationFlagSuccess: HCS_NOTIFICATION_FLAGS = HCS_NOTIFICATION_FLAGS(0i32);
@@ -293,7 +293,7 @@ impl ::core::fmt::Debug for HCS_NOTIFICATION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCS_OPERATION(pub isize);
 impl HCS_OPERATION {
     pub fn is_invalid(&self) -> bool {
@@ -323,7 +323,7 @@ unsafe impl ::windows::core::Abi for HCS_OPERATION {
 pub type HCS_OPERATION_COMPLETION = ::core::option::Option<unsafe extern "system" fn(operation: HCS_OPERATION, context: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCS_OPERATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 pub const HcsOperationTypeNone: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(-1i32);
@@ -379,7 +379,7 @@ impl ::core::fmt::Debug for HCS_OPERATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCS_PROCESS(pub isize);
 impl HCS_PROCESS {
     pub fn is_invalid(&self) -> bool {
@@ -448,7 +448,7 @@ impl ::core::default::Default for HCS_PROCESS_INFORMATION {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCS_SYSTEM(pub isize);
 impl HCS_SYSTEM {
     pub fn is_invalid(&self) -> bool {

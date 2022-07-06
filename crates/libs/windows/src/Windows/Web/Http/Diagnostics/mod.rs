@@ -675,7 +675,7 @@ unsafe impl ::core::marker::Send for HttpDiagnosticProviderResponseReceivedEvent
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderResponseReceivedEventArgs {}
 #[doc = "*Required features: `\"Web_Http_Diagnostics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HttpDiagnosticRequestInitiator(pub i32);
 impl HttpDiagnosticRequestInitiator {
     pub const ParsedElement: Self = Self(0i32);

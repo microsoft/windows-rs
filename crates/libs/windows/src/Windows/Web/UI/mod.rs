@@ -1964,7 +1964,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a W
 }
 #[doc = "*Required features: `\"Web_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WebViewControlPermissionState(pub i32);
 impl WebViewControlPermissionState {
     pub const Unknown: Self = Self(0i32);
@@ -2000,7 +2000,7 @@ unsafe impl ::windows::core::RuntimeType for WebViewControlPermissionState {
 }
 #[doc = "*Required features: `\"Web_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WebViewControlPermissionType(pub i32);
 impl WebViewControlPermissionType {
     pub const Geolocation: Self = Self(0i32);

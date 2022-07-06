@@ -542,7 +542,7 @@ unsafe impl ::core::marker::Send for ClipboardHistoryItemsResult {}
 unsafe impl ::core::marker::Sync for ClipboardHistoryItemsResult {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ClipboardHistoryItemsResultStatus(pub i32);
 impl ClipboardHistoryItemsResultStatus {
     pub const Success: Self = Self(0i32);
@@ -820,7 +820,7 @@ unsafe impl ::core::marker::Send for DataPackage {}
 unsafe impl ::core::marker::Sync for DataPackage {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DataPackageOperation(pub u32);
 impl DataPackageOperation {
     pub const None: Self = Self(0u32);
@@ -3643,7 +3643,7 @@ unsafe impl ::core::marker::Send for OperationCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for OperationCompletedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SetHistoryItemAsContentStatus(pub i32);
 impl SetHistoryItemAsContentStatus {
     pub const Success: Self = Self(0i32);
@@ -4383,7 +4383,7 @@ unsafe impl ::core::marker::Send for ShareUIOptions {}
 unsafe impl ::core::marker::Sync for ShareUIOptions {}
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ShareUITheme(pub i32);
 impl ShareUITheme {
     pub const Default: Self = Self(0i32);

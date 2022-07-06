@@ -917,7 +917,7 @@ unsafe impl ::core::marker::Sync for SocialFeedItem {}
 #[doc = "*Required features: `\"ApplicationModel_SocialInfo\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SocialFeedItemStyle(pub i32);
 #[cfg(feature = "deprecated")]
 impl SocialFeedItemStyle {
@@ -959,7 +959,7 @@ unsafe impl ::windows::core::RuntimeType for SocialFeedItemStyle {
 #[doc = "*Required features: `\"ApplicationModel_SocialInfo\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SocialFeedKind(pub i32);
 #[cfg(feature = "deprecated")]
 impl SocialFeedKind {
@@ -1174,7 +1174,7 @@ unsafe impl ::core::marker::Sync for SocialFeedSharedItem {}
 #[doc = "*Required features: `\"ApplicationModel_SocialInfo\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SocialFeedUpdateMode(pub i32);
 #[cfg(feature = "deprecated")]
 impl SocialFeedUpdateMode {
@@ -1216,7 +1216,7 @@ unsafe impl ::windows::core::RuntimeType for SocialFeedUpdateMode {
 #[doc = "*Required features: `\"ApplicationModel_SocialInfo\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SocialItemBadgeStyle(pub i32);
 #[cfg(feature = "deprecated")]
 impl SocialItemBadgeStyle {

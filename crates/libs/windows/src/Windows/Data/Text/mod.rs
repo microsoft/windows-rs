@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AlternateNormalizationFormat(pub i32);
 impl AlternateNormalizationFormat {
     pub const NotNormalized: Self = Self(0i32);
@@ -1276,7 +1276,7 @@ unsafe impl ::core::marker::Send for TextPredictionGenerator {}
 unsafe impl ::core::marker::Sync for TextPredictionGenerator {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextPredictionOptions(pub u32);
 impl TextPredictionOptions {
     pub const None: Self = Self(0u32);
@@ -1628,7 +1628,7 @@ impl ::windows::core::RuntimeName for UnicodeCharacters {
 }
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UnicodeGeneralCategory(pub i32);
 impl UnicodeGeneralCategory {
     pub const UppercaseLetter: Self = Self(0i32);
@@ -1690,7 +1690,7 @@ unsafe impl ::windows::core::RuntimeType for UnicodeGeneralCategory {
 }
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UnicodeNumericType(pub i32);
 impl UnicodeNumericType {
     pub const None: Self = Self(0i32);

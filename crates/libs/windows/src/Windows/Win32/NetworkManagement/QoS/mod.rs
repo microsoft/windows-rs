@@ -595,7 +595,7 @@ pub const FVEB_UNLOCK_FLAG_RECOVERY: u32 = 64u32;
 pub const FVEB_UNLOCK_FLAG_TPM: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FilterType(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const FILTERSPECV4: FilterType = FilterType(1i32);
@@ -1573,7 +1573,7 @@ pub const LOCAL_TRAFFIC_CONTROL: u32 = 50004u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const LPM_API_VERSION_1: u32 = 1u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LPM_HANDLE(pub isize);
 impl LPM_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -2234,7 +2234,7 @@ impl ::core::default::Default for QOS_FLOWRATE_OUTGOING {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QOS_FLOWRATE_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const QOSFlowRateNotApplicable: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(0i32);
@@ -2347,7 +2347,7 @@ pub const QOS_MAX_OBJECT_STRING_LENGTH: u32 = 256u32;
 pub const QOS_NON_ADAPTIVE_FLOW: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QOS_NOTIFY_FLOW(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const QOSNotifyCongested: QOS_NOTIFY_FLOW = QOS_NOTIFY_FLOW(0i32);
@@ -2446,7 +2446,7 @@ impl ::core::default::Default for QOS_PACKET_PRIORITY {
 pub const QOS_QUERYFLOW_FRESH: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QOS_QUERY_FLOW(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const QOSQueryFlowFundamentals: QOS_QUERY_FLOW = QOS_QUERY_FLOW(0i32);
@@ -2506,7 +2506,7 @@ impl ::core::default::Default for QOS_SD_MODE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QOS_SET_FLOW(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const QOSSetTrafficType: QOS_SET_FLOW = QOS_SET_FLOW(0i32);
@@ -2535,7 +2535,7 @@ impl ::core::fmt::Debug for QOS_SET_FLOW {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QOS_SHAPING(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const QOSShapeOnly: QOS_SHAPING = QOS_SHAPING(0i32);
@@ -2658,7 +2658,7 @@ impl ::core::default::Default for QOS_TRAFFIC_CLASS {
 pub const QOS_TRAFFIC_GENERAL_ID_BASE: u32 = 4000u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QOS_TRAFFIC_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const QOSTrafficTypeBestEffort: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(0i32);
@@ -2858,7 +2858,7 @@ impl ::core::default::Default for RESV_STYLE {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RHANDLE(pub isize);
 impl RHANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -4860,7 +4860,7 @@ impl ::core::default::Default for flow_desc_1 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct int_serv_wkp(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const IS_WKP_HOP_CNT: int_serv_wkp = int_serv_wkp(4i32);

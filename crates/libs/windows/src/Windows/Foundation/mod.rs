@@ -578,7 +578,7 @@ where
 }
 #[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AsyncStatus(pub i32);
 impl AsyncStatus {
     pub const Canceled: Self = Self(2i32);
@@ -4021,7 +4021,7 @@ impl ::core::default::Default for Point {
 }
 #[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PropertyType(pub i32);
 impl PropertyType {
     pub const Empty: Self = Self(0i32);

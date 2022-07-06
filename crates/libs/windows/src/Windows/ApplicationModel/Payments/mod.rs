@@ -922,7 +922,7 @@ unsafe impl ::core::marker::Send for PaymentCanMakePaymentResult {}
 unsafe impl ::core::marker::Sync for PaymentCanMakePaymentResult {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PaymentCanMakePaymentResultStatus(pub i32);
 impl PaymentCanMakePaymentResultStatus {
     pub const Unknown: Self = Self(0i32);
@@ -1875,7 +1875,7 @@ unsafe impl ::core::marker::Send for PaymentMethodData {}
 unsafe impl ::core::marker::Sync for PaymentMethodData {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PaymentOptionPresence(pub i32);
 impl PaymentOptionPresence {
     pub const None: Self = Self(0i32);
@@ -2219,7 +2219,7 @@ unsafe impl ::core::marker::Send for PaymentRequest {}
 unsafe impl ::core::marker::Sync for PaymentRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PaymentRequestChangeKind(pub i32);
 impl PaymentRequestChangeKind {
     pub const ShippingOption: Self = Self(0i32);
@@ -2579,7 +2579,7 @@ unsafe impl ::core::marker::Send for PaymentRequestChangedResult {}
 unsafe impl ::core::marker::Sync for PaymentRequestChangedResult {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PaymentRequestCompletionStatus(pub i32);
 impl PaymentRequestCompletionStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -2614,7 +2614,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentRequestCompletionStatus {
 }
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PaymentRequestStatus(pub i32);
 impl PaymentRequestStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -3031,7 +3031,7 @@ unsafe impl ::core::marker::Send for PaymentShippingOption {}
 unsafe impl ::core::marker::Sync for PaymentShippingOption {}
 #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PaymentShippingType(pub i32);
 impl PaymentShippingType {
     pub const Shipping: Self = Self(0i32);

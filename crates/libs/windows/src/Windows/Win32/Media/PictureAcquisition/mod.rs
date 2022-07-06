@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_SELECTION_DEVICE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const DST_UNKNOWN_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = DEVICE_SELECTION_DEVICE_TYPE(0i32);
@@ -57,7 +57,7 @@ pub const DSF_WIA_SCANNERS: u32 = 4u32;
 pub const DSF_WPD_DEVICES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ERROR_ADVISE_MESSAGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQUIRE_ERROR_SKIPRETRYCANCEL: ERROR_ADVISE_MESSAGE_TYPE = ERROR_ADVISE_MESSAGE_TYPE(0i32);
@@ -88,7 +88,7 @@ impl ::core::fmt::Debug for ERROR_ADVISE_MESSAGE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ERROR_ADVISE_RESULT(pub i32);
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PHOTOACQUIRE_RESULT_YES: ERROR_ADVISE_RESULT = ERROR_ADVISE_RESULT(0i32);
@@ -1415,7 +1415,7 @@ pub const PKEY_PhotoAcquire_SkipImport: super::super::UI::Shell::PropertiesSyste
 pub const PKEY_PhotoAcquire_TransferResult: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 5u32 };
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROGRESS_DIALOG_CHECKBOX_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PROGRESS_DIALOG_CHECKBOX_ID_DEFAULT: PROGRESS_DIALOG_CHECKBOX_ID = PROGRESS_DIALOG_CHECKBOX_ID(0i32);
@@ -1440,7 +1440,7 @@ impl ::core::fmt::Debug for PROGRESS_DIALOG_CHECKBOX_ID {
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROGRESS_DIALOG_IMAGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const PROGRESS_DIALOG_ICON_SMALL: PROGRESS_DIALOG_IMAGE_TYPE = PROGRESS_DIALOG_IMAGE_TYPE(0i32);
@@ -1479,7 +1479,7 @@ pub const PhotoAcquireOptionsDialog: ::windows::core::GUID = ::windows::core::GU
 pub const PhotoProgressDialog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f24ca0_748f_4e8a_894f_0e0357c6799f);
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USER_INPUT_STRING_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 pub const USER_INPUT_DEFAULT: USER_INPUT_STRING_TYPE = USER_INPUT_STRING_TYPE(0i32);

@@ -248,7 +248,7 @@ pub struct IAdcProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Adc_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderAdcChannelMode(pub i32);
 impl ProviderAdcChannelMode {
     pub const SingleEnded: Self = Self(0i32);

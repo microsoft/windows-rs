@@ -238,7 +238,7 @@ pub struct IRendezvousSession_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RENDEZVOUS_SESSION_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const RSF_NONE: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(0i32);
@@ -273,7 +273,7 @@ impl ::core::fmt::Debug for RENDEZVOUS_SESSION_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RENDEZVOUS_SESSION_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const RSS_UNKNOWN: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(0i32);

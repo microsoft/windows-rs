@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AddServiceFlag(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const asfAllowPendingRegistration: AddServiceFlag = AddServiceFlag(1i32);
@@ -29,7 +29,7 @@ impl ::core::fmt::Debug for AddServiceFlag {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutoDownloadMode(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const adLetWindowsUpdateDecide: AutoDownloadMode = AutoDownloadMode(0i32);
@@ -58,7 +58,7 @@ impl ::core::fmt::Debug for AutoDownloadMode {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutoSelectionMode(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const asLetWindowsUpdateDecide: AutoSelectionMode = AutoSelectionMode(0i32);
@@ -90,7 +90,7 @@ impl ::core::fmt::Debug for AutoSelectionMode {
 pub const AutomaticUpdates: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfe18e9c_6d87_4450_b37c_e02f0b373803);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutomaticUpdatesNotificationLevel(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const aunlNotConfigured: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(0i32);
@@ -123,7 +123,7 @@ impl ::core::fmt::Debug for AutomaticUpdatesNotificationLevel {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutomaticUpdatesPermissionType(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const auptSetNotificationLevel: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(1i32);
@@ -156,7 +156,7 @@ impl ::core::fmt::Debug for AutomaticUpdatesPermissionType {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutomaticUpdatesScheduledInstallationDay(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const ausidEveryDay: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(0i32);
@@ -195,7 +195,7 @@ impl ::core::fmt::Debug for AutomaticUpdatesScheduledInstallationDay {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutomaticUpdatesUserType(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const auutCurrentUser: AutomaticUpdatesUserType = AutomaticUpdatesUserType(1i32);
@@ -222,7 +222,7 @@ impl ::core::fmt::Debug for AutomaticUpdatesUserType {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeploymentAction(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const daNone: DeploymentAction = DeploymentAction(0i32);
@@ -255,7 +255,7 @@ impl ::core::fmt::Debug for DeploymentAction {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DownloadPhase(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const dphInitializing: DownloadPhase = DownloadPhase(1i32);
@@ -284,7 +284,7 @@ impl ::core::fmt::Debug for DownloadPhase {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DownloadPriority(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const dpLow: DownloadPriority = DownloadPriority(1i32);
@@ -14059,7 +14059,7 @@ pub struct IWindowsUpdateAgentInfo_Vtbl {
 pub const InstallationAgent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x317e92fc_1679_46fd_a0b5_f08914dd8623);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InstallationImpact(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const iiNormal: InstallationImpact = InstallationImpact(0i32);
@@ -14088,7 +14088,7 @@ impl ::core::fmt::Debug for InstallationImpact {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InstallationRebootBehavior(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const irbNeverReboots: InstallationRebootBehavior = InstallationRebootBehavior(0i32);
@@ -14118,7 +14118,7 @@ impl ::core::fmt::Debug for InstallationRebootBehavior {
 pub const LIBID_WUApiLib: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb596cc9f_56e5_419e_a622_e01bb457431e);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OperationResultCode(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const orcNotStarted: OperationResultCode = OperationResultCode(0i32);
@@ -14153,7 +14153,7 @@ impl ::core::fmt::Debug for OperationResultCode {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SearchScope(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const searchScopeDefault: SearchScope = SearchScope(0i32);
@@ -14188,7 +14188,7 @@ impl ::core::fmt::Debug for SearchScope {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ServerSelection(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const ssDefault: ServerSelection = ServerSelection(0i32);
@@ -14225,7 +14225,7 @@ pub const UpdateCollection: ::windows::core::GUID = ::windows::core::GUID::from_
 pub const UpdateDownloader: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5baf654a_5a07_4264_a255_9ff54c7151e7);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UpdateExceptionContext(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const uecGeneral: UpdateExceptionContext = UpdateExceptionContext(1i32);
@@ -14257,7 +14257,7 @@ impl ::core::fmt::Debug for UpdateExceptionContext {
 pub const UpdateInstaller: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2e0fe7f_d23e_48e1_93c0_6fa8cc346474);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UpdateLockdownOption(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const uloForWebsiteAccess: UpdateLockdownOption = UpdateLockdownOption(1i32);
@@ -14282,7 +14282,7 @@ impl ::core::fmt::Debug for UpdateLockdownOption {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UpdateOperation(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const uoInstallation: UpdateOperation = UpdateOperation(1i32);
@@ -14311,7 +14311,7 @@ pub const UpdateSearcher: ::windows::core::GUID = ::windows::core::GUID::from_u1
 pub const UpdateServiceManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8d253d9_89a4_4daa_87b6_1168369f0b21);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UpdateServiceOption(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const usoNonVolatileService: UpdateServiceOption = UpdateServiceOption(1i32);
@@ -14336,7 +14336,7 @@ impl ::core::fmt::Debug for UpdateServiceOption {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UpdateServiceRegistrationState(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const usrsNotRegistered: UpdateServiceRegistrationState = UpdateServiceRegistrationState(1i32);
@@ -14366,7 +14366,7 @@ impl ::core::fmt::Debug for UpdateServiceRegistrationState {
 pub const UpdateSession: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cb43d7f_7eee_4906_8698_60da1c38f2fe);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UpdateType(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const utSoftware: UpdateType = UpdateType(1i32);

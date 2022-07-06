@@ -516,7 +516,7 @@ unsafe impl ::core::marker::Send for ProviderSpiConnectionSettings {}
 unsafe impl ::core::marker::Sync for ProviderSpiConnectionSettings {}
 #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderSpiMode(pub i32);
 impl ProviderSpiMode {
     pub const Mode0: Self = Self(0i32);
@@ -552,7 +552,7 @@ unsafe impl ::windows::core::RuntimeType for ProviderSpiMode {
 }
 #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderSpiSharingMode(pub i32);
 impl ProviderSpiSharingMode {
     pub const Exclusive: Self = Self(0i32);

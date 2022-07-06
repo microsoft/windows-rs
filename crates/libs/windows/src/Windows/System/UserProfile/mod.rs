@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"System_UserProfile\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AccountPictureKind(pub i32);
 #[cfg(feature = "deprecated")]
 impl AccountPictureKind {
@@ -1265,7 +1265,7 @@ impl ::windows::core::RuntimeName for LockScreen {
 #[doc = "*Required features: `\"System_UserProfile\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SetAccountPictureResult(pub i32);
 #[cfg(feature = "deprecated")]
 impl SetAccountPictureResult {
@@ -1310,7 +1310,7 @@ unsafe impl ::windows::core::RuntimeType for SetAccountPictureResult {
 }
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SetImageFeedResult(pub i32);
 impl SetImageFeedResult {
     pub const Success: Self = Self(0i32);

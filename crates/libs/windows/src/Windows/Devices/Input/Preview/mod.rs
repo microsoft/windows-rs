@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GazeDeviceConfigurationStatePreview(pub i32);
 impl GazeDeviceConfigurationStatePreview {
     pub const Unknown: Self = Self(0i32);

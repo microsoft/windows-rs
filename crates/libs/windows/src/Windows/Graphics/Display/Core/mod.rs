@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Graphics_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HdmiDisplayColorSpace(pub i32);
 impl HdmiDisplayColorSpace {
     pub const RgbLimited: Self = Self(0i32);
@@ -97,7 +97,7 @@ impl ::core::default::Default for HdmiDisplayHdr2086Metadata {
 }
 #[doc = "*Required features: `\"Graphics_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HdmiDisplayHdrOption(pub i32);
 impl HdmiDisplayHdrOption {
     pub const None: Self = Self(0i32);
@@ -463,7 +463,7 @@ unsafe impl ::core::marker::Send for HdmiDisplayMode {}
 unsafe impl ::core::marker::Sync for HdmiDisplayMode {}
 #[doc = "*Required features: `\"Graphics_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HdmiDisplayPixelEncoding(pub i32);
 impl HdmiDisplayPixelEncoding {
     pub const Rgb444: Self = Self(0i32);

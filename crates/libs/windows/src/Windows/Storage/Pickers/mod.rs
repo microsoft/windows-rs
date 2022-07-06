@@ -1648,7 +1648,7 @@ pub struct IFolderPickerStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Storage_Pickers\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PickerLocationId(pub i32);
 impl PickerLocationId {
     pub const DocumentsLibrary: Self = Self(0i32);
@@ -1690,7 +1690,7 @@ unsafe impl ::windows::core::RuntimeType for PickerLocationId {
 }
 #[doc = "*Required features: `\"Storage_Pickers\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PickerViewMode(pub i32);
 impl PickerViewMode {
     pub const List: Self = Self(0i32);

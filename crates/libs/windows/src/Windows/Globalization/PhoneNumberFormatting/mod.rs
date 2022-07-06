@@ -80,7 +80,7 @@ pub struct IPhoneNumberInfoStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhoneNumberFormat(pub i32);
 impl PhoneNumberFormat {
     pub const E164: Self = Self(0i32);
@@ -477,7 +477,7 @@ unsafe impl ::core::marker::Send for PhoneNumberInfo {}
 unsafe impl ::core::marker::Sync for PhoneNumberInfo {}
 #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhoneNumberMatchResult(pub i32);
 impl PhoneNumberMatchResult {
     pub const NoMatch: Self = Self(0i32);
@@ -513,7 +513,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneNumberMatchResult {
 }
 #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhoneNumberParseResult(pub i32);
 impl PhoneNumberParseResult {
     pub const Valid: Self = Self(0i32);
@@ -550,7 +550,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneNumberParseResult {
 }
 #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PredictedPhoneNumberKind(pub i32);
 impl PredictedPhoneNumberKind {
     pub const FixedLine: Self = Self(0i32);

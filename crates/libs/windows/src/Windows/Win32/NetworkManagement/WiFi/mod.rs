@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CH_DESCRIPTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const ch_description_type_logical: CH_DESCRIPTION_TYPE = CH_DESCRIPTION_TYPE(1i32);
@@ -304,7 +304,7 @@ pub type DOT11EXT_FREE_BUFFER = ::core::option::Option<unsafe extern "system" fn
 pub type DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwsessionid: u32, pdwdatasize: *mut u32, ppvdata: *mut *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11EXT_IHV_CONNECTION_PHASE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const connection_phase_any: DOT11EXT_IHV_CONNECTION_PHASE = DOT11EXT_IHV_CONNECTION_PHASE(0i32);
@@ -517,7 +517,7 @@ impl ::core::default::Default for DOT11EXT_IHV_HANDLERS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11EXT_IHV_INDICATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const IndicationTypeNicSpecificNotification: DOT11EXT_IHV_INDICATION_TYPE = DOT11EXT_IHV_INDICATION_TYPE(0i32);
@@ -924,7 +924,7 @@ impl ::core::default::Default for DOT11_ACCESSNETWORKOPTIONS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_AC_PARAM(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_AC_param_BE: DOT11_AC_PARAM = DOT11_AC_PARAM(0i32);
@@ -1033,7 +1033,7 @@ impl ::core::default::Default for DOT11_ADDITIONAL_IE {
 pub const DOT11_ADDITIONAL_IE_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_ADHOC_AUTH_ALGORITHM(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const DOT11_ADHOC_AUTH_ALGO_INVALID: DOT11_ADHOC_AUTH_ALGORITHM = DOT11_ADHOC_AUTH_ALGORITHM(-1i32);
@@ -1062,7 +1062,7 @@ impl ::core::fmt::Debug for DOT11_ADHOC_AUTH_ALGORITHM {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_ADHOC_CIPHER_ALGORITHM(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const DOT11_ADHOC_CIPHER_ALGO_INVALID: DOT11_ADHOC_CIPHER_ALGORITHM = DOT11_ADHOC_CIPHER_ALGORITHM(-1i32);
@@ -1093,7 +1093,7 @@ impl ::core::fmt::Debug for DOT11_ADHOC_CIPHER_ALGORITHM {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_ADHOC_CONNECT_FAIL_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const DOT11_ADHOC_CONNECT_FAIL_DOMAIN_MISMATCH: DOT11_ADHOC_CONNECT_FAIL_REASON = DOT11_ADHOC_CONNECT_FAIL_REASON(0i32);
@@ -1122,7 +1122,7 @@ impl ::core::fmt::Debug for DOT11_ADHOC_CONNECT_FAIL_REASON {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_ADHOC_NETWORK_CONNECTION_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_INVALID: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = DOT11_ADHOC_NETWORK_CONNECTION_STATUS(0i32);
@@ -1198,7 +1198,7 @@ impl ::core::default::Default for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
 pub const DOT11_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_ANQP_QUERY_RESULT(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_ANQP_query_result_success: DOT11_ANQP_QUERY_RESULT = DOT11_ANQP_QUERY_RESULT(0i32);
@@ -1550,7 +1550,7 @@ impl ::core::default::Default for DOT11_ASSOCIATION_START_PARAMETERS {
 pub const DOT11_ASSOCIATION_START_PARAMETERS_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_ASSOCIATION_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_assoc_state_zero: DOT11_ASSOCIATION_STATE = DOT11_ASSOCIATION_STATE(0i32);
@@ -1589,7 +1589,7 @@ pub const DOT11_ASSOC_ERROR_SOURCE_REMOTE: u32 = 1u32;
 pub const DOT11_ASSOC_STATUS_SUCCESS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_AUTH_ALGORITHM(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const DOT11_AUTH_ALGO_80211_OPEN: DOT11_AUTH_ALGORITHM = DOT11_AUTH_ALGORITHM(1i32);
@@ -1845,7 +1845,7 @@ impl ::core::default::Default for DOT11_AVAILABLE_FREQUENCY_LIST {
 pub const DOT11_AVAILABLE_FREQUENCY_LIST_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_BAND(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_band_2p4g: DOT11_BAND = DOT11_BAND(1i32);
@@ -2120,7 +2120,7 @@ impl ::core::default::Default for DOT11_BSS_LIST {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_BSS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_BSS_type_infrastructure: DOT11_BSS_TYPE = DOT11_BSS_TYPE(1i32);
@@ -2296,7 +2296,7 @@ impl ::core::default::Default for DOT11_CHANNEL_HINT {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_CIPHER_ALGORITHM(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const DOT11_CIPHER_ALGO_NONE: DOT11_CIPHER_ALGORITHM = DOT11_CIPHER_ALGORITHM(0i32);
@@ -2967,7 +2967,7 @@ impl ::core::default::Default for DOT11_DEFAULT_WEP_UPLOAD {
 pub const DOT11_DEVICE_ENTRY_BYTE_ARRAY_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_DIRECTION(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const DOT11_DIR_INBOUND: DOT11_DIRECTION = DOT11_DIRECTION(1i32);
@@ -3161,7 +3161,7 @@ impl ::core::default::Default for DOT11_DIVERSITY_SELECTION_RX_LIST {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_DIVERSITY_SUPPORT(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_diversity_support_unknown: DOT11_DIVERSITY_SUPPORT = DOT11_DIVERSITY_SUPPORT(0i32);
@@ -3192,7 +3192,7 @@ impl ::core::fmt::Debug for DOT11_DIVERSITY_SUPPORT {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_DS_INFO(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const DOT11_DS_CHANGED: DOT11_DS_INFO = DOT11_DS_INFO(0i32);
@@ -3960,7 +3960,7 @@ impl ::core::default::Default for DOT11_HOPPING_PATTERN_ENTRY_LIST {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_HOP_ALGO_ADOPTED(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_hop_algo_current: DOT11_HOP_ALGO_ADOPTED = DOT11_HOP_ALGO_ADOPTED(0i32);
@@ -4726,7 +4726,7 @@ impl ::core::default::Default for DOT11_KEY_ALGO_TKIP_MIC {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_KEY_DIRECTION(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_key_direction_both: DOT11_KEY_DIRECTION = DOT11_KEY_DIRECTION(1i32);
@@ -5045,7 +5045,7 @@ impl ::core::default::Default for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
 pub const DOT11_MANUFACTURING_CALLBACK_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_MANUFACTURING_CALLBACK_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_manufacturing_callback_unknown: DOT11_MANUFACTURING_CALLBACK_TYPE = DOT11_MANUFACTURING_CALLBACK_TYPE(0i32);
@@ -5273,7 +5273,7 @@ impl ::core::default::Default for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_MANUFACTURING_SELF_TEST_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_INTERFACE: DOT11_MANUFACTURING_SELF_TEST_TYPE = DOT11_MANUFACTURING_SELF_TEST_TYPE(1i32);
@@ -5434,7 +5434,7 @@ impl ::core::default::Default for DOT11_MANUFACTURING_TEST_SLEEP {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_MANUFACTURING_TEST_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_manufacturing_test_unknown: DOT11_MANUFACTURING_TEST_TYPE = DOT11_MANUFACTURING_TEST_TYPE(0i32);
@@ -5569,7 +5569,7 @@ impl ::core::default::Default for DOT11_MPDU_MAX_LENGTH_INDICATION {
 pub const DOT11_MPDU_MAX_LENGTH_INDICATION_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_MSONEX_RESULT(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const DOT11_MSONEX_SUCCESS: DOT11_MSONEX_RESULT = DOT11_MSONEX_RESULT(0i32);
@@ -6005,7 +6005,7 @@ impl ::core::default::Default for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
 pub const DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_OFFLOAD_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_offload_type_wep: DOT11_OFFLOAD_TYPE = DOT11_OFFLOAD_TYPE(1i32);
@@ -6671,7 +6671,7 @@ impl ::core::default::Default for DOT11_PHY_STATE_PARAMETERS {
 pub const DOT11_PHY_STATE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_PHY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_phy_type_unknown: DOT11_PHY_TYPE = DOT11_PHY_TYPE(0i32);
@@ -7136,7 +7136,7 @@ impl ::core::default::Default for DOT11_POWER_MGMT_MODE_STATUS_INFO {
 pub const DOT11_POWER_MGMT_MODE_STATUS_INFO_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_POWER_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_power_mode_unknown: DOT11_POWER_MODE = DOT11_POWER_MODE(0i32);
@@ -7165,7 +7165,7 @@ impl ::core::fmt::Debug for DOT11_POWER_MODE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_POWER_MODE_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_power_mode_reason_no_change: DOT11_POWER_MODE_REASON = DOT11_POWER_MODE_REASON(0i32);
@@ -7491,7 +7491,7 @@ impl ::core::default::Default for DOT11_QOS_TX_MEDIUM_TIME {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_RADIO_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_radio_state_unknown: DOT11_RADIO_STATE = DOT11_RADIO_STATE(0i32);
@@ -8238,7 +8238,7 @@ impl ::core::default::Default for DOT11_RESET_REQUEST {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_RESET_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_reset_type_phy: DOT11_RESET_TYPE = DOT11_RESET_TYPE(1i32);
@@ -8513,7 +8513,7 @@ impl ::core::default::Default for DOT11_SCAN_REQUEST_V2 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_SCAN_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_scan_type_active: DOT11_SCAN_TYPE = DOT11_SCAN_TYPE(1i32);
@@ -9610,7 +9610,7 @@ impl ::core::default::Default for DOT11_SUPPORTED_POWER_LEVELS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_TEMP_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_temp_type_unknown: DOT11_TEMP_TYPE = DOT11_TEMP_TYPE(0i32);
@@ -9714,7 +9714,7 @@ impl ::core::default::Default for DOT11_UPDATE_IE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_UPDATE_IE_OP(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_update_ie_op_create_replace: DOT11_UPDATE_IE_OP = DOT11_UPDATE_IE_OP(1i32);
@@ -10697,7 +10697,7 @@ impl ::core::default::Default for DOT11_WFD_DISCOVER_REQUEST {
 pub const DOT11_WFD_DISCOVER_REQUEST_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_WFD_DISCOVER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_wfd_discover_type_scan_only: DOT11_WFD_DISCOVER_TYPE = DOT11_WFD_DISCOVER_TYPE(1i32);
@@ -11046,7 +11046,7 @@ pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_WFD_COEXISTENCE_POLICY: u32 = 3u3
 pub const DOT11_WFD_MINOR_REASON_SUCCESS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_WFD_SCAN_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_wfd_scan_type_active: DOT11_WFD_SCAN_TYPE = DOT11_WFD_SCAN_TYPE(1i32);
@@ -11355,7 +11355,7 @@ impl ::core::default::Default for DOT11_WPA_TSC {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_WPS_CONFIG_METHOD(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const DOT11_WPS_CONFIG_METHOD_NULL: DOT11_WPS_CONFIG_METHOD = DOT11_WPS_CONFIG_METHOD(0i32);
@@ -11425,7 +11425,7 @@ impl ::core::default::Default for DOT11_WPS_DEVICE_NAME {
 pub const DOT11_WPS_DEVICE_NAME_MAX_LENGTH: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOT11_WPS_DEVICE_PASSWORD_ID(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const DOT11_WPS_PASSWORD_ID_DEFAULT: DOT11_WPS_DEVICE_PASSWORD_ID = DOT11_WPS_DEVICE_PASSWORD_ID(0i32);
@@ -12776,7 +12776,7 @@ pub const OID_DOT11_WME_UPDATE_IE: u32 = 218170217u32;
 pub const OID_DOT11_WPA_TSC: u32 = 218170201u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ONEX_AUTH_IDENTITY(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const OneXAuthIdentityNone: ONEX_AUTH_IDENTITY = ONEX_AUTH_IDENTITY(0i32);
@@ -12871,7 +12871,7 @@ impl ::core::default::Default for ONEX_AUTH_PARAMS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ONEX_AUTH_RESTART_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const OneXRestartReasonPeerInitiated: ONEX_AUTH_RESTART_REASON = ONEX_AUTH_RESTART_REASON(0i32);
@@ -12912,7 +12912,7 @@ impl ::core::fmt::Debug for ONEX_AUTH_RESTART_REASON {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ONEX_AUTH_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const OneXAuthNotStarted: ONEX_AUTH_STATUS = ONEX_AUTH_STATUS(0i32);
@@ -12993,7 +12993,7 @@ impl ::core::default::Default for ONEX_EAP_ERROR {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ONEX_EAP_METHOD_BACKEND_SUPPORT(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const OneXEapMethodBackendSupportUnknown: ONEX_EAP_METHOD_BACKEND_SUPPORT = ONEX_EAP_METHOD_BACKEND_SUPPORT(0i32);
@@ -13022,7 +13022,7 @@ impl ::core::fmt::Debug for ONEX_EAP_METHOD_BACKEND_SUPPORT {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ONEX_NOTIFICATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const OneXPublicNotificationBase: ONEX_NOTIFICATION_TYPE = ONEX_NOTIFICATION_TYPE(0i32);
@@ -13055,7 +13055,7 @@ impl ::core::fmt::Debug for ONEX_NOTIFICATION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ONEX_REASON_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const ONEX_REASON_CODE_SUCCESS: ONEX_REASON_CODE = ONEX_REASON_CODE(0i32);
@@ -13450,7 +13450,7 @@ impl ::core::default::Default for WFD_GROUP_ID {
 pub type WFD_OPEN_SESSION_COMPLETE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hsessionhandle: super::super::Foundation::HANDLE, pvcontext: *const ::core::ffi::c_void, guidsessioninterface: ::windows::core::GUID, dwerror: u32, dwreasoncode: u32)>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WFD_ROLE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const WFD_ROLE_TYPE_NONE: WFD_ROLE_TYPE = WFD_ROLE_TYPE(0i32);
@@ -13483,7 +13483,7 @@ impl ::core::fmt::Debug for WFD_ROLE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_ADHOC_NETWORK_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_adhoc_network_state_formed: WLAN_ADHOC_NETWORK_STATE = WLAN_ADHOC_NETWORK_STATE(0i32);
@@ -13584,7 +13584,7 @@ impl ::core::default::Default for WLAN_AUTH_CIPHER_PAIR_LIST {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_AUTOCONF_OPCODE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_autoconf_opcode_start: WLAN_AUTOCONF_OPCODE = WLAN_AUTOCONF_OPCODE(0i32);
@@ -14027,7 +14027,7 @@ pub const WLAN_CONNECTION_HIDDEN_NETWORK: u32 = 1u32;
 pub const WLAN_CONNECTION_IGNORE_PRIVACY_BIT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_CONNECTION_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_connection_mode_profile: WLAN_CONNECTION_MODE = WLAN_CONNECTION_MODE(0i32);
@@ -14107,7 +14107,7 @@ impl ::core::default::Default for WLAN_CONNECTION_NOTIFICATION_DATA {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_CONNECTION_NOTIFICATION_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const WLAN_CONNECTION_NOTIFICATION_ADHOC_NETWORK_FORMED: WLAN_CONNECTION_NOTIFICATION_FLAGS = WLAN_CONNECTION_NOTIFICATION_FLAGS(1u32);
@@ -14324,7 +14324,7 @@ impl ::core::default::Default for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_FILTER_LIST_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_filter_list_type_gp_permit: WLAN_FILTER_LIST_TYPE = WLAN_FILTER_LIST_TYPE(0i32);
@@ -14418,7 +14418,7 @@ impl ::core::default::Default for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_HOSTED_NETWORK_NOTIFICATION_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_hosted_network_state_change: WLAN_HOSTED_NETWORK_NOTIFICATION_CODE = WLAN_HOSTED_NETWORK_NOTIFICATION_CODE(4096i32);
@@ -14447,7 +14447,7 @@ impl ::core::fmt::Debug for WLAN_HOSTED_NETWORK_NOTIFICATION_CODE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_HOSTED_NETWORK_OPCODE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_hosted_network_opcode_connection_settings: WLAN_HOSTED_NETWORK_OPCODE = WLAN_HOSTED_NETWORK_OPCODE(0i32);
@@ -14478,7 +14478,7 @@ impl ::core::fmt::Debug for WLAN_HOSTED_NETWORK_OPCODE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_HOSTED_NETWORK_PEER_AUTH_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_hosted_network_peer_state_invalid: WLAN_HOSTED_NETWORK_PEER_AUTH_STATE = WLAN_HOSTED_NETWORK_PEER_AUTH_STATE(0i32);
@@ -14567,7 +14567,7 @@ impl ::core::default::Default for WLAN_HOSTED_NETWORK_RADIO_STATE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_HOSTED_NETWORK_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_hosted_network_reason_success: WLAN_HOSTED_NETWORK_REASON = WLAN_HOSTED_NETWORK_REASON(0i32);
@@ -14679,7 +14679,7 @@ impl ::core::default::Default for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_HOSTED_NETWORK_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_hosted_network_unavailable: WLAN_HOSTED_NETWORK_STATE = WLAN_HOSTED_NETWORK_STATE(0i32);
@@ -14776,7 +14776,7 @@ impl ::core::default::Default for WLAN_HOSTED_NETWORK_STATUS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_IHV_CONTROL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_ihv_control_type_service: WLAN_IHV_CONTROL_TYPE = WLAN_IHV_CONTROL_TYPE(0i32);
@@ -14910,7 +14910,7 @@ impl ::core::default::Default for WLAN_INTERFACE_INFO_LIST {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_INTERFACE_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_interface_state_not_ready: WLAN_INTERFACE_STATE = WLAN_INTERFACE_STATE(0i32);
@@ -14949,7 +14949,7 @@ impl ::core::fmt::Debug for WLAN_INTERFACE_STATE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_INTERFACE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_interface_type_emulated_802_11: WLAN_INTERFACE_TYPE = WLAN_INTERFACE_TYPE(0i32);
@@ -14978,7 +14978,7 @@ impl ::core::fmt::Debug for WLAN_INTERFACE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_INTF_OPCODE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_intf_opcode_autoconf_start: WLAN_INTF_OPCODE = WLAN_INTF_OPCODE(0i32);
@@ -15163,7 +15163,7 @@ impl ::core::default::Default for WLAN_MSM_NOTIFICATION_DATA {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_NOTIFICATION_ACM(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_notification_acm_start: WLAN_NOTIFICATION_ACM = WLAN_NOTIFICATION_ACM(0i32);
@@ -15246,7 +15246,7 @@ impl ::core::fmt::Debug for WLAN_NOTIFICATION_ACM {
 pub type WLAN_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut L2_NOTIFICATION_DATA, param1: *mut ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_NOTIFICATION_MSM(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_notification_msm_start: WLAN_NOTIFICATION_MSM = WLAN_NOTIFICATION_MSM(0i32);
@@ -15305,7 +15305,7 @@ impl ::core::fmt::Debug for WLAN_NOTIFICATION_MSM {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_NOTIFICATION_SECURITY(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_notification_security_start: WLAN_NOTIFICATION_SECURITY = WLAN_NOTIFICATION_SECURITY(0i32);
@@ -15350,7 +15350,7 @@ pub const WLAN_NOTIFICATION_SOURCE_ONEX: u32 = 4u32;
 pub const WLAN_NOTIFICATION_SOURCE_SECURITY: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_OPCODE_VALUE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_opcode_value_type_query_only: WLAN_OPCODE_VALUE_TYPE = WLAN_OPCODE_VALUE_TYPE(0i32);
@@ -15381,7 +15381,7 @@ impl ::core::fmt::Debug for WLAN_OPCODE_VALUE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_OPERATIONAL_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_operational_state_unknown: WLAN_OPERATIONAL_STATE = WLAN_OPERATIONAL_STATE(0i32);
@@ -15512,7 +15512,7 @@ impl ::core::default::Default for WLAN_PHY_RADIO_STATE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_POWER_SETTING(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_power_setting_no_saving: WLAN_POWER_SETTING = WLAN_POWER_SETTING(0i32);
@@ -16084,7 +16084,7 @@ pub const WLAN_REASON_CODE_USER_DENIED: u32 = 163844u32;
 pub const WLAN_REASON_CODE_USER_NOT_RESPOND: u32 = 163854u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_SECURABLE_OBJECT(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const wlan_secure_permit_list: WLAN_SECURABLE_OBJECT = WLAN_SECURABLE_OBJECT(0i32);
@@ -16184,7 +16184,7 @@ impl ::core::default::Default for WLAN_SECURITY_ATTRIBUTES {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLAN_SET_EAPHOST_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const WLAN_SET_EAPHOST_DATA_ALL_USERS: WLAN_SET_EAPHOST_FLAGS = WLAN_SET_EAPHOST_FLAGS(1u32);
@@ -16249,7 +16249,7 @@ pub const WLAN_UI_API_INITIAL_VERSION: u32 = 1u32;
 pub const WLAN_UI_API_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WL_DISPLAY_PAGES(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const WLConnectionPage: WL_DISPLAY_PAGES = WL_DISPLAY_PAGES(0i32);

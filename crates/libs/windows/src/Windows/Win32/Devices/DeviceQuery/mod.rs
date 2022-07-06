@@ -39,7 +39,7 @@ impl ::core::default::Default for DEVPROP_FILTER_EXPRESSION {
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVPROP_OPERATOR(pub u32);
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`*"]
 pub const DEVPROP_OPERATOR_MODIFIER_NOT: DEVPROP_OPERATOR = DEVPROP_OPERATOR(65536u32);
@@ -215,7 +215,7 @@ impl ::core::default::Default for DEV_OBJECT {
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEV_OBJECT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`*"]
 pub const DevObjectTypeUnknown: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(0i32);
@@ -262,7 +262,7 @@ impl ::core::fmt::Debug for DEV_OBJECT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEV_QUERY_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`*"]
 pub const DevQueryFlagNone: DEV_QUERY_FLAGS = DEV_QUERY_FLAGS(0i32);
@@ -336,7 +336,7 @@ impl ::core::default::Default for DEV_QUERY_PARAMETER {
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEV_QUERY_RESULT_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`*"]
 pub const DevQueryResultStateChange: DEV_QUERY_RESULT_ACTION = DEV_QUERY_RESULT_ACTION(0i32);
@@ -433,7 +433,7 @@ impl ::core::default::Default for DEV_QUERY_RESULT_ACTION_DATA_0 {
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEV_QUERY_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`*"]
 pub const DevQueryStateInitialized: DEV_QUERY_STATE = DEV_QUERY_STATE(0i32);

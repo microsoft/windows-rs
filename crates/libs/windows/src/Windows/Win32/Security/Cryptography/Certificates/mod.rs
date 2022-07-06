@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ADDED_CERT_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XECT_EXTENSION_V1: ADDED_CERT_TYPE = ADDED_CERT_TYPE(1u32);
@@ -27,7 +27,7 @@ impl ::core::fmt::Debug for ADDED_CERT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AlgorithmFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const AlgorithmFlagsNone: AlgorithmFlags = AlgorithmFlags(0i32);
@@ -54,7 +54,7 @@ impl ::core::fmt::Debug for AlgorithmFlags {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AlgorithmOperationFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_NO_OPERATION: AlgorithmOperationFlags = AlgorithmOperationFlags(0i32);
@@ -103,7 +103,7 @@ impl ::core::fmt::Debug for AlgorithmOperationFlags {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AlgorithmType(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_BCRYPT_UNKNOWN_INTERFACE: AlgorithmType = AlgorithmType(0i32);
@@ -142,7 +142,7 @@ impl ::core::fmt::Debug for AlgorithmType {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AlternativeNameType(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_ALT_NAME_UNKNOWN: AlternativeNameType = AlternativeNameType(0i32);
@@ -311,7 +311,7 @@ pub const CCspInformations: ::windows::core::GUID = ::windows::core::GUID::from_
 pub const CCspStatus: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x884e2009_217d_11da_b2a4_000e7bbb2b09);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERTADMIN_GET_ROLES_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CA_ACCESS_ADMIN: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(1u32);
@@ -376,7 +376,7 @@ impl ::core::ops::Not for CERTADMIN_GET_ROLES_FLAGS {
 pub const CERTENROLL_INDEX_BASE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERTENROLL_OBJECTID(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_OID_NONE: CERTENROLL_OBJECTID = CERTENROLL_OBJECTID(0i32);
@@ -1275,7 +1275,7 @@ impl ::core::fmt::Debug for CERTENROLL_OBJECTID {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERTENROLL_PROPERTYID(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROPERTYID_NONE: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(0i32);
@@ -1563,7 +1563,7 @@ impl ::core::default::Default for CERTVIEWRESTRICTION {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_ALT_NAME(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CERT_ALT_NAME_RFC822_NAME: CERT_ALT_NAME = CERT_ALT_NAME(2u32);
@@ -1600,7 +1600,7 @@ impl ::core::fmt::Debug for CERT_ALT_NAME {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_CREATE_REQUEST_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XECR_CMC: CERT_CREATE_REQUEST_FLAGS = CERT_CREATE_REQUEST_FLAGS(3u32);
@@ -1631,7 +1631,7 @@ impl ::core::fmt::Debug for CERT_CREATE_REQUEST_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_DELETE_ROW_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CDR_EXPIRED: CERT_DELETE_ROW_FLAGS = CERT_DELETE_ROW_FLAGS(1u32);
@@ -1658,7 +1658,7 @@ impl ::core::fmt::Debug for CERT_DELETE_ROW_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_EXIT_EVENT_MASK(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EXITEVENT_CERTDENIED: CERT_EXIT_EVENT_MASK = CERT_EXIT_EVENT_MASK(4u32);
@@ -1723,7 +1723,7 @@ impl ::core::ops::Not for CERT_EXIT_EVENT_MASK {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_GET_CONFIG_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CC_DEFAULTCONFIG: CERT_GET_CONFIG_FLAGS = CERT_GET_CONFIG_FLAGS(0u32);
@@ -1758,7 +1758,7 @@ impl ::core::fmt::Debug for CERT_GET_CONFIG_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_IMPORT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_IN_BASE64HEADER: CERT_IMPORT_FLAGS = CERT_IMPORT_FLAGS(0u32);
@@ -1787,7 +1787,7 @@ impl ::core::fmt::Debug for CERT_IMPORT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_PROPERTY_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PROPTYPE_BINARY: CERT_PROPERTY_TYPE = CERT_PROPERTY_TYPE(3u32);
@@ -1818,7 +1818,7 @@ impl ::core::fmt::Debug for CERT_PROPERTY_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_REQUEST_OUT_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_OUT_BASE64HEADER: CERT_REQUEST_OUT_TYPE = CERT_REQUEST_OUT_TYPE(0u32);
@@ -1847,7 +1847,7 @@ impl ::core::fmt::Debug for CERT_REQUEST_OUT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_VIEW_COLUMN_INDEX(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_COLUMN_LOG_DEFAULT: CERT_VIEW_COLUMN_INDEX = CERT_VIEW_COLUMN_INDEX(-2i32);
@@ -1876,7 +1876,7 @@ impl ::core::fmt::Debug for CERT_VIEW_COLUMN_INDEX {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_VIEW_SEEK_OPERATOR_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVR_SEEK_EQ: CERT_VIEW_SEEK_OPERATOR_FLAGS = CERT_VIEW_SEEK_OPERATOR_FLAGS(1u32);
@@ -1991,7 +1991,7 @@ pub const CRLF_USE_CROSS_CERT_TEMPLATE: u32 = 32768u32;
 pub const CRLF_USE_XCHG_CERT_TEMPLATE: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRLRevocationReason(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRL_REASON_UNSPECIFIED: CRLRevocationReason = CRLRevocationReason(0i32);
@@ -2036,7 +2036,7 @@ impl ::core::fmt::Debug for CRLRevocationReason {
 pub const CRYPT_ENUM_ALL_PROVIDERS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CR_DISP(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CR_DISP_DENIED: CR_DISP = CR_DISP(2u32);
@@ -2283,7 +2283,7 @@ pub const CR_PROP_TEMPLATES: u32 = 29u32;
 pub const CSBACKUP_DISABLE_INCREMENTAL: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSBACKUP_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CSBACKUP_TYPE_FULL: CSBACKUP_TYPE = CSBACKUP_TYPE(1u32);
@@ -2418,7 +2418,7 @@ pub const CSmimeCapability: ::windows::core::GUID = ::windows::core::GUID::from_
 pub const CVIEWAGEMINUTESDEFAULT: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CVRC_COLUMN(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVRC_COLUMN_SCHEMA: CVRC_COLUMN = CVRC_COLUMN(0u32);
@@ -2449,7 +2449,7 @@ impl ::core::fmt::Debug for CVRC_COLUMN {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CVRC_TABLE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CVRC_TABLE_ATTRIBUTES: CVRC_TABLE = CVRC_TABLE(16384u32);
@@ -2720,7 +2720,7 @@ pub unsafe fn CertSrvServerControlW<'a, Param0: ::windows::core::IntoParam<'a, :
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CommitTemplateFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CommitFlagSaveTemplateGenerateOID: CommitTemplateFlags = CommitTemplateFlags(1i32);
@@ -2805,7 +2805,7 @@ pub const DB_DISP_QUEUE_MAX: u32 = 9u32;
 pub const DB_DISP_REVOKED: u32 = 21u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DelayRetryAction(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DelayRetryUnknown: DelayRetryAction = DelayRetryAction(0i32);
@@ -2902,7 +2902,7 @@ pub const EDITF_SERVERUPGRADED: u32 = 16384u32;
 pub const ENUMEXT_OBJECTID: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_CATYPES(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ENUM_ENTERPRISE_ROOTCA: ENUM_CATYPES = ENUM_CATYPES(0i32);
@@ -2935,7 +2935,7 @@ impl ::core::fmt::Debug for ENUM_CATYPES {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_CERT_COLUMN_VALUE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CV_OUT_BASE64: ENUM_CERT_COLUMN_VALUE_FLAGS = ENUM_CERT_COLUMN_VALUE_FLAGS(1u32);
@@ -3020,7 +3020,7 @@ pub const EXTENSION_ORIGIN_SERVER: u32 = 262144u32;
 pub const EXTENSION_POLICY_MASK: u32 = 65535u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EncodingType(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_STRING_BASE64HEADER: EncodingType = EncodingType(0i32);
@@ -3087,7 +3087,7 @@ impl ::core::fmt::Debug for EncodingType {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnrollmentCAProperty(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const CAPropCommonName: EnrollmentCAProperty = EnrollmentCAProperty(1i32);
@@ -3134,7 +3134,7 @@ impl ::core::fmt::Debug for EnrollmentCAProperty {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnrollmentDisplayStatus(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DisplayNo: EnrollmentDisplayStatus = EnrollmentDisplayStatus(0i32);
@@ -3161,7 +3161,7 @@ impl ::core::fmt::Debug for EnrollmentDisplayStatus {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnrollmentEnrollStatus(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const Enrolled: EnrollmentEnrollStatus = EnrollmentEnrollStatus(1i32);
@@ -3198,7 +3198,7 @@ impl ::core::fmt::Debug for EnrollmentEnrollStatus {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnrollmentPolicyFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DisableGroupPolicyList: EnrollmentPolicyFlags = EnrollmentPolicyFlags(2i32);
@@ -3225,7 +3225,7 @@ impl ::core::fmt::Debug for EnrollmentPolicyFlags {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnrollmentPolicyServerPropertyFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const DefaultNone: EnrollmentPolicyServerPropertyFlags = EnrollmentPolicyServerPropertyFlags(0i32);
@@ -3252,7 +3252,7 @@ impl ::core::fmt::Debug for EnrollmentPolicyServerPropertyFlags {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnrollmentSelectionStatus(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SelectedNo: EnrollmentSelectionStatus = EnrollmentSelectionStatus(0i32);
@@ -3279,7 +3279,7 @@ impl ::core::fmt::Debug for EnrollmentSelectionStatus {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnrollmentTemplateProperty(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TemplatePropCommonName: EnrollmentTemplateProperty = EnrollmentTemplateProperty(1i32);
@@ -3407,7 +3407,7 @@ pub type FNIMPORTPFXTOPROVIDERFREEDATA = ::core::option::Option<unsafe extern "s
 pub const FR_PROP_CLAIMCHALLENGE: u32 = 22u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FULL_RESPONSE_PROPERTY_ID(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const FR_PROP_NONE: FULL_RESPONSE_PROPERTY_ID = FULL_RESPONSE_PROPERTY_ID(0u32);
@@ -33380,7 +33380,7 @@ pub struct IX509SignatureInformation_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ImportPFXFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ImportNone: ImportPFXFlags = ImportPFXFlags(0i32);
@@ -33429,7 +33429,7 @@ impl ::core::fmt::Debug for ImportPFXFlags {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InnerRequestLevel(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const LevelInnermost: InnerRequestLevel = InnerRequestLevel(0i32);
@@ -33456,7 +33456,7 @@ impl ::core::fmt::Debug for InnerRequestLevel {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InstallResponseRestrictionFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const AllowNone: InstallResponseRestrictionFlags = InstallResponseRestrictionFlags(0i32);
@@ -33513,7 +33513,7 @@ pub const KR_ENABLE_MACHINE: u32 = 1u32;
 pub const KR_ENABLE_USER: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KeyAttestationClaimType(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_CLAIM_NONE: KeyAttestationClaimType = KeyAttestationClaimType(0i32);
@@ -33546,7 +33546,7 @@ impl ::core::fmt::Debug for KeyAttestationClaimType {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KeyIdentifierHashAlgorithm(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SKIHashDefault: KeyIdentifierHashAlgorithm = KeyIdentifierHashAlgorithm(0i32);
@@ -33585,7 +33585,7 @@ pub const OCSPAdmin: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x
 pub const OCSPPropertyCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf935a528_ba8a_4dd9_ba79_f283275cb2de);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OCSPRequestFlag(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const OCSP_RF_REJECT_SIGNED_REQUESTS: OCSPRequestFlag = OCSPRequestFlag(1i32);
@@ -33610,7 +33610,7 @@ impl ::core::fmt::Debug for OCSPRequestFlag {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OCSPSigningFlag(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const OCSP_SF_SILENT: OCSPSigningFlag = OCSPSigningFlag(1i32);
@@ -33653,7 +33653,7 @@ impl ::core::fmt::Debug for OCSPSigningFlag {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ObjectIdGroupId(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_ANY_GROUP_ID: ObjectIdGroupId = ObjectIdGroupId(0i32);
@@ -33716,7 +33716,7 @@ impl ::core::fmt::Debug for ObjectIdGroupId {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ObjectIdPublicKeyFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_OID_INFO_PUBKEY_ANY: ObjectIdPublicKeyFlags = ObjectIdPublicKeyFlags(0i32);
@@ -33745,7 +33745,7 @@ impl ::core::fmt::Debug for ObjectIdPublicKeyFlags {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PENDING_REQUEST_DESIRED_PROPERTY(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEPR_CADNS: PENDING_REQUEST_DESIRED_PROPERTY = PENDING_REQUEST_DESIRED_PROPERTY(1u32);
@@ -33778,7 +33778,7 @@ impl ::core::fmt::Debug for PENDING_REQUEST_DESIRED_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PFXExportOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PFXExportEEOnly: PFXExportOptions = PFXExportOptions(0i32);
@@ -33827,7 +33827,7 @@ pub const PROPFLAGS_INDEXED: u32 = 65536u32;
 pub const PROPTYPE_MASK: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Pkcs10AllowedSignatureTypes(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const AllowedKeySignature: Pkcs10AllowedSignatureTypes = Pkcs10AllowedSignatureTypes(1i32);
@@ -33854,7 +33854,7 @@ impl ::core::fmt::Debug for Pkcs10AllowedSignatureTypes {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PolicyQualifierType(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PolicyQualifierTypeUnknown: PolicyQualifierType = PolicyQualifierType(0i32);
@@ -33885,7 +33885,7 @@ impl ::core::fmt::Debug for PolicyQualifierType {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PolicyServerUrlFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PsfNone: PolicyServerUrlFlags = PolicyServerUrlFlags(0i32);
@@ -33920,7 +33920,7 @@ impl ::core::fmt::Debug for PolicyServerUrlFlags {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PolicyServerUrlPropertyID(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PsPolicyID: PolicyServerUrlPropertyID = PolicyServerUrlPropertyID(0i32);
@@ -34059,7 +34059,7 @@ pub const REVEXT_DEFAULT_DS: u32 = 256u32;
 pub const REVEXT_DEFAULT_NODS: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RequestClientInfoClientId(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ClientIdNone: RequestClientInfoClientId = RequestClientInfoClientId(0i32);
@@ -34146,7 +34146,7 @@ pub const VR_INSTANT_OK: u32 = 1u32;
 pub const VR_PENDING: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WebEnrollmentFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollPrompt: WebEnrollmentFlags = WebEnrollmentFlags(1i32);
@@ -34171,7 +34171,7 @@ impl ::core::fmt::Debug for WebEnrollmentFlags {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WebSecurityLevel(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const LevelUnsafe: WebSecurityLevel = WebSecurityLevel(0i32);
@@ -34198,7 +34198,7 @@ impl ::core::fmt::Debug for WebSecurityLevel {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X500NameFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NAME_STR_NONE: X500NameFlags = X500NameFlags(0i32);
@@ -34261,7 +34261,7 @@ impl ::core::fmt::Debug for X500NameFlags {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509CertificateEnrollmentContext(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ContextNone: X509CertificateEnrollmentContext = X509CertificateEnrollmentContext(0i32);
@@ -34292,7 +34292,7 @@ impl ::core::fmt::Debug for X509CertificateEnrollmentContext {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509CertificateTemplateEnrollmentFlag(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const EnrollmentIncludeSymmetricAlgorithms: X509CertificateTemplateEnrollmentFlag = X509CertificateTemplateEnrollmentFlag(1i32);
@@ -34353,7 +34353,7 @@ impl ::core::fmt::Debug for X509CertificateTemplateEnrollmentFlag {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509CertificateTemplateGeneralFlag(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const GeneralMachineType: X509CertificateTemplateGeneralFlag = X509CertificateTemplateGeneralFlag(64i32);
@@ -34388,7 +34388,7 @@ impl ::core::fmt::Debug for X509CertificateTemplateGeneralFlag {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509CertificateTemplatePrivateKeyFlag(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const PrivateKeyRequireArchival: X509CertificateTemplatePrivateKeyFlag = X509CertificateTemplatePrivateKeyFlag(1i32);
@@ -34451,7 +34451,7 @@ impl ::core::fmt::Debug for X509CertificateTemplatePrivateKeyFlag {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509CertificateTemplateSubjectNameFlag(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SubjectNameEnrolleeSupplies: X509CertificateTemplateSubjectNameFlag = X509CertificateTemplateSubjectNameFlag(1i32);
@@ -34500,7 +34500,7 @@ impl ::core::fmt::Debug for X509CertificateTemplateSubjectNameFlag {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509EnrollmentAuthFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const X509AuthNone: X509EnrollmentAuthFlags = X509EnrollmentAuthFlags(0i32);
@@ -34533,7 +34533,7 @@ impl ::core::fmt::Debug for X509EnrollmentAuthFlags {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509EnrollmentPolicyExportFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const ExportTemplates: X509EnrollmentPolicyExportFlags = X509EnrollmentPolicyExportFlags(1i32);
@@ -34562,7 +34562,7 @@ impl ::core::fmt::Debug for X509EnrollmentPolicyExportFlags {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509EnrollmentPolicyLoadOption(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const LoadOptionDefault: X509EnrollmentPolicyLoadOption = X509EnrollmentPolicyLoadOption(0i32);
@@ -34593,7 +34593,7 @@ impl ::core::fmt::Debug for X509EnrollmentPolicyLoadOption {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509HardwareKeyUsageFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_PCP_NONE: X509HardwareKeyUsageFlags = X509HardwareKeyUsageFlags(0i32);
@@ -34630,7 +34630,7 @@ impl ::core::fmt::Debug for X509HardwareKeyUsageFlags {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509KeyParametersExportType(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CRYPT_OID_USE_CURVE_NONE: X509KeyParametersExportType = X509KeyParametersExportType(0i32);
@@ -34659,7 +34659,7 @@ impl ::core::fmt::Debug for X509KeyParametersExportType {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509KeySpec(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_AT_NONE: X509KeySpec = X509KeySpec(0i32);
@@ -34688,7 +34688,7 @@ impl ::core::fmt::Debug for X509KeySpec {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509KeyUsageFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_CERT_NO_KEY_USAGE: X509KeyUsageFlags = X509KeyUsageFlags(0i32);
@@ -34733,7 +34733,7 @@ impl ::core::fmt::Debug for X509KeyUsageFlags {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509PrivateKeyExportFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_ALLOW_EXPORT_NONE: X509PrivateKeyExportFlags = X509PrivateKeyExportFlags(0i32);
@@ -34766,7 +34766,7 @@ impl ::core::fmt::Debug for X509PrivateKeyExportFlags {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509PrivateKeyProtection(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_UI_NO_PROTECTION_FLAG: X509PrivateKeyProtection = X509PrivateKeyProtection(0i32);
@@ -34799,7 +34799,7 @@ impl ::core::fmt::Debug for X509PrivateKeyProtection {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509PrivateKeyUsageFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_NCRYPT_ALLOW_USAGES_NONE: X509PrivateKeyUsageFlags = X509PrivateKeyUsageFlags(0i32);
@@ -34834,7 +34834,7 @@ impl ::core::fmt::Debug for X509PrivateKeyUsageFlags {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509PrivateKeyVerify(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const VerifyNone: X509PrivateKeyVerify = X509PrivateKeyVerify(0i32);
@@ -34867,7 +34867,7 @@ impl ::core::fmt::Debug for X509PrivateKeyVerify {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509ProviderType(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XCN_PROV_NONE: X509ProviderType = X509ProviderType(0i32);
@@ -34928,7 +34928,7 @@ impl ::core::fmt::Debug for X509ProviderType {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509RequestInheritOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const InheritDefault: X509RequestInheritOptions = X509RequestInheritOptions(0i32);
@@ -34979,7 +34979,7 @@ impl ::core::fmt::Debug for X509RequestInheritOptions {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509RequestType(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const TypeAny: X509RequestType = X509RequestType(0i32);
@@ -35012,7 +35012,7 @@ impl ::core::fmt::Debug for X509RequestType {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509SCEPDisposition(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPDispositionUnknown: X509SCEPDisposition = X509SCEPDisposition(-1i32);
@@ -35045,7 +35045,7 @@ impl ::core::fmt::Debug for X509SCEPDisposition {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509SCEPFailInfo(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPFailUnknown: X509SCEPFailInfo = X509SCEPFailInfo(-1i32);
@@ -35080,7 +35080,7 @@ impl ::core::fmt::Debug for X509SCEPFailInfo {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509SCEPMessageType(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPMessageUnknown: X509SCEPMessageType = X509SCEPMessageType(-1i32);
@@ -35117,7 +35117,7 @@ impl ::core::fmt::Debug for X509SCEPMessageType {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct X509SCEPProcessMessageFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const SCEPProcessDefault: X509SCEPProcessMessageFlags = X509SCEPProcessMessageFlags(0i32);
@@ -35156,7 +35156,7 @@ pub const XECI_XENROLL: u32 = 1u32;
 pub const XECP_STRING_PROPERTY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XEKL_KEYSIZE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEKL_KEYSIZE_MIN: XEKL_KEYSIZE = XEKL_KEYSIZE(1u32);
@@ -35187,7 +35187,7 @@ impl ::core::fmt::Debug for XEKL_KEYSIZE {
 pub const XEKL_KEYSIZE_DEFAULT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XEKL_KEYSPEC(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const XEKL_KEYSPEC_KEYX: XEKL_KEYSPEC = XEKL_KEYSPEC(1u32);

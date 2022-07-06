@@ -3953,7 +3953,7 @@ unsafe impl ::core::marker::Send for PrintMediaTypeOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintMediaTypeOptionDetails {}
 #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintOptionStates(pub u32);
 impl PrintOptionStates {
     pub const None: Self = Self(0u32);
@@ -4016,7 +4016,7 @@ unsafe impl ::windows::core::RuntimeType for PrintOptionStates {
 }
 #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintOptionType(pub i32);
 impl PrintOptionType {
     pub const Unknown: Self = Self(0i32);

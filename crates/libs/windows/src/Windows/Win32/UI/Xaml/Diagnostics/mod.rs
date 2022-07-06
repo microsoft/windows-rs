@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BaseValueSource(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const BaseValueSourceUnknown: BaseValueSource = BaseValueSource(0i32);
@@ -979,7 +979,7 @@ pub unsafe fn InitializeXamlDiagnosticsEx<'a, Param0: ::windows::core::IntoParam
 }
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MetadataBit(pub i32);
 impl MetadataBit {
     pub const None: Self = Self(0i32);
@@ -1140,7 +1140,7 @@ impl ::core::default::Default for PropertyChainValue {
 }
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RenderTargetBitmapOptions(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const RenderTarget: RenderTargetBitmapOptions = RenderTargetBitmapOptions(0i32);
@@ -1167,7 +1167,7 @@ impl ::core::fmt::Debug for RenderTargetBitmapOptions {
 }
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ResourceType(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const ResourceTypeStatic: ResourceType = ResourceType(0i32);
@@ -1280,7 +1280,7 @@ impl ::core::default::Default for VisualElement {
 }
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VisualElementState(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const ErrorResolved: VisualElementState = VisualElementState(0i32);
@@ -1309,7 +1309,7 @@ impl ::core::fmt::Debug for VisualElementState {
 }
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VisualMutationType(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const Add: VisualMutationType = VisualMutationType(0i32);

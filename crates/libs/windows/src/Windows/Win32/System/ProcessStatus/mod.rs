@@ -34,7 +34,7 @@ impl ::core::default::Default for ENUM_PAGE_FILE_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_PROCESS_MODULES_EX_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub const LIST_MODULES_ALL: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(3u32);

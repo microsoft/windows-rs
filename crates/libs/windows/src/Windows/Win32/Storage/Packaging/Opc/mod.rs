@@ -3071,7 +3071,7 @@ pub struct IOpcUri_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPC_CANONICALIZATION_METHOD(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_CANONICALIZATION_NONE: OPC_CANONICALIZATION_METHOD = OPC_CANONICALIZATION_METHOD(0i32);
@@ -3100,7 +3100,7 @@ impl ::core::fmt::Debug for OPC_CANONICALIZATION_METHOD {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPC_CERTIFICATE_EMBEDDING_OPTION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_CERTIFICATE_IN_CERTIFICATE_PART: OPC_CERTIFICATE_EMBEDDING_OPTION = OPC_CERTIFICATE_EMBEDDING_OPTION(0i32);
@@ -3129,7 +3129,7 @@ impl ::core::fmt::Debug for OPC_CERTIFICATE_EMBEDDING_OPTION {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPC_COMPRESSION_OPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_COMPRESSION_NONE: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(-1i32);
@@ -3366,7 +3366,7 @@ pub const OPC_E_ZIP_REQUIRES_64_BIT: ::windows::core::HRESULT = ::windows::core:
 pub const OPC_E_ZIP_UNSUPPORTEDARCHIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171128i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPC_READ_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_READ_DEFAULT: OPC_READ_FLAGS = OPC_READ_FLAGS(0u32);
@@ -3423,7 +3423,7 @@ impl ::core::ops::Not for OPC_READ_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPC_RELATIONSHIPS_SIGNING_OPTION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_RELATIONSHIP_SIGN_USING_SELECTORS: OPC_RELATIONSHIPS_SIGNING_OPTION = OPC_RELATIONSHIPS_SIGNING_OPTION(0i32);
@@ -3450,7 +3450,7 @@ impl ::core::fmt::Debug for OPC_RELATIONSHIPS_SIGNING_OPTION {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPC_RELATIONSHIP_SELECTOR(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_RELATIONSHIP_SELECT_BY_ID: OPC_RELATIONSHIP_SELECTOR = OPC_RELATIONSHIP_SELECTOR(0i32);
@@ -3477,7 +3477,7 @@ impl ::core::fmt::Debug for OPC_RELATIONSHIP_SELECTOR {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPC_SIGNATURE_TIME_FORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_SIGNATURE_TIME_FORMAT_MILLISECONDS: OPC_SIGNATURE_TIME_FORMAT = OPC_SIGNATURE_TIME_FORMAT(0i32);
@@ -3512,7 +3512,7 @@ impl ::core::fmt::Debug for OPC_SIGNATURE_TIME_FORMAT {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPC_SIGNATURE_VALIDATION_RESULT(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_SIGNATURE_VALID: OPC_SIGNATURE_VALIDATION_RESULT = OPC_SIGNATURE_VALIDATION_RESULT(0i32);
@@ -3539,7 +3539,7 @@ impl ::core::fmt::Debug for OPC_SIGNATURE_VALIDATION_RESULT {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPC_STREAM_IO_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_STREAM_IO_READ: OPC_STREAM_IO_MODE = OPC_STREAM_IO_MODE(1i32);
@@ -3566,7 +3566,7 @@ impl ::core::fmt::Debug for OPC_STREAM_IO_MODE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPC_URI_TARGET_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_URI_TARGET_MODE_INTERNAL: OPC_URI_TARGET_MODE = OPC_URI_TARGET_MODE(0i32);
@@ -3593,7 +3593,7 @@ impl ::core::fmt::Debug for OPC_URI_TARGET_MODE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPC_WRITE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 pub const OPC_WRITE_DEFAULT: OPC_WRITE_FLAGS = OPC_WRITE_FLAGS(0u32);

@@ -61,7 +61,7 @@ pub struct IPlatformDiagnosticTraceRuntimeInfo_Vtbl {
 }
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlatformDiagnosticActionState(pub i32);
 impl PlatformDiagnosticActionState {
     pub const Success: Self = Self(0i32);
@@ -167,7 +167,7 @@ impl ::windows::core::RuntimeName for PlatformDiagnosticActions {
 }
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlatformDiagnosticEscalationType(pub i32);
 impl PlatformDiagnosticEscalationType {
     pub const OnCompletion: Self = Self(0i32);
@@ -201,7 +201,7 @@ unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticEscalationType {
 }
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlatformDiagnosticEventBufferLatencies(pub u32);
 impl PlatformDiagnosticEventBufferLatencies {
     pub const Normal: Self = Self(1u32);
@@ -389,7 +389,7 @@ unsafe impl ::core::marker::Send for PlatformDiagnosticTraceInfo {}
 unsafe impl ::core::marker::Sync for PlatformDiagnosticTraceInfo {}
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlatformDiagnosticTracePriority(pub i32);
 impl PlatformDiagnosticTracePriority {
     pub const Normal: Self = Self(0i32);
@@ -516,7 +516,7 @@ unsafe impl ::core::marker::Send for PlatformDiagnosticTraceRuntimeInfo {}
 unsafe impl ::core::marker::Sync for PlatformDiagnosticTraceRuntimeInfo {}
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlatformDiagnosticTraceSlotState(pub i32);
 impl PlatformDiagnosticTraceSlotState {
     pub const NotRunning: Self = Self(0i32);
@@ -551,7 +551,7 @@ unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTraceSlotState {
 }
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlatformDiagnosticTraceSlotType(pub i32);
 impl PlatformDiagnosticTraceSlotType {
     pub const Alternative: Self = Self(0i32);

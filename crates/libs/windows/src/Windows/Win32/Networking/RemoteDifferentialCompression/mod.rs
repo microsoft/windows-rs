@@ -32,7 +32,7 @@ impl ::core::default::Default for FindSimilarFileIndexResults {
 pub const FindSimilarResults: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a93_9dbc_11da_9e3f_0011114ae311);
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GeneratorParametersType(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
 pub const RDCGENTYPE_Unused: GeneratorParametersType = GeneratorParametersType(0i32);
@@ -1403,7 +1403,7 @@ pub const RDCE_TABLE_CORRUPT: u32 = 2147745794u32;
 pub const RDCE_TABLE_FULL: u32 = 2147745793u32;
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RDC_ErrorCode(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
 pub const RDC_NoError: RDC_ErrorCode = RDC_ErrorCode(0i32);
@@ -1481,7 +1481,7 @@ impl ::core::default::Default for RdcBufferPointer {
 pub const RdcComparator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a8b_9dbc_11da_9e3f_0011114ae311);
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RdcCreatedTables(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
 pub const RDCTABLE_InvalidOrUnknown: RdcCreatedTables = RdcCreatedTables(0i32);
@@ -1515,7 +1515,7 @@ pub const RdcGeneratorParameters: ::windows::core::GUID = ::windows::core::GUID:
 pub const RdcLibrary: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a85_9dbc_11da_9e3f_0011114ae311);
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RdcMappingAccessMode(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
 pub const RDCMAPPING_Undefined: RdcMappingAccessMode = RdcMappingAccessMode(0i32);
@@ -1608,7 +1608,7 @@ impl ::core::default::Default for RdcNeedPointer {
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RdcNeedType(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
 pub const RDCNEED_SOURCE: RdcNeedType = RdcNeedType(0i32);

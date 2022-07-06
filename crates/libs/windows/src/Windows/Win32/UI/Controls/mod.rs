@@ -82,7 +82,7 @@ pub const BCSS_NOSPLIT: u32 = 1u32;
 pub const BCSS_STRETCH: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BGTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BT_IMAGEFILE: BGTYPE = BGTYPE(0i32);
@@ -111,7 +111,7 @@ impl ::core::fmt::Debug for BGTYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BORDERTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BT_RECT: BORDERTYPE = BORDERTYPE(0i32);
@@ -173,7 +173,7 @@ impl ::core::default::Default for BP_ANIMATIONPARAMS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BP_ANIMATIONSTYLE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BPAS_NONE: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(0i32);
@@ -204,7 +204,7 @@ impl ::core::fmt::Debug for BP_ANIMATIONSTYLE {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BP_BUFFERFORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BPBF_COMPATIBLEBITMAP: BP_BUFFERFORMAT = BP_BUFFERFORMAT(0i32);
@@ -276,7 +276,7 @@ impl ::core::default::Default for BP_PAINTPARAMS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BP_PAINTPARAMS_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BPPF_ERASE: BP_PAINTPARAMS_FLAGS = BP_PAINTPARAMS_FLAGS(1u32);
@@ -403,7 +403,7 @@ impl ::core::default::Default for BUTTON_IMAGELIST {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BUTTON_IMAGELIST_ALIGN(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BUTTON_IMAGELIST_ALIGN_LEFT: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(0u32);
@@ -1013,7 +1013,7 @@ pub const CDRF_SKIPDEFAULT: u32 = 4u32;
 pub const CDRF_SKIPPOSTPAINT: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLOCKPARTS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CLP_TIME: CLOCKPARTS = CLOCKPARTS(1i32);
@@ -1038,7 +1038,7 @@ impl ::core::fmt::Debug for CLOCKPARTS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLOCKSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CLS_NORMAL: CLOCKSTATES = CLOCKSTATES(1i32);
@@ -1276,7 +1276,7 @@ impl ::core::default::Default for COMBOBOXINFO {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMBOBOXINFO_BUTTON_STATE(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const STATE_SYSTEM_INVISIBLE: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_STATE(32768u32);
@@ -1309,7 +1309,7 @@ impl ::core::fmt::Debug for COMBOBOXINFO_BUTTON_STATE {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMBOBOX_EX_ITEM_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CBEIF_DI_SETITEM: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(268435456u32);
@@ -1421,7 +1421,7 @@ impl ::core::default::Default for COMPAREITEMSTRUCT {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONTENTALIGNMENT(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CA_LEFT: CONTENTALIGNMENT = CONTENTALIGNMENT(0i32);
@@ -1658,7 +1658,7 @@ impl ::core::default::Default for DELETEITEMSTRUCT {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DLG_BUTTON_CHECK_STATE(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BST_CHECKED: DLG_BUTTON_CHECK_STATE = DLG_BUTTON_CHECK_STATE(1u32);
@@ -1687,7 +1687,7 @@ impl ::core::fmt::Debug for DLG_BUTTON_CHECK_STATE {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DLG_DIR_LIST_FILE_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DDL_ARCHIVE: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(32u32);
@@ -1764,7 +1764,7 @@ pub const DL_MOVECURSOR: u32 = 3u32;
 pub const DL_STOPCURSOR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DPAMM_MESSAGE(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DPAMM_MERGE: DPAMM_MESSAGE = DPAMM_MESSAGE(1u32);
@@ -2063,7 +2063,7 @@ impl ::core::default::Default for DRAGLISTINFO {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAGLISTINFO_NOTIFICATION_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DL_BEGINDRAG: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1157u32);
@@ -2142,7 +2142,7 @@ impl ::core::default::Default for DRAWITEMSTRUCT {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAWITEMSTRUCT_CTL_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ODT_BUTTON: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(4u32);
@@ -2179,7 +2179,7 @@ impl ::core::fmt::Debug for DRAWITEMSTRUCT_CTL_TYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAW_THEME_PARENT_BACKGROUND_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DTPB_WINDOWDC: DRAW_THEME_PARENT_BACKGROUND_FLAGS = DRAW_THEME_PARENT_BACKGROUND_FLAGS(1u32);
@@ -2766,7 +2766,7 @@ pub unsafe fn DrawThemeTextEx<'a, Param1: ::windows::core::IntoParam<'a, super::
 pub const ECM_FIRST: u32 = 5376u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EC_ENDOFLINE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const EC_ENDOFLINE_DETECTFROMCONTENT: EC_ENDOFLINE = EC_ENDOFLINE(0i32);
@@ -2797,7 +2797,7 @@ impl ::core::fmt::Debug for EC_ENDOFLINE {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EC_SEARCHWEB_ENTRYPOINT(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const EC_SEARCHWEB_ENTRYPOINT_EXTERNAL: EC_SEARCHWEB_ENTRYPOINT = EC_SEARCHWEB_ENTRYPOINT(0i32);
@@ -2857,7 +2857,7 @@ impl ::core::default::Default for EDITBALLOONTIP {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EDITBALLOONTIP_ICON(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TTI_ERROR: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(3u32);
@@ -2898,7 +2898,7 @@ pub type EDITWORDBREAKPROCA = ::core::option::Option<unsafe extern "system" fn(l
 pub type EDITWORDBREAKPROCW = ::core::option::Option<unsafe extern "system" fn(lpch: ::windows::core::PCWSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EMPTYMARKUPPARTS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const EMP_MARKUPTEXT: EMPTYMARKUPPARTS = EMPTYMARKUPPARTS(1i32);
@@ -3045,7 +3045,7 @@ pub const EM_TAKEFOCUS: u32 = 5384u32;
 pub const EM_UNDO: u32 = 199u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENABLE_SCROLL_BAR_ARROWS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ESB_DISABLE_BOTH: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(3u32);
@@ -3180,7 +3180,7 @@ pub unsafe fn EvaluateProximityToRect(controlboundingbox: *const super::super::F
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEEDBACK_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const FEEDBACK_TOUCH_CONTACTVISUALIZATION: FEEDBACK_TYPE = FEEDBACK_TYPE(1i32);
@@ -3229,7 +3229,7 @@ impl ::core::fmt::Debug for FEEDBACK_TYPE {
 pub const FILEOPENORD: u32 = 1536u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILLTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const FT_SOLID: FILLTYPE = FILLTYPE(0i32);
@@ -3386,7 +3386,7 @@ pub const GDT_NONE: u32 = 1u32;
 pub const GDT_VALID: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_THEME_BITMAP_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const GBF_DIRECT: GET_THEME_BITMAP_FLAGS = GET_THEME_BITMAP_FLAGS(1u32);
@@ -3415,7 +3415,7 @@ impl ::core::fmt::Debug for GET_THEME_BITMAP_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GLYPHFONTSIZINGTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const GFST_NONE: GLYPHFONTSIZINGTYPE = GLYPHFONTSIZINGTYPE(0i32);
@@ -3444,7 +3444,7 @@ impl ::core::fmt::Debug for GLYPHFONTSIZINGTYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GLYPHTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const GT_NONE: GLYPHTYPE = GLYPHTYPE(0i32);
@@ -3477,7 +3477,7 @@ pub const GMR_DAYSTATE: u32 = 1u32;
 pub const GMR_VISIBLE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GRIDCELLBACKGROUNDSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCGCB_SELECTED: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(1i32);
@@ -3512,7 +3512,7 @@ impl ::core::fmt::Debug for GRIDCELLBACKGROUNDSTATES {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GRIDCELLSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCGC_HOT: GRIDCELLSTATES = GRIDCELLSTATES(1i32);
@@ -3549,7 +3549,7 @@ impl ::core::fmt::Debug for GRIDCELLSTATES {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GRIDCELLUPPERSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCGCU_HOT: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(1i32);
@@ -4035,7 +4035,7 @@ pub unsafe fn GetWindowTheme<'a, Param0: ::windows::core::IntoParam<'a, super::s
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HALIGN(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HA_LEFT: HALIGN = HALIGN(0i32);
@@ -4244,7 +4244,7 @@ impl ::core::default::Default for HDITEMW {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDI_MASK(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HDI_WIDTH: HDI_MASK = HDI_MASK(1u32);
@@ -4421,7 +4421,7 @@ pub const HDM_SETORDERARRAY: u32 = 4626u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HDM_SETUNICODEFORMAT: u32 = 8197u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDPA(pub isize);
 impl HDPA {
     pub fn is_invalid(&self) -> bool {
@@ -4448,7 +4448,7 @@ unsafe impl ::windows::core::Abi for HDPA {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDSA(pub isize);
 impl HDSA {
     pub fn is_invalid(&self) -> bool {
@@ -4564,7 +4564,7 @@ impl ::core::default::Default for HD_TEXTFILTERW {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADER_CONTROL_NOTIFICATION_BUTTON(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HEADER_CONTROL_NOTIFICATION_BUTTON_LEFT: HEADER_CONTROL_NOTIFICATION_BUTTON = HEADER_CONTROL_NOTIFICATION_BUTTON(0u32);
@@ -4618,7 +4618,7 @@ pub const HHT_TOLEFT: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HHT_TORIGHT: u32 = 1024u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HIMAGELIST(pub isize);
 impl HIMAGELIST {
     pub fn is_invalid(&self) -> bool {
@@ -4702,7 +4702,7 @@ pub const HOTKEY_CLASSW: &str = "msctls_hotkey32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HOVER_DEFAULT: u32 = 4294967295u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HPROPSHEETPAGE(pub isize);
 impl HPROPSHEETPAGE {
     pub fn is_invalid(&self) -> bool {
@@ -4729,7 +4729,7 @@ unsafe impl ::windows::core::Abi for HPROPSHEETPAGE {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HSYNTHETICPOINTERDEVICE(pub isize);
 impl HSYNTHETICPOINTERDEVICE {
     pub fn is_invalid(&self) -> bool {
@@ -4756,7 +4756,7 @@ unsafe impl ::windows::core::Abi for HSYNTHETICPOINTERDEVICE {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTREEITEM(pub isize);
 impl ::core::default::Default for HTREEITEM {
     fn default() -> Self {
@@ -4797,7 +4797,7 @@ pub const HTTB_SIZINGTEMPLATE: u32 = 256u32;
 pub const HTTB_SYSTEMSIZINGMARGINS: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HYPERLINKSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HLS_NORMALTEXT: HYPERLINKSTATES = HYPERLINKSTATES(1i32);
@@ -4835,7 +4835,7 @@ pub unsafe fn HitTestThemeBackground<'a, Param1: ::windows::core::IntoParam<'a, 
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ICONEFFECT(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ICE_NONE: ICONEFFECT = ICONEFFECT(0i32);
@@ -5539,7 +5539,7 @@ impl ::core::default::Default for IMAGEINFO {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAGELAYOUT(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const IL_VERTICAL: IMAGELAYOUT = IMAGELAYOUT(0i32);
@@ -5671,7 +5671,7 @@ impl ::core::default::Default for IMAGELISTSTATS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAGELIST_CREATION_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ILC_MASK: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(1u32);
@@ -5748,7 +5748,7 @@ impl ::core::ops::Not for IMAGELIST_CREATION_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAGESELECTTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const IST_NONE: IMAGESELECTTYPE = IMAGESELECTTYPE(0i32);
@@ -5777,7 +5777,7 @@ impl ::core::fmt::Debug for IMAGESELECTTYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAGE_LIST_COPY_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ILCF_MOVE: IMAGE_LIST_COPY_FLAGS = IMAGE_LIST_COPY_FLAGS(0u32);
@@ -5804,7 +5804,7 @@ impl ::core::fmt::Debug for IMAGE_LIST_COPY_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAGE_LIST_DRAW_STYLE(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ILD_BLEND: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(4u32);
@@ -5867,7 +5867,7 @@ impl ::core::ops::Not for IMAGE_LIST_DRAW_STYLE {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAGE_LIST_ITEM_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ILIF_ALPHA: IMAGE_LIST_ITEM_FLAGS = IMAGE_LIST_ITEM_FLAGS(1u32);
@@ -5927,7 +5927,7 @@ impl ::core::default::Default for INITCOMMONCONTROLSEX {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INITCOMMONCONTROLSEX_ICC(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ICC_ANIMATE_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(128u32);
@@ -6602,7 +6602,7 @@ pub const LIF_STATE: u32 = 2u32;
 pub const LIF_URL: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LINKPARTS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LP_HYPERLINK: LINKPARTS = LINKPARTS(1i32);
@@ -6682,7 +6682,7 @@ pub const LM_HITTEST: u32 = 1792u32;
 pub const LM_SETITEM: u32 = 1794u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOGOFFBUTTONSSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SPLS_NORMAL: LOGOFFBUTTONSSTATES = LOGOFFBUTTONSSTATES(1i32);
@@ -6947,7 +6947,7 @@ impl ::core::default::Default for LVCOLUMNW {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LVCOLUMNW_FORMAT(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVCFMT_LEFT: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(0u32);
@@ -7020,7 +7020,7 @@ impl ::core::ops::Not for LVCOLUMNW_FORMAT {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LVCOLUMNW_MASK(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVCF_FMT: LVCOLUMNW_MASK = LVCOLUMNW_MASK(1u32);
@@ -7175,7 +7175,7 @@ impl ::core::default::Default for LVFINDINFOW {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LVFINDINFOW_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVFI_PARAM: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(1u32);
@@ -7308,7 +7308,7 @@ impl ::core::default::Default for LVFOOTERITEM {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LVFOOTERITEM_MASK(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVFIF_TEXT: LVFOOTERITEM_MASK = LVFOOTERITEM_MASK(1u32);
@@ -7500,7 +7500,7 @@ impl ::core::default::Default for LVGROUPMETRICS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LVGROUP_MASK(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVGF_NONE: LVGROUP_MASK = LVGROUP_MASK(0u32);
@@ -7619,7 +7619,7 @@ impl ::core::default::Default for LVHITTESTINFO {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LVHITTESTINFO_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVHT_ABOVE: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(8u32);
@@ -7883,7 +7883,7 @@ impl ::core::default::Default for LVITEMA {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LVITEMA_GROUP_ID(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const I_GROUPIDCALLBACK: LVITEMA_GROUP_ID = LVITEMA_GROUP_ID(-1i32);
@@ -8588,7 +8588,7 @@ impl ::core::default::Default for LVTILEVIEWINFO {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LVTILEVIEWINFO_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVTVIF_EXTENDED: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(4u32);
@@ -8708,7 +8708,7 @@ impl ::core::default::Default for MARGINS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MARKUPTEXTSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const EMT_NORMALTEXT: MARKUPTEXTSTATES = MARKUPTEXTSTATES(1i32);
@@ -8794,7 +8794,7 @@ impl ::core::default::Default for MCGRIDINFO {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MCGRIDINFO_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCGIF_DATE: MCGRIDINFO_FLAGS = MCGRIDINFO_FLAGS(1u32);
@@ -8851,7 +8851,7 @@ impl ::core::ops::Not for MCGRIDINFO_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MCGRIDINFO_PART(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCGIP_CALENDARCONTROL: MCGRIDINFO_PART = MCGRIDINFO_PART(0u32);
@@ -9094,7 +9094,7 @@ impl ::core::default::Default for MEASUREITEMSTRUCT {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MENUBANDPARTS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MDP_NEWAPPBUTTON: MENUBANDPARTS = MENUBANDPARTS(1i32);
@@ -9121,7 +9121,7 @@ impl ::core::fmt::Debug for MENUBANDPARTS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MENUBANDSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MDS_NORMAL: MENUBANDSTATES = MENUBANDSTATES(1i32);
@@ -9156,7 +9156,7 @@ impl ::core::fmt::Debug for MENUBANDSTATES {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MONTHCALPARTS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MC_BACKGROUND: MONTHCALPARTS = MONTHCALPARTS(1i32);
@@ -9207,7 +9207,7 @@ pub const MONTHCAL_CLASSA: &str = "SysMonthCal32";
 pub const MONTHCAL_CLASSW: &str = "SysMonthCal32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MOREPROGRAMSARROWBACKSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SPSB_NORMAL: MOREPROGRAMSARROWBACKSTATES = MOREPROGRAMSARROWBACKSTATES(1i32);
@@ -9236,7 +9236,7 @@ impl ::core::fmt::Debug for MOREPROGRAMSARROWBACKSTATES {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MOREPROGRAMSARROWSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SPS_NORMAL: MOREPROGRAMSARROWSTATES = MOREPROGRAMSARROWSTATES(1i32);
@@ -9265,7 +9265,7 @@ impl ::core::fmt::Debug for MOREPROGRAMSARROWSTATES {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MOREPROGRAMSTABSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SPMPT_NORMAL: MOREPROGRAMSTABSTATES = MOREPROGRAMSTABSTATES(1i32);
@@ -9328,7 +9328,7 @@ pub unsafe fn MenuHelp<'a, Param1: ::windows::core::IntoParam<'a, super::super::
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NAVNEXTSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCNN_NORMAL: NAVNEXTSTATES = NAVNEXTSTATES(1i32);
@@ -9359,7 +9359,7 @@ impl ::core::fmt::Debug for NAVNEXTSTATES {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NAVPREVSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCNP_NORMAL: NAVPREVSTATES = NAVPREVSTATES(1i32);
@@ -9815,7 +9815,7 @@ impl ::core::default::Default for NMCUSTOMDRAW {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMCUSTOMDRAW_DRAW_STAGE(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CDDS_POSTPAINT: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(2u32);
@@ -10897,7 +10897,7 @@ impl ::core::default::Default for NMLVCUSTOMDRAW {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMLVCUSTOMDRAW_ALIGN(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVGA_HEADER_CENTER: NMLVCUSTOMDRAW_ALIGN = NMLVCUSTOMDRAW_ALIGN(2u32);
@@ -10926,7 +10926,7 @@ impl ::core::fmt::Debug for NMLVCUSTOMDRAW_ALIGN {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMLVCUSTOMDRAW_ITEM_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVCDI_ITEM: NMLVCUSTOMDRAW_ITEM_TYPE = NMLVCUSTOMDRAW_ITEM_TYPE(0u32);
@@ -11073,7 +11073,7 @@ impl ::core::default::Default for NMLVEMPTYMARKUP {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMLVEMPTYMARKUP_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const EMF_CENTERED: NMLVEMPTYMARKUP_FLAGS = NMLVEMPTYMARKUP_FLAGS(1u32);
@@ -11549,7 +11549,7 @@ impl ::core::default::Default for NMPGCALCSIZE {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMPGCALCSIZE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PGF_CALCHEIGHT: NMPGCALCSIZE_FLAGS = NMPGCALCSIZE_FLAGS(2u32);
@@ -11655,7 +11655,7 @@ impl ::core::default::Default for NMPGSCROLL {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMPGSCROLL_DIR(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PGF_SCROLLDOWN: NMPGSCROLL_DIR = NMPGSCROLL_DIR(2u32);
@@ -11686,7 +11686,7 @@ impl ::core::fmt::Debug for NMPGSCROLL_DIR {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMPGSCROLL_KEYS(pub u16);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PGK_NONE: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(0u16);
@@ -11997,7 +11997,7 @@ impl ::core::default::Default for NMREBARSPLITTER {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMREBAR_MASK_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const RBNM_ID: NMREBAR_MASK_FLAGS = NMREBAR_MASK_FLAGS(1u32);
@@ -12289,7 +12289,7 @@ impl ::core::default::Default for NMTBDISPINFOW {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMTBDISPINFOW_MASK(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TBNF_IMAGE: NMTBDISPINFOW_MASK = NMTBDISPINFOW_MASK(1u32);
@@ -12471,7 +12471,7 @@ impl ::core::default::Default for NMTBHOTITEM {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMTBHOTITEM_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HICF_ACCELERATOR: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(4u32);
@@ -13566,7 +13566,7 @@ pub const NM_GETCUSTOMSPLITRECT: u32 = 4294966049u32;
 pub const ODT_HEADER: u32 = 100u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFSETTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const OT_TOPLEFT: OFFSETTYPE = OFFSETTYPE(0i32);
@@ -13617,7 +13617,7 @@ impl ::core::fmt::Debug for OFFSETTYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPENBOXSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SPOB_NORMAL: OPENBOXSTATES = OPENBOXSTATES(1i32);
@@ -13650,7 +13650,7 @@ impl ::core::fmt::Debug for OPENBOXSTATES {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPEN_THEME_DATA_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const OTD_FORCE_RECT_SIZING: OPEN_THEME_DATA_FLAGS = OPEN_THEME_DATA_FLAGS(1u32);
@@ -13725,7 +13725,7 @@ pub unsafe fn OpenThemeDataEx<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAGEPARTS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PGRP_UP: PAGEPARTS = PAGEPARTS(1i32);
@@ -13953,7 +13953,7 @@ impl ::core::default::Default for POINTER_DEVICE_CURSOR_INFO {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POINTER_DEVICE_CURSOR_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const POINTER_DEVICE_CURSOR_TYPE_UNKNOWN: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(0i32);
@@ -14065,7 +14065,7 @@ impl ::core::default::Default for POINTER_DEVICE_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POINTER_DEVICE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const POINTER_DEVICE_TYPE_INTEGRATED_PEN: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(1i32);
@@ -14098,7 +14098,7 @@ impl ::core::fmt::Debug for POINTER_DEVICE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POINTER_FEEDBACK_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const POINTER_FEEDBACK_DEFAULT: POINTER_FEEDBACK_MODE = POINTER_FEEDBACK_MODE(1i32);
@@ -14205,7 +14205,7 @@ pub const PROGRESS_CLASSA: &str = "msctls_progress32";
 pub const PROGRESS_CLASSW: &str = "msctls_progress32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPERTYORIGIN(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PO_STATE: PROPERTYORIGIN = PROPERTYORIGIN(0i32);
@@ -16099,7 +16099,7 @@ pub const PSNRET_MESSAGEHANDLED: u32 = 3u32;
 pub const PSNRET_NOERROR: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSPCB_MESSAGE(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PSPCB_ADDREF: PSPCB_MESSAGE = PSPCB_MESSAGE(0u32);
@@ -16722,7 +16722,7 @@ pub const SB_SIMPLE: u32 = 1033u32;
 pub const SB_SIMPLEID: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SIZINGTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ST_TRUESIZE: SIZINGTYPE = SIZINGTYPE(0i32);
@@ -16751,7 +16751,7 @@ impl ::core::fmt::Debug for SIZINGTYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SOFTWAREEXPLORERSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SPSE_NORMAL: SOFTWAREEXPLORERSTATES = SOFTWAREEXPLORERSTATES(1i32);
@@ -16784,7 +16784,7 @@ impl ::core::fmt::Debug for SOFTWAREEXPLORERSTATES {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STARTPANELPARTS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SPP_USERPANE: STARTPANELPARTS = STARTPANELPARTS(1i32);
@@ -16845,7 +16845,7 @@ impl ::core::fmt::Debug for STARTPANELPARTS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STATICPARTS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const STAT_TEXT: STATICPARTS = STATICPARTS(1i32);
@@ -17013,7 +17013,7 @@ pub unsafe fn Str_SetPtrW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKBANDPARTS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TDP_GROUPCOUNT: TASKBANDPARTS = TASKBANDPARTS(1i32);
@@ -17042,7 +17042,7 @@ impl ::core::fmt::Debug for TASKBANDPARTS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKBARPARTS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TBP_BACKGROUNDBOTTOM: TASKBARPARTS = TASKBARPARTS(1i32);
@@ -17228,7 +17228,7 @@ impl ::core::default::Default for TASKDIALOG_BUTTON {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKDIALOG_COMMON_BUTTON_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TDCBF_OK_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(1i32);
@@ -17263,7 +17263,7 @@ impl ::core::fmt::Debug for TASKDIALOG_COMMON_BUTTON_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKDIALOG_ELEMENTS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TDE_CONTENT: TASKDIALOG_ELEMENTS = TASKDIALOG_ELEMENTS(0i32);
@@ -17294,7 +17294,7 @@ impl ::core::fmt::Debug for TASKDIALOG_ELEMENTS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKDIALOG_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TDF_ENABLE_HYPERLINKS: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(1i32);
@@ -17353,7 +17353,7 @@ impl ::core::fmt::Debug for TASKDIALOG_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKDIALOG_ICON_ELEMENTS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TDIE_ICON_MAIN: TASKDIALOG_ICON_ELEMENTS = TASKDIALOG_ICON_ELEMENTS(0i32);
@@ -17380,7 +17380,7 @@ impl ::core::fmt::Debug for TASKDIALOG_ICON_ELEMENTS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKDIALOG_MESSAGES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TDM_NAVIGATE_PAGE: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1125i32);
@@ -17433,7 +17433,7 @@ impl ::core::fmt::Debug for TASKDIALOG_MESSAGES {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKDIALOG_NOTIFICATIONS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TDN_CREATED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(0i32);
@@ -17512,7 +17512,7 @@ impl ::core::default::Default for TA_CUBIC_BEZIER {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TA_PROPERTY(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TAP_FLAGS: TA_PROPERTY = TA_PROPERTY(0i32);
@@ -17547,7 +17547,7 @@ impl ::core::fmt::Debug for TA_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TA_PROPERTY_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TAPF_NONE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(0u32);
@@ -17640,7 +17640,7 @@ impl ::core::default::Default for TA_TIMINGFUNCTION {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TA_TIMINGFUNCTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TTFT_UNDEFINED: TA_TIMINGFUNCTION_TYPE = TA_TIMINGFUNCTION_TYPE(0i32);
@@ -17775,7 +17775,7 @@ impl ::core::default::Default for TA_TRANSFORM_CLIP {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TA_TRANSFORM_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TATF_NONE: TA_TRANSFORM_FLAG = TA_TRANSFORM_FLAG(0i32);
@@ -17838,7 +17838,7 @@ impl ::core::default::Default for TA_TRANSFORM_OPACITY {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TA_TRANSFORM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TATT_TRANSLATE_2D: TA_TRANSFORM_TYPE = TA_TRANSFORM_TYPE(0i32);
@@ -18076,7 +18076,7 @@ impl ::core::default::Default for TBBUTTONINFOW {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TBBUTTONINFOW_MASK(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TBIF_BYINDEX: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(2147483648u32);
@@ -18202,7 +18202,7 @@ impl ::core::default::Default for TBINSERTMARK {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TBINSERTMARK_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TBIMHT_NONE: TBINSERTMARK_FLAGS = TBINSERTMARK_FLAGS(0u32);
@@ -18849,7 +18849,7 @@ impl ::core::default::Default for TCHITTESTINFO {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCHITTESTINFO_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TCHT_NOWHERE: TCHITTESTINFO_FLAGS = TCHITTESTINFO_FLAGS(1u32);
@@ -18963,7 +18963,7 @@ impl ::core::default::Default for TCITEMHEADERA {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCITEMHEADERA_MASK(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TCIF_IMAGE: TCITEMHEADERA_MASK = TCITEMHEADERA_MASK(2u32);
@@ -19219,7 +19219,7 @@ pub const TCS_TOOLTIPS: u32 = 16384u32;
 pub const TCS_VERTICAL: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXTSHADOWTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TST_NONE: TEXTSHADOWTYPE = TEXTSHADOWTYPE(0i32);
@@ -19248,7 +19248,7 @@ impl ::core::fmt::Debug for TEXTSHADOWTYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct THEMESIZE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TS_MIN: THEMESIZE = THEMESIZE(0i32);
@@ -19277,7 +19277,7 @@ impl ::core::fmt::Debug for THEMESIZE {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct THEME_PROPERTY_SYMBOL_ID(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TMT_RESERVEDLOW: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(0u32);
@@ -19913,7 +19913,7 @@ pub const TRACKBAR_CLASSA: &str = "msctls_trackbar32";
 pub const TRACKBAR_CLASSW: &str = "msctls_trackbar32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRAILINGGRIDCELLSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCTGC_HOT: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(1i32);
@@ -19950,7 +19950,7 @@ impl ::core::fmt::Debug for TRAILINGGRIDCELLSTATES {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRAILINGGRIDCELLUPPERSTATES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCTGCU_HOT: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(1i32);
@@ -19983,7 +19983,7 @@ impl ::core::fmt::Debug for TRAILINGGRIDCELLUPPERSTATES {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRAYNOTIFYPARTS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TNP_BACKGROUND: TRAYNOTIFYPARTS = TRAYNOTIFYPARTS(1i32);
@@ -20010,7 +20010,7 @@ impl ::core::fmt::Debug for TRAYNOTIFYPARTS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRUESIZESCALINGTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TSST_NONE: TRUESIZESCALINGTYPE = TRUESIZESCALINGTYPE(0i32);
@@ -20380,7 +20380,7 @@ impl ::core::default::Default for TTTOOLINFOW {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TTTOOLINFO_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TTF_ABSOLUTE: TTTOOLINFO_FLAGS = TTTOOLINFO_FLAGS(128u32);
@@ -20569,7 +20569,7 @@ impl ::core::default::Default for TVHITTESTINFO {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TVHITTESTINFO_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TVHT_ABOVE: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(256u32);
@@ -20987,7 +20987,7 @@ impl ::core::default::Default for TVITEMEXW {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TVITEMEXW_CHILDREN(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const I_ZERO: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(0i32);
@@ -21018,7 +21018,7 @@ impl ::core::fmt::Debug for TVITEMEXW_CHILDREN {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TVITEMPART(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TVGIPR_BUTTON: TVITEMPART = TVITEMPART(1i32);
@@ -21090,7 +21090,7 @@ impl ::core::default::Default for TVITEMW {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TVITEM_MASK(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TVIF_CHILDREN: TVITEM_MASK = TVITEM_MASK(64u32);
@@ -21574,7 +21574,7 @@ pub unsafe fn UpdatePanningFeedback<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VALIGN(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VA_TOP: VALIGN = VALIGN(0i32);
@@ -21737,7 +21737,7 @@ pub const WC_TREEVIEWA: &str = "SysTreeView32";
 pub const WC_TREEVIEWW: &str = "SysTreeView32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINDOWTHEMEATTRIBUTETYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const WTA_NONCLIENT: WINDOWTHEMEATTRIBUTETYPE = WINDOWTHEMEATTRIBUTETYPE(1i32);
@@ -21778,7 +21778,7 @@ pub const WM_MOUSEHOVER: u32 = 673u32;
 pub const WM_MOUSELEAVE: u32 = 675u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WORD_BREAK_ACTION(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const WB_CLASSIFY: WORD_BREAK_ACTION = WORD_BREAK_ACTION(3u32);
@@ -21817,7 +21817,7 @@ impl ::core::fmt::Debug for WORD_BREAK_ACTION {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSB_PROP(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const WSB_PROP_CXHSCROLL: WSB_PROP = WSB_PROP(2i32);
@@ -21905,7 +21905,7 @@ pub const WTNCA_NOMIRRORHELP: u32 = 8u32;
 pub const WTNCA_NOSYSMENU: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _LI_METRIC(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LIM_SMALL: _LI_METRIC = _LI_METRIC(0i32);

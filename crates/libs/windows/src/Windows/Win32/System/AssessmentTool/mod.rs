@@ -932,7 +932,7 @@ pub struct IWinSATInitiateEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINSAT_ASSESSMENT_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
 pub const WINSAT_ASSESSMENT_STATE_MIN: WINSAT_ASSESSMENT_STATE = WINSAT_ASSESSMENT_STATE(0i32);
@@ -969,7 +969,7 @@ impl ::core::fmt::Debug for WINSAT_ASSESSMENT_STATE {
 }
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINSAT_ASSESSMENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
 pub const WINSAT_ASSESSMENT_MEMORY: WINSAT_ASSESSMENT_TYPE = WINSAT_ASSESSMENT_TYPE(0i32);
@@ -1002,7 +1002,7 @@ impl ::core::fmt::Debug for WINSAT_ASSESSMENT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINSAT_BITMAP_SIZE(pub i32);
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
 pub const WINSAT_BITMAP_SIZE_SMALL: WINSAT_BITMAP_SIZE = WINSAT_BITMAP_SIZE(0i32);
@@ -1029,7 +1029,7 @@ impl ::core::fmt::Debug for WINSAT_BITMAP_SIZE {
 }
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINSAT_OEM_DATA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
 pub const WINSAT_OEM_DATA_VALID: WINSAT_OEM_DATA_TYPE = WINSAT_OEM_DATA_TYPE(0i32);

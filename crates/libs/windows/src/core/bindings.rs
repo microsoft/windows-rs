@@ -650,7 +650,7 @@ impl ::core::default::Default for Point {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PropertyType(pub i32);
 impl PropertyType {
     pub const Empty: Self = Self(0i32);
@@ -1351,7 +1351,7 @@ pub unsafe fn GetLastError() -> WIN32_ERROR {
     ::core::mem::transmute(GetLastError())
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HANDLE(pub isize);
 impl HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -1378,7 +1378,7 @@ unsafe impl ::windows::core::Abi for HANDLE {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HINSTANCE(pub isize);
 impl HINSTANCE {
     pub fn is_invalid(&self) -> bool {
@@ -1438,7 +1438,7 @@ pub unsafe fn SysStringLen<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(pbs
     ::core::mem::transmute(SysStringLen(pbstr.into_param().abi()))
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WIN32_ERROR(pub u32);
 impl ::core::marker::Copy for WIN32_ERROR {}
 impl ::core::clone::Clone for WIN32_ERROR {
@@ -1704,7 +1704,7 @@ pub unsafe fn EncodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi
     ::core::mem::transmute(EncodePointer(::core::mem::transmute(ptr)))
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FORMAT_MESSAGE_OPTIONS(pub u32);
 pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(256u32);
 pub const FORMAT_MESSAGE_ARGUMENT_ARRAY: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(8192u32);
@@ -1802,7 +1802,7 @@ pub unsafe fn GetProcessHeap() -> ::windows::core::Result<HeapHandle> {
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEAP_FLAGS(pub u32);
 pub const HEAP_NONE: HEAP_FLAGS = HEAP_FLAGS(0u32);
 pub const HEAP_NO_SERIALIZE: HEAP_FLAGS = HEAP_FLAGS(1u32);
@@ -1885,7 +1885,7 @@ pub unsafe fn HeapFree<'a, Param0: ::windows::core::IntoParam<'a, HeapHandle>>(h
     ::core::mem::transmute(HeapFree(hheap.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpmem)))
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HeapHandle(pub isize);
 impl HeapHandle {
     pub fn is_invalid(&self) -> bool {
@@ -1991,7 +1991,7 @@ pub struct IAgileReference_Vtbl {
     pub Resolve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobjectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AgileReferenceOptions(pub i32);
 pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
 pub const AGILEREFERENCE_DELAYEDMARSHAL: AgileReferenceOptions = AgileReferenceOptions(1i32);

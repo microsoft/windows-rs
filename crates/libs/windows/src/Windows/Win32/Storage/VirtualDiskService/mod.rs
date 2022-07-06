@@ -2942,7 +2942,7 @@ impl ::core::default::Default for VDS_ASYNC_OUTPUT_0_7 {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_ASYNC_OUTPUT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_ASYNCOUT_UNKNOWN: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(0i32);
@@ -3097,7 +3097,7 @@ impl ::core::default::Default for VDS_CONTROLLER_PROP {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_CONTROLLER_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_CS_UNKNOWN: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(0i32);
@@ -3204,7 +3204,7 @@ impl ::core::default::Default for VDS_DRIVE_EXTENT {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_DRIVE_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_DRF_HOTSPARE: VDS_DRIVE_FLAG = VDS_DRIVE_FLAG(1i32);
@@ -3392,7 +3392,7 @@ impl ::core::default::Default for VDS_DRIVE_PROP2 {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_DRIVE_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_DRS_UNKNOWN: VDS_DRIVE_STATUS = VDS_DRIVE_STATUS(0i32);
@@ -4157,7 +4157,7 @@ impl ::core::default::Default for VDS_FILE_SYSTEM_NOTIFICATION {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_FILE_SYSTEM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_FST_UNKNOWN: VDS_FILE_SYSTEM_TYPE = VDS_FILE_SYSTEM_TYPE(0i32);
@@ -4236,7 +4236,7 @@ impl ::core::default::Default for VDS_HBAPORT_PROP {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_HBAPORT_SPEED_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_HSF_UNKNOWN: VDS_HBAPORT_SPEED_FLAG = VDS_HBAPORT_SPEED_FLAG(0i32);
@@ -4271,7 +4271,7 @@ impl ::core::fmt::Debug for VDS_HBAPORT_SPEED_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_HBAPORT_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_HPS_UNKNOWN: VDS_HBAPORT_STATUS = VDS_HBAPORT_STATUS(1i32);
@@ -4310,7 +4310,7 @@ impl ::core::fmt::Debug for VDS_HBAPORT_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_HBAPORT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_HPT_UNKNOWN: VDS_HBAPORT_TYPE = VDS_HBAPORT_TYPE(1i32);
@@ -4355,7 +4355,7 @@ impl ::core::fmt::Debug for VDS_HBAPORT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_HEALTH(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_H_UNKNOWN: VDS_HEALTH = VDS_HEALTH(0i32);
@@ -4608,7 +4608,7 @@ pub const VDS_HINT_WRITECACHINGENABLED: i32 = 8192i32;
 pub const VDS_HINT_WRITETHROUGHCACHINGENABLED: i32 = 64i32;
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_HWPROVIDER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_HWT_UNKNOWN: VDS_HWPROVIDER_TYPE = VDS_HWPROVIDER_TYPE(0i32);
@@ -4677,7 +4677,7 @@ impl ::core::default::Default for VDS_INTERCONNECT {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_INTERCONNECT_ADDRESS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_IA_UNKNOWN: VDS_INTERCONNECT_ADDRESS_TYPE = VDS_INTERCONNECT_ADDRESS_TYPE(0i32);
@@ -4712,7 +4712,7 @@ impl ::core::fmt::Debug for VDS_INTERCONNECT_ADDRESS_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_INTERCONNECT_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_ITF_PCI_RAID: VDS_INTERCONNECT_FLAG = VDS_INTERCONNECT_FLAG(1i32);
@@ -4779,7 +4779,7 @@ impl ::core::default::Default for VDS_IPADDRESS {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_IPADDRESS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_IPT_TEXT: VDS_IPADDRESS_TYPE = VDS_IPADDRESS_TYPE(0i32);
@@ -4810,7 +4810,7 @@ impl ::core::fmt::Debug for VDS_IPADDRESS_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_ISCSI_AUTH_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_IAT_NONE: VDS_ISCSI_AUTH_TYPE = VDS_ISCSI_AUTH_TYPE(0i32);
@@ -4902,7 +4902,7 @@ impl ::core::default::Default for VDS_ISCSI_INITIATOR_PORTAL_PROP {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_ISCSI_IPSEC_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_IIF_VALID: VDS_ISCSI_IPSEC_FLAG = VDS_ISCSI_IPSEC_FLAG(1i32);
@@ -4970,7 +4970,7 @@ impl ::core::default::Default for VDS_ISCSI_IPSEC_KEY {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_ISCSI_LOGIN_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_ILF_REQUIRE_IPSEC: VDS_ISCSI_LOGIN_FLAG = VDS_ISCSI_LOGIN_FLAG(1i32);
@@ -4997,7 +4997,7 @@ impl ::core::fmt::Debug for VDS_ISCSI_LOGIN_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_ISCSI_LOGIN_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_ILT_MANUAL: VDS_ISCSI_LOGIN_TYPE = VDS_ISCSI_LOGIN_TYPE(0i32);
@@ -5089,7 +5089,7 @@ impl ::core::default::Default for VDS_ISCSI_PORTAL_PROP {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_ISCSI_PORTAL_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_IPS_UNKNOWN: VDS_ISCSI_PORTAL_STATUS = VDS_ISCSI_PORTAL_STATUS(0i32);
@@ -5194,7 +5194,7 @@ impl ::core::default::Default for VDS_ISCSI_TARGET_PROP {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_LOADBALANCE_POLICY_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_LBP_UNKNOWN: VDS_LOADBALANCE_POLICY_ENUM = VDS_LOADBALANCE_POLICY_ENUM(0i32);
@@ -5233,7 +5233,7 @@ impl ::core::fmt::Debug for VDS_LOADBALANCE_POLICY_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_LUN_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_LF_LBN_REMAP_ENABLED: VDS_LUN_FLAG = VDS_LUN_FLAG(1i32);
@@ -5369,7 +5369,7 @@ impl ::core::default::Default for VDS_LUN_NOTIFICATION {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_LUN_PLEX_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_LPF_LBN_REMAP_ENABLED: VDS_LUN_PLEX_FLAG = VDS_LUN_PLEX_FLAG(1i32);
@@ -5432,7 +5432,7 @@ impl ::core::default::Default for VDS_LUN_PLEX_PROP {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_LUN_PLEX_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_LPS_UNKNOWN: VDS_LUN_PLEX_STATUS = VDS_LUN_PLEX_STATUS(0i32);
@@ -5465,7 +5465,7 @@ impl ::core::fmt::Debug for VDS_LUN_PLEX_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_LUN_PLEX_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_LPT_UNKNOWN: VDS_LUN_PLEX_TYPE = VDS_LUN_PLEX_TYPE(0i32);
@@ -5564,7 +5564,7 @@ impl ::core::default::Default for VDS_LUN_PROP {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_LUN_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_LS_UNKNOWN: VDS_LUN_STATUS = VDS_LUN_STATUS(0i32);
@@ -5597,7 +5597,7 @@ impl ::core::fmt::Debug for VDS_LUN_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_LUN_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_LT_UNKNOWN: VDS_LUN_TYPE = VDS_LUN_TYPE(0i32);
@@ -5670,7 +5670,7 @@ impl ::core::fmt::Debug for VDS_LUN_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_MAINTENANCE_OPERATION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const BlinkLight: VDS_MAINTENANCE_OPERATION = VDS_MAINTENANCE_OPERATION(1i32);
@@ -5734,7 +5734,7 @@ impl ::core::default::Default for VDS_MOUNT_POINT_NOTIFICATION {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_NF_CONTROLLER(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_NF_CONTROLLER_ARRIVE: VDS_NF_CONTROLLER = VDS_NF_CONTROLLER(103u32);
@@ -5765,7 +5765,7 @@ impl ::core::fmt::Debug for VDS_NF_CONTROLLER {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_NF_DISK(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_NF_DISK_ARRIVE: VDS_NF_DISK = VDS_NF_DISK(8u32);
@@ -5794,7 +5794,7 @@ impl ::core::fmt::Debug for VDS_NF_DISK {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_NF_DRIVE(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_NF_DRIVE_ARRIVE: VDS_NF_DRIVE = VDS_NF_DRIVE(105u32);
@@ -5829,7 +5829,7 @@ pub const VDS_NF_DRIVE_LETTER_ASSIGN: u32 = 202u32;
 pub const VDS_NF_DRIVE_LETTER_FREE: u32 = 201u32;
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_NF_FILE_SYSTEM(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_NF_FILE_SYSTEM_MODIFY: VDS_NF_FILE_SYSTEM = VDS_NF_FILE_SYSTEM(203u32);
@@ -5858,7 +5858,7 @@ impl ::core::fmt::Debug for VDS_NF_FILE_SYSTEM {
 pub const VDS_NF_FILE_SYSTEM_SHRINKING_PROGRESS: u32 = 206u32;
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_NF_LUN(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_NF_LUN_ARRIVE: VDS_NF_LUN = VDS_NF_LUN(108u32);
@@ -5889,7 +5889,7 @@ impl ::core::fmt::Debug for VDS_NF_LUN {
 pub const VDS_NF_MOUNT_POINTS_CHANGE: u32 = 205u32;
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_NF_PACK(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_NF_PACK_ARRIVE: VDS_NF_PACK = VDS_NF_PACK(1u32);
@@ -5924,7 +5924,7 @@ pub const VDS_NF_PARTITION_DEPART: u32 = 12u32;
 pub const VDS_NF_PARTITION_MODIFY: u32 = 13u32;
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_NF_PORT(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_NF_PORT_ARRIVE: VDS_NF_PORT = VDS_NF_PORT(121u32);
@@ -6055,7 +6055,7 @@ impl ::core::default::Default for VDS_NOTIFICATION_0 {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_NOTIFICATION_TARGET_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_NTT_UNKNOWN: VDS_NOTIFICATION_TARGET_TYPE = VDS_NOTIFICATION_TARGET_TYPE(0i32);
@@ -6112,7 +6112,7 @@ impl ::core::fmt::Debug for VDS_NOTIFICATION_TARGET_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_OBJECT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_OT_UNKNOWN: VDS_OBJECT_TYPE = VDS_OBJECT_TYPE(0i32);
@@ -6423,7 +6423,7 @@ impl ::core::default::Default for VDS_PATH_POLICY {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_PATH_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_MPS_UNKNOWN: VDS_PATH_STATUS = VDS_PATH_STATUS(0i32);
@@ -6781,7 +6781,7 @@ impl ::core::default::Default for VDS_PORT_PROP {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_PORT_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_PRS_UNKNOWN: VDS_PORT_STATUS = VDS_PORT_STATUS(0i32);
@@ -6816,7 +6816,7 @@ impl ::core::fmt::Debug for VDS_PORT_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_PROVIDER_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_PF_DYNAMIC: VDS_PROVIDER_FLAG = VDS_PROVIDER_FLAG(1i32);
@@ -6859,7 +6859,7 @@ impl ::core::fmt::Debug for VDS_PROVIDER_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_PROVIDER_LBSUPPORT_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_LBF_FAILOVER: VDS_PROVIDER_LBSUPPORT_FLAG = VDS_PROVIDER_LBSUPPORT_FLAG(1i32);
@@ -6933,7 +6933,7 @@ impl ::core::default::Default for VDS_PROVIDER_PROP {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_PROVIDER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_PT_UNKNOWN: VDS_PROVIDER_TYPE = VDS_PROVIDER_TYPE(0i32);
@@ -6966,7 +6966,7 @@ impl ::core::fmt::Debug for VDS_PROVIDER_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_RAID_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_RT_UNKNOWN: VDS_RAID_TYPE = VDS_RAID_TYPE(0i32);
@@ -7031,7 +7031,7 @@ pub const VDS_REBUILD_PRIORITY_MAX: u32 = 16u32;
 pub const VDS_REBUILD_PRIORITY_MIN: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_RECOVER_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_RA_UNKNOWN: VDS_RECOVER_ACTION = VDS_RECOVER_ACTION(0i32);
@@ -7091,7 +7091,7 @@ impl ::core::default::Default for VDS_SERVICE_NOTIFICATION {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_STORAGE_BUS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDSBusTypeUnknown: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(0i32);
@@ -7223,7 +7223,7 @@ impl ::core::default::Default for VDS_STORAGE_IDENTIFIER {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_STORAGE_IDENTIFIER_CODE_SET(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDSStorageIdCodeSetReserved: VDS_STORAGE_IDENTIFIER_CODE_SET = VDS_STORAGE_IDENTIFIER_CODE_SET(0i32);
@@ -7254,7 +7254,7 @@ impl ::core::fmt::Debug for VDS_STORAGE_IDENTIFIER_CODE_SET {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_STORAGE_IDENTIFIER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDSStorageIdTypeVendorSpecific: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(0i32);
@@ -7373,7 +7373,7 @@ impl ::core::default::Default for VDS_STORAGE_POOL_PROP {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_STORAGE_POOL_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_SPS_UNKNOWN: VDS_STORAGE_POOL_STATUS = VDS_STORAGE_POOL_STATUS(0i32);
@@ -7404,7 +7404,7 @@ impl ::core::fmt::Debug for VDS_STORAGE_POOL_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_STORAGE_POOL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_SPT_UNKNOWN: VDS_STORAGE_POOL_TYPE = VDS_STORAGE_POOL_TYPE(0i32);
@@ -7433,7 +7433,7 @@ impl ::core::fmt::Debug for VDS_STORAGE_POOL_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_SUB_SYSTEM_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_SF_LUN_MASKING_CAPABLE: VDS_SUB_SYSTEM_FLAG = VDS_SUB_SYSTEM_FLAG(1i32);
@@ -7643,7 +7643,7 @@ impl ::core::default::Default for VDS_SUB_SYSTEM_PROP2 {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_SUB_SYSTEM_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_SSS_UNKNOWN: VDS_SUB_SYSTEM_STATUS = VDS_SUB_SYSTEM_STATUS(0i32);
@@ -7678,7 +7678,7 @@ impl ::core::fmt::Debug for VDS_SUB_SYSTEM_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_SF_SUPPORTS_RAID2_LUNS: VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG = VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG(1i32);
@@ -7832,7 +7832,7 @@ impl ::core::default::Default for VDS_TARGET_NOTIFICATION {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_TRANSITION_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_TS_UNKNOWN: VDS_TRANSITION_STATE = VDS_TRANSITION_STATE(0i32);
@@ -7867,7 +7867,7 @@ impl ::core::fmt::Debug for VDS_TRANSITION_STATE {
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VDS_VERSION_SUPPORT_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
 pub const VDS_VSF_1_0: VDS_VERSION_SUPPORT_FLAG = VDS_VERSION_SUPPORT_FLAG(1i32);

@@ -31,7 +31,7 @@ impl ::core::default::Default for DDP_FILE_EXTENT {
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEDUP_BACKUP_SUPPORT_PARAM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DEDUP_RECONSTRUCT_UNOPTIMIZED: DEDUP_BACKUP_SUPPORT_PARAM_TYPE = DEDUP_BACKUP_SUPPORT_PARAM_TYPE(1i32);
@@ -125,7 +125,7 @@ impl ::core::default::Default for DEDUP_CONTAINER_EXTENT {
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEDUP_SET_PARAM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DEDUP_PT_MinChunkSizeBytes: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(1i32);
@@ -192,7 +192,7 @@ impl ::core::default::Default for DedupChunk {
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DedupChunkFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupChunkFlags_None: DedupChunkFlags = DedupChunkFlags(0i32);
@@ -219,7 +219,7 @@ impl ::core::fmt::Debug for DedupChunkFlags {
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DedupChunkingAlgorithm(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupChunkingAlgorithm_Unknonwn: DedupChunkingAlgorithm = DedupChunkingAlgorithm(0i32);
@@ -246,7 +246,7 @@ impl ::core::fmt::Debug for DedupChunkingAlgorithm {
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DedupCompressionAlgorithm(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupCompressionAlgorithm_Unknonwn: DedupCompressionAlgorithm = DedupCompressionAlgorithm(0i32);
@@ -274,7 +274,7 @@ impl ::core::fmt::Debug for DedupCompressionAlgorithm {
 pub const DedupDataPort: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f107207_1829_48b2_a64b_e61f8e0d9acb);
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DedupDataPortManagerOption(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPortManagerOption_None: DedupDataPortManagerOption = DedupDataPortManagerOption(0i32);
@@ -303,7 +303,7 @@ impl ::core::fmt::Debug for DedupDataPortManagerOption {
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DedupDataPortRequestStatus(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPortRequestStatus_Unknown: DedupDataPortRequestStatus = DedupDataPortRequestStatus(0i32);
@@ -338,7 +338,7 @@ impl ::core::fmt::Debug for DedupDataPortRequestStatus {
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DedupDataPortVolumeStatus(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupDataPortVolumeStatus_Unknown: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(0i32);
@@ -405,7 +405,7 @@ impl ::core::default::Default for DedupHash {
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DedupHashingAlgorithm(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]
 pub const DedupHashingAlgorithm_Unknonwn: DedupHashingAlgorithm = DedupHashingAlgorithm(0i32);

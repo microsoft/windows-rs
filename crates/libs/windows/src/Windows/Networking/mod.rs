@@ -18,7 +18,7 @@ pub mod Vpn;
 pub mod XboxLive;
 #[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DomainNameType(pub i32);
 impl DomainNameType {
     pub const Suffix: Self = Self(0i32);
@@ -378,7 +378,7 @@ unsafe impl ::core::marker::Send for HostName {}
 unsafe impl ::core::marker::Sync for HostName {}
 #[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HostNameSortOptions(pub u32);
 impl HostNameSortOptions {
     pub const None: Self = Self(0u32);
@@ -440,7 +440,7 @@ unsafe impl ::windows::core::RuntimeType for HostNameSortOptions {
 }
 #[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HostNameType(pub i32);
 impl HostNameType {
     pub const DomainName: Self = Self(0i32);

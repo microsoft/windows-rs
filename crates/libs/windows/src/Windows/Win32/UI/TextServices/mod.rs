@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ANCHOR_CHANGE_HISTORY_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_CH_PRECEDING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(1u32);
@@ -85,7 +85,7 @@ pub unsafe fn DoMsCtfMonitor<'a, Param1: ::windows::core::IntoParam<'a, super::s
 pub const DocWrap: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(0u32);
@@ -214,7 +214,7 @@ pub const GXFPF_NEAREST: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const GXFPF_ROUND_NEAREST: u32 = 1u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HKL(pub isize);
 impl HKL {
     pub fn is_invalid(&self) -> bool {
@@ -2149,7 +2149,7 @@ pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1u32;
 pub const ILMCM_LANGUAGEBAROFF: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INSERT_TEXT_AT_SELECTION_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(1u32);
@@ -13767,7 +13767,7 @@ pub unsafe fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::core::Result<()>
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InputScope(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_DEFAULT: InputScope = InputScope(0i32);
@@ -13938,7 +13938,7 @@ impl ::core::fmt::Debug for InputScope {
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LANG_BAR_ITEM_ICON_MODE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_DTLBI_NONE: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(0u32);
@@ -13967,7 +13967,7 @@ pub const LIBID_MSAATEXTLib: ::windows::core::GUID = ::windows::core::GUID::from
 pub const MSAAControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXT_STORE_CHANGE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(0u32);
@@ -14022,7 +14022,7 @@ impl ::core::ops::Not for TEXT_STORE_CHANGE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXT_STORE_LOCK_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_LF_READ: TEXT_STORE_LOCK_FLAGS = TEXT_STORE_LOCK_FLAGS(2u32);
@@ -14049,7 +14049,7 @@ impl ::core::fmt::Debug for TEXT_STORE_LOCK_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXT_STORE_TEXT_CHANGE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_ST_NONE: TEXT_STORE_TEXT_CHANGE_FLAGS = TEXT_STORE_TEXT_CHANGE_FLAGS(0u32);
@@ -14122,7 +14122,7 @@ pub const TF_COMMANDING_ENABLED: u32 = 4u32;
 pub const TF_COMMANDING_ON: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TF_CONTEXT_EDIT_CONTEXT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ES_ASYNCDONTCARE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(0u32);
@@ -14205,7 +14205,7 @@ pub const TF_CONVERSIONMODE_SOFTKEYBOARD: u32 = 128u32;
 pub const TF_CONVERSIONMODE_SYMBOL: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TF_DA_ATTR_INFO(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ATTR_INPUT: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(0i32);
@@ -14294,7 +14294,7 @@ impl ::core::default::Default for TF_DA_COLOR_0 {
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TF_DA_COLORTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CT_NONE: TF_DA_COLORTYPE = TF_DA_COLORTYPE(0i32);
@@ -14323,7 +14323,7 @@ impl ::core::fmt::Debug for TF_DA_COLORTYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TF_DA_LINESTYLE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LS_NONE: TF_DA_LINESTYLE = TF_DA_LINESTYLE(0i32);
@@ -15172,7 +15172,7 @@ pub const TKBL_OPT_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028u32;
 pub const TKBL_UNDEFINED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TKBLayoutType(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TKBLT_UNDEFINED: TKBLayoutType = TKBLayoutType(0i32);
@@ -15650,7 +15650,7 @@ impl ::core::default::Default for TS_TEXTCHANGE {
 pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfActiveSelEnd(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_AE_NONE: TfActiveSelEnd = TfActiveSelEnd(0i32);
@@ -15679,7 +15679,7 @@ impl ::core::fmt::Debug for TfActiveSelEnd {
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfAnchor(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ANCHOR_START: TfAnchor = TfAnchor(0i32);
@@ -15706,7 +15706,7 @@ impl ::core::fmt::Debug for TfAnchor {
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfCandidateResult(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const CAND_FINALIZED: TfCandidateResult = TfCandidateResult(0i32);
@@ -15735,7 +15735,7 @@ impl ::core::fmt::Debug for TfCandidateResult {
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfGravity(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_GRAVITY_BACKWARD: TfGravity = TfGravity(0i32);
@@ -15762,7 +15762,7 @@ impl ::core::fmt::Debug for TfGravity {
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfIntegratableCandidateListSelectionStyle(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const STYLE_ACTIVE_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(0i32);
@@ -15789,7 +15789,7 @@ impl ::core::fmt::Debug for TfIntegratableCandidateListSelectionStyle {
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfLBBalloonStyle(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LB_BALLOON_RECO: TfLBBalloonStyle = TfLBBalloonStyle(0i32);
@@ -15818,7 +15818,7 @@ impl ::core::fmt::Debug for TfLBBalloonStyle {
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfLBIClick(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_CLK_RIGHT: TfLBIClick = TfLBIClick(1i32);
@@ -15845,7 +15845,7 @@ impl ::core::fmt::Debug for TfLBIClick {
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfLayoutCode(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LC_CREATE: TfLayoutCode = TfLayoutCode(0i32);
@@ -15874,7 +15874,7 @@ impl ::core::fmt::Debug for TfLayoutCode {
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfSapiObject(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const GETIF_RESMGR: TfSapiObject = TfSapiObject(0i32);
@@ -15909,7 +15909,7 @@ impl ::core::fmt::Debug for TfSapiObject {
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfShiftDir(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SD_BACKWARD: TfShiftDir = TfShiftDir(0i32);
@@ -15936,7 +15936,7 @@ impl ::core::fmt::Debug for TfShiftDir {
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TsActiveSelEnd(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_AE_NONE: TsActiveSelEnd = TsActiveSelEnd(0i32);
@@ -15965,7 +15965,7 @@ impl ::core::fmt::Debug for TsActiveSelEnd {
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TsGravity(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_GR_BACKWARD: TsGravity = TsGravity(0i32);
@@ -15992,7 +15992,7 @@ impl ::core::fmt::Debug for TsGravity {
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TsLayoutCode(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_LC_CREATE: TsLayoutCode = TsLayoutCode(0i32);
@@ -16021,7 +16021,7 @@ impl ::core::fmt::Debug for TsLayoutCode {
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TsRunType(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_RT_PLAIN: TsRunType = TsRunType(0i32);
@@ -16050,7 +16050,7 @@ impl ::core::fmt::Debug for TsRunType {
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TsShiftDir(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SD_BACKWARD: TsShiftDir = TsShiftDir(0i32);

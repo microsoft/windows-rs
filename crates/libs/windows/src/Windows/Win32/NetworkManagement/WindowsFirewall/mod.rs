@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ICS_TARGETTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const ICSTT_NAME: ICS_TARGETTYPE = ICS_TARGETTYPE(0i32);
@@ -1069,7 +1069,7 @@ impl ::core::default::Default for INET_FIREWALL_AC_CHANGE_0 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INET_FIREWALL_AC_CHANGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const INET_FIREWALL_AC_CHANGE_INVALID: INET_FIREWALL_AC_CHANGE_TYPE = INET_FIREWALL_AC_CHANGE_TYPE(0i32);
@@ -1100,7 +1100,7 @@ impl ::core::fmt::Debug for INET_FIREWALL_AC_CHANGE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INET_FIREWALL_AC_CREATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const INET_FIREWALL_AC_NONE: INET_FIREWALL_AC_CREATION_TYPE = INET_FIREWALL_AC_CREATION_TYPE(0i32);
@@ -6377,7 +6377,7 @@ pub struct IUPnPNAT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETCONMGR_ENUM_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NCME_DEFAULT: NETCONMGR_ENUM_FLAGS = NETCONMGR_ENUM_FLAGS(0i32);
@@ -6404,7 +6404,7 @@ impl ::core::fmt::Debug for NETCONMGR_ENUM_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETCONUI_CONNECT_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NCUC_DEFAULT: NETCONUI_CONNECT_FLAGS = NETCONUI_CONNECT_FLAGS(0i32);
@@ -6433,7 +6433,7 @@ impl ::core::fmt::Debug for NETCONUI_CONNECT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETCON_CHARACTERISTIC_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NCCF_NONE: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(0i32);
@@ -6500,7 +6500,7 @@ impl ::core::fmt::Debug for NETCON_CHARACTERISTIC_FLAGS {
 pub const NETCON_MAX_NAME_LEN: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETCON_MEDIATYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NCM_NONE: NETCON_MEDIATYPE = NETCON_MEDIATYPE(0i32);
@@ -6580,7 +6580,7 @@ impl ::core::default::Default for NETCON_PROPERTIES {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETCON_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NCS_DISCONNECTED: NETCON_STATUS = NETCON_STATUS(0i32);
@@ -6635,7 +6635,7 @@ impl ::core::fmt::Debug for NETCON_STATUS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETCON_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NCT_DIRECT_CONNECT: NETCON_TYPE = NETCON_TYPE(0i32);
@@ -6672,7 +6672,7 @@ impl ::core::fmt::Debug for NETCON_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETISO_ERROR_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NETISO_ERROR_TYPE_NONE: NETISO_ERROR_TYPE = NETISO_ERROR_TYPE(0i32);
@@ -6705,7 +6705,7 @@ impl ::core::fmt::Debug for NETISO_ERROR_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETISO_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NETISO_FLAG_FORCE_COMPUTE_BINARIES: NETISO_FLAG = NETISO_FLAG(1i32);
@@ -6736,7 +6736,7 @@ pub const NETISO_GEID_FOR_NEUTRAL_AWARE: u32 = 2u32;
 pub const NETISO_GEID_FOR_WDAG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_FW_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NET_FW_ACTION_BLOCK: NET_FW_ACTION = NET_FW_ACTION(0i32);
@@ -6765,7 +6765,7 @@ impl ::core::fmt::Debug for NET_FW_ACTION {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_FW_AUTHENTICATE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NET_FW_AUTHENTICATE_NONE: NET_FW_AUTHENTICATE_TYPE = NET_FW_AUTHENTICATE_TYPE(0i32);
@@ -6798,7 +6798,7 @@ impl ::core::fmt::Debug for NET_FW_AUTHENTICATE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_FW_EDGE_TRAVERSAL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NET_FW_EDGE_TRAVERSAL_TYPE_DENY: NET_FW_EDGE_TRAVERSAL_TYPE = NET_FW_EDGE_TRAVERSAL_TYPE(0i32);
@@ -6829,7 +6829,7 @@ impl ::core::fmt::Debug for NET_FW_EDGE_TRAVERSAL_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_FW_IP_PROTOCOL(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NET_FW_IP_PROTOCOL_TCP: NET_FW_IP_PROTOCOL = NET_FW_IP_PROTOCOL(6i32);
@@ -6858,7 +6858,7 @@ impl ::core::fmt::Debug for NET_FW_IP_PROTOCOL {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_FW_IP_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NET_FW_IP_VERSION_V4: NET_FW_IP_VERSION = NET_FW_IP_VERSION(0i32);
@@ -6889,7 +6889,7 @@ impl ::core::fmt::Debug for NET_FW_IP_VERSION {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_FW_MODIFY_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NET_FW_MODIFY_STATE_OK: NET_FW_MODIFY_STATE = NET_FW_MODIFY_STATE(0i32);
@@ -6918,7 +6918,7 @@ impl ::core::fmt::Debug for NET_FW_MODIFY_STATE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_FW_POLICY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NET_FW_POLICY_GROUP: NET_FW_POLICY_TYPE = NET_FW_POLICY_TYPE(0i32);
@@ -6949,7 +6949,7 @@ impl ::core::fmt::Debug for NET_FW_POLICY_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_FW_PROFILE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NET_FW_PROFILE_DOMAIN: NET_FW_PROFILE_TYPE = NET_FW_PROFILE_TYPE(0i32);
@@ -6980,7 +6980,7 @@ impl ::core::fmt::Debug for NET_FW_PROFILE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_FW_PROFILE_TYPE2(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NET_FW_PROFILE2_DOMAIN: NET_FW_PROFILE_TYPE2 = NET_FW_PROFILE_TYPE2(1i32);
@@ -7011,7 +7011,7 @@ impl ::core::fmt::Debug for NET_FW_PROFILE_TYPE2 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_FW_RULE_CATEGORY(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NET_FW_RULE_CATEGORY_BOOT: NET_FW_RULE_CATEGORY = NET_FW_RULE_CATEGORY(0i32);
@@ -7044,7 +7044,7 @@ impl ::core::fmt::Debug for NET_FW_RULE_CATEGORY {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_FW_RULE_DIRECTION(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NET_FW_RULE_DIR_IN: NET_FW_RULE_DIRECTION = NET_FW_RULE_DIRECTION(1i32);
@@ -7073,7 +7073,7 @@ impl ::core::fmt::Debug for NET_FW_RULE_DIRECTION {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_FW_SCOPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NET_FW_SCOPE_ALL: NET_FW_SCOPE = NET_FW_SCOPE(0i32);
@@ -7104,7 +7104,7 @@ impl ::core::fmt::Debug for NET_FW_SCOPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_FW_SERVICE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const NET_FW_SERVICE_FILE_AND_PRINT: NET_FW_SERVICE_TYPE = NET_FW_SERVICE_TYPE(0i32);
@@ -7242,7 +7242,7 @@ pub type PFN_FWUPDATEDYNAMICKEYWORDADDRESS0 = ::core::option::Option<unsafe exte
 pub type PNETISO_EDP_ID_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, wszenterpriseid: ::windows::core::PCWSTR, dwerr: u32)>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SHARINGCONNECTIONTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const ICSSHARINGTYPE_PUBLIC: SHARINGCONNECTIONTYPE = SHARINGCONNECTIONTYPE(0i32);
@@ -7269,7 +7269,7 @@ impl ::core::fmt::Debug for SHARINGCONNECTIONTYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SHARINGCONNECTION_ENUM_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const ICSSC_DEFAULT: SHARINGCONNECTION_ENUM_FLAGS = SHARINGCONNECTION_ENUM_FLAGS(0i32);
@@ -7365,7 +7365,7 @@ impl ::core::default::Default for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_AUTO_RESOLVE: _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(1i32);
@@ -7394,7 +7394,7 @@ impl ::core::fmt::Debug for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS_AUTO_RESOLVE: _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS = _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS(1i32);
@@ -7419,7 +7419,7 @@ impl ::core::fmt::Debug for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 pub const FW_DYNAMIC_KEYWORD_ORIGIN_INVALID: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE(0i32);

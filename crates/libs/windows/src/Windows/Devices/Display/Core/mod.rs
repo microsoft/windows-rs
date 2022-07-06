@@ -156,7 +156,7 @@ unsafe impl ::core::marker::Send for DisplayAdapter {}
 unsafe impl ::core::marker::Sync for DisplayAdapter {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayBitsPerChannel(pub u32);
 impl DisplayBitsPerChannel {
     pub const None: Self = Self(0u32);
@@ -363,7 +363,7 @@ unsafe impl ::core::marker::Send for DisplayDevice {}
 unsafe impl ::core::marker::Sync for DisplayDevice {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayDeviceCapability(pub i32);
 impl DisplayDeviceCapability {
     pub const FlipOverride: Self = Self(0i32);
@@ -1034,7 +1034,7 @@ unsafe impl ::core::marker::Send for DisplayManagerEnabledEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerEnabledEventArgs {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayManagerOptions(pub u32);
 impl DisplayManagerOptions {
     pub const None: Self = Self(0u32);
@@ -1196,7 +1196,7 @@ unsafe impl ::core::marker::Send for DisplayManagerPathsFailedOrInvalidatedEvent
 unsafe impl ::core::marker::Sync for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayManagerResult(pub i32);
 impl DisplayManagerResult {
     pub const Success: Self = Self(0i32);
@@ -1497,7 +1497,7 @@ unsafe impl ::core::marker::Send for DisplayModeInfo {}
 unsafe impl ::core::marker::Sync for DisplayModeInfo {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayModeQueryOptions(pub u32);
 impl DisplayModeQueryOptions {
     pub const None: Self = Self(0u32);
@@ -1825,7 +1825,7 @@ unsafe impl ::core::marker::Send for DisplayPath {}
 unsafe impl ::core::marker::Sync for DisplayPath {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayPathScaling(pub i32);
 impl DisplayPathScaling {
     pub const Identity: Self = Self(0i32);
@@ -1863,7 +1863,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayPathScaling {
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayPathStatus(pub i32);
 impl DisplayPathStatus {
     pub const Unknown: Self = Self(0i32);
@@ -1901,7 +1901,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayPathStatus {
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayPresentStatus(pub i32);
 impl DisplayPresentStatus {
     pub const Success: Self = Self(0i32);
@@ -2149,7 +2149,7 @@ unsafe impl ::core::marker::Send for DisplayPrimaryDescription {}
 unsafe impl ::core::marker::Sync for DisplayPrimaryDescription {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayRotation(pub i32);
 impl DisplayRotation {
     pub const None: Self = Self(0i32);
@@ -2261,7 +2261,7 @@ unsafe impl ::core::marker::Send for DisplayScanout {}
 unsafe impl ::core::marker::Sync for DisplayScanout {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayScanoutOptions(pub u32);
 impl DisplayScanoutOptions {
     pub const None: Self = Self(0u32);
@@ -2449,7 +2449,7 @@ unsafe impl ::core::marker::Send for DisplaySource {}
 unsafe impl ::core::marker::Sync for DisplaySource {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplaySourceStatus(pub i32);
 impl DisplaySourceStatus {
     pub const Active: Self = Self(0i32);
@@ -2675,7 +2675,7 @@ unsafe impl ::core::marker::Send for DisplayState {}
 unsafe impl ::core::marker::Sync for DisplayState {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayStateApplyOptions(pub u32);
 impl DisplayStateApplyOptions {
     pub const None: Self = Self(0u32);
@@ -2739,7 +2739,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayStateApplyOptions {
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayStateFunctionalizeOptions(pub u32);
 impl DisplayStateFunctionalizeOptions {
     pub const None: Self = Self(0u32);
@@ -2895,7 +2895,7 @@ unsafe impl ::core::marker::Send for DisplayStateOperationResult {}
 unsafe impl ::core::marker::Sync for DisplayStateOperationResult {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayStateOperationStatus(pub i32);
 impl DisplayStateOperationStatus {
     pub const Success: Self = Self(0i32);
@@ -3201,7 +3201,7 @@ unsafe impl ::core::marker::Send for DisplayTarget {}
 unsafe impl ::core::marker::Sync for DisplayTarget {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayTargetPersistence(pub i32);
 impl DisplayTargetPersistence {
     pub const None: Self = Self(0i32);
@@ -3529,7 +3529,7 @@ unsafe impl ::core::marker::Send for DisplayTaskResult {}
 unsafe impl ::core::marker::Sync for DisplayTaskResult {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayTaskSignalKind(pub i32);
 impl DisplayTaskSignalKind {
     pub const OnPresentFlipAway: Self = Self(0i32);
@@ -3829,7 +3829,7 @@ unsafe impl ::core::marker::Send for DisplayWireFormat {}
 unsafe impl ::core::marker::Sync for DisplayWireFormat {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayWireFormatColorSpace(pub i32);
 impl DisplayWireFormatColorSpace {
     pub const BT709: Self = Self(0i32);
@@ -3864,7 +3864,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayWireFormatColorSpace {
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayWireFormatEotf(pub i32);
 impl DisplayWireFormatEotf {
     pub const Sdr: Self = Self(0i32);
@@ -3898,7 +3898,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayWireFormatEotf {
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayWireFormatHdrMetadata(pub i32);
 impl DisplayWireFormatHdrMetadata {
     pub const None: Self = Self(0i32);
@@ -3934,7 +3934,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayWireFormatHdrMetadata {
 }
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayWireFormatPixelEncoding(pub i32);
 impl DisplayWireFormatPixelEncoding {
     pub const Rgb444: Self = Self(0i32);

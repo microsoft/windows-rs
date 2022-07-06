@@ -488,7 +488,7 @@ pub struct IGpioProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderGpioPinDriveMode(pub i32);
 impl ProviderGpioPinDriveMode {
     pub const Input: Self = Self(0i32);
@@ -528,7 +528,7 @@ unsafe impl ::windows::core::RuntimeType for ProviderGpioPinDriveMode {
 }
 #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderGpioPinEdge(pub i32);
 impl ProviderGpioPinEdge {
     pub const FallingEdge: Self = Self(0i32);
@@ -562,7 +562,7 @@ unsafe impl ::windows::core::RuntimeType for ProviderGpioPinEdge {
 }
 #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderGpioPinValue(pub i32);
 impl ProviderGpioPinValue {
     pub const Low: Self = Self(0i32);
@@ -596,7 +596,7 @@ unsafe impl ::windows::core::RuntimeType for ProviderGpioPinValue {
 }
 #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderGpioSharingMode(pub i32);
 impl ProviderGpioSharingMode {
     pub const Exclusive: Self = Self(0i32);

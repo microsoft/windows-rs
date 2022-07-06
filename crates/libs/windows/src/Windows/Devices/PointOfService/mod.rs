@@ -765,7 +765,7 @@ unsafe impl ::core::marker::Send for BarcodeScannerReport {}
 unsafe impl ::core::marker::Sync for BarcodeScannerReport {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BarcodeScannerStatus(pub i32);
 impl BarcodeScannerStatus {
     pub const Online: Self = Self(0i32);
@@ -1743,7 +1743,7 @@ unsafe impl ::core::marker::Send for BarcodeSymbologyAttributes {}
 unsafe impl ::core::marker::Sync for BarcodeSymbologyAttributes {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BarcodeSymbologyDecodeLengthKind(pub i32);
 impl BarcodeSymbologyDecodeLengthKind {
     pub const AnyLength: Self = Self(0i32);
@@ -2707,7 +2707,7 @@ unsafe impl ::core::marker::Send for CashDrawerStatus {}
 unsafe impl ::core::marker::Sync for CashDrawerStatus {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CashDrawerStatusKind(pub i32);
 impl CashDrawerStatusKind {
     pub const Online: Self = Self(0i32);
@@ -10511,7 +10511,7 @@ unsafe impl ::core::marker::Send for LineDisplayCursorAttributes {}
 unsafe impl ::core::marker::Sync for LineDisplayCursorAttributes {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineDisplayCursorType(pub i32);
 impl LineDisplayCursorType {
     pub const None: Self = Self(0i32);
@@ -10653,7 +10653,7 @@ unsafe impl ::core::marker::Send for LineDisplayCustomGlyphs {}
 unsafe impl ::core::marker::Sync for LineDisplayCustomGlyphs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineDisplayDescriptorState(pub i32);
 impl LineDisplayDescriptorState {
     pub const Off: Self = Self(0i32);
@@ -10688,7 +10688,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayDescriptorState {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineDisplayHorizontalAlignment(pub i32);
 impl LineDisplayHorizontalAlignment {
     pub const Left: Self = Self(0i32);
@@ -10861,7 +10861,7 @@ unsafe impl ::core::marker::Send for LineDisplayMarquee {}
 unsafe impl ::core::marker::Sync for LineDisplayMarquee {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineDisplayMarqueeFormat(pub i32);
 impl LineDisplayMarqueeFormat {
     pub const None: Self = Self(0i32);
@@ -10896,7 +10896,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayMarqueeFormat {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineDisplayPowerStatus(pub i32);
 impl LineDisplayPowerStatus {
     pub const Unknown: Self = Self(0i32);
@@ -10933,7 +10933,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayPowerStatus {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineDisplayScrollDirection(pub i32);
 impl LineDisplayScrollDirection {
     pub const Up: Self = Self(0i32);
@@ -11249,7 +11249,7 @@ unsafe impl ::core::marker::Send for LineDisplayStoredBitmap {}
 unsafe impl ::core::marker::Sync for LineDisplayStoredBitmap {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineDisplayTextAttribute(pub i32);
 impl LineDisplayTextAttribute {
     pub const Normal: Self = Self(0i32);
@@ -11285,7 +11285,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayTextAttribute {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineDisplayTextAttributeGranularity(pub i32);
 impl LineDisplayTextAttributeGranularity {
     pub const NotSupported: Self = Self(0i32);
@@ -11320,7 +11320,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayTextAttributeGranularity
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineDisplayVerticalAlignment(pub i32);
 impl LineDisplayVerticalAlignment {
     pub const Top: Self = Self(0i32);
@@ -12081,7 +12081,7 @@ unsafe impl ::core::marker::Send for MagneticStripeReaderAamvaCardDataReceivedEv
 unsafe impl ::core::marker::Sync for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MagneticStripeReaderAuthenticationLevel(pub i32);
 impl MagneticStripeReaderAuthenticationLevel {
     pub const NotSupported: Self = Self(0i32);
@@ -12116,7 +12116,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderAuthenticationL
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MagneticStripeReaderAuthenticationProtocol(pub i32);
 impl MagneticStripeReaderAuthenticationProtocol {
     pub const None: Self = Self(0i32);
@@ -12662,7 +12662,7 @@ unsafe impl ::core::marker::Send for MagneticStripeReaderErrorOccurredEventArgs 
 unsafe impl ::core::marker::Sync for MagneticStripeReaderErrorOccurredEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MagneticStripeReaderErrorReportingType(pub i32);
 impl MagneticStripeReaderErrorReportingType {
     pub const CardLevel: Self = Self(0i32);
@@ -12848,7 +12848,7 @@ unsafe impl ::core::marker::Send for MagneticStripeReaderReport {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderReport {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MagneticStripeReaderStatus(pub i32);
 impl MagneticStripeReaderStatus {
     pub const Unauthenticated: Self = Self(0i32);
@@ -13080,7 +13080,7 @@ unsafe impl ::core::marker::Send for MagneticStripeReaderTrackData {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderTrackData {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MagneticStripeReaderTrackErrorType(pub i32);
 impl MagneticStripeReaderTrackErrorType {
     pub const None: Self = Self(0i32);
@@ -13118,7 +13118,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderTrackErrorType 
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MagneticStripeReaderTrackIds(pub i32);
 impl MagneticStripeReaderTrackIds {
     pub const None: Self = Self(0i32);
@@ -13240,7 +13240,7 @@ unsafe impl ::core::marker::Send for MagneticStripeReaderVendorSpecificCardDataR
 unsafe impl ::core::marker::Sync for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosConnectionTypes(pub u32);
 impl PosConnectionTypes {
     pub const Local: Self = Self(1u32);
@@ -13554,7 +13554,7 @@ unsafe impl ::core::marker::Send for PosPrinter {}
 unsafe impl ::core::marker::Sync for PosPrinter {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterAlignment(pub i32);
 impl PosPrinterAlignment {
     pub const Left: Self = Self(0i32);
@@ -13589,7 +13589,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterAlignment {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterBarcodeTextPosition(pub i32);
 impl PosPrinterBarcodeTextPosition {
     pub const None: Self = Self(0i32);
@@ -13781,7 +13781,7 @@ unsafe impl ::core::marker::Send for PosPrinterCapabilities {}
 unsafe impl ::core::marker::Sync for PosPrinterCapabilities {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterCartridgeSensors(pub u32);
 impl PosPrinterCartridgeSensors {
     pub const None: Self = Self(0u32);
@@ -13879,7 +13879,7 @@ impl ::windows::core::RuntimeName for PosPrinterCharacterSetIds {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterColorCapabilities(pub u32);
 impl PosPrinterColorCapabilities {
     pub const None: Self = Self(0u32);
@@ -13951,7 +13951,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterColorCapabilities {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterColorCartridge(pub i32);
 impl PosPrinterColorCartridge {
     pub const Unknown: Self = Self(0i32);
@@ -14096,7 +14096,7 @@ unsafe impl ::core::marker::Send for PosPrinterFontProperty {}
 unsafe impl ::core::marker::Sync for PosPrinterFontProperty {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterLineDirection(pub i32);
 impl PosPrinterLineDirection {
     pub const Horizontal: Self = Self(0i32);
@@ -14130,7 +14130,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterLineDirection {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterLineStyle(pub i32);
 impl PosPrinterLineStyle {
     pub const SingleSolid: Self = Self(0i32);
@@ -14166,7 +14166,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterLineStyle {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterMapMode(pub i32);
 impl PosPrinterMapMode {
     pub const Dots: Self = Self(0i32);
@@ -14202,7 +14202,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterMapMode {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterMarkFeedCapabilities(pub u32);
 impl PosPrinterMarkFeedCapabilities {
     pub const None: Self = Self(0u32);
@@ -14267,7 +14267,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterMarkFeedCapabilities {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterMarkFeedKind(pub i32);
 impl PosPrinterMarkFeedKind {
     pub const ToTakeUp: Self = Self(0i32);
@@ -14556,7 +14556,7 @@ unsafe impl ::core::marker::Send for PosPrinterPrintOptions {}
 unsafe impl ::core::marker::Sync for PosPrinterPrintOptions {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterPrintSide(pub i32);
 impl PosPrinterPrintSide {
     pub const Unknown: Self = Self(0i32);
@@ -14667,7 +14667,7 @@ unsafe impl ::core::marker::Send for PosPrinterReleaseDeviceRequestedEventArgs {
 unsafe impl ::core::marker::Sync for PosPrinterReleaseDeviceRequestedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterRotation(pub i32);
 impl PosPrinterRotation {
     pub const Normal: Self = Self(0i32);
@@ -14703,7 +14703,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterRotation {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterRuledLineCapabilities(pub u32);
 impl PosPrinterRuledLineCapabilities {
     pub const None: Self = Self(0u32);
@@ -14859,7 +14859,7 @@ unsafe impl ::core::marker::Send for PosPrinterStatus {}
 unsafe impl ::core::marker::Sync for PosPrinterStatus {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterStatusKind(pub i32);
 impl PosPrinterStatusKind {
     pub const Online: Self = Self(0i32);
@@ -16384,7 +16384,7 @@ unsafe impl ::core::marker::Send for UnifiedPosErrorData {}
 unsafe impl ::core::marker::Sync for UnifiedPosErrorData {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UnifiedPosErrorReason(pub i32);
 impl UnifiedPosErrorReason {
     pub const UnknownErrorReason: Self = Self(0i32);
@@ -16427,7 +16427,7 @@ unsafe impl ::windows::core::RuntimeType for UnifiedPosErrorReason {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UnifiedPosErrorSeverity(pub i32);
 impl UnifiedPosErrorSeverity {
     pub const UnknownErrorSeverity: Self = Self(0i32);
@@ -16465,7 +16465,7 @@ unsafe impl ::windows::core::RuntimeType for UnifiedPosErrorSeverity {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UnifiedPosHealthCheckLevel(pub i32);
 impl UnifiedPosHealthCheckLevel {
     pub const UnknownHealthCheckLevel: Self = Self(0i32);
@@ -16501,7 +16501,7 @@ unsafe impl ::windows::core::RuntimeType for UnifiedPosHealthCheckLevel {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UnifiedPosPowerReportingType(pub i32);
 impl UnifiedPosPowerReportingType {
     pub const UnknownPowerReportingType: Self = Self(0i32);

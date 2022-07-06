@@ -7,7 +7,7 @@ pub const CLSID_VirtualViewportContent: ::windows::core::GUID = ::windows::core:
 pub const DCompManipulationCompositor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79dea627_a08a_43ac_8ef5_6900b9299126);
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION_STOP: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION = DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION(0i32);
@@ -36,7 +36,7 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_CONFIGURATION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_CONFIGURATION_NONE: DIRECTMANIPULATION_CONFIGURATION = DIRECTMANIPULATION_CONFIGURATION(0i32);
@@ -77,7 +77,7 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_CONFIGURATION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_VERTICAL: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION = DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION(1i32);
@@ -110,7 +110,7 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_DRAG_DROP_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_READY: DIRECTMANIPULATION_DRAG_DROP_STATUS = DIRECTMANIPULATION_DRAG_DROP_STATUS(0i32);
@@ -145,7 +145,7 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_DRAG_DROP_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_GESTURE_CONFIGURATION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_GESTURE_NONE: DIRECTMANIPULATION_GESTURE_CONFIGURATION = DIRECTMANIPULATION_GESTURE_CONFIGURATION(0i32);
@@ -178,7 +178,7 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_HITTEST_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_HITTEST_TYPE_ASYNCHRONOUS: DIRECTMANIPULATION_HITTEST_TYPE = DIRECTMANIPULATION_HITTEST_TYPE(0i32);
@@ -207,7 +207,7 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_HITTEST_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_HORIZONTALALIGNMENT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_HORIZONTALALIGNMENT_NONE: DIRECTMANIPULATION_HORIZONTALALIGNMENT = DIRECTMANIPULATION_HORIZONTALALIGNMENT(0i32);
@@ -240,7 +240,7 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_INPUT_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_INPUT_MODE_AUTOMATIC: DIRECTMANIPULATION_INPUT_MODE = DIRECTMANIPULATION_INPUT_MODE(0i32);
@@ -267,7 +267,7 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_INPUT_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_INTERACTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_INTERACTION_BEGIN: DIRECTMANIPULATION_INTERACTION_TYPE = DIRECTMANIPULATION_INTERACTION_TYPE(0i32);
@@ -306,7 +306,7 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_INTERACTION_TYPE {
 pub const DIRECTMANIPULATION_KEYBOARDFOCUS: u32 = 4294967294u32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_MOTION_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_MOTION_NONE: DIRECTMANIPULATION_MOTION_TYPES = DIRECTMANIPULATION_MOTION_TYPES(0i32);
@@ -345,7 +345,7 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_MOTION_TYPES {
 pub const DIRECTMANIPULATION_MOUSEFOCUS: u32 = 4294967293u32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_SNAPPOINT_COORDINATE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_COORDINATE_BOUNDARY: DIRECTMANIPULATION_SNAPPOINT_COORDINATE = DIRECTMANIPULATION_SNAPPOINT_COORDINATE(0i32);
@@ -374,7 +374,7 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_SNAPPOINT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_SNAPPOINT_MANDATORY: DIRECTMANIPULATION_SNAPPOINT_TYPE = DIRECTMANIPULATION_SNAPPOINT_TYPE(0i32);
@@ -405,7 +405,7 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_SNAPPOINT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_BUILDING: DIRECTMANIPULATION_STATUS = DIRECTMANIPULATION_STATUS(0i32);
@@ -442,7 +442,7 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_VERTICALALIGNMENT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_VERTICALALIGNMENT_NONE: DIRECTMANIPULATION_VERTICALALIGNMENT = DIRECTMANIPULATION_VERTICALALIGNMENT(0i32);
@@ -475,7 +475,7 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_VERTICALALIGNMENT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_VIEWPORT_OPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_DEFAULT: DIRECTMANIPULATION_VIEWPORT_OPTIONS = DIRECTMANIPULATION_VIEWPORT_OPTIONS(0i32);

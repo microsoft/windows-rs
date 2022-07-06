@@ -302,7 +302,7 @@ unsafe impl ::core::marker::Send for GattCharacteristic {}
 unsafe impl ::core::marker::Sync for GattCharacteristic {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattCharacteristicProperties(pub u32);
 impl GattCharacteristicProperties {
     pub const None: Self = Self(0u32);
@@ -1060,7 +1060,7 @@ unsafe impl ::core::marker::Send for GattCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for GattCharacteristicsResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattClientCharacteristicConfigurationDescriptorValue(pub i32);
 impl GattClientCharacteristicConfigurationDescriptorValue {
     pub const None: Self = Self(0i32);
@@ -1205,7 +1205,7 @@ unsafe impl ::core::marker::Send for GattClientNotificationResult {}
 unsafe impl ::core::marker::Sync for GattClientNotificationResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattCommunicationStatus(pub i32);
 impl GattCommunicationStatus {
     pub const Success: Self = Self(0i32);
@@ -2974,7 +2974,7 @@ unsafe impl ::core::marker::Send for GattLocalService {}
 unsafe impl ::core::marker::Sync for GattLocalService {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattOpenStatus(pub i32);
 impl GattOpenStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -3354,7 +3354,7 @@ impl ::windows::core::RuntimeName for GattPresentationFormatTypes {
 }
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattProtectionLevel(pub i32);
 impl GattProtectionLevel {
     pub const Plain: Self = Self(0i32);
@@ -4064,7 +4064,7 @@ unsafe impl ::core::marker::Send for GattReliableWriteTransaction {}
 unsafe impl ::core::marker::Sync for GattReliableWriteTransaction {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattRequestState(pub i32);
 impl GattRequestState {
     pub const Pending: Self = Self(0i32);
@@ -4328,7 +4328,7 @@ unsafe impl ::core::marker::Send for GattServiceProvider {}
 unsafe impl ::core::marker::Sync for GattServiceProvider {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattServiceProviderAdvertisementStatus(pub i32);
 impl GattServiceProviderAdvertisementStatus {
     pub const Created: Self = Self(0i32);
@@ -5044,7 +5044,7 @@ unsafe impl ::core::marker::Send for GattSession {}
 unsafe impl ::core::marker::Sync for GattSession {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattSessionStatus(pub i32);
 impl GattSessionStatus {
     pub const Closed: Self = Self(0i32);
@@ -5171,7 +5171,7 @@ unsafe impl ::core::marker::Send for GattSessionStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattSessionStatusChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattSharingMode(pub i32);
 impl GattSharingMode {
     pub const Unspecified: Self = Self(0i32);
@@ -5410,7 +5410,7 @@ unsafe impl ::core::marker::Send for GattValueChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattValueChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattWriteOption(pub i32);
 impl GattWriteOption {
     pub const WriteWithResponse: Self = Self(0i32);

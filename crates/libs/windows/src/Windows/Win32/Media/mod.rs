@@ -25,7 +25,7 @@ pub mod Streaming;
 #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
 pub mod WindowsMediaFormat;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTASK(pub isize);
 impl HTASK {
     pub fn is_invalid(&self) -> bool {
@@ -693,7 +693,7 @@ impl ::core::default::Default for TIMECODE_SAMPLE {
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TIMECODE_SAMPLE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 pub const ED_DEVCAP_TIMECODE_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(4121u32);

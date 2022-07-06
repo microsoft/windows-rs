@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPARTMENT_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 pub const UNSPECIFIED_COMPARTMENT_ID: COMPARTMENT_ID = COMPARTMENT_ID(0i32);
@@ -59,7 +59,7 @@ impl ::core::default::Default for CSTRING {
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 pub const NotificationEvent: EVENT_TYPE = EVENT_TYPE(0i32);
@@ -86,7 +86,7 @@ impl ::core::fmt::Debug for EVENT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXCEPTION_DISPOSITION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 pub const ExceptionContinueExecution: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(0i32);
@@ -350,7 +350,7 @@ pub const MAXULONG: u32 = 4294967295u32;
 pub const MAXUSHORT: u32 = 65535u32;
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NT_PRODUCT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 pub const NtProductWinNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(1i32);
@@ -1315,7 +1315,7 @@ impl ::core::default::Default for STRING64 {
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SUITE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 pub const SmallBusiness: SUITE_TYPE = SUITE_TYPE(0i32);
@@ -1376,7 +1376,7 @@ impl ::core::fmt::Debug for SUITE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TIMER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 pub const NotificationTimer: TIMER_TYPE = TIMER_TYPE(0i32);
@@ -1403,7 +1403,7 @@ impl ::core::fmt::Debug for TIMER_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WAIT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 pub const WaitAll: WAIT_TYPE = WAIT_TYPE(0i32);

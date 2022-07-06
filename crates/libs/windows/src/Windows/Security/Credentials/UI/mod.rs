@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AuthenticationProtocol(pub i32);
 impl AuthenticationProtocol {
     pub const Basic: Self = Self(0i32);
@@ -421,7 +421,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CredentialSaveOption(pub i32);
 impl CredentialSaveOption {
     pub const Unselected: Self = Self(0i32);
@@ -560,7 +560,7 @@ pub struct IUserConsentVerifierStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserConsentVerificationResult(pub i32);
 impl UserConsentVerificationResult {
     pub const Verified: Self = Self(0i32);
@@ -627,7 +627,7 @@ impl ::windows::core::RuntimeName for UserConsentVerifier {
 }
 #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserConsentVerifierAvailability(pub i32);
 impl UserConsentVerifierAvailability {
     pub const Available: Self = Self(0i32);

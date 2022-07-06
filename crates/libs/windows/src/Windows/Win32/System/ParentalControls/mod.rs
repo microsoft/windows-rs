@@ -782,7 +782,7 @@ pub const WPCEVENT_WEB_URLVISIT_value: u32 = 3u32;
 pub const WPCEVENT_WEB_WEBSITEVISIT_value: u32 = 19u32;
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPCFLAG_IM_FEATURE(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPCFLAG_IM_FEATURE_NONE: WPCFLAG_IM_FEATURE = WPCFLAG_IM_FEATURE(0i32);
@@ -823,7 +823,7 @@ impl ::core::fmt::Debug for WPCFLAG_IM_FEATURE {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPCFLAG_IM_LEAVE(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPCFLAG_IM_LEAVE_NORMAL: WPCFLAG_IM_LEAVE = WPCFLAG_IM_LEAVE(0i32);
@@ -852,7 +852,7 @@ impl ::core::fmt::Debug for WPCFLAG_IM_LEAVE {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPCFLAG_ISBLOCKED(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPCFLAG_ISBLOCKED_NOTBLOCKED: WPCFLAG_ISBLOCKED = WPCFLAG_ISBLOCKED(0i32);
@@ -929,7 +929,7 @@ impl ::core::fmt::Debug for WPCFLAG_ISBLOCKED {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPCFLAG_LOGOFF_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPCFLAG_LOGOFF_TYPE_LOGOUT: WPCFLAG_LOGOFF_TYPE = WPCFLAG_LOGOFF_TYPE(0i32);
@@ -962,7 +962,7 @@ impl ::core::fmt::Debug for WPCFLAG_LOGOFF_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPCFLAG_OVERRIDE(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPCFLAG_APPLICATION: WPCFLAG_OVERRIDE = WPCFLAG_OVERRIDE(1i32);
@@ -987,7 +987,7 @@ impl ::core::fmt::Debug for WPCFLAG_OVERRIDE {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPCFLAG_RESTRICTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPCFLAG_NO_RESTRICTION: WPCFLAG_RESTRICTION = WPCFLAG_RESTRICTION(0i32);
@@ -1026,7 +1026,7 @@ impl ::core::fmt::Debug for WPCFLAG_RESTRICTION {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPCFLAG_VISIBILITY(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPCFLAG_WPC_VISIBLE: WPCFLAG_VISIBILITY = WPCFLAG_VISIBILITY(0i32);
@@ -1053,7 +1053,7 @@ impl ::core::fmt::Debug for WPCFLAG_VISIBILITY {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPCFLAG_WEB_SETTING(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPCFLAG_WEB_SETTING_NOTBLOCKED: WPCFLAG_WEB_SETTING = WPCFLAG_WEB_SETTING(0i32);
@@ -1129,7 +1129,7 @@ pub const WPCPROV_TASK_WebsiteVisit: u32 = 19u32;
 pub const WPC_APP_LAUNCH: u32 = 22u32;
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_APPLICATIONEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_APPLICATIONEVENT_SERIALIZEDAPPLICATION: WPC_ARGS_APPLICATIONEVENT = WPC_ARGS_APPLICATIONEVENT(0i32);
@@ -1164,7 +1164,7 @@ impl ::core::fmt::Debug for WPC_ARGS_APPLICATIONEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_APPOVERRIDEEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_APPOVERRIDEEVENT_USERID: WPC_ARGS_APPOVERRIDEEVENT = WPC_ARGS_APPOVERRIDEEVENT(0i32);
@@ -1195,7 +1195,7 @@ impl ::core::fmt::Debug for WPC_ARGS_APPOVERRIDEEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_COMPUTERUSAGEEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_COMPUTERUSAGEEVENT_ID: WPC_ARGS_COMPUTERUSAGEEVENT = WPC_ARGS_COMPUTERUSAGEEVENT(0i32);
@@ -1224,7 +1224,7 @@ impl ::core::fmt::Debug for WPC_ARGS_COMPUTERUSAGEEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_CONTENTUSAGEEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_CONTENTUSAGEEVENT_CONTENTPROVIDERID: WPC_ARGS_CONTENTUSAGEEVENT = WPC_ARGS_CONTENTUSAGEEVENT(0i32);
@@ -1263,7 +1263,7 @@ impl ::core::fmt::Debug for WPC_ARGS_CONTENTUSAGEEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_CONVERSATIONINITEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_CONVERSATIONINITEVENT_APPNAME: WPC_ARGS_CONVERSATIONINITEVENT = WPC_ARGS_CONVERSATIONINITEVENT(0i32);
@@ -1306,7 +1306,7 @@ impl ::core::fmt::Debug for WPC_ARGS_CONVERSATIONINITEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_CONVERSATIONJOINEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_CONVERSATIONJOINEVENT_APPNAME: WPC_ARGS_CONVERSATIONJOINEVENT = WPC_ARGS_CONVERSATIONJOINEVENT(0i32);
@@ -1351,7 +1351,7 @@ impl ::core::fmt::Debug for WPC_ARGS_CONVERSATIONJOINEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_CONVERSATIONLEAVEEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_APPNAME: WPC_ARGS_CONVERSATIONLEAVEEVENT = WPC_ARGS_CONVERSATIONLEAVEEVENT(0i32);
@@ -1396,7 +1396,7 @@ impl ::core::fmt::Debug for WPC_ARGS_CONVERSATIONLEAVEEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_CUSTOMEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_CUSTOMEVENT_PUBLISHER: WPC_ARGS_CUSTOMEVENT = WPC_ARGS_CUSTOMEVENT(0i32);
@@ -1439,7 +1439,7 @@ impl ::core::fmt::Debug for WPC_ARGS_CUSTOMEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_EMAILCONTACTEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_EMAILCONTACTEVENT_APPNAME: WPC_ARGS_EMAILCONTACTEVENT = WPC_ARGS_EMAILCONTACTEVENT(0i32);
@@ -1480,7 +1480,7 @@ impl ::core::fmt::Debug for WPC_ARGS_EMAILCONTACTEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_EMAILRECEIEVEDEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_EMAILRECEIEVEDEVENT_SENDER: WPC_ARGS_EMAILRECEIEVEDEVENT = WPC_ARGS_EMAILRECEIEVEDEVENT(0i32);
@@ -1527,7 +1527,7 @@ impl ::core::fmt::Debug for WPC_ARGS_EMAILRECEIEVEDEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_EMAILSENTEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_EMAILSENTEVENT_SENDER: WPC_ARGS_EMAILSENTEVENT = WPC_ARGS_EMAILSENTEVENT(0i32);
@@ -1572,7 +1572,7 @@ impl ::core::fmt::Debug for WPC_ARGS_EMAILSENTEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_FILEDOWNLOADEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_FILEDOWNLOADEVENT_URL: WPC_ARGS_FILEDOWNLOADEVENT = WPC_ARGS_FILEDOWNLOADEVENT(0i32);
@@ -1607,7 +1607,7 @@ impl ::core::fmt::Debug for WPC_ARGS_FILEDOWNLOADEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_GAMESTARTEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_GAMESTARTEVENT_APPID: WPC_ARGS_GAMESTARTEVENT = WPC_ARGS_GAMESTARTEVENT(0i32);
@@ -1652,7 +1652,7 @@ impl ::core::fmt::Debug for WPC_ARGS_GAMESTARTEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_IMCONTACTEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_IMCONTACTEVENT_APPNAME: WPC_ARGS_IMCONTACTEVENT = WPC_ARGS_IMCONTACTEVENT(0i32);
@@ -1693,7 +1693,7 @@ impl ::core::fmt::Debug for WPC_ARGS_IMCONTACTEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_IMFEATUREEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_IMFEATUREEVENT_APPNAME: WPC_ARGS_IMFEATUREEVENT = WPC_ARGS_IMFEATUREEVENT(0i32);
@@ -1740,7 +1740,7 @@ impl ::core::fmt::Debug for WPC_ARGS_IMFEATUREEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_MEDIADOWNLOADEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_MEDIADOWNLOADEVENT_APPNAME: WPC_ARGS_MEDIADOWNLOADEVENT = WPC_ARGS_MEDIADOWNLOADEVENT(0i32);
@@ -1783,7 +1783,7 @@ impl ::core::fmt::Debug for WPC_ARGS_MEDIADOWNLOADEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_MEDIAPLAYBACKEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_MEDIAPLAYBACKEVENT_APPNAME: WPC_ARGS_MEDIAPLAYBACKEVENT = WPC_ARGS_MEDIAPLAYBACKEVENT(0i32);
@@ -1826,7 +1826,7 @@ impl ::core::fmt::Debug for WPC_ARGS_MEDIAPLAYBACKEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_SAFERAPPBLOCKED(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_SAFERAPPBLOCKED_TIMESTAMP: WPC_ARGS_SAFERAPPBLOCKED = WPC_ARGS_SAFERAPPBLOCKED(0i32);
@@ -1859,7 +1859,7 @@ impl ::core::fmt::Debug for WPC_ARGS_SAFERAPPBLOCKED {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_SETTINGSCHANGEEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_SETTINGSCHANGEEVENT_CLASS: WPC_ARGS_SETTINGSCHANGEEVENT = WPC_ARGS_SETTINGSCHANGEEVENT(0i32);
@@ -1898,7 +1898,7 @@ impl ::core::fmt::Debug for WPC_ARGS_SETTINGSCHANGEEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_URLVISITEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_URLVISITEVENT_URL: WPC_ARGS_URLVISITEVENT = WPC_ARGS_URLVISITEVENT(0i32);
@@ -1937,7 +1937,7 @@ impl ::core::fmt::Debug for WPC_ARGS_URLVISITEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_WEBOVERRIDEEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_WEBOVERRIDEEVENT_USERID: WPC_ARGS_WEBOVERRIDEEVENT = WPC_ARGS_WEBOVERRIDEEVENT(0i32);
@@ -1968,7 +1968,7 @@ impl ::core::fmt::Debug for WPC_ARGS_WEBOVERRIDEEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_ARGS_WEBSITEVISITEVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_ARGS_WEBSITEVISITEVENT_URL: WPC_ARGS_WEBSITEVISITEVENT = WPC_ARGS_WEBSITEVISITEVENT(0i32);
@@ -2011,7 +2011,7 @@ impl ::core::fmt::Debug for WPC_ARGS_WEBSITEVISITEVENT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_MEDIA_EXPLICIT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_MEDIA_EXPLICIT_FALSE: WPC_MEDIA_EXPLICIT = WPC_MEDIA_EXPLICIT(0i32);
@@ -2040,7 +2040,7 @@ impl ::core::fmt::Debug for WPC_MEDIA_EXPLICIT {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_MEDIA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_MEDIA_TYPE_OTHER: WPC_MEDIA_TYPE = WPC_MEDIA_TYPE(0i32);
@@ -2079,7 +2079,7 @@ impl ::core::fmt::Debug for WPC_MEDIA_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPC_SETTINGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 pub const WPC_SETTINGS_WPC_EXTENSION_PATH: WPC_SETTINGS = WPC_SETTINGS(0i32);

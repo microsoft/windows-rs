@@ -145,7 +145,7 @@ unsafe impl ::core::marker::Send for ActivitySensorTrigger {}
 unsafe impl ::core::marker::Sync for ActivitySensorTrigger {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AlarmAccessStatus(pub i32);
 impl AlarmAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -699,7 +699,7 @@ unsafe impl ::core::marker::Send for ApplicationTriggerDetails {}
 unsafe impl ::core::marker::Sync for ApplicationTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ApplicationTriggerResult(pub i32);
 impl ApplicationTriggerResult {
     pub const Allowed: Self = Self(0i32);
@@ -841,7 +841,7 @@ unsafe impl ::core::marker::Send for AppointmentStoreNotificationTrigger {}
 unsafe impl ::core::marker::Sync for AppointmentStoreNotificationTrigger {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BackgroundAccessRequestKind(pub i32);
 impl BackgroundAccessRequestKind {
     pub const AlwaysAllowed: Self = Self(0i32);
@@ -875,7 +875,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundAccessRequestKind {
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BackgroundAccessStatus(pub i32);
 impl BackgroundAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -1260,7 +1260,7 @@ pub struct BackgroundTaskCanceledEventHandler_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BackgroundTaskCancellationReason(pub i32);
 impl BackgroundTaskCancellationReason {
     pub const Abort: Self = Self(0i32);
@@ -2118,7 +2118,7 @@ unsafe impl ::core::marker::Send for BackgroundTaskRegistrationGroup {}
 unsafe impl ::core::marker::Sync for BackgroundTaskRegistrationGroup {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BackgroundTaskThrottleCounter(pub i32);
 impl BackgroundTaskThrottleCounter {
     pub const All: Self = Self(0i32);
@@ -2172,7 +2172,7 @@ impl ::windows::core::RuntimeName for BackgroundWorkCost {
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BackgroundWorkCostValue(pub i32);
 impl BackgroundWorkCostValue {
     pub const Low: Self = Self(0i32);
@@ -3549,7 +3549,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &CustomSystemEve
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CustomSystemEventTriggerRecurrence(pub i32);
 impl CustomSystemEventTriggerRecurrence {
     pub const Once: Self = Self(0i32);
@@ -3998,7 +3998,7 @@ unsafe impl ::core::marker::Send for DeviceServicingTrigger {}
 unsafe impl ::core::marker::Sync for DeviceServicingTrigger {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceTriggerResult(pub i32);
 impl DeviceTriggerResult {
     pub const Allowed: Self = Self(0i32);
@@ -7614,7 +7614,7 @@ unsafe impl ::core::marker::Send for LocationTrigger {}
 unsafe impl ::core::marker::Sync for LocationTrigger {}
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LocationTriggerType(pub i32);
 impl LocationTriggerType {
     pub const Geofence: Self = Self(0i32);
@@ -7894,7 +7894,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MediaProcessing
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaProcessingTriggerResult(pub i32);
 impl MediaProcessingTriggerResult {
     pub const Allowed: Self = Self(0i32);
@@ -10342,7 +10342,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCondition> for &SystemConditi
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemConditionType(pub i32);
 impl SystemConditionType {
     pub const Invalid: Self = Self(0i32);
@@ -10508,7 +10508,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &SystemTrigger {
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemTriggerType(pub i32);
 impl SystemTriggerType {
     pub const Invalid: Self = Self(0i32);

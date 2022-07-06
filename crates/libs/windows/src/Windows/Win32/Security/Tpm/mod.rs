@@ -444,7 +444,7 @@ pub struct ITpmVirtualSmartCardManagerStatusCallback_Vtbl {
 pub const RemoteTpmVirtualSmartCardManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x152ea2a8_70dc_4c59_8b2a_32aa3ca0dcac);
 #[doc = "*Required features: `\"Win32_Security_Tpm\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TPMVSCMGR_ERROR(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Tpm\"`*"]
 pub const TPMVSCMGR_ERROR_IMPERSONATION: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(0i32);
@@ -505,7 +505,7 @@ impl ::core::fmt::Debug for TPMVSCMGR_ERROR {
 }
 #[doc = "*Required features: `\"Win32_Security_Tpm\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TPMVSCMGR_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Tpm\"`*"]
 pub const TPMVSCMGR_STATUS_VTPMSMARTCARD_INITIALIZING: TPMVSCMGR_STATUS = TPMVSCMGR_STATUS(0i32);
@@ -556,7 +556,7 @@ impl ::core::fmt::Debug for TPMVSCMGR_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Security_Tpm\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TPMVSC_ATTESTATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Tpm\"`*"]
 pub const TPMVSC_ATTESTATION_NONE: TPMVSC_ATTESTATION_TYPE = TPMVSC_ATTESTATION_TYPE(0i32);

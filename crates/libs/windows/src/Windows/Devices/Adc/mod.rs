@@ -135,7 +135,7 @@ unsafe impl ::core::marker::Send for AdcChannel {}
 unsafe impl ::core::marker::Sync for AdcChannel {}
 #[doc = "*Required features: `\"Devices_Adc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AdcChannelMode(pub i32);
 impl AdcChannelMode {
     pub const SingleEnded: Self = Self(0i32);

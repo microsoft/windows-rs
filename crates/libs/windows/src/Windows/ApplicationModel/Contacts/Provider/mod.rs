@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AddContactResult(pub i32);
 impl AddContactResult {
     pub const Added: Self = Self(0i32);

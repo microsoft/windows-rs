@@ -1182,7 +1182,7 @@ pub const NA_NameSetByPolicy: &str = "NA_NameSetByPolicy";
 pub const NA_NetworkClass: &str = "NA_NetworkClass";
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_CONNECTION_COST(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 pub const NLM_CONNECTION_COST_UNKNOWN: NLM_CONNECTION_COST = NLM_CONNECTION_COST(0i32);
@@ -1221,7 +1221,7 @@ impl ::core::fmt::Debug for NLM_CONNECTION_COST {
 }
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_CONNECTION_PROPERTY_CHANGE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 pub const NLM_CONNECTION_PROPERTY_CHANGE_AUTHENTICATION: NLM_CONNECTION_PROPERTY_CHANGE = NLM_CONNECTION_PROPERTY_CHANGE(1i32);
@@ -1246,7 +1246,7 @@ impl ::core::fmt::Debug for NLM_CONNECTION_PROPERTY_CHANGE {
 }
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_CONNECTIVITY(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 pub const NLM_CONNECTIVITY_DISCONNECTED: NLM_CONNECTIVITY = NLM_CONNECTIVITY(0i32);
@@ -1332,7 +1332,7 @@ impl ::core::default::Default for NLM_DATAPLAN_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_DOMAIN_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 pub const NLM_DOMAIN_TYPE_NON_DOMAIN_NETWORK: NLM_DOMAIN_TYPE = NLM_DOMAIN_TYPE(0i32);
@@ -1361,7 +1361,7 @@ impl ::core::fmt::Debug for NLM_DOMAIN_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_ENUM_NETWORK(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 pub const NLM_ENUM_NETWORK_CONNECTED: NLM_ENUM_NETWORK = NLM_ENUM_NETWORK(1i32);
@@ -1390,7 +1390,7 @@ impl ::core::fmt::Debug for NLM_ENUM_NETWORK {
 }
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_INTERNET_CONNECTIVITY(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 pub const NLM_INTERNET_CONNECTIVITY_WEBHIJACK: NLM_INTERNET_CONNECTIVITY = NLM_INTERNET_CONNECTIVITY(1i32);
@@ -1421,7 +1421,7 @@ impl ::core::fmt::Debug for NLM_INTERNET_CONNECTIVITY {
 pub const NLM_MAX_ADDRESS_LIST_SIZE: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_NETWORK_CATEGORY(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 pub const NLM_NETWORK_CATEGORY_PUBLIC: NLM_NETWORK_CATEGORY = NLM_NETWORK_CATEGORY(0i32);
@@ -1450,7 +1450,7 @@ impl ::core::fmt::Debug for NLM_NETWORK_CATEGORY {
 }
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_NETWORK_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 pub const NLM_NETWORK_IDENTIFYING: NLM_NETWORK_CLASS = NLM_NETWORK_CLASS(1i32);
@@ -1479,7 +1479,7 @@ impl ::core::fmt::Debug for NLM_NETWORK_CLASS {
 }
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_NETWORK_PROPERTY_CHANGE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 pub const NLM_NETWORK_PROPERTY_CHANGE_CONNECTION: NLM_NETWORK_PROPERTY_CHANGE = NLM_NETWORK_PROPERTY_CHANGE(1i32);

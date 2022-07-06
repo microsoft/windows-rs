@@ -82,7 +82,7 @@ impl ::windows::core::RuntimeName for ApiInformation {
 }
 #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AttributeTargets(pub u32);
 impl AttributeTargets {
     pub const All: Self = Self(4294967295u32);
@@ -155,7 +155,7 @@ unsafe impl ::windows::core::RuntimeType for AttributeTargets {
 }
 #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionType(pub i32);
 impl CompositionType {
     pub const Protected: Self = Self(1i32);
@@ -189,7 +189,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionType {
 }
 #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeprecationType(pub i32);
 impl DeprecationType {
     pub const Deprecate: Self = Self(0i32);
@@ -223,7 +223,7 @@ unsafe impl ::windows::core::RuntimeType for DeprecationType {
 }
 #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FeatureStage(pub i32);
 impl FeatureStage {
     pub const AlwaysDisabled: Self = Self(0i32);
@@ -259,7 +259,7 @@ unsafe impl ::windows::core::RuntimeType for FeatureStage {
 }
 #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GCPressureAmount(pub i32);
 impl GCPressureAmount {
     pub const Low: Self = Self(0i32);
@@ -316,7 +316,7 @@ pub struct IApiInformationStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MarshalingType(pub i32);
 impl MarshalingType {
     pub const None: Self = Self(1i32);
@@ -352,7 +352,7 @@ unsafe impl ::windows::core::RuntimeType for MarshalingType {
 }
 #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Platform(pub i32);
 impl Platform {
     pub const Windows: Self = Self(0i32);
@@ -386,7 +386,7 @@ unsafe impl ::windows::core::RuntimeType for Platform {
 }
 #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ThreadingModel(pub i32);
 impl ThreadingModel {
     pub const STA: Self = Self(1i32);

@@ -671,7 +671,7 @@ unsafe impl ::core::marker::Send for SerialDevice {}
 unsafe impl ::core::marker::Sync for SerialDevice {}
 #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SerialError(pub i32);
 impl SerialError {
     pub const Frame: Self = Self(0i32);
@@ -708,7 +708,7 @@ unsafe impl ::windows::core::RuntimeType for SerialError {
 }
 #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SerialHandshake(pub i32);
 impl SerialHandshake {
     pub const None: Self = Self(0i32);
@@ -744,7 +744,7 @@ unsafe impl ::windows::core::RuntimeType for SerialHandshake {
 }
 #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SerialParity(pub i32);
 impl SerialParity {
     pub const None: Self = Self(0i32);
@@ -781,7 +781,7 @@ unsafe impl ::windows::core::RuntimeType for SerialParity {
 }
 #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SerialPinChange(pub i32);
 impl SerialPinChange {
     pub const BreakSignal: Self = Self(0i32);
@@ -818,7 +818,7 @@ unsafe impl ::windows::core::RuntimeType for SerialPinChange {
 }
 #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SerialStopBitCount(pub i32);
 impl SerialStopBitCount {
     pub const One: Self = Self(0i32);

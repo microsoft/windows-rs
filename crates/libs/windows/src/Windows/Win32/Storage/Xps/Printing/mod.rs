@@ -382,7 +382,7 @@ pub struct IXpsPrintJobStream_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintDocumentPackageCompletion(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
 pub const PrintDocumentPackageCompletion_InProgress: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(0i32);
@@ -470,7 +470,7 @@ pub unsafe fn StartXpsPrintJob1<'a, Param0: ::windows::core::IntoParam<'a, ::win
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_JOB_COMPLETION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
 pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(0i32);

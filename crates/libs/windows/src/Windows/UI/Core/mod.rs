@@ -149,7 +149,7 @@ unsafe impl ::core::marker::Send for AcceleratorKeyEventArgs {}
 unsafe impl ::core::marker::Sync for AcceleratorKeyEventArgs {}
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppViewBackButtonVisibility(pub i32);
 impl AppViewBackButtonVisibility {
     pub const Visible: Self = Self(0i32);
@@ -631,7 +631,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreAcceleratorKeyEventType(pub i32);
 impl CoreAcceleratorKeyEventType {
     pub const Character: Self = Self(2i32);
@@ -1354,7 +1354,7 @@ unsafe impl ::core::marker::Send for CoreCursor {}
 unsafe impl ::core::marker::Sync for CoreCursor {}
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreCursorType(pub i32);
 impl CoreCursorType {
     pub const Arrow: Self = Self(0i32);
@@ -1599,7 +1599,7 @@ unsafe impl ::core::marker::Send for CoreDispatcher {}
 unsafe impl ::core::marker::Sync for CoreDispatcher {}
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreDispatcherPriority(pub i32);
 impl CoreDispatcherPriority {
     pub const Idle: Self = Self(-2i32);
@@ -1635,7 +1635,7 @@ unsafe impl ::windows::core::RuntimeType for CoreDispatcherPriority {
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreIndependentInputFilters(pub u32);
 impl CoreIndependentInputFilters {
     pub const None: Self = Self(0u32);
@@ -2275,7 +2275,7 @@ unsafe impl ::core::marker::Send for CoreIndependentInputSourceController {}
 unsafe impl ::core::marker::Sync for CoreIndependentInputSourceController {}
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreInputDeviceTypes(pub u32);
 impl CoreInputDeviceTypes {
     pub const None: Self = Self(0u32);
@@ -2381,7 +2381,7 @@ impl ::core::default::Default for CorePhysicalKeyStatus {
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreProcessEventsOption(pub i32);
 impl CoreProcessEventsOption {
     pub const ProcessOneAndAllPending: Self = Self(0i32);
@@ -2464,7 +2464,7 @@ impl ::core::default::Default for CoreProximityEvaluation {
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreProximityEvaluationScore(pub i32);
 impl CoreProximityEvaluationScore {
     pub const Closest: Self = Self(0i32);
@@ -2498,7 +2498,7 @@ unsafe impl ::windows::core::RuntimeType for CoreProximityEvaluationScore {
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreVirtualKeyStates(pub u32);
 impl CoreVirtualKeyStates {
     pub const None: Self = Self(0u32);
@@ -3204,7 +3204,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindow> for &CoreWindow {
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreWindowActivationMode(pub i32);
 impl CoreWindowActivationMode {
     pub const None: Self = Self(0i32);
@@ -3240,7 +3240,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWindowActivationMode {
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreWindowActivationState(pub i32);
 impl CoreWindowActivationState {
     pub const CodeActivated: Self = Self(0i32);
@@ -3597,7 +3597,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &CoreWindowEve
 }
 #[doc = "*Required features: `\"UI_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreWindowFlowDirection(pub i32);
 impl CoreWindowFlowDirection {
     pub const LeftToRight: Self = Self(0i32);

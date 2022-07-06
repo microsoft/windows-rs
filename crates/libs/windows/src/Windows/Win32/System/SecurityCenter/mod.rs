@@ -746,7 +746,7 @@ pub struct IWscProduct3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECURITY_PRODUCT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const SECURITY_PRODUCT_TYPE_ANTIVIRUS: SECURITY_PRODUCT_TYPE = SECURITY_PRODUCT_TYPE(0i32);
@@ -777,7 +777,7 @@ pub const WSCDefaultProduct: ::windows::core::GUID = ::windows::core::GUID::from
 pub const WSCProductList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17072f7b_9abe_4a74_a261_1eb76b55107a);
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSC_SECURITY_PRODUCT_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PRODUCT_STATE_ON: WSC_SECURITY_PRODUCT_STATE = WSC_SECURITY_PRODUCT_STATE(0i32);
@@ -808,7 +808,7 @@ impl ::core::fmt::Debug for WSC_SECURITY_PRODUCT_STATE {
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSC_SECURITY_PRODUCT_SUBSTATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PRODUCT_SUBSTATUS_NOT_SET: WSC_SECURITY_PRODUCT_SUBSTATUS = WSC_SECURITY_PRODUCT_SUBSTATUS(0i32);
@@ -839,7 +839,7 @@ impl ::core::fmt::Debug for WSC_SECURITY_PRODUCT_SUBSTATUS {
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSC_SECURITY_PROVIDER(pub i32);
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PROVIDER_FIREWALL: WSC_SECURITY_PROVIDER = WSC_SECURITY_PROVIDER(1i32);
@@ -880,7 +880,7 @@ impl ::core::fmt::Debug for WSC_SECURITY_PROVIDER {
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSC_SECURITY_PROVIDER_HEALTH(pub i32);
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PROVIDER_HEALTH_GOOD: WSC_SECURITY_PROVIDER_HEALTH = WSC_SECURITY_PROVIDER_HEALTH(0i32);
@@ -911,7 +911,7 @@ impl ::core::fmt::Debug for WSC_SECURITY_PROVIDER_HEALTH {
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSC_SECURITY_SIGNATURE_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 pub const WSC_SECURITY_PRODUCT_OUT_OF_DATE: WSC_SECURITY_SIGNATURE_STATUS = WSC_SECURITY_SIGNATURE_STATUS(0i32);

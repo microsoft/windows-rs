@@ -6,7 +6,7 @@ pub mod Core;
 pub mod DataProtection;
 #[doc = "*Required features: `\"Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BinaryStringEncoding(pub i32);
 impl BinaryStringEncoding {
     pub const Utf8: Self = Self(0i32);

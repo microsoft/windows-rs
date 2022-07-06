@@ -716,7 +716,7 @@ pub struct MessageTransmittedHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PeerDiscoveryTypes(pub u32);
 impl PeerDiscoveryTypes {
     pub const None: Self = Self(0u32);
@@ -1058,7 +1058,7 @@ unsafe impl ::core::marker::Send for PeerInformation {}
 unsafe impl ::core::marker::Sync for PeerInformation {}
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PeerRole(pub i32);
 impl PeerRole {
     pub const Peer: Self = Self(0i32);
@@ -1263,7 +1263,7 @@ unsafe impl ::core::marker::Send for PeerWatcher {}
 unsafe impl ::core::marker::Sync for PeerWatcher {}
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PeerWatcherStatus(pub i32);
 impl PeerWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -1638,7 +1638,7 @@ unsafe impl ::core::marker::Send for ProximityMessage {}
 unsafe impl ::core::marker::Sync for ProximityMessage {}
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TriggeredConnectState(pub i32);
 impl TriggeredConnectState {
     pub const PeerFound: Self = Self(0i32);

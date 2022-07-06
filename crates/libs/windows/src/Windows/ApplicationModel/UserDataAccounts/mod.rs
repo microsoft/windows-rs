@@ -550,7 +550,7 @@ unsafe impl ::core::marker::Send for UserDataAccount {}
 unsafe impl ::core::marker::Sync for UserDataAccount {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserDataAccountContentKinds(pub u32);
 impl UserDataAccountContentKinds {
     pub const Email: Self = Self(1u32);
@@ -765,7 +765,7 @@ unsafe impl ::core::marker::Send for UserDataAccountManagerForUser {}
 unsafe impl ::core::marker::Sync for UserDataAccountManagerForUser {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserDataAccountOtherAppReadAccess(pub i32);
 impl UserDataAccountOtherAppReadAccess {
     pub const SystemOnly: Self = Self(0i32);
@@ -937,7 +937,7 @@ unsafe impl ::core::marker::Send for UserDataAccountStore {}
 unsafe impl ::core::marker::Sync for UserDataAccountStore {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserDataAccountStoreAccessType(pub i32);
 impl UserDataAccountStoreAccessType {
     pub const AllAccountsReadOnly: Self = Self(0i32);

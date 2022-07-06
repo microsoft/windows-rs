@@ -704,7 +704,7 @@ impl ::windows::core::RuntimeName for JsonError {
 }
 #[doc = "*Required features: `\"Data_Json\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JsonErrorStatus(pub i32);
 impl JsonErrorStatus {
     pub const Unknown: Self = Self(0i32);
@@ -1434,7 +1434,7 @@ unsafe impl ::core::marker::Send for JsonValue {}
 unsafe impl ::core::marker::Sync for JsonValue {}
 #[doc = "*Required features: `\"Data_Json\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JsonValueType(pub i32);
 impl JsonValueType {
     pub const Null: Self = Self(0i32);

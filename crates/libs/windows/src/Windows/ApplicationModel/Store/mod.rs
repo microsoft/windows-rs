@@ -327,7 +327,7 @@ impl ::windows::core::RuntimeName for CurrentAppSimulator {
 }
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FulfillmentResult(pub i32);
 impl FulfillmentResult {
     pub const Succeeded: Self = Self(0i32);
@@ -1625,7 +1625,7 @@ unsafe impl ::core::marker::Send for ProductPurchaseDisplayProperties {}
 unsafe impl ::core::marker::Sync for ProductPurchaseDisplayProperties {}
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProductPurchaseStatus(pub i32);
 impl ProductPurchaseStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -1661,7 +1661,7 @@ unsafe impl ::windows::core::RuntimeType for ProductPurchaseStatus {
 }
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProductType(pub i32);
 impl ProductType {
     pub const Unknown: Self = Self(0i32);

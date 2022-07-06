@@ -484,7 +484,7 @@ pub const GCS_RESULTREADSTR: u32 = 512u32;
 pub const GCS_RESULTSTR: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_CONVERSION_LIST_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const GCL_CONVERSION: GET_CONVERSION_LIST_FLAG = GET_CONVERSION_LIST_FLAG(1u32);
@@ -513,7 +513,7 @@ impl ::core::fmt::Debug for GET_CONVERSION_LIST_FLAG {
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_GUIDE_LINE_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const GGL_LEVEL: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(1u32);
@@ -3970,7 +3970,7 @@ pub const IMEFAREASTINFO_TYPE_DEFAULT: u32 = 0u32;
 pub const IMEFAREASTINFO_TYPE_READING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMEFMT(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const IFED_UNKNOWN: IMEFMT = IMEFMT(0i32);
@@ -4661,7 +4661,7 @@ pub const IMEPN_SIZECHANGING: u32 = 262u32;
 pub const IMEPN_USER: u32 = 356u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMEREG(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const IFED_REG_HEAD: IMEREG = IMEREG(0i32);
@@ -4690,7 +4690,7 @@ impl ::core::fmt::Debug for IMEREG {
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMEREL(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const IFED_REL_NONE: IMEREL = IMEREL(0i32);
@@ -4865,7 +4865,7 @@ impl ::core::default::Default for IMESTRINGCANDIDATEINFO {
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMEUCT(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const IFED_UCT_NONE: IMEUCT = IMEUCT(0i32);
@@ -5077,7 +5077,7 @@ pub const IME_KHOTKEY_HANJACONVERT: u32 = 81u32;
 pub const IME_KHOTKEY_SHAPE_TOGGLE: u32 = 80u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IME_PAD_REQUEST_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const IMEPADREQ_INSERTSTRING: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4097u32);
@@ -6710,7 +6710,7 @@ pub const NI_CONTEXTUPDATED: u32 = 3u32;
 pub const NI_FINALIZECONVERSIONRESULT: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NOTIFY_IME_ACTION(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const NI_CHANGECANDIDATELIST: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(19u32);
@@ -6749,7 +6749,7 @@ impl ::core::fmt::Debug for NOTIFY_IME_ACTION {
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NOTIFY_IME_INDEX(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const CPS_CANCEL: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(4u32);
@@ -6954,7 +6954,7 @@ pub const SELECT_CAP_CONVERSION: u32 = 1u32;
 pub const SELECT_CAP_SENTENCE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SET_COMPOSITION_STRING_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const SCS_SETSTR: SET_COMPOSITION_STRING_TYPE = SET_COMPOSITION_STRING_TYPE(9u32);

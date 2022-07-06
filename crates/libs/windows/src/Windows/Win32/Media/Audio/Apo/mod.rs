@@ -230,7 +230,7 @@ impl ::core::default::Default for APOInitSystemEffects3 {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APO_BUFFER_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 pub const BUFFER_INVALID: APO_BUFFER_FLAGS = APO_BUFFER_FLAGS(0i32);
@@ -259,7 +259,7 @@ impl ::core::fmt::Debug for APO_BUFFER_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APO_CONNECTION_BUFFER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 pub const APO_CONNECTION_BUFFER_TYPE_ALLOCATED: APO_CONNECTION_BUFFER_TYPE = APO_CONNECTION_BUFFER_TYPE(0i32);
@@ -385,7 +385,7 @@ impl ::core::default::Default for APO_CONNECTION_PROPERTY_V2 {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APO_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 pub const APO_FLAG_NONE: APO_FLAG = APO_FLAG(0i32);
@@ -422,7 +422,7 @@ impl ::core::fmt::Debug for APO_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APO_LOG_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 pub const APO_LOG_LEVEL_ALWAYS: APO_LOG_LEVEL = APO_LOG_LEVEL(0i32);
@@ -571,7 +571,7 @@ impl ::core::default::Default for APO_NOTIFICATION_DESCRIPTOR_0 {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APO_NOTIFICATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 pub const APO_NOTIFICATION_TYPE_NONE: APO_NOTIFICATION_TYPE = APO_NOTIFICATION_TYPE(0i32);
@@ -797,7 +797,7 @@ impl ::core::default::Default for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUDIO_FLOW_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 pub const AUDIO_FLOW_PULL: AUDIO_FLOW_TYPE = AUDIO_FLOW_TYPE(0i32);
@@ -948,7 +948,7 @@ impl ::core::default::Default for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATI
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUDIO_SYSTEMEFFECT_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 pub const AUDIO_SYSTEMEFFECT_STATE_OFF: AUDIO_SYSTEMEFFECT_STATE = AUDIO_SYSTEMEFFECT_STATE(0i32);
@@ -1013,7 +1013,7 @@ impl ::core::default::Default for AudioFXExtensionParams {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EAudioConstriction(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
 pub const eAudioConstrictionOff: EAudioConstriction = EAudioConstriction(0i32);

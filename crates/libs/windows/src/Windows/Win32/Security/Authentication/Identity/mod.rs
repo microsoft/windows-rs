@@ -2,7 +2,7 @@
 pub mod Provider;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const ASC_REQ_ALLOCATE_MEMORY: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(256u32);
@@ -782,7 +782,7 @@ pub const CREDP_FLAGS_USE_MIDL_HEAP: u32 = 2u32;
 pub const CREDP_FLAGS_VALIDATE_PROXY_TARGET: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRED_FETCH(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const CredFetchDefault: CRED_FETCH = CRED_FETCH(0i32);
@@ -930,7 +930,7 @@ impl ::core::default::Default for DOMAIN_PASSWORD_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOMAIN_PASSWORD_PROPERTIES(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const DOMAIN_PASSWORD_COMPLEX: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(1u32);
@@ -1082,7 +1082,7 @@ pub type ENUMERATE_SECURITY_PACKAGES_FN_A = ::core::option::Option<unsafe extern
 pub type ENUMERATE_SECURITY_PACKAGES_FN_W = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut *mut SecPkgInfoW) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXPORT_SECURITY_CONTEXT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SECPKG_CONTEXT_EXPORT_RESET_NEW: EXPORT_SECURITY_CONTEXT_FLAGS = EXPORT_SECURITY_CONTEXT_FLAGS(1u32);
@@ -1142,7 +1142,7 @@ impl ::core::ops::Not for EXPORT_SECURITY_CONTEXT_FLAGS {
 pub type EXPORT_SECURITY_CONTEXT_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBuffer, param3: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXTENDED_NAME_FORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const NameUnknown: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(0i32);
@@ -1619,7 +1619,7 @@ pub const KERBEROS_REVISION: u32 = 6u32;
 pub const KERBEROS_VERSION: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KERB_ADDRESS_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const DS_INET_ADDRESS: KERB_ADDRESS_TYPE = KERB_ADDRESS_TYPE(1u32);
@@ -1951,7 +1951,7 @@ impl ::core::default::Default for KERB_CERTIFICATE_INFO {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KERB_CERTIFICATE_INFO_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const CertHashInfo: KERB_CERTIFICATE_INFO_TYPE = KERB_CERTIFICATE_INFO_TYPE(1i32);
@@ -2406,7 +2406,7 @@ impl ::core::default::Default for KERB_CRYPTO_KEY32 {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KERB_CRYPTO_KEY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const KERB_ETYPE_DES_CBC_CRC: KERB_CRYPTO_KEY_TYPE = KERB_CRYPTO_KEY_TYPE(1i32);
@@ -2850,7 +2850,7 @@ pub const KERB_LOGON_FLAG_ALLOW_EXPIRED_TICKET: u32 = 1u32;
 pub const KERB_LOGON_FLAG_REDIRECTED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KERB_LOGON_SUBMIT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const KerbInteractiveLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(2i32);
@@ -2962,7 +2962,7 @@ impl ::core::default::Default for KERB_NET_ADDRESSES {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KERB_PROFILE_BUFFER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const KerbInteractiveProfile: KERB_PROFILE_BUFFER_TYPE = KERB_PROFILE_BUFFER_TYPE(2i32);
@@ -2991,7 +2991,7 @@ impl ::core::fmt::Debug for KERB_PROFILE_BUFFER_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KERB_PROTOCOL_MESSAGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const KerbDebugRequestMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(0i32);
@@ -3888,7 +3888,7 @@ impl ::core::default::Default for KERB_REFRESH_SCCRED_REQUEST {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KERB_REQUEST_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const KERB_REQUEST_ADD_CREDENTIAL: KERB_REQUEST_FLAGS = KERB_REQUEST_FLAGS(1u32);
@@ -4698,7 +4698,7 @@ impl ::core::default::Default for KERB_TICKET_CACHE_INFO_EX3 {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KERB_TICKET_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const KERB_TICKET_FLAGS_forwardable: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(1073741824u32);
@@ -4981,7 +4981,7 @@ pub const KRB_NT_X500_PRINCIPAL: u32 = 6u32;
 pub const KRB_WELLKNOWN_STRING: &str = "WELLKNOWN";
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSEC_CONTEXT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const KSecPaged: KSEC_CONTEXT_TYPE = KSEC_CONTEXT_TYPE(0i32);
@@ -5212,7 +5212,7 @@ impl ::core::default::Default for LSA_AUTH_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LSA_AUTH_INFORMATION_AUTH_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const TRUST_AUTH_TYPE_NONE: LSA_AUTH_INFORMATION_AUTH_TYPE = LSA_AUTH_INFORMATION_AUTH_TYPE(0u32);
@@ -5454,7 +5454,7 @@ impl ::core::default::Default for LSA_FOREST_TRUST_COLLISION_RECORD {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LSA_FOREST_TRUST_COLLISION_RECORD_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const CollisionTdo: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = LSA_FOREST_TRUST_COLLISION_RECORD_TYPE(0i32);
@@ -5631,7 +5631,7 @@ impl ::core::default::Default for LSA_FOREST_TRUST_RECORD_0 {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LSA_FOREST_TRUST_RECORD_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const ForestTrustTopLevelName: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_TRUST_RECORD_TYPE(0i32);
@@ -5708,7 +5708,7 @@ pub const LSA_LOCAL_SECRET_PREFIX_LENGTH: u32 = 2u32;
 pub const LSA_LOOKUP_DISALLOW_CONNECTED_ACCOUNT_INTERNET_SID: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LSA_LOOKUP_DOMAIN_INFO_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const AccountDomainInformation: LSA_LOOKUP_DOMAIN_INFO_CLASS = LSA_LOOKUP_DOMAIN_INFO_CLASS(5i32);
@@ -6015,7 +6015,7 @@ impl ::core::default::Default for LSA_TOKEN_INFORMATION_NULL {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LSA_TOKEN_INFORMATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const LsaTokenInformationNull: LSA_TOKEN_INFORMATION_TYPE = LSA_TOKEN_INFORMATION_TYPE(0i32);
@@ -6448,7 +6448,7 @@ pub unsafe fn LsaGetLogonSessionData(logonid: *const super::super::super::Founda
     LsaGetLogonSessionData(::core::mem::transmute(logonid), ::core::mem::transmute(pplogonsessiondata)).ok()
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LsaHandle(pub isize);
 impl LsaHandle {
     pub fn is_invalid(&self) -> bool {
@@ -6781,7 +6781,7 @@ pub const MICROSOFT_KERBEROS_NAME_A: &str = "Kerberos";
 pub const MICROSOFT_KERBEROS_NAME_W: &str = "Kerberos";
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSV1_0(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const MSV1_0_PASSTHRU: MSV1_0 = MSV1_0(1u32);
@@ -6812,7 +6812,7 @@ pub const MSV1_0_ALLOW_FORCE_GUEST: u32 = 8192u32;
 pub const MSV1_0_ALLOW_MSVCHAPV2: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSV1_0_AVID(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const MsvAvEOL: MSV1_0_AVID = MSV1_0_AVID(0i32);
@@ -7015,7 +7015,7 @@ impl ::core::default::Default for MSV1_0_CREDENTIAL_KEY {
 pub const MSV1_0_CREDENTIAL_KEY_LENGTH: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSV1_0_CREDENTIAL_KEY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const InvalidCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = MSV1_0_CREDENTIAL_KEY_TYPE(0i32);
@@ -7308,7 +7308,7 @@ impl ::core::default::Default for MSV1_0_LM20_LOGON_PROFILE {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSV1_0_LOGON_SUBMIT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const MsV1_0InteractiveLogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(2i32);
@@ -7479,7 +7479,7 @@ impl ::core::default::Default for MSV1_0_PASSTHROUGH_RESPONSE {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSV1_0_PROFILE_BUFFER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const MsV1_0InteractiveProfile: MSV1_0_PROFILE_BUFFER_TYPE = MSV1_0_PROFILE_BUFFER_TYPE(2i32);
@@ -7508,7 +7508,7 @@ impl ::core::fmt::Debug for MSV1_0_PROFILE_BUFFER_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSV1_0_PROTOCOL_MESSAGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const MsV1_0Lm20ChallengeRequest: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(0i32);
@@ -7968,7 +7968,7 @@ pub const MSV1_0_VALIDATION_USER_FLAGS: u32 = 32u32;
 pub const MSV1_0_VALIDATION_USER_ID: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const MSV1_0_CLEARTEXT_PASSWORD_ALLOWED: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(2u32);
@@ -8039,7 +8039,7 @@ impl ::core::ops::Not for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSV_SUB_AUTHENTICATION_FILTER(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const LOGON_GUEST: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(1u32);
@@ -8080,7 +8080,7 @@ impl ::core::fmt::Debug for MSV_SUB_AUTHENTICATION_FILTER {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const MSV1_0_CRED_LM_PRESENT: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS(1u32);
@@ -8227,7 +8227,7 @@ impl ::core::default::Default for NEGOTIATE_CALLER_NAME_RESPONSE {
 pub const NEGOTIATE_MAX_PREFIX: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NEGOTIATE_MESSAGES(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const NegEnumPackagePrefixes: NEGOTIATE_MESSAGES = NEGOTIATE_MESSAGES(0i32);
@@ -8452,7 +8452,7 @@ impl ::core::default::Default for NETLOGON_LOGON_IDENTITY_INFO {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETLOGON_LOGON_INFO_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const NetlogonInteractiveInformation: NETLOGON_LOGON_INFO_CLASS = NETLOGON_LOGON_INFO_CLASS(1i32);
@@ -8753,7 +8753,7 @@ impl ::core::default::Default for PKU2U_CREDUI_CONTEXT {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PKU2U_LOGON_SUBMIT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const Pku2uCertificateS4ULogon: PKU2U_LOGON_SUBMIT_TYPE = PKU2U_LOGON_SUBMIT_TYPE(14i32);
@@ -9167,7 +9167,7 @@ pub const POLICY_AUDIT_EVENT_NONE: i32 = 4i32;
 pub const POLICY_AUDIT_EVENT_SUCCESS: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POLICY_AUDIT_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const AuditCategorySystem: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(0i32);
@@ -9511,7 +9511,7 @@ impl ::core::default::Default for POLICY_DOMAIN_EFS_INFO {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POLICY_DOMAIN_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const PolicyDomainEfsInformation: POLICY_DOMAIN_INFORMATION_CLASS = POLICY_DOMAIN_INFORMATION_CLASS(2i32);
@@ -9575,7 +9575,7 @@ impl ::core::default::Default for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
 pub const POLICY_GET_PRIVATE_INFORMATION: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POLICY_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const PolicyAuditLogInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(1i32);
@@ -9634,7 +9634,7 @@ pub const POLICY_KERBEROS_VALIDATE_CLIENT: u32 = 128u32;
 pub const POLICY_LOOKUP_NAMES: i32 = 2048i32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POLICY_LSA_SERVER_ROLE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const PolicyServerRoleBackup: POLICY_LSA_SERVER_ROLE = POLICY_LSA_SERVER_ROLE(2i32);
@@ -9763,7 +9763,7 @@ impl ::core::default::Default for POLICY_MODIFICATION_INFO {
 pub const POLICY_NOTIFICATION: i32 = 4096i32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POLICY_NOTIFICATION_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const PolicyNotifyAuditEventsInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(1i32);
@@ -10352,7 +10352,7 @@ impl ::core::default::Default for SAM_REGISTER_MAPPING_TABLE {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SASL_AUTHZID_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const Sasl_AuthZIDForbidden: SASL_AUTHZID_STATE = SASL_AUTHZID_STATE(0i32);
@@ -10421,7 +10421,7 @@ impl ::core::default::Default for SCHANNEL_ALERT_TOKEN {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCHANNEL_ALERT_TOKEN_ALERT_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const TLS1_ALERT_WARNING: SCHANNEL_ALERT_TOKEN_ALERT_TYPE = SCHANNEL_ALERT_TOKEN_ALERT_TYPE(1u32);
@@ -10615,7 +10615,7 @@ impl ::core::default::Default for SCHANNEL_CRED {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCHANNEL_CRED_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SCH_CRED_AUTO_CRED_VALIDATION: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(32u32);
@@ -10747,7 +10747,7 @@ impl ::core::default::Default for SCHANNEL_SESSION_TOKEN {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCHANNEL_SESSION_TOKEN_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SSL_SESSION_ENABLE_RECONNECTS: SCHANNEL_SESSION_TOKEN_FLAGS = SCHANNEL_SESSION_TOKEN_FLAGS(1u32);
@@ -11119,7 +11119,7 @@ impl ::core::default::Default for SECPKG_APP_MODE_INFO {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECPKG_ATTR(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SECPKG_ATTR_C_ACCESS_TOKEN: SECPKG_ATTR = SECPKG_ATTR(2147483666u32);
@@ -11256,7 +11256,7 @@ pub const SECPKG_ATTR_KEYING_MATERIAL_INPROC: u32 = 112u32;
 pub const SECPKG_ATTR_KEYING_MATERIAL_TOKEN_BINDING: u32 = 111u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECPKG_ATTR_LCT_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SecPkgAttrLastClientTokenYes: SECPKG_ATTR_LCT_STATUS = SECPKG_ATTR_LCT_STATUS(0i32);
@@ -11432,7 +11432,7 @@ pub const SECPKG_CALL_NEGO_EXTENDER: u32 = 32768u32;
 pub const SECPKG_CALL_NETWORK_ONLY: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECPKG_CALL_PACKAGE_MESSAGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SecPkgCallPackageMinMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = SECPKG_CALL_PACKAGE_MESSAGE_TYPE(1024i32);
@@ -11686,7 +11686,7 @@ impl ::core::default::Default for SECPKG_CONTEXT_THUNKS {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECPKG_CRED(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SECPKG_CRED_INBOUND: SECPKG_CRED = SECPKG_CRED(1u32);
@@ -11801,7 +11801,7 @@ pub const SECPKG_CRED_AUTOLOGON_RESTRICTED: u32 = 16u32;
 pub const SECPKG_CRED_BOTH: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECPKG_CRED_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SecPkgCredClass_None: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(0i32);
@@ -12056,7 +12056,7 @@ impl ::core::default::Default for SECPKG_EXTENDED_INFORMATION_0 {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECPKG_EXTENDED_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SecpkgGssInfo: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_INFORMATION_CLASS(1i32);
@@ -12509,7 +12509,7 @@ impl ::core::default::Default for SECPKG_MUTUAL_AUTH_LEVEL {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECPKG_NAME_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SecNameSamCompatible: SECPKG_NAME_TYPE = SECPKG_NAME_TYPE(0i32);
@@ -12585,7 +12585,7 @@ pub const SECPKG_NEGOTIATION_TRY_MULTICRED: u32 = 4u32;
 pub const SECPKG_OPTIONS_PERMANENT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECPKG_PACKAGE_CHANGE_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SECPKG_PACKAGE_CHANGE_LOAD: SECPKG_PACKAGE_CHANGE_TYPE = SECPKG_PACKAGE_CHANGE_TYPE(0u32);
@@ -12922,7 +12922,7 @@ impl ::core::default::Default for SECPKG_SERIALIZED_OID {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECPKG_SESSIONINFO_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SecSessionPrimaryCred: SECPKG_SESSIONINFO_TYPE = SECPKG_SESSIONINFO_TYPE(0i32);
@@ -13431,7 +13431,7 @@ impl ::core::default::Default for SECURITY_LOGON_SESSION_DATA {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECURITY_LOGON_TYPE(pub i32);
 impl SECURITY_LOGON_TYPE {
     pub const UndefinedLogonType: Self = Self(0i32);
@@ -13507,7 +13507,7 @@ impl ::core::default::Default for SECURITY_PACKAGE_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECURITY_PACKAGE_OPTIONS_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SECPKG_OPTIONS_TYPE_UNKNOWN: SECURITY_PACKAGE_OPTIONS_TYPE = SECURITY_PACKAGE_OPTIONS_TYPE(0u32);
@@ -13650,7 +13650,7 @@ impl ::core::default::Default for SEC_APPLICATION_PROTOCOL_LIST {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SecApplicationProtocolNegotiationExt_None: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT(0i32);
@@ -13679,7 +13679,7 @@ impl ::core::fmt::Debug for SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SecApplicationProtocolNegotiationStatus_None: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS(0i32);
@@ -14045,7 +14045,7 @@ impl ::core::default::Default for SEC_TRAFFIC_SECRETS {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SEC_TRAFFIC_SECRET_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SecTrafficSecret_None: SEC_TRAFFIC_SECRET_TYPE = SEC_TRAFFIC_SECRET_TYPE(0i32);
@@ -14628,7 +14628,7 @@ pub const SE_ADT_PARAMETER_EXTENSIBLE_AUDIT: u32 = 4u32;
 pub const SE_ADT_PARAMETER_GENERIC_AUDIT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SE_ADT_PARAMETER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SeAdtParmTypeNone: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(0i32);
@@ -14787,7 +14787,7 @@ pub unsafe fn SLConsumeRight<'a, Param3: ::windows::core::IntoParam<'a, ::window
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SLDATATYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SL_DATA_NONE: SLDATATYPE = SLDATATYPE(0u32);
@@ -15037,7 +15037,7 @@ pub unsafe fn SLGetWindowsInformationDWORD<'a, Param0: ::windows::core::IntoPara
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SLIDTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SL_ID_APPLICATION: SLIDTYPE = SLIDTYPE(0i32);
@@ -15107,7 +15107,7 @@ pub unsafe fn SLIsGenuineLocal(pappid: *const ::windows::core::GUID, pgenuinesta
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SLLICENSINGSTATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SL_LICENSING_STATUS_UNLICENSED: SLLICENSINGSTATUS = SLLICENSINGSTATUS(0i32);
@@ -15158,7 +15158,7 @@ pub unsafe fn SLQueryLicenseValueFromApp<'a, Param0: ::windows::core::IntoParam<
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SLREFERRALTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SL_REFERRALTYPE_SKUID: SLREFERRALTYPE = SLREFERRALTYPE(0i32);
@@ -15278,7 +15278,7 @@ impl ::core::default::Default for SL_ACTIVATION_INFO_HEADER {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SL_ACTIVATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SL_ACTIVATION_TYPE_DEFAULT: SL_ACTIVATION_TYPE = SL_ACTIVATION_TYPE(0i32);
@@ -15915,7 +15915,7 @@ pub const SL_E_WINDOWS_INVALID_LICENSE_STATE: ::windows::core::HRESULT = ::windo
 pub const SL_E_WINDOWS_VERSION_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073422297i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SL_GENUINE_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SL_GEN_STATE_IS_GENUINE: SL_GENUINE_STATE = SL_GENUINE_STATE(0i32);
@@ -16715,7 +16715,7 @@ pub unsafe fn SaslSetContextOption(contexthandle: *const super::super::Credentia
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SchGetExtensionsOptions(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SCH_EXTENSIONS_OPTIONS_NONE: SchGetExtensionsOptions = SchGetExtensionsOptions(0u32);
@@ -16834,7 +16834,7 @@ impl ::core::default::Default for SecBufferDesc {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SecDelegationType(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SecFull: SecDelegationType = SecDelegationType(0i32);
@@ -20154,7 +20154,7 @@ impl ::core::default::Default for TLS_EXTENSION_SUBSCRIPTION {
 pub const TLS_PARAMS_OPTIONAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOKENBINDING_EXTENSION_FORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const TOKENBINDING_EXTENSION_FORMAT_UNDEFINED: TOKENBINDING_EXTENSION_FORMAT = TOKENBINDING_EXTENSION_FORMAT(0i32);
@@ -20209,7 +20209,7 @@ impl ::core::default::Default for TOKENBINDING_IDENTIFIER {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOKENBINDING_KEY_PARAMETERS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PKCS: TOKENBINDING_KEY_PARAMETERS_TYPE = TOKENBINDING_KEY_PARAMETERS_TYPE(0i32);
@@ -20337,7 +20337,7 @@ impl ::core::default::Default for TOKENBINDING_RESULT_LIST {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOKENBINDING_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const TOKENBINDING_TYPE_PROVIDED: TOKENBINDING_TYPE = TOKENBINDING_TYPE(0i32);
@@ -20681,7 +20681,7 @@ impl ::core::default::Default for TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRUSTED_DOMAIN_TRUST_ATTRIBUTES(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const TRUST_ATTRIBUTE_NON_TRANSITIVE: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = TRUSTED_DOMAIN_TRUST_ATTRIBUTES(1u32);
@@ -20718,7 +20718,7 @@ impl ::core::fmt::Debug for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRUSTED_DOMAIN_TRUST_DIRECTION(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const TRUST_DIRECTION_DISABLED: TRUSTED_DOMAIN_TRUST_DIRECTION = TRUSTED_DOMAIN_TRUST_DIRECTION(0u32);
@@ -20749,7 +20749,7 @@ impl ::core::fmt::Debug for TRUSTED_DOMAIN_TRUST_DIRECTION {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRUSTED_DOMAIN_TRUST_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const TRUST_TYPE_DOWNLEVEL: TRUSTED_DOMAIN_TRUST_TYPE = TRUSTED_DOMAIN_TRUST_TYPE(1u32);
@@ -20780,7 +20780,7 @@ impl ::core::fmt::Debug for TRUSTED_DOMAIN_TRUST_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRUSTED_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const TrustedDomainNameInformation: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(1i32);
@@ -21275,7 +21275,7 @@ pub const _FACILITY_WINDOWS_STORE: u32 = 63u32;
 pub struct _HMAPPER(pub u8);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eTlsHashAlgorithm(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const TlsHashAlgorithm_None: eTlsHashAlgorithm = eTlsHashAlgorithm(0i32);
@@ -21312,7 +21312,7 @@ impl ::core::fmt::Debug for eTlsHashAlgorithm {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eTlsSignatureAlgorithm(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const TlsSignatureAlgorithm_Anonymous: eTlsSignatureAlgorithm = eTlsSignatureAlgorithm(0i32);

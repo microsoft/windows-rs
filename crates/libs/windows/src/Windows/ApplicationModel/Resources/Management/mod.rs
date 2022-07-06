@@ -323,7 +323,7 @@ unsafe impl ::core::marker::Send for IndexedResourceQualifier {}
 unsafe impl ::core::marker::Sync for IndexedResourceQualifier {}
 #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IndexedResourceType(pub i32);
 impl IndexedResourceType {
     pub const String: Self = Self(0i32);

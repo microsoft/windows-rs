@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_Search_Common\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONDITION_OPERATION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search_Common\"`*"]
 pub const COP_IMPLICIT: CONDITION_OPERATION = CONDITION_OPERATION(0i32);
@@ -53,7 +53,7 @@ impl ::core::fmt::Debug for CONDITION_OPERATION {
 }
 #[doc = "*Required features: `\"Win32_System_Search_Common\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONDITION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Search_Common\"`*"]
 pub const CT_AND_CONDITION: CONDITION_TYPE = CONDITION_TYPE(0i32);

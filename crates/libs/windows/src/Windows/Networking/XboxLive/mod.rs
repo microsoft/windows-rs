@@ -688,7 +688,7 @@ unsafe impl ::core::marker::Send for XboxLiveEndpointPair {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPair {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XboxLiveEndpointPairCreationBehaviors(pub u32);
 impl XboxLiveEndpointPairCreationBehaviors {
     pub const None: Self = Self(0u32);
@@ -859,7 +859,7 @@ unsafe impl ::core::marker::Send for XboxLiveEndpointPairCreationResult {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPairCreationResult {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XboxLiveEndpointPairCreationStatus(pub i32);
 impl XboxLiveEndpointPairCreationStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -900,7 +900,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairCreationStatus 
 }
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XboxLiveEndpointPairState(pub i32);
 impl XboxLiveEndpointPairState {
     pub const Invalid: Self = Self(0i32);
@@ -1322,7 +1322,7 @@ unsafe impl ::core::marker::Send for XboxLiveInboundEndpointPairCreatedEventArgs
 unsafe impl ::core::marker::Sync for XboxLiveInboundEndpointPairCreatedEventArgs {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XboxLiveNetworkAccessKind(pub i32);
 impl XboxLiveNetworkAccessKind {
     pub const Open: Self = Self(0i32);
@@ -1633,7 +1633,7 @@ unsafe impl ::core::marker::Send for XboxLiveQualityOfServiceMeasurement {}
 unsafe impl ::core::marker::Sync for XboxLiveQualityOfServiceMeasurement {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XboxLiveQualityOfServiceMeasurementStatus(pub i32);
 impl XboxLiveQualityOfServiceMeasurementStatus {
     pub const NotStarted: Self = Self(0i32);
@@ -1677,7 +1677,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveQualityOfServiceMeasurement
 }
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XboxLiveQualityOfServiceMetric(pub i32);
 impl XboxLiveQualityOfServiceMetric {
     pub const AverageLatencyInMilliseconds: Self = Self(0i32);
@@ -1929,7 +1929,7 @@ unsafe impl ::core::marker::Send for XboxLiveQualityOfServicePrivatePayloadResul
 unsafe impl ::core::marker::Sync for XboxLiveQualityOfServicePrivatePayloadResult {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XboxLiveSocketKind(pub i32);
 impl XboxLiveSocketKind {
     pub const None: Self = Self(0i32);

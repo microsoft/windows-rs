@@ -1521,7 +1521,7 @@ pub struct IVisualInteractionSourceStatics2_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InteractionBindingAxisModes(pub u32);
 impl InteractionBindingAxisModes {
     pub const None: Self = Self(0u32);
@@ -1585,7 +1585,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionBindingAxisModes {
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InteractionChainingMode(pub i32);
 impl InteractionChainingMode {
     pub const Auto: Self = Self(0i32);
@@ -1903,7 +1903,7 @@ unsafe impl ::core::marker::Send for InteractionSourceConfiguration {}
 unsafe impl ::core::marker::Sync for InteractionSourceConfiguration {}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InteractionSourceMode(pub i32);
 impl InteractionSourceMode {
     pub const Disabled: Self = Self(0i32);
@@ -1938,7 +1938,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionSourceMode {
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InteractionSourceRedirectionMode(pub i32);
 impl InteractionSourceRedirectionMode {
     pub const Disabled: Self = Self(0i32);
@@ -2555,7 +2555,7 @@ unsafe impl ::core::marker::Send for InteractionTracker {}
 unsafe impl ::core::marker::Sync for InteractionTracker {}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InteractionTrackerClampingOption(pub i32);
 impl InteractionTrackerClampingOption {
     pub const Auto: Self = Self(0i32);
@@ -4171,7 +4171,7 @@ unsafe impl ::core::marker::Send for InteractionTrackerInteractingStateEnteredAr
 unsafe impl ::core::marker::Sync for InteractionTrackerInteractingStateEnteredArgs {}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InteractionTrackerPositionUpdateOption(pub i32);
 impl InteractionTrackerPositionUpdateOption {
     pub const Default: Self = Self(0i32);
@@ -5448,7 +5448,7 @@ unsafe impl ::core::marker::Send for VisualInteractionSource {}
 unsafe impl ::core::marker::Sync for VisualInteractionSource {}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VisualInteractionSourceRedirectionMode(pub i32);
 impl VisualInteractionSourceRedirectionMode {
     pub const Off: Self = Self(0i32);

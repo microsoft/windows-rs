@@ -104,7 +104,7 @@ pub struct ISystemUpdateManagerStatics_Vtbl {
 }
 #[doc = "*Required features: `\"System_Update\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemUpdateAttentionRequiredReason(pub i32);
 impl SystemUpdateAttentionRequiredReason {
     pub const None: Self = Self(0i32);
@@ -282,7 +282,7 @@ unsafe impl ::core::marker::Send for SystemUpdateItem {}
 unsafe impl ::core::marker::Sync for SystemUpdateItem {}
 #[doc = "*Required features: `\"System_Update\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemUpdateItemState(pub i32);
 impl SystemUpdateItemState {
     pub const NotStarted: Self = Self(0i32);
@@ -603,7 +603,7 @@ impl ::windows::core::RuntimeName for SystemUpdateManager {
 }
 #[doc = "*Required features: `\"System_Update\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemUpdateManagerState(pub i32);
 impl SystemUpdateManagerState {
     pub const Idle: Self = Self(0i32);
@@ -647,7 +647,7 @@ unsafe impl ::windows::core::RuntimeType for SystemUpdateManagerState {
 }
 #[doc = "*Required features: `\"System_Update\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemUpdateStartInstallAction(pub i32);
 impl SystemUpdateStartInstallAction {
     pub const UpToReboot: Self = Self(0i32);

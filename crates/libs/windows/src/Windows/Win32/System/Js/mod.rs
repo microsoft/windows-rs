@@ -299,7 +299,7 @@ pub unsafe fn JsEquals(object1: *const ::core::ffi::c_void, object2: *const ::co
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JsErrorCode(pub u32);
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsNoError: JsErrorCode = JsErrorCode(0u32);
@@ -645,7 +645,7 @@ pub unsafe fn JsIsRuntimeExecutionDisabled(runtime: *const ::core::ffi::c_void, 
 pub type JsMemoryAllocationCallback = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, allocationevent: JsMemoryEventType, allocationsize: usize) -> bool>;
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JsMemoryEventType(pub i32);
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsMemoryAllocate: JsMemoryEventType = JsMemoryEventType(0i32);
@@ -748,7 +748,7 @@ pub unsafe fn JsRunSerializedScript<'a, Param0: ::windows::core::IntoParam<'a, :
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JsRuntimeAttributes(pub i32);
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsRuntimeAttributeNone: JsRuntimeAttributes = JsRuntimeAttributes(0i32);
@@ -783,7 +783,7 @@ impl ::core::fmt::Debug for JsRuntimeAttributes {
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JsRuntimeVersion(pub i32);
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsRuntimeVersion10: JsRuntimeVersion = JsRuntimeVersion(0i32);
@@ -973,7 +973,7 @@ pub unsafe fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JsValueType(pub i32);
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsUndefined: JsValueType = JsValueType(0i32);

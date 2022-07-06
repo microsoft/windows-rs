@@ -108,7 +108,7 @@ impl ::windows::core::RuntimeName for BackgroundEnergyManager {
 }
 #[doc = "*Required features: `\"System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BatteryStatus(pub i32);
 impl BatteryStatus {
     pub const NotPresent: Self = Self(0i32);
@@ -144,7 +144,7 @@ unsafe impl ::windows::core::RuntimeType for BatteryStatus {
 }
 #[doc = "*Required features: `\"System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnergySaverStatus(pub i32);
 impl EnergySaverStatus {
     pub const Disabled: Self = Self(0i32);
@@ -560,7 +560,7 @@ impl ::windows::core::RuntimeName for PowerManager {
 }
 #[doc = "*Required features: `\"System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PowerSupplyStatus(pub i32);
 impl PowerSupplyStatus {
     pub const NotPresent: Self = Self(0i32);

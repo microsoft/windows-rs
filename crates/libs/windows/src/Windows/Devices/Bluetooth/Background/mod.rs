@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BluetoothEventTriggeringMode(pub i32);
 impl BluetoothEventTriggeringMode {
     pub const Serial: Self = Self(0i32);

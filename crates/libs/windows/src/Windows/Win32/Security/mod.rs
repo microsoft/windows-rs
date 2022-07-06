@@ -330,7 +330,7 @@ impl ::core::default::Default for ACCESS_REASONS {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const CONTAINER_INHERIT_ACE: ACE_FLAGS = ACE_FLAGS(2u32);
@@ -439,7 +439,7 @@ impl ::core::default::Default for ACE_HEADER {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACE_REVISION(pub u32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const ACL_REVISION: ACE_REVISION = ACE_REVISION(2u32);
@@ -500,7 +500,7 @@ impl ::core::default::Default for ACL {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACL_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const AclRevisionInformation: ACL_INFORMATION_CLASS = ACL_INFORMATION_CLASS(1i32);
@@ -589,7 +589,7 @@ impl ::core::default::Default for ACL_SIZE_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUDIT_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const AuditEventObjectAccess: AUDIT_EVENT_TYPE = AUDIT_EVENT_TYPE(0i32);
@@ -1185,7 +1185,7 @@ impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const CLAIM_SECURITY_ATTRIBUTE_NON_INHERITABLE: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(1u32);
@@ -1428,7 +1428,7 @@ impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(pub u16);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_INT64: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(1u16);
@@ -1465,7 +1465,7 @@ impl ::core::fmt::Debug for CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_RESTRICTED_TOKEN_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const DISABLE_MAX_PRIVILEGE: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(1u32);
@@ -1676,7 +1676,7 @@ pub unsafe fn DuplicateTokenEx<'a, Param0: ::windows::core::IntoParam<'a, super:
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_PERIOD(pub i32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const ENUM_PERIOD_INVALID: ENUM_PERIOD = ENUM_PERIOD(-1i32);
@@ -2024,7 +2024,7 @@ pub unsafe fn GetWindowsAccountDomainSid<'a, Param0: ::windows::core::IntoParam<
     ::core::mem::transmute(GetWindowsAccountDomainSid(psid.into_param().abi(), ::core::mem::transmute(pdomainsid), ::core::mem::transmute(cbdomainsid)))
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDIAGNOSTIC_DATA_QUERY_SESSION(pub isize);
 impl HDIAGNOSTIC_DATA_QUERY_SESSION {
     pub fn is_invalid(&self) -> bool {
@@ -2051,7 +2051,7 @@ unsafe impl ::windows::core::Abi for HDIAGNOSTIC_DATA_QUERY_SESSION {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION(pub isize);
 impl HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
     pub fn is_invalid(&self) -> bool {
@@ -2078,7 +2078,7 @@ unsafe impl ::windows::core::Abi for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION(pub isize);
 impl HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
     pub fn is_invalid(&self) -> bool {
@@ -2105,7 +2105,7 @@ unsafe impl ::windows::core::Abi for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDIAGNOSTIC_EVENT_TAG_DESCRIPTION(pub isize);
 impl HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
     pub fn is_invalid(&self) -> bool {
@@ -2132,7 +2132,7 @@ unsafe impl ::windows::core::Abi for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDIAGNOSTIC_RECORD(pub isize);
 impl HDIAGNOSTIC_RECORD {
     pub fn is_invalid(&self) -> bool {
@@ -2159,7 +2159,7 @@ unsafe impl ::windows::core::Abi for HDIAGNOSTIC_RECORD {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDIAGNOSTIC_REPORT(pub isize);
 impl HDIAGNOSTIC_REPORT {
     pub fn is_invalid(&self) -> bool {
@@ -2362,7 +2362,7 @@ impl ::core::default::Default for LLFILETIME_0 {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOGON32_LOGON(pub u32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const LOGON32_LOGON_BATCH: LOGON32_LOGON = LOGON32_LOGON(4u32);
@@ -2399,7 +2399,7 @@ impl ::core::fmt::Debug for LOGON32_LOGON {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOGON32_PROVIDER(pub u32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const LOGON32_PROVIDER_DEFAULT: LOGON32_PROVIDER = LOGON32_PROVIDER(0u32);
@@ -2607,7 +2607,7 @@ pub unsafe fn LookupPrivilegeValueW<'a, Param0: ::windows::core::IntoParam<'a, :
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MANDATORY_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const MandatoryLevelUntrusted: MANDATORY_LEVEL = MANDATORY_LEVEL(0i32);
@@ -2672,7 +2672,7 @@ pub unsafe fn MapGenericMask(accessmask: *mut u32, genericmapping: *const GENERI
     MapGenericMask(::core::mem::transmute(accessmask), ::core::mem::transmute(genericmapping))
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NCRYPT_DESCRIPTOR_HANDLE(pub isize);
 impl NCRYPT_DESCRIPTOR_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -2699,7 +2699,7 @@ unsafe impl ::windows::core::Abi for NCRYPT_DESCRIPTOR_HANDLE {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NCRYPT_STREAM_HANDLE(pub isize);
 impl NCRYPT_STREAM_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -2727,7 +2727,7 @@ unsafe impl ::windows::core::Abi for NCRYPT_STREAM_HANDLE {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OBJECT_SECURITY_INFORMATION(pub u32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const ATTRIBUTE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(32u32);
@@ -2982,7 +2982,7 @@ impl ::core::default::Default for PRIVILEGE_SET {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSECURITY_DESCRIPTOR(pub *mut ::core::ffi::c_void);
 impl PSECURITY_DESCRIPTOR {
     pub fn is_invalid(&self) -> bool {
@@ -3113,7 +3113,7 @@ pub unsafe fn RtlNormalizeSecurityDescriptor<'a, Param4: ::windows::core::IntoPa
     ::core::mem::transmute(RtlNormalizeSecurityDescriptor(::core::mem::transmute(securitydescriptor), ::core::mem::transmute(securitydescriptorlength), ::core::mem::transmute(newsecuritydescriptor), ::core::mem::transmute(newsecuritydescriptorlength), checkonly.into_param().abi()))
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SAFER_LEVEL_HANDLE(pub isize);
 impl SAFER_LEVEL_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -3140,7 +3140,7 @@ unsafe impl ::windows::core::Abi for SAFER_LEVEL_HANDLE {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SC_HANDLE(pub isize);
 impl SC_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -3208,7 +3208,7 @@ impl ::core::default::Default for SECURITY_ATTRIBUTES {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECURITY_AUTO_INHERIT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SEF_AVOID_OWNER_CHECK: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(16u32);
@@ -3366,7 +3366,7 @@ impl ::core::default::Default for SECURITY_DESCRIPTOR {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECURITY_IMPERSONATION_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SecurityAnonymous: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(0i32);
@@ -3769,7 +3769,7 @@ impl ::core::default::Default for SID_IDENTIFIER_AUTHORITY {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SID_NAME_USE(pub i32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SidTypeUser: SID_NAME_USE = SID_NAME_USE(1i32);
@@ -4114,7 +4114,7 @@ impl ::core::default::Default for SYSTEM_AUDIT_OBJECT_ACE {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEM_AUDIT_OBJECT_ACE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const ACE_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = SYSTEM_AUDIT_OBJECT_ACE_FLAGS(1u32);
@@ -4519,7 +4519,7 @@ impl ::core::default::Default for TOKEN_ACCESS_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOKEN_ACCESS_MASK(pub u32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const TOKEN_DELETE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(65536u32);
@@ -4799,7 +4799,7 @@ impl ::core::default::Default for TOKEN_ELEVATION {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOKEN_ELEVATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const TokenElevationTypeDefault: TOKEN_ELEVATION_TYPE = TOKEN_ELEVATION_TYPE(1i32);
@@ -4925,7 +4925,7 @@ impl ::core::default::Default for TOKEN_GROUPS_AND_PRIVILEGES {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOKEN_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const TokenUser: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(1i32);
@@ -5150,7 +5150,7 @@ impl ::core::default::Default for TOKEN_MANDATORY_POLICY {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOKEN_MANDATORY_POLICY_ID(pub u32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const TOKEN_MANDATORY_POLICY_OFF: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(0u32);
@@ -5334,7 +5334,7 @@ impl ::core::default::Default for TOKEN_PRIVILEGES {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOKEN_PRIVILEGES_ATTRIBUTES(pub u32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SE_PRIVILEGE_ENABLED: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(2u32);
@@ -5479,7 +5479,7 @@ impl ::core::default::Default for TOKEN_STATISTICS {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOKEN_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const TokenPrimary: TOKEN_TYPE = TOKEN_TYPE(1i32);
@@ -5574,7 +5574,7 @@ impl ::core::default::Default for TOKEN_USER_CLAIMS {
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WELL_KNOWN_SID_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const WinNullSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(0i32);

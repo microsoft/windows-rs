@@ -52,7 +52,7 @@ impl ::core::default::Default for HARDWARE_COUNTER_DATA {
 }
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HARDWARE_COUNTER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`*"]
 pub const PMCCounter: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(0i32);

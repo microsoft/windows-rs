@@ -212,7 +212,7 @@ pub unsafe fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_2DAFFINETRANSFORM_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_2DAFFINETRANSFORM_PROP_INTERPOLATION_MODE: D2D1_2DAFFINETRANSFORM_PROP = D2D1_2DAFFINETRANSFORM_PROP(0u32);
@@ -245,7 +245,7 @@ impl ::core::fmt::Debug for D2D1_2DAFFINETRANSFORM_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE(0u32);
@@ -280,7 +280,7 @@ impl ::core::fmt::Debug for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_3DPERSPECTIVETRANSFORM_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_INTERPOLATION_MODE: D2D1_3DPERSPECTIVETRANSFORM_PROP = D2D1_3DPERSPECTIVETRANSFORM_PROP(0u32);
@@ -321,7 +321,7 @@ impl ::core::fmt::Debug for D2D1_3DPERSPECTIVETRANSFORM_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_3DTRANSFORM_INTERPOLATION_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_3DTRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_3DTRANSFORM_INTERPOLATION_MODE = D2D1_3DTRANSFORM_INTERPOLATION_MODE(0u32);
@@ -356,7 +356,7 @@ impl ::core::fmt::Debug for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_3DTRANSFORM_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_3DTRANSFORM_PROP_INTERPOLATION_MODE: D2D1_3DTRANSFORM_PROP = D2D1_3DTRANSFORM_PROP(0u32);
@@ -387,7 +387,7 @@ impl ::core::fmt::Debug for D2D1_3DTRANSFORM_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_ANTIALIAS_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_ANTIALIAS_MODE_PER_PRIMITIVE: D2D1_ANTIALIAS_MODE = D2D1_ANTIALIAS_MODE(0u32);
@@ -460,7 +460,7 @@ impl ::core::default::Default for D2D1_ARC_SEGMENT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_ARC_SIZE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_ARC_SIZE_SMALL: D2D1_ARC_SIZE = D2D1_ARC_SIZE(0u32);
@@ -489,7 +489,7 @@ impl ::core::fmt::Debug for D2D1_ARC_SIZE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_ARITHMETICCOMPOSITE_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_ARITHMETICCOMPOSITE_PROP_COEFFICIENTS: D2D1_ARITHMETICCOMPOSITE_PROP = D2D1_ARITHMETICCOMPOSITE_PROP(0u32);
@@ -518,7 +518,7 @@ impl ::core::fmt::Debug for D2D1_ARITHMETICCOMPOSITE_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_ATLAS_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_ATLAS_PROP_INPUT_RECT: D2D1_ATLAS_PROP = D2D1_ATLAS_PROP(0u32);
@@ -547,7 +547,7 @@ impl ::core::fmt::Debug for D2D1_ATLAS_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_BITMAPSOURCE_ALPHA_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_BITMAPSOURCE_ALPHA_MODE_PREMULTIPLIED: D2D1_BITMAPSOURCE_ALPHA_MODE = D2D1_BITMAPSOURCE_ALPHA_MODE(1u32);
@@ -576,7 +576,7 @@ impl ::core::fmt::Debug for D2D1_BITMAPSOURCE_ALPHA_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_BITMAPSOURCE_INTERPOLATION_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_BITMAPSOURCE_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_BITMAPSOURCE_INTERPOLATION_MODE = D2D1_BITMAPSOURCE_INTERPOLATION_MODE(0u32);
@@ -611,7 +611,7 @@ impl ::core::fmt::Debug for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_BITMAPSOURCE_ORIENTATION(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_BITMAPSOURCE_ORIENTATION_DEFAULT: D2D1_BITMAPSOURCE_ORIENTATION = D2D1_BITMAPSOURCE_ORIENTATION(1u32);
@@ -652,7 +652,7 @@ impl ::core::fmt::Debug for D2D1_BITMAPSOURCE_ORIENTATION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_BITMAPSOURCE_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_BITMAPSOURCE_PROP_WIC_BITMAP_SOURCE: D2D1_BITMAPSOURCE_PROP = D2D1_BITMAPSOURCE_PROP(0u32);
@@ -753,7 +753,7 @@ impl ::core::default::Default for D2D1_BITMAP_BRUSH_PROPERTIES1 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_BITMAP_INTERPOLATION_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_BITMAP_INTERPOLATION_MODE = D2D1_BITMAP_INTERPOLATION_MODE(0u32);
@@ -782,7 +782,7 @@ impl ::core::fmt::Debug for D2D1_BITMAP_INTERPOLATION_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_BITMAP_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_BITMAP_OPTIONS_NONE: D2D1_BITMAP_OPTIONS = D2D1_BITMAP_OPTIONS(0u32);
@@ -925,7 +925,7 @@ impl ::core::default::Default for D2D1_BITMAP_PROPERTIES1 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_BLEND(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_BLEND_ZERO: D2D1_BLEND = D2D1_BLEND(1u32);
@@ -1012,7 +1012,7 @@ impl ::core::default::Default for D2D1_BLEND_DESCRIPTION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_BLEND_OPERATION(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_BLEND_OPERATION_ADD: D2D1_BLEND_OPERATION = D2D1_BLEND_OPERATION(1u32);
@@ -1047,7 +1047,7 @@ impl ::core::fmt::Debug for D2D1_BLEND_OPERATION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_BLEND_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_BLEND_PROP_MODE: D2D1_BLEND_PROP = D2D1_BLEND_PROP(0u32);
@@ -1074,7 +1074,7 @@ impl ::core::fmt::Debug for D2D1_BLEND_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_BORDER_EDGE_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_BORDER_EDGE_MODE_CLAMP: D2D1_BORDER_EDGE_MODE = D2D1_BORDER_EDGE_MODE(0u32);
@@ -1105,7 +1105,7 @@ impl ::core::fmt::Debug for D2D1_BORDER_EDGE_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_BORDER_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_BORDER_PROP_EDGE_MODE_X: D2D1_BORDER_PROP = D2D1_BORDER_PROP(0u32);
@@ -1134,7 +1134,7 @@ impl ::core::fmt::Debug for D2D1_BORDER_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_BRIGHTNESS_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_BRIGHTNESS_PROP_WHITE_POINT: D2D1_BRIGHTNESS_PROP = D2D1_BRIGHTNESS_PROP(0u32);
@@ -1202,7 +1202,7 @@ impl ::core::default::Default for D2D1_BRUSH_PROPERTIES {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_BUFFER_PRECISION(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_BUFFER_PRECISION_UNKNOWN: D2D1_BUFFER_PRECISION = D2D1_BUFFER_PRECISION(0u32);
@@ -1239,7 +1239,7 @@ impl ::core::fmt::Debug for D2D1_BUFFER_PRECISION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_CAP_STYLE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_CAP_STYLE_FLAT: D2D1_CAP_STYLE = D2D1_CAP_STYLE(0u32);
@@ -1272,7 +1272,7 @@ impl ::core::fmt::Debug for D2D1_CAP_STYLE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_CHANGE_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_CHANGE_TYPE_NONE: D2D1_CHANGE_TYPE = D2D1_CHANGE_TYPE(0u32);
@@ -1333,7 +1333,7 @@ impl ::core::ops::Not for D2D1_CHANGE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_CHANNEL_DEPTH(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_CHANNEL_DEPTH_DEFAULT: D2D1_CHANNEL_DEPTH = D2D1_CHANNEL_DEPTH(0u32);
@@ -1364,7 +1364,7 @@ impl ::core::fmt::Debug for D2D1_CHANNEL_DEPTH {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_CHANNEL_SELECTOR(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_CHANNEL_SELECTOR_R: D2D1_CHANNEL_SELECTOR = D2D1_CHANNEL_SELECTOR(0u32);
@@ -1397,7 +1397,7 @@ impl ::core::fmt::Debug for D2D1_CHANNEL_SELECTOR {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_CHROMAKEY_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_CHROMAKEY_PROP_COLOR: D2D1_CHROMAKEY_PROP = D2D1_CHROMAKEY_PROP(0u32);
@@ -1430,7 +1430,7 @@ impl ::core::fmt::Debug for D2D1_CHROMAKEY_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_COLORMANAGEMENT_ALPHA_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_COLORMANAGEMENT_ALPHA_MODE_PREMULTIPLIED: D2D1_COLORMANAGEMENT_ALPHA_MODE = D2D1_COLORMANAGEMENT_ALPHA_MODE(1u32);
@@ -1459,7 +1459,7 @@ impl ::core::fmt::Debug for D2D1_COLORMANAGEMENT_ALPHA_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_COLORMANAGEMENT_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_COLORMANAGEMENT_PROP_SOURCE_COLOR_CONTEXT: D2D1_COLORMANAGEMENT_PROP = D2D1_COLORMANAGEMENT_PROP(0u32);
@@ -1496,7 +1496,7 @@ impl ::core::fmt::Debug for D2D1_COLORMANAGEMENT_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_COLORMANAGEMENT_QUALITY(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_COLORMANAGEMENT_QUALITY_PROOF: D2D1_COLORMANAGEMENT_QUALITY = D2D1_COLORMANAGEMENT_QUALITY(0u32);
@@ -1527,7 +1527,7 @@ impl ::core::fmt::Debug for D2D1_COLORMANAGEMENT_QUALITY {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_COLORMANAGEMENT_RENDERING_INTENT(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_COLORMANAGEMENT_RENDERING_INTENT_PERCEPTUAL: D2D1_COLORMANAGEMENT_RENDERING_INTENT = D2D1_COLORMANAGEMENT_RENDERING_INTENT(0u32);
@@ -1560,7 +1560,7 @@ impl ::core::fmt::Debug for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_COLORMATRIX_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_COLORMATRIX_PROP_COLOR_MATRIX: D2D1_COLORMATRIX_PROP = D2D1_COLORMATRIX_PROP(0u32);
@@ -1591,7 +1591,7 @@ impl ::core::fmt::Debug for D2D1_COLORMATRIX_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_DEFAULT: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION = D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION(0u32);
@@ -1620,7 +1620,7 @@ impl ::core::fmt::Debug for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_COLOR_CONTEXT_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_COLOR_CONTEXT_TYPE_ICC: D2D1_COLOR_CONTEXT_TYPE = D2D1_COLOR_CONTEXT_TYPE(0u32);
@@ -1651,7 +1651,7 @@ impl ::core::fmt::Debug for D2D1_COLOR_CONTEXT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_COLOR_INTERPOLATION_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_COLOR_INTERPOLATION_MODE_STRAIGHT: D2D1_COLOR_INTERPOLATION_MODE = D2D1_COLOR_INTERPOLATION_MODE(0u32);
@@ -1680,7 +1680,7 @@ impl ::core::fmt::Debug for D2D1_COLOR_INTERPOLATION_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_COLOR_SPACE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_COLOR_SPACE_CUSTOM: D2D1_COLOR_SPACE = D2D1_COLOR_SPACE(0u32);
@@ -1711,7 +1711,7 @@ impl ::core::fmt::Debug for D2D1_COLOR_SPACE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_COMBINE_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_COMBINE_MODE_UNION: D2D1_COMBINE_MODE = D2D1_COMBINE_MODE(0u32);
@@ -1744,7 +1744,7 @@ impl ::core::fmt::Debug for D2D1_COMBINE_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS_NONE: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS = D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS(0u32);
@@ -1801,7 +1801,7 @@ impl ::core::ops::Not for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_COMPOSITE_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_COMPOSITE_PROP_MODE: D2D1_COMPOSITE_PROP = D2D1_COMPOSITE_PROP(0u32);
@@ -1828,7 +1828,7 @@ impl ::core::fmt::Debug for D2D1_COMPOSITE_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_CONTRAST_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_CONTRAST_PROP_CONTRAST: D2D1_CONTRAST_PROP = D2D1_CONTRAST_PROP(0u32);
@@ -1857,7 +1857,7 @@ impl ::core::fmt::Debug for D2D1_CONTRAST_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_CONVOLVEMATRIX_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_CONVOLVEMATRIX_PROP_KERNEL_UNIT_LENGTH: D2D1_CONVOLVEMATRIX_PROP = D2D1_CONVOLVEMATRIX_PROP(0u32);
@@ -1904,7 +1904,7 @@ impl ::core::fmt::Debug for D2D1_CONVOLVEMATRIX_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_CONVOLVEMATRIX_SCALE_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_CONVOLVEMATRIX_SCALE_MODE = D2D1_CONVOLVEMATRIX_SCALE_MODE(0u32);
@@ -1973,7 +1973,7 @@ impl ::core::default::Default for D2D1_CREATION_PROPERTIES {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_CROP_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_CROP_PROP_RECT: D2D1_CROP_PROP = D2D1_CROP_PROP(0u32);
@@ -2002,7 +2002,7 @@ impl ::core::fmt::Debug for D2D1_CROP_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_CROSSFADE_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_CROSSFADE_PROP_WEIGHT: D2D1_CROSSFADE_PROP = D2D1_CROSSFADE_PROP(0u32);
@@ -2071,7 +2071,7 @@ impl ::core::default::Default for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_DASH_STYLE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_DASH_STYLE_SOLID: D2D1_DASH_STYLE = D2D1_DASH_STYLE(0u32);
@@ -2108,7 +2108,7 @@ impl ::core::fmt::Debug for D2D1_DASH_STYLE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_DC_INITIALIZE_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_DC_INITIALIZE_MODE_COPY: D2D1_DC_INITIALIZE_MODE = D2D1_DC_INITIALIZE_MODE(0u32);
@@ -2137,7 +2137,7 @@ impl ::core::fmt::Debug for D2D1_DC_INITIALIZE_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_DEBUG_LEVEL(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_DEBUG_LEVEL_NONE: D2D1_DEBUG_LEVEL = D2D1_DEBUG_LEVEL(0u32);
@@ -2172,7 +2172,7 @@ impl ::core::fmt::Debug for D2D1_DEBUG_LEVEL {
 pub const D2D1_DEFAULT_FLATTENING_TOLERANCE: f32 = 0.25f32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_DEVICE_CONTEXT_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_DEVICE_CONTEXT_OPTIONS_NONE: D2D1_DEVICE_CONTEXT_OPTIONS = D2D1_DEVICE_CONTEXT_OPTIONS(0u32);
@@ -2229,7 +2229,7 @@ impl ::core::ops::Not for D2D1_DEVICE_CONTEXT_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_DIRECTIONALBLUR_OPTIMIZATION(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_DIRECTIONALBLUR_OPTIMIZATION_SPEED: D2D1_DIRECTIONALBLUR_OPTIMIZATION = D2D1_DIRECTIONALBLUR_OPTIMIZATION(0u32);
@@ -2260,7 +2260,7 @@ impl ::core::fmt::Debug for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_DIRECTIONALBLUR_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_DIRECTIONALBLUR_PROP_STANDARD_DEVIATION: D2D1_DIRECTIONALBLUR_PROP = D2D1_DIRECTIONALBLUR_PROP(0u32);
@@ -2293,7 +2293,7 @@ impl ::core::fmt::Debug for D2D1_DIRECTIONALBLUR_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_DISCRETETRANSFER_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_DISCRETETRANSFER_PROP_RED_TABLE: D2D1_DISCRETETRANSFER_PROP = D2D1_DISCRETETRANSFER_PROP(0u32);
@@ -2336,7 +2336,7 @@ impl ::core::fmt::Debug for D2D1_DISCRETETRANSFER_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_DISPLACEMENTMAP_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_DISPLACEMENTMAP_PROP_SCALE: D2D1_DISPLACEMENTMAP_PROP = D2D1_DISPLACEMENTMAP_PROP(0u32);
@@ -2367,7 +2367,7 @@ impl ::core::fmt::Debug for D2D1_DISPLACEMENTMAP_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_DISTANTDIFFUSE_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_DISTANTDIFFUSE_PROP_AZIMUTH: D2D1_DISTANTDIFFUSE_PROP = D2D1_DISTANTDIFFUSE_PROP(0u32);
@@ -2406,7 +2406,7 @@ impl ::core::fmt::Debug for D2D1_DISTANTDIFFUSE_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_DISTANTDIFFUSE_SCALE_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_DISTANTDIFFUSE_SCALE_MODE = D2D1_DISTANTDIFFUSE_SCALE_MODE(0u32);
@@ -2443,7 +2443,7 @@ impl ::core::fmt::Debug for D2D1_DISTANTDIFFUSE_SCALE_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_DISTANTSPECULAR_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_DISTANTSPECULAR_PROP_AZIMUTH: D2D1_DISTANTSPECULAR_PROP = D2D1_DISTANTSPECULAR_PROP(0u32);
@@ -2484,7 +2484,7 @@ impl ::core::fmt::Debug for D2D1_DISTANTSPECULAR_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_DISTANTSPECULAR_SCALE_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_DISTANTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_DISTANTSPECULAR_SCALE_MODE = D2D1_DISTANTSPECULAR_SCALE_MODE(0u32);
@@ -2521,7 +2521,7 @@ impl ::core::fmt::Debug for D2D1_DISTANTSPECULAR_SCALE_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_DPICOMPENSATION_INTERPOLATION_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = D2D1_DPICOMPENSATION_INTERPOLATION_MODE(0u32);
@@ -2558,7 +2558,7 @@ impl ::core::fmt::Debug for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_DPICOMPENSATION_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_DPICOMPENSATION_PROP_INTERPOLATION_MODE: D2D1_DPICOMPENSATION_PROP = D2D1_DPICOMPENSATION_PROP(0u32);
@@ -2675,7 +2675,7 @@ impl ::core::default::Default for D2D1_DRAWING_STATE_DESCRIPTION1 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_DRAW_TEXT_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_DRAW_TEXT_OPTIONS_NO_SNAP: D2D1_DRAW_TEXT_OPTIONS = D2D1_DRAW_TEXT_OPTIONS(1u32);
@@ -2738,7 +2738,7 @@ impl ::core::ops::Not for D2D1_DRAW_TEXT_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_EDGEDETECTION_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_EDGEDETECTION_MODE_SOBEL: D2D1_EDGEDETECTION_MODE = D2D1_EDGEDETECTION_MODE(0u32);
@@ -2767,7 +2767,7 @@ impl ::core::fmt::Debug for D2D1_EDGEDETECTION_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_EDGEDETECTION_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_EDGEDETECTION_PROP_STRENGTH: D2D1_EDGEDETECTION_PROP = D2D1_EDGEDETECTION_PROP(0u32);
@@ -2880,7 +2880,7 @@ impl ::core::default::Default for D2D1_ELLIPSE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_EMBOSS_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_EMBOSS_PROP_HEIGHT: D2D1_EMBOSS_PROP = D2D1_EMBOSS_PROP(0u32);
@@ -2909,7 +2909,7 @@ impl ::core::fmt::Debug for D2D1_EMBOSS_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_EXPOSURE_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_EXPOSURE_PROP_EXPOSURE_VALUE: D2D1_EXPOSURE_PROP = D2D1_EXPOSURE_PROP(0u32);
@@ -2936,7 +2936,7 @@ impl ::core::fmt::Debug for D2D1_EXPOSURE_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_EXTEND_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_EXTEND_MODE_CLAMP: D2D1_EXTEND_MODE = D2D1_EXTEND_MODE(0u32);
@@ -2997,7 +2997,7 @@ impl ::core::default::Default for D2D1_FACTORY_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_FACTORY_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_FACTORY_TYPE_SINGLE_THREADED: D2D1_FACTORY_TYPE = D2D1_FACTORY_TYPE(0u32);
@@ -3026,7 +3026,7 @@ impl ::core::fmt::Debug for D2D1_FACTORY_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_FEATURE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_FEATURE_DOUBLES: D2D1_FEATURE = D2D1_FEATURE(0u32);
@@ -3131,7 +3131,7 @@ impl ::core::default::Default for D2D1_FEATURE_DATA_DOUBLES {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_FEATURE_LEVEL(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_FEATURE_LEVEL_DEFAULT: D2D1_FEATURE_LEVEL = D2D1_FEATURE_LEVEL(0u32);
@@ -3162,7 +3162,7 @@ impl ::core::fmt::Debug for D2D1_FEATURE_LEVEL {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_FILTER(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_FILTER_MIN_MAG_MIP_POINT: D2D1_FILTER = D2D1_FILTER(0u32);
@@ -3205,7 +3205,7 @@ impl ::core::fmt::Debug for D2D1_FILTER {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_FLOOD_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_FLOOD_PROP_COLOR: D2D1_FLOOD_PROP = D2D1_FLOOD_PROP(0u32);
@@ -3232,7 +3232,7 @@ impl ::core::fmt::Debug for D2D1_FLOOD_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_GAMMA(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_GAMMA_2_2: D2D1_GAMMA = D2D1_GAMMA(0u32);
@@ -3261,7 +3261,7 @@ impl ::core::fmt::Debug for D2D1_GAMMA {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_GAMMA1(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_GAMMA1_G22: D2D1_GAMMA1 = D2D1_GAMMA1(0u32);
@@ -3292,7 +3292,7 @@ impl ::core::fmt::Debug for D2D1_GAMMA1 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_GAMMATRANSFER_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_GAMMATRANSFER_PROP_RED_AMPLITUDE: D2D1_GAMMATRANSFER_PROP = D2D1_GAMMATRANSFER_PROP(0u32);
@@ -3351,7 +3351,7 @@ impl ::core::fmt::Debug for D2D1_GAMMATRANSFER_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_GAUSSIANBLUR_OPTIMIZATION(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_GAUSSIANBLUR_OPTIMIZATION_SPEED: D2D1_GAUSSIANBLUR_OPTIMIZATION = D2D1_GAUSSIANBLUR_OPTIMIZATION(0u32);
@@ -3382,7 +3382,7 @@ impl ::core::fmt::Debug for D2D1_GAUSSIANBLUR_OPTIMIZATION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_GAUSSIANBLUR_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_GAUSSIANBLUR_PROP_STANDARD_DEVIATION: D2D1_GAUSSIANBLUR_PROP = D2D1_GAUSSIANBLUR_PROP(0u32);
@@ -3413,7 +3413,7 @@ impl ::core::fmt::Debug for D2D1_GAUSSIANBLUR_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_GEOMETRY_RELATION(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_GEOMETRY_RELATION_UNKNOWN: D2D1_GEOMETRY_RELATION = D2D1_GEOMETRY_RELATION(0u32);
@@ -3448,7 +3448,7 @@ impl ::core::fmt::Debug for D2D1_GEOMETRY_RELATION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_GEOMETRY_SIMPLIFICATION_OPTION(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_GEOMETRY_SIMPLIFICATION_OPTION_CUBICS_AND_LINES: D2D1_GEOMETRY_SIMPLIFICATION_OPTION = D2D1_GEOMETRY_SIMPLIFICATION_OPTION(0u32);
@@ -3602,7 +3602,7 @@ impl ::core::default::Default for D2D1_GRADIENT_STOP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_HDRTONEMAP_DISPLAY_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_HDRTONEMAP_DISPLAY_MODE_SDR: D2D1_HDRTONEMAP_DISPLAY_MODE = D2D1_HDRTONEMAP_DISPLAY_MODE(0u32);
@@ -3631,7 +3631,7 @@ impl ::core::fmt::Debug for D2D1_HDRTONEMAP_DISPLAY_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_HDRTONEMAP_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_HDRTONEMAP_PROP_INPUT_MAX_LUMINANCE: D2D1_HDRTONEMAP_PROP = D2D1_HDRTONEMAP_PROP(0u32);
@@ -3662,7 +3662,7 @@ impl ::core::fmt::Debug for D2D1_HDRTONEMAP_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA_LINEAR: D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA = D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA(0u32);
@@ -3691,7 +3691,7 @@ impl ::core::fmt::Debug for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_HIGHLIGHTSANDSHADOWS_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_HIGHLIGHTSANDSHADOWS_PROP_HIGHLIGHTS: D2D1_HIGHLIGHTSANDSHADOWS_PROP = D2D1_HIGHLIGHTSANDSHADOWS_PROP(0u32);
@@ -3726,7 +3726,7 @@ impl ::core::fmt::Debug for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_HISTOGRAM_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_HISTOGRAM_PROP_NUM_BINS: D2D1_HISTOGRAM_PROP = D2D1_HISTOGRAM_PROP(0u32);
@@ -3757,7 +3757,7 @@ impl ::core::fmt::Debug for D2D1_HISTOGRAM_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_HUEROTATION_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_HUEROTATION_PROP_ANGLE: D2D1_HUEROTATION_PROP = D2D1_HUEROTATION_PROP(0u32);
@@ -3784,7 +3784,7 @@ impl ::core::fmt::Debug for D2D1_HUEROTATION_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_HUETORGB_INPUT_COLOR_SPACE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_HUETORGB_INPUT_COLOR_SPACE_HUE_SATURATION_VALUE: D2D1_HUETORGB_INPUT_COLOR_SPACE = D2D1_HUETORGB_INPUT_COLOR_SPACE(0u32);
@@ -3813,7 +3813,7 @@ impl ::core::fmt::Debug for D2D1_HUETORGB_INPUT_COLOR_SPACE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_HUETORGB_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_HUETORGB_PROP_INPUT_COLOR_SPACE: D2D1_HUETORGB_PROP = D2D1_HUETORGB_PROP(0u32);
@@ -3921,7 +3921,7 @@ impl ::core::default::Default for D2D1_IMAGE_BRUSH_PROPERTIES {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_NONE: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS = D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS(0u32);
@@ -3978,7 +3978,7 @@ impl ::core::ops::Not for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_IMAGE_SOURCE_LOADING_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_IMAGE_SOURCE_LOADING_OPTIONS_NONE: D2D1_IMAGE_SOURCE_LOADING_OPTIONS = D2D1_IMAGE_SOURCE_LOADING_OPTIONS(0u32);
@@ -4069,7 +4069,7 @@ impl ::core::default::Default for D2D1_INK_BEZIER_SEGMENT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_INK_NIB_SHAPE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_INK_NIB_SHAPE_ROUND: D2D1_INK_NIB_SHAPE = D2D1_INK_NIB_SHAPE(0u32);
@@ -4242,7 +4242,7 @@ impl ::core::default::Default for D2D1_INPUT_ELEMENT_DESC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_INTERPOLATION_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_INTERPOLATION_MODE = D2D1_INTERPOLATION_MODE(0u32);
@@ -4279,7 +4279,7 @@ impl ::core::fmt::Debug for D2D1_INTERPOLATION_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_INTERPOLATION_MODE_DEFINITION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_INTERPOLATION_MODE_DEFINITION_NEAREST_NEIGHBOR: D2D1_INTERPOLATION_MODE_DEFINITION = D2D1_INTERPOLATION_MODE_DEFINITION(0i32);
@@ -4318,7 +4318,7 @@ impl ::core::fmt::Debug for D2D1_INTERPOLATION_MODE_DEFINITION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_LAYER_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_LAYER_OPTIONS_NONE: D2D1_LAYER_OPTIONS = D2D1_LAYER_OPTIONS(0u32);
@@ -4375,7 +4375,7 @@ impl ::core::ops::Not for D2D1_LAYER_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_LAYER_OPTIONS1(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_LAYER_OPTIONS1_NONE: D2D1_LAYER_OPTIONS1 = D2D1_LAYER_OPTIONS1(0u32);
@@ -4534,7 +4534,7 @@ impl ::core::default::Default for D2D1_LAYER_PARAMETERS1 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_LINEARTRANSFER_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_LINEARTRANSFER_PROP_RED_Y_INTERCEPT: D2D1_LINEARTRANSFER_PROP = D2D1_LINEARTRANSFER_PROP(0u32);
@@ -4624,7 +4624,7 @@ impl ::core::default::Default for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_LINE_JOIN(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_LINE_JOIN_MITER: D2D1_LINE_JOIN = D2D1_LINE_JOIN(0u32);
@@ -4657,7 +4657,7 @@ impl ::core::fmt::Debug for D2D1_LINE_JOIN {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_LOOKUPTABLE3D_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_LOOKUPTABLE3D_PROP_LUT: D2D1_LOOKUPTABLE3D_PROP = D2D1_LOOKUPTABLE3D_PROP(0u32);
@@ -4717,7 +4717,7 @@ impl ::core::default::Default for D2D1_MAPPED_RECT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_MAP_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_MAP_OPTIONS_NONE: D2D1_MAP_OPTIONS = D2D1_MAP_OPTIONS(0u32);
@@ -4778,7 +4778,7 @@ impl ::core::ops::Not for D2D1_MAP_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_MORPHOLOGY_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_MORPHOLOGY_MODE_ERODE: D2D1_MORPHOLOGY_MODE = D2D1_MORPHOLOGY_MODE(0u32);
@@ -4807,7 +4807,7 @@ impl ::core::fmt::Debug for D2D1_MORPHOLOGY_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_MORPHOLOGY_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_MORPHOLOGY_PROP_MODE: D2D1_MORPHOLOGY_PROP = D2D1_MORPHOLOGY_PROP(0u32);
@@ -4838,7 +4838,7 @@ impl ::core::fmt::Debug for D2D1_MORPHOLOGY_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_OPACITYMETADATA_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_OPACITYMETADATA_PROP_INPUT_OPAQUE_RECT: D2D1_OPACITYMETADATA_PROP = D2D1_OPACITYMETADATA_PROP(0u32);
@@ -4865,7 +4865,7 @@ impl ::core::fmt::Debug for D2D1_OPACITYMETADATA_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_OPACITY_MASK_CONTENT(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_OPACITY_MASK_CONTENT_GRAPHICS: D2D1_OPACITY_MASK_CONTENT = D2D1_OPACITY_MASK_CONTENT(0u32);
@@ -4896,7 +4896,7 @@ impl ::core::fmt::Debug for D2D1_OPACITY_MASK_CONTENT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_OPACITY_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_OPACITY_PROP_OPACITY: D2D1_OPACITY_PROP = D2D1_OPACITY_PROP(0u32);
@@ -4923,7 +4923,7 @@ impl ::core::fmt::Debug for D2D1_OPACITY_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_ORIENTATION(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_ORIENTATION_DEFAULT: D2D1_ORIENTATION = D2D1_ORIENTATION(1u32);
@@ -4964,7 +4964,7 @@ impl ::core::fmt::Debug for D2D1_ORIENTATION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_PATCH_EDGE_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_PATCH_EDGE_MODE_ALIASED: D2D1_PATCH_EDGE_MODE = D2D1_PATCH_EDGE_MODE(0u32);
@@ -4995,7 +4995,7 @@ impl ::core::fmt::Debug for D2D1_PATCH_EDGE_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_PIXEL_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_PIXEL_OPTIONS_NONE: D2D1_PIXEL_OPTIONS = D2D1_PIXEL_OPTIONS(0u32);
@@ -5052,7 +5052,7 @@ impl ::core::ops::Not for D2D1_PIXEL_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_POINTDIFFUSE_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_POINTDIFFUSE_PROP_LIGHT_POSITION: D2D1_POINTDIFFUSE_PROP = D2D1_POINTDIFFUSE_PROP(0u32);
@@ -5089,7 +5089,7 @@ impl ::core::fmt::Debug for D2D1_POINTDIFFUSE_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_POINTDIFFUSE_SCALE_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_POINTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_POINTDIFFUSE_SCALE_MODE = D2D1_POINTDIFFUSE_SCALE_MODE(0u32);
@@ -5126,7 +5126,7 @@ impl ::core::fmt::Debug for D2D1_POINTDIFFUSE_SCALE_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_POINTSPECULAR_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_POINTSPECULAR_PROP_LIGHT_POSITION: D2D1_POINTSPECULAR_PROP = D2D1_POINTSPECULAR_PROP(0u32);
@@ -5165,7 +5165,7 @@ impl ::core::fmt::Debug for D2D1_POINTSPECULAR_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_POINTSPECULAR_SCALE_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_POINTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_POINTSPECULAR_SCALE_MODE = D2D1_POINTSPECULAR_SCALE_MODE(0u32);
@@ -5244,7 +5244,7 @@ impl ::core::default::Default for D2D1_POINT_DESCRIPTION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_POSTERIZE_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_POSTERIZE_PROP_RED_VALUE_COUNT: D2D1_POSTERIZE_PROP = D2D1_POSTERIZE_PROP(0u32);
@@ -5275,7 +5275,7 @@ impl ::core::fmt::Debug for D2D1_POSTERIZE_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_PRESENT_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_PRESENT_OPTIONS_NONE: D2D1_PRESENT_OPTIONS = D2D1_PRESENT_OPTIONS(0u32);
@@ -5334,7 +5334,7 @@ impl ::core::ops::Not for D2D1_PRESENT_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_PRIMITIVE_BLEND(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_PRIMITIVE_BLEND_SOURCE_OVER: D2D1_PRIMITIVE_BLEND = D2D1_PRIMITIVE_BLEND(0u32);
@@ -5401,7 +5401,7 @@ impl ::core::default::Default for D2D1_PRINT_CONTROL_PROPERTIES {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_PRINT_FONT_SUBSET_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_PRINT_FONT_SUBSET_MODE_DEFAULT: D2D1_PRINT_FONT_SUBSET_MODE = D2D1_PRINT_FONT_SUBSET_MODE(0u32);
@@ -5432,7 +5432,7 @@ impl ::core::fmt::Debug for D2D1_PRINT_FONT_SUBSET_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_PROPERTY(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_PROPERTY_CLSID: D2D1_PROPERTY = D2D1_PROPERTY(2147483648u32);
@@ -5509,7 +5509,7 @@ impl ::core::default::Default for D2D1_PROPERTY_BINDING {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_PROPERTY_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_PROPERTY_TYPE_UNKNOWN: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(0u32);
@@ -5691,7 +5691,7 @@ impl ::core::default::Default for D2D1_RENDERING_CONTROLS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_RENDERING_PRIORITY(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_RENDERING_PRIORITY_NORMAL: D2D1_RENDERING_PRIORITY = D2D1_RENDERING_PRIORITY(0u32);
@@ -5763,7 +5763,7 @@ impl ::core::default::Default for D2D1_RENDER_TARGET_PROPERTIES {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_RENDER_TARGET_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_RENDER_TARGET_TYPE_DEFAULT: D2D1_RENDER_TARGET_TYPE = D2D1_RENDER_TARGET_TYPE(0u32);
@@ -5794,7 +5794,7 @@ impl ::core::fmt::Debug for D2D1_RENDER_TARGET_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_RENDER_TARGET_USAGE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_RENDER_TARGET_USAGE_NONE: D2D1_RENDER_TARGET_USAGE = D2D1_RENDER_TARGET_USAGE(0u32);
@@ -5888,7 +5888,7 @@ impl ::core::default::Default for D2D1_RESOURCE_TEXTURE_PROPERTIES {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE_HUE_SATURATION_VALUE: D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE = D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE(0u32);
@@ -5917,7 +5917,7 @@ impl ::core::fmt::Debug for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_RGBTOHUE_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_RGBTOHUE_PROP_OUTPUT_COLOR_SPACE: D2D1_RGBTOHUE_PROP = D2D1_RGBTOHUE_PROP(0u32);
@@ -5984,7 +5984,7 @@ impl ::core::default::Default for D2D1_ROUNDED_RECT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SATURATION_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SATURATION_PROP_SATURATION: D2D1_SATURATION_PROP = D2D1_SATURATION_PROP(0u32);
@@ -6011,7 +6011,7 @@ impl ::core::fmt::Debug for D2D1_SATURATION_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SCALE_INTERPOLATION_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SCALE_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_SCALE_INTERPOLATION_MODE = D2D1_SCALE_INTERPOLATION_MODE(0u32);
@@ -6048,7 +6048,7 @@ impl ::core::fmt::Debug for D2D1_SCALE_INTERPOLATION_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SCALE_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SCALE_PROP_SCALE: D2D1_SCALE_PROP = D2D1_SCALE_PROP(0u32);
@@ -6085,7 +6085,7 @@ impl ::core::fmt::Debug for D2D1_SCALE_PROP {
 pub const D2D1_SCENE_REFERRED_SDR_WHITE_LEVEL: f32 = 80f32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SEPIA_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SEPIA_PROP_INTENSITY: D2D1_SEPIA_PROP = D2D1_SEPIA_PROP(0u32);
@@ -6114,7 +6114,7 @@ impl ::core::fmt::Debug for D2D1_SEPIA_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SHADOW_OPTIMIZATION(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SHADOW_OPTIMIZATION_SPEED: D2D1_SHADOW_OPTIMIZATION = D2D1_SHADOW_OPTIMIZATION(0u32);
@@ -6145,7 +6145,7 @@ impl ::core::fmt::Debug for D2D1_SHADOW_OPTIMIZATION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SHADOW_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SHADOW_PROP_BLUR_STANDARD_DEVIATION: D2D1_SHADOW_PROP = D2D1_SHADOW_PROP(0u32);
@@ -6176,7 +6176,7 @@ impl ::core::fmt::Debug for D2D1_SHADOW_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SHARPEN_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SHARPEN_PROP_SHARPNESS: D2D1_SHARPEN_PROP = D2D1_SHARPEN_PROP(0u32);
@@ -6247,7 +6247,7 @@ impl ::core::default::Default for D2D1_SIMPLE_COLOR_PROFILE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SPOTDIFFUSE_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SPOTDIFFUSE_PROP_LIGHT_POSITION: D2D1_SPOTDIFFUSE_PROP = D2D1_SPOTDIFFUSE_PROP(0u32);
@@ -6290,7 +6290,7 @@ impl ::core::fmt::Debug for D2D1_SPOTDIFFUSE_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SPOTDIFFUSE_SCALE_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SPOTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_SPOTDIFFUSE_SCALE_MODE = D2D1_SPOTDIFFUSE_SCALE_MODE(0u32);
@@ -6327,7 +6327,7 @@ impl ::core::fmt::Debug for D2D1_SPOTDIFFUSE_SCALE_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SPOTSPECULAR_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SPOTSPECULAR_PROP_LIGHT_POSITION: D2D1_SPOTSPECULAR_PROP = D2D1_SPOTSPECULAR_PROP(0u32);
@@ -6372,7 +6372,7 @@ impl ::core::fmt::Debug for D2D1_SPOTSPECULAR_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SPOTSPECULAR_SCALE_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SPOTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_SPOTSPECULAR_SCALE_MODE = D2D1_SPOTSPECULAR_SCALE_MODE(0u32);
@@ -6409,7 +6409,7 @@ impl ::core::fmt::Debug for D2D1_SPOTSPECULAR_SCALE_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SPRITE_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SPRITE_OPTIONS_NONE: D2D1_SPRITE_OPTIONS = D2D1_SPRITE_OPTIONS(0u32);
@@ -6466,7 +6466,7 @@ impl ::core::ops::Not for D2D1_SPRITE_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_STRAIGHTEN_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_STRAIGHTEN_PROP_ANGLE: D2D1_STRAIGHTEN_PROP = D2D1_STRAIGHTEN_PROP(0u32);
@@ -6497,7 +6497,7 @@ impl ::core::fmt::Debug for D2D1_STRAIGHTEN_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_STRAIGHTEN_SCALE_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_STRAIGHTEN_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_STRAIGHTEN_SCALE_MODE = D2D1_STRAIGHTEN_SCALE_MODE(0u32);
@@ -6605,7 +6605,7 @@ impl ::core::default::Default for D2D1_STROKE_STYLE_PROPERTIES1 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_STROKE_TRANSFORM_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_STROKE_TRANSFORM_TYPE_NORMAL: D2D1_STROKE_TRANSFORM_TYPE = D2D1_STROKE_TRANSFORM_TYPE(0u32);
@@ -6636,7 +6636,7 @@ impl ::core::fmt::Debug for D2D1_STROKE_TRANSFORM_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SUBPROPERTY(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SUBPROPERTY_DISPLAYNAME: D2D1_SUBPROPERTY = D2D1_SUBPROPERTY(2147483648u32);
@@ -6675,7 +6675,7 @@ impl ::core::fmt::Debug for D2D1_SUBPROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SVG_ASPECT_ALIGN(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SVG_ASPECT_ALIGN_NONE: D2D1_SVG_ASPECT_ALIGN = D2D1_SVG_ASPECT_ALIGN(0u32);
@@ -6720,7 +6720,7 @@ impl ::core::fmt::Debug for D2D1_SVG_ASPECT_ALIGN {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SVG_ASPECT_SCALING(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SVG_ASPECT_SCALING_MEET: D2D1_SVG_ASPECT_SCALING = D2D1_SVG_ASPECT_SCALING(0u32);
@@ -6749,7 +6749,7 @@ impl ::core::fmt::Debug for D2D1_SVG_ASPECT_SCALING {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SVG_ATTRIBUTE_POD_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_FLOAT: D2D1_SVG_ATTRIBUTE_POD_TYPE = D2D1_SVG_ATTRIBUTE_POD_TYPE(0u32);
@@ -6802,7 +6802,7 @@ impl ::core::fmt::Debug for D2D1_SVG_ATTRIBUTE_POD_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SVG_ATTRIBUTE_STRING_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SVG_ATTRIBUTE_STRING_TYPE_SVG: D2D1_SVG_ATTRIBUTE_STRING_TYPE = D2D1_SVG_ATTRIBUTE_STRING_TYPE(0u32);
@@ -6831,7 +6831,7 @@ impl ::core::fmt::Debug for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SVG_DISPLAY(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SVG_DISPLAY_INLINE: D2D1_SVG_DISPLAY = D2D1_SVG_DISPLAY(0u32);
@@ -6891,7 +6891,7 @@ impl ::core::default::Default for D2D1_SVG_LENGTH {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SVG_LENGTH_UNITS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SVG_LENGTH_UNITS_NUMBER: D2D1_SVG_LENGTH_UNITS = D2D1_SVG_LENGTH_UNITS(0u32);
@@ -6920,7 +6920,7 @@ impl ::core::fmt::Debug for D2D1_SVG_LENGTH_UNITS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SVG_LINE_CAP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SVG_LINE_CAP_BUTT: D2D1_SVG_LINE_CAP = D2D1_SVG_LINE_CAP(0u32);
@@ -6951,7 +6951,7 @@ impl ::core::fmt::Debug for D2D1_SVG_LINE_CAP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SVG_LINE_JOIN(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SVG_LINE_JOIN_BEVEL: D2D1_SVG_LINE_JOIN = D2D1_SVG_LINE_JOIN(1u32);
@@ -6982,7 +6982,7 @@ impl ::core::fmt::Debug for D2D1_SVG_LINE_JOIN {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SVG_OVERFLOW(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SVG_OVERFLOW_VISIBLE: D2D1_SVG_OVERFLOW = D2D1_SVG_OVERFLOW(0u32);
@@ -7011,7 +7011,7 @@ impl ::core::fmt::Debug for D2D1_SVG_OVERFLOW {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SVG_PAINT_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SVG_PAINT_TYPE_NONE: D2D1_SVG_PAINT_TYPE = D2D1_SVG_PAINT_TYPE(0u32);
@@ -7050,7 +7050,7 @@ impl ::core::fmt::Debug for D2D1_SVG_PAINT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SVG_PATH_COMMAND(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SVG_PATH_COMMAND_CLOSE_PATH: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(0u32);
@@ -7153,7 +7153,7 @@ impl ::core::default::Default for D2D1_SVG_PRESERVE_ASPECT_RATIO {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SVG_UNIT_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SVG_UNIT_TYPE_USER_SPACE_ON_USE: D2D1_SVG_UNIT_TYPE = D2D1_SVG_UNIT_TYPE(0u32);
@@ -7215,7 +7215,7 @@ impl ::core::default::Default for D2D1_SVG_VIEWBOX {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SVG_VISIBILITY(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SVG_VISIBILITY_VISIBLE: D2D1_SVG_VISIBILITY = D2D1_SVG_VISIBILITY(0u32);
@@ -7244,7 +7244,7 @@ impl ::core::fmt::Debug for D2D1_SVG_VISIBILITY {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_SWEEP_DIRECTION(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_SWEEP_DIRECTION_COUNTER_CLOCKWISE: D2D1_SWEEP_DIRECTION = D2D1_SWEEP_DIRECTION(0u32);
@@ -7273,7 +7273,7 @@ impl ::core::fmt::Debug for D2D1_SWEEP_DIRECTION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_TABLETRANSFER_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_TABLETRANSFER_PROP_RED_TABLE: D2D1_TABLETRANSFER_PROP = D2D1_TABLETRANSFER_PROP(0u32);
@@ -7316,7 +7316,7 @@ impl ::core::fmt::Debug for D2D1_TABLETRANSFER_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_TEMPERATUREANDTINT_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_TEMPERATUREANDTINT_PROP_TEMPERATURE: D2D1_TEMPERATUREANDTINT_PROP = D2D1_TEMPERATUREANDTINT_PROP(0u32);
@@ -7345,7 +7345,7 @@ impl ::core::fmt::Debug for D2D1_TEMPERATUREANDTINT_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_TEXT_ANTIALIAS_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_TEXT_ANTIALIAS_MODE_DEFAULT: D2D1_TEXT_ANTIALIAS_MODE = D2D1_TEXT_ANTIALIAS_MODE(0u32);
@@ -7378,7 +7378,7 @@ impl ::core::fmt::Debug for D2D1_TEXT_ANTIALIAS_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_THREADING_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_THREADING_MODE_SINGLE_THREADED: D2D1_THREADING_MODE = D2D1_THREADING_MODE(0u32);
@@ -7407,7 +7407,7 @@ impl ::core::fmt::Debug for D2D1_THREADING_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_TILE_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_TILE_PROP_RECT: D2D1_TILE_PROP = D2D1_TILE_PROP(0u32);
@@ -7434,7 +7434,7 @@ impl ::core::fmt::Debug for D2D1_TILE_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_TINT_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_TINT_PROP_COLOR: D2D1_TINT_PROP = D2D1_TINT_PROP(0u32);
@@ -7463,7 +7463,7 @@ impl ::core::fmt::Debug for D2D1_TINT_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_NONE: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS = D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS(0u32);
@@ -7594,7 +7594,7 @@ impl ::core::default::Default for D2D1_TRIANGLE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_TURBULENCE_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_TURBULENCE_PROP_OFFSET: D2D1_TURBULENCE_PROP = D2D1_TURBULENCE_PROP(0u32);
@@ -7633,7 +7633,7 @@ impl ::core::fmt::Debug for D2D1_TURBULENCE_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_UNIT_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_UNIT_MODE_DIPS: D2D1_UNIT_MODE = D2D1_UNIT_MODE(0u32);
@@ -7695,7 +7695,7 @@ impl ::core::default::Default for D2D1_VERTEX_BUFFER_PROPERTIES {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_VERTEX_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_VERTEX_OPTIONS_NONE: D2D1_VERTEX_OPTIONS = D2D1_VERTEX_OPTIONS(0u32);
@@ -7787,7 +7787,7 @@ impl ::core::default::Default for D2D1_VERTEX_RANGE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_VERTEX_USAGE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_VERTEX_USAGE_STATIC: D2D1_VERTEX_USAGE = D2D1_VERTEX_USAGE(0u32);
@@ -7816,7 +7816,7 @@ impl ::core::fmt::Debug for D2D1_VERTEX_USAGE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_VIGNETTE_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_VIGNETTE_PROP_COLOR: D2D1_VIGNETTE_PROP = D2D1_VIGNETTE_PROP(0u32);
@@ -7847,7 +7847,7 @@ impl ::core::fmt::Debug for D2D1_VIGNETTE_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_WHITELEVELADJUSTMENT_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_WHITELEVELADJUSTMENT_PROP_INPUT_WHITE_LEVEL: D2D1_WHITELEVELADJUSTMENT_PROP = D2D1_WHITELEVELADJUSTMENT_PROP(0u32);
@@ -7876,7 +7876,7 @@ impl ::core::fmt::Debug for D2D1_WHITELEVELADJUSTMENT_PROP {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_WINDOW_STATE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_WINDOW_STATE_NONE: D2D1_WINDOW_STATE = D2D1_WINDOW_STATE(0u32);
@@ -7933,7 +7933,7 @@ impl ::core::ops::Not for D2D1_WINDOW_STATE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_YCBCR_CHROMA_SUBSAMPLING(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_YCBCR_CHROMA_SUBSAMPLING_AUTO: D2D1_YCBCR_CHROMA_SUBSAMPLING = D2D1_YCBCR_CHROMA_SUBSAMPLING(0u32);
@@ -7968,7 +7968,7 @@ impl ::core::fmt::Debug for D2D1_YCBCR_CHROMA_SUBSAMPLING {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_YCBCR_INTERPOLATION_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_YCBCR_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_YCBCR_INTERPOLATION_MODE = D2D1_YCBCR_INTERPOLATION_MODE(0u32);
@@ -8005,7 +8005,7 @@ impl ::core::fmt::Debug for D2D1_YCBCR_INTERPOLATION_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_YCBCR_PROP(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub const D2D1_YCBCR_PROP_CHROMA_SUBSAMPLING: D2D1_YCBCR_PROP = D2D1_YCBCR_PROP(0u32);

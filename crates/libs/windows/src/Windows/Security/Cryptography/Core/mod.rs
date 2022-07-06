@@ -321,7 +321,7 @@ unsafe impl ::core::marker::Send for AsymmetricKeyAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for AsymmetricKeyAlgorithmProvider {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Capi1KdfTargetAlgorithm(pub i32);
 impl Capi1KdfTargetAlgorithm {
     pub const NotAes: Self = Self(0i32);
@@ -681,7 +681,7 @@ unsafe impl ::core::marker::Send for CryptographicKey {}
 unsafe impl ::core::marker::Sync for CryptographicKey {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CryptographicPadding(pub i32);
 impl CryptographicPadding {
     pub const None: Self = Self(0i32);
@@ -717,7 +717,7 @@ unsafe impl ::windows::core::RuntimeType for CryptographicPadding {
 }
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CryptographicPrivateKeyBlobType(pub i32);
 impl CryptographicPrivateKeyBlobType {
     pub const Pkcs8RawPrivateKeyInfo: Self = Self(0i32);
@@ -754,7 +754,7 @@ unsafe impl ::windows::core::RuntimeType for CryptographicPrivateKeyBlobType {
 }
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CryptographicPublicKeyBlobType(pub i32);
 impl CryptographicPublicKeyBlobType {
     pub const X509SubjectPublicKeyInfo: Self = Self(0i32);

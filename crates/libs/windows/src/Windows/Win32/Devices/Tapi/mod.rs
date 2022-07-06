@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACDGROUP_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const ACDGE_NEW_GROUP: ACDGROUP_EVENT = ACDGROUP_EVENT(0i32);
@@ -27,7 +27,7 @@ impl ::core::fmt::Debug for ACDGROUP_EVENT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACDQUEUE_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const ACDQE_NEW_QUEUE: ACDQUEUE_EVENT = ACDQUEUE_EVENT(0i32);
@@ -54,7 +54,7 @@ impl ::core::fmt::Debug for ACDQUEUE_EVENT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ADDRESS_CAPABILITY(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const AC_ADDRESSTYPES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(0i32);
@@ -173,7 +173,7 @@ impl ::core::fmt::Debug for ADDRESS_CAPABILITY {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ADDRESS_CAPABILITY_STRING(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const ACS_PROTOCOL: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(0i32);
@@ -208,7 +208,7 @@ impl ::core::fmt::Debug for ADDRESS_CAPABILITY_STRING {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ADDRESS_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const AE_STATE: ADDRESS_EVENT = ADDRESS_EVENT(0i32);
@@ -251,7 +251,7 @@ impl ::core::fmt::Debug for ADDRESS_EVENT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ADDRESS_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const AS_INSERVICE: ADDRESS_STATE = ADDRESS_STATE(0i32);
@@ -278,7 +278,7 @@ impl ::core::fmt::Debug for ADDRESS_STATE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AGENTHANDLER_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const AHE_NEW_AGENTHANDLER: AGENTHANDLER_EVENT = AGENTHANDLER_EVENT(0i32);
@@ -305,7 +305,7 @@ impl ::core::fmt::Debug for AGENTHANDLER_EVENT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AGENT_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const AE_NOT_READY: AGENT_EVENT = AGENT_EVENT(0i32);
@@ -340,7 +340,7 @@ impl ::core::fmt::Debug for AGENT_EVENT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AGENT_SESSION_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const ASE_NEW_SESSION: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(0i32);
@@ -375,7 +375,7 @@ impl ::core::fmt::Debug for AGENT_SESSION_EVENT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AGENT_SESSION_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const ASST_NOT_READY: AGENT_SESSION_STATE = AGENT_SESSION_STATE(0i32);
@@ -408,7 +408,7 @@ impl ::core::fmt::Debug for AGENT_SESSION_STATE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AGENT_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const AS_NOT_READY: AGENT_STATE = AGENT_STATE(0i32);
@@ -445,7 +445,7 @@ impl ::core::fmt::Debug for AGENT_STATE {
 pub type ASYNC_COMPLETION = ::core::option::Option<unsafe extern "system" fn(dwrequestid: u32, lresult: i32)>;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLHUB_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const CHE_CALLJOIN: CALLHUB_EVENT = CALLHUB_EVENT(0i32);
@@ -478,7 +478,7 @@ impl ::core::fmt::Debug for CALLHUB_EVENT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLHUB_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const CHS_ACTIVE: CALLHUB_STATE = CALLHUB_STATE(0i32);
@@ -505,7 +505,7 @@ impl ::core::fmt::Debug for CALLHUB_STATE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLINFOCHANGE_CAUSE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const CIC_OTHER: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(0i32);
@@ -584,7 +584,7 @@ impl ::core::fmt::Debug for CALLINFOCHANGE_CAUSE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLINFO_BUFFER(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const CIB_USERUSERINFO: CALLINFO_BUFFER = CALLINFO_BUFFER(0i32);
@@ -619,7 +619,7 @@ impl ::core::fmt::Debug for CALLINFO_BUFFER {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLINFO_LONG(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const CIL_MEDIATYPESAVAILABLE: CALLINFO_LONG = CALLINFO_LONG(0i32);
@@ -692,7 +692,7 @@ impl ::core::fmt::Debug for CALLINFO_LONG {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLINFO_STRING(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const CIS_CALLERIDNAME: CALLINFO_STRING = CALLINFO_STRING(0i32);
@@ -743,7 +743,7 @@ impl ::core::fmt::Debug for CALLINFO_STRING {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALL_MEDIA_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const CME_NEW_STREAM: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(0i32);
@@ -780,7 +780,7 @@ impl ::core::fmt::Debug for CALL_MEDIA_EVENT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALL_MEDIA_EVENT_CAUSE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const CMC_UNKNOWN: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(0i32);
@@ -819,7 +819,7 @@ impl ::core::fmt::Debug for CALL_MEDIA_EVENT_CAUSE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALL_NOTIFICATION_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const CNE_OWNER: CALL_NOTIFICATION_EVENT = CALL_NOTIFICATION_EVENT(0i32);
@@ -848,7 +848,7 @@ impl ::core::fmt::Debug for CALL_NOTIFICATION_EVENT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALL_PRIVILEGE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const CP_OWNER: CALL_PRIVILEGE = CALL_PRIVILEGE(0i32);
@@ -875,7 +875,7 @@ impl ::core::fmt::Debug for CALL_PRIVILEGE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALL_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const CS_IDLE: CALL_STATE = CALL_STATE(0i32);
@@ -914,7 +914,7 @@ impl ::core::fmt::Debug for CALL_STATE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALL_STATE_EVENT_CAUSE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const CEC_NONE: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(0i32);
@@ -955,7 +955,7 @@ impl ::core::fmt::Debug for CALL_STATE_EVENT_CAUSE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTORY_OBJECT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const OT_CONFERENCE: DIRECTORY_OBJECT_TYPE = DIRECTORY_OBJECT_TYPE(1i32);
@@ -982,7 +982,7 @@ impl ::core::fmt::Debug for DIRECTORY_OBJECT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTORY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const DT_NTDS: DIRECTORY_TYPE = DIRECTORY_TYPE(1i32);
@@ -1009,7 +1009,7 @@ impl ::core::fmt::Debug for DIRECTORY_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISCONNECT_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const DC_NORMAL: DISCONNECT_CODE = DISCONNECT_CODE(0i32);
@@ -1041,7 +1041,7 @@ pub const DISPIDMASK: u32 = 65535u32;
 pub const DispatchMapper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9225296_c759_11d1_a02b_00c04fb6809f);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FINISH_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const FM_ASTRANSFER: FINISH_MODE = FINISH_MODE(0i32);
@@ -1068,7 +1068,7 @@ impl ::core::fmt::Debug for FINISH_MODE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FT_STATE_EVENT_CAUSE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const FTEC_NORMAL: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(0i32);
@@ -1099,7 +1099,7 @@ impl ::core::fmt::Debug for FT_STATE_EVENT_CAUSE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FULLDUPLEX_SUPPORT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const FDS_SUPPORTED: FULLDUPLEX_SUPPORT = FULLDUPLEX_SUPPORT(0i32);
@@ -20071,7 +20071,7 @@ pub type LPOPENTNEFSTREAM = ::core::option::Option<unsafe extern "system" fn(lpv
 pub type LPOPENTNEFSTREAMEX = ::core::option::Option<unsafe extern "system" fn(lpvsupport: *mut ::core::ffi::c_void, lpstream: ::core::option::Option<super::super::System::Com::IStream>, lpszstreamname: *const i8, ulflags: u32, lpmessage: ::core::option::Option<super::super::System::AddressBook::IMessage>, wkeyval: u16, lpadressbook: ::core::option::Option<super::super::System::AddressBook::IAddrBook>, lpptnef: *mut ::core::option::Option<ITnef>) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSP_ADDRESS_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const ADDRESS_TERMINAL_AVAILABLE: MSP_ADDRESS_EVENT = MSP_ADDRESS_EVENT(0i32);
@@ -20098,7 +20098,7 @@ impl ::core::fmt::Debug for MSP_ADDRESS_EVENT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSP_CALL_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const CALL_NEW_STREAM: MSP_CALL_EVENT = MSP_CALL_EVENT(0i32);
@@ -20133,7 +20133,7 @@ impl ::core::fmt::Debug for MSP_CALL_EVENT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSP_CALL_EVENT_CAUSE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const CALL_CAUSE_UNKNOWN: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(0i32);
@@ -20172,7 +20172,7 @@ impl ::core::fmt::Debug for MSP_CALL_EVENT_CAUSE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSP_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const ME_ADDRESS_EVENT: MSP_EVENT = MSP_EVENT(0i32);
@@ -20907,7 +20907,7 @@ impl ::core::default::Default for PHONECAPS {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONECAPS_BUFFER(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const PCB_DEVSPECIFICBUFFER: PHONECAPS_BUFFER = PHONECAPS_BUFFER(0i32);
@@ -20932,7 +20932,7 @@ impl ::core::fmt::Debug for PHONECAPS_BUFFER {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONECAPS_LONG(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const PCL_HOOKSWITCHES: PHONECAPS_LONG = PHONECAPS_LONG(0i32);
@@ -20973,7 +20973,7 @@ impl ::core::fmt::Debug for PHONECAPS_LONG {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONECAPS_STRING(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const PCS_PHONENAME: PHONECAPS_STRING = PHONECAPS_STRING(0i32);
@@ -21408,7 +21408,7 @@ pub const PHONESTATUSFLAGS_SUSPENDED: u32 = 2u32;
 pub const PHONE_BUTTON: i32 = 14i32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONE_BUTTON_FUNCTION(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const PBF_UNKNOWN: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(0i32);
@@ -21527,7 +21527,7 @@ impl ::core::fmt::Debug for PHONE_BUTTON_FUNCTION {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONE_BUTTON_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const PBM_DUMMY: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(0i32);
@@ -21562,7 +21562,7 @@ impl ::core::fmt::Debug for PHONE_BUTTON_MODE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONE_BUTTON_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const PBS_UP: PHONE_BUTTON_STATE = PHONE_BUTTON_STATE(1i32);
@@ -21599,7 +21599,7 @@ pub const PHONE_CREATE: i32 = 20i32;
 pub const PHONE_DEVSPECIFIC: i32 = 16i32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONE_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const PE_DISPLAY: PHONE_EVENT = PHONE_EVENT(0i32);
@@ -21648,7 +21648,7 @@ impl ::core::fmt::Debug for PHONE_EVENT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONE_HOOK_SWITCH_DEVICE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const PHSD_HANDSET: PHONE_HOOK_SWITCH_DEVICE = PHONE_HOOK_SWITCH_DEVICE(1i32);
@@ -21677,7 +21677,7 @@ impl ::core::fmt::Debug for PHONE_HOOK_SWITCH_DEVICE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONE_HOOK_SWITCH_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const PHSS_ONHOOK: PHONE_HOOK_SWITCH_STATE = PHONE_HOOK_SWITCH_STATE(1i32);
@@ -21708,7 +21708,7 @@ impl ::core::fmt::Debug for PHONE_HOOK_SWITCH_STATE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONE_LAMP_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const LM_DUMMY: PHONE_LAMP_MODE = PHONE_LAMP_MODE(1i32);
@@ -21747,7 +21747,7 @@ impl ::core::fmt::Debug for PHONE_LAMP_MODE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONE_PRIVILEGE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const PP_OWNER: PHONE_PRIVILEGE = PHONE_PRIVILEGE(0i32);
@@ -21780,7 +21780,7 @@ pub const PHONE_REPLY: i32 = 17i32;
 pub const PHONE_STATE: i32 = 18i32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONE_TONE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const PT_KEYPADZERO: PHONE_TONE = PHONE_TONE(0i32);
@@ -21859,7 +21859,7 @@ pub const PRIVATEOBJECT_NONE: u32 = 1u32;
 pub const PRIVATEOBJECT_PHONE: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QOS_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const QE_NOQOS: QOS_EVENT = QOS_EVENT(1i32);
@@ -21892,7 +21892,7 @@ impl ::core::fmt::Debug for QOS_EVENT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QOS_SERVICE_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const QSL_NEEDED: QOS_SERVICE_LEVEL = QOS_SERVICE_LEVEL(1i32);
@@ -21931,7 +21931,7 @@ pub const RENDBIND_DEFAULTPASSWORD: u32 = 8u32;
 pub const RENDBIND_DEFAULTUSERNAME: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RND_ADVERTISING_SCOPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const RAS_LOCAL: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(1i32);
@@ -22119,7 +22119,7 @@ pub const TAPIMEDIATYPE_MULTITRACK: u32 = 65536u32;
 pub const TAPIMEDIATYPE_VIDEO: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPIOBJECT_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const TE_ADDRESSCREATE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(0i32);
@@ -22225,7 +22225,7 @@ impl ::core::default::Default for TAPI_DETECTTONE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPI_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const TE_TAPIOBJECT: TAPI_EVENT = TAPI_EVENT(1i32);
@@ -22480,7 +22480,7 @@ pub const TAPI_E_WRONGEVENT: ::windows::core::HRESULT = ::windows::core::HRESULT
 pub const TAPI_E_WRONG_STATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221416i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPI_GATHERTERM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const TGT_BUFFERFULL: TAPI_GATHERTERM = TAPI_GATHERTERM(1i32);
@@ -22513,7 +22513,7 @@ impl ::core::fmt::Debug for TAPI_GATHERTERM {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPI_OBJECT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const TOT_NONE: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(0i32);
@@ -22552,7 +22552,7 @@ impl ::core::fmt::Debug for TAPI_OBJECT_TYPE {
 pub const TAPI_REPLY: u32 = 1123u32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPI_TONEMODE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const TTM_RINGBACK: TAPI_TONEMODE = TAPI_TONEMODE(2i32);
@@ -22583,7 +22583,7 @@ impl ::core::fmt::Debug for TAPI_TONEMODE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TERMINAL_DIRECTION(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const TD_CAPTURE: TERMINAL_DIRECTION = TERMINAL_DIRECTION(0i32);
@@ -22616,7 +22616,7 @@ impl ::core::fmt::Debug for TERMINAL_DIRECTION {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TERMINAL_MEDIA_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const TMS_IDLE: TERMINAL_MEDIA_STATE = TERMINAL_MEDIA_STATE(0i32);
@@ -22647,7 +22647,7 @@ impl ::core::fmt::Debug for TERMINAL_MEDIA_STATE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TERMINAL_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const TS_INUSE: TERMINAL_STATE = TERMINAL_STATE(0i32);
@@ -22674,7 +22674,7 @@ impl ::core::fmt::Debug for TERMINAL_STATE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TERMINAL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const TT_STATIC: TERMINAL_TYPE = TERMINAL_TYPE(0i32);

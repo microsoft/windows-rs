@@ -1128,7 +1128,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Popups::IUICommand> for &Settings
 #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SettingsEdgeLocation(pub i32);
 #[cfg(feature = "deprecated")]
 impl SettingsEdgeLocation {
@@ -1505,7 +1505,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 #[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SupportedWebAccountActions(pub u32);
 impl SupportedWebAccountActions {
     pub const None: Self = Self(0u32);
@@ -1571,7 +1571,7 @@ unsafe impl ::windows::core::RuntimeType for SupportedWebAccountActions {
 }
 #[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WebAccountAction(pub i32);
 impl WebAccountAction {
     pub const Reconnect: Self = Self(0i32);

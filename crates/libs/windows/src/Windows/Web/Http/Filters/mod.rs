@@ -453,7 +453,7 @@ unsafe impl ::core::marker::Send for HttpCacheControl {}
 unsafe impl ::core::marker::Sync for HttpCacheControl {}
 #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HttpCacheReadBehavior(pub i32);
 impl HttpCacheReadBehavior {
     pub const Default: Self = Self(0i32);
@@ -489,7 +489,7 @@ unsafe impl ::windows::core::RuntimeType for HttpCacheReadBehavior {
 }
 #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HttpCacheWriteBehavior(pub i32);
 impl HttpCacheWriteBehavior {
     pub const Default: Self = Self(0i32);
@@ -523,7 +523,7 @@ unsafe impl ::windows::core::RuntimeType for HttpCacheWriteBehavior {
 }
 #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HttpCookieUsageBehavior(pub i32);
 impl HttpCookieUsageBehavior {
     pub const Default: Self = Self(0i32);

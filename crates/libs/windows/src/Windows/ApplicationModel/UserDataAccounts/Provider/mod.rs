@@ -377,7 +377,7 @@ unsafe impl ::core::marker::Send for UserDataAccountProviderAddAccountOperation 
 unsafe impl ::core::marker::Sync for UserDataAccountProviderAddAccountOperation {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserDataAccountProviderOperationKind(pub i32);
 impl UserDataAccountProviderOperationKind {
     pub const AddAccount: Self = Self(0i32);
@@ -412,7 +412,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountProviderOperationKin
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserDataAccountProviderPartnerAccountKind(pub i32);
 impl UserDataAccountProviderPartnerAccountKind {
     pub const Exchange: Self = Self(0i32);

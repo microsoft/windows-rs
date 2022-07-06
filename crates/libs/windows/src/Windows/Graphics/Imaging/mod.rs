@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BitmapAlphaMode(pub i32);
 impl BitmapAlphaMode {
     pub const Premultiplied: Self = Self(0i32);
@@ -235,7 +235,7 @@ unsafe impl ::core::marker::Send for BitmapBuffer {}
 unsafe impl ::core::marker::Sync for BitmapBuffer {}
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BitmapBufferAccessMode(pub i32);
 impl BitmapBufferAccessMode {
     pub const Read: Self = Self(0i32);
@@ -1051,7 +1051,7 @@ unsafe impl ::core::marker::Send for BitmapEncoder {}
 unsafe impl ::core::marker::Sync for BitmapEncoder {}
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BitmapFlip(pub i32);
 impl BitmapFlip {
     pub const None: Self = Self(0i32);
@@ -1333,7 +1333,7 @@ unsafe impl ::core::marker::Send for BitmapFrame {}
 unsafe impl ::core::marker::Sync for BitmapFrame {}
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BitmapInterpolationMode(pub i32);
 impl BitmapInterpolationMode {
     pub const NearestNeighbor: Self = Self(0i32);
@@ -1369,7 +1369,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapInterpolationMode {
 }
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BitmapPixelFormat(pub i32);
 impl BitmapPixelFormat {
     pub const Unknown: Self = Self(0i32);
@@ -1912,7 +1912,7 @@ unsafe impl ::core::marker::Send for BitmapPropertySet {}
 unsafe impl ::core::marker::Sync for BitmapPropertySet {}
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BitmapRotation(pub i32);
 impl BitmapRotation {
     pub const None: Self = Self(0i32);
@@ -2255,7 +2255,7 @@ unsafe impl ::core::marker::Send for BitmapTypedValue {}
 unsafe impl ::core::marker::Sync for BitmapTypedValue {}
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ColorManagementMode(pub i32);
 impl ColorManagementMode {
     pub const DoNotColorManage: Self = Self(0i32);
@@ -2289,7 +2289,7 @@ unsafe impl ::windows::core::RuntimeType for ColorManagementMode {
 }
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ExifOrientationMode(pub i32);
 impl ExifOrientationMode {
     pub const IgnoreExifOrientation: Self = Self(0i32);
@@ -3582,7 +3582,7 @@ unsafe impl ::core::marker::Send for ImageStream {}
 unsafe impl ::core::marker::Sync for ImageStream {}
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JpegSubsamplingMode(pub i32);
 impl JpegSubsamplingMode {
     pub const Default: Self = Self(0i32);
@@ -3703,7 +3703,7 @@ unsafe impl ::core::marker::Send for PixelDataProvider {}
 unsafe impl ::core::marker::Sync for PixelDataProvider {}
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PngFilterMode(pub i32);
 impl PngFilterMode {
     pub const Automatic: Self = Self(0i32);
@@ -4027,7 +4027,7 @@ unsafe impl ::core::marker::Send for SoftwareBitmap {}
 unsafe impl ::core::marker::Sync for SoftwareBitmap {}
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TiffCompressionMode(pub i32);
 impl TiffCompressionMode {
     pub const Automatic: Self = Self(0i32);

@@ -134,7 +134,7 @@ impl ::core::default::Default for SAFER_CODE_PROPERTIES_V2 {
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SAFER_TOKEN_NULL_IF_EQUAL: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(1u32);
@@ -334,7 +334,7 @@ impl ::core::default::Default for SAFER_IDENTIFICATION_HEADER {
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SAFER_IDENTIFICATION_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferIdentityDefault: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(0i32);
@@ -385,7 +385,7 @@ pub const SAFER_MAX_FRIENDLYNAME_SIZE: u32 = 256u32;
 pub const SAFER_MAX_HASH_SIZE: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SAFER_OBJECT_INFO_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferObjectLevelId: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(1i32);
@@ -485,7 +485,7 @@ pub const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192u32;
 pub const SAFER_POLICY_HASH_DUPLICATE: u32 = 262144u32;
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SAFER_POLICY_INFO_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
 pub const SaferPolicyLevelList: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(1i32);

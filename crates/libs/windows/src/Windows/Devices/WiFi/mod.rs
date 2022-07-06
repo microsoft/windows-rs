@@ -169,7 +169,7 @@ pub struct IWiFiWpsConfigurationResult_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WiFiAccessStatus(pub i32);
 impl WiFiAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -577,7 +577,7 @@ unsafe impl ::core::marker::Send for WiFiAvailableNetwork {}
 unsafe impl ::core::marker::Sync for WiFiAvailableNetwork {}
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WiFiConnectionMethod(pub i32);
 impl WiFiConnectionMethod {
     pub const Default: Self = Self(0i32);
@@ -697,7 +697,7 @@ unsafe impl ::core::marker::Send for WiFiConnectionResult {}
 unsafe impl ::core::marker::Sync for WiFiConnectionResult {}
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WiFiConnectionStatus(pub i32);
 impl WiFiConnectionStatus {
     pub const UnspecifiedFailure: Self = Self(0i32);
@@ -736,7 +736,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiConnectionStatus {
 }
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WiFiNetworkKind(pub i32);
 impl WiFiNetworkKind {
     pub const Any: Self = Self(0i32);
@@ -866,7 +866,7 @@ unsafe impl ::core::marker::Send for WiFiNetworkReport {}
 unsafe impl ::core::marker::Sync for WiFiNetworkReport {}
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WiFiPhyKind(pub i32);
 impl WiFiPhyKind {
     pub const Unknown: Self = Self(0i32);
@@ -909,7 +909,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiPhyKind {
 }
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WiFiReconnectionKind(pub i32);
 impl WiFiReconnectionKind {
     pub const Automatic: Self = Self(0i32);
@@ -1037,7 +1037,7 @@ unsafe impl ::core::marker::Send for WiFiWpsConfigurationResult {}
 unsafe impl ::core::marker::Sync for WiFiWpsConfigurationResult {}
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WiFiWpsConfigurationStatus(pub i32);
 impl WiFiWpsConfigurationStatus {
     pub const UnspecifiedFailure: Self = Self(0i32);
@@ -1072,7 +1072,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiWpsConfigurationStatus {
 }
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WiFiWpsKind(pub i32);
 impl WiFiWpsKind {
     pub const Unknown: Self = Self(0i32);

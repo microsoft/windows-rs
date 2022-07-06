@@ -6312,7 +6312,7 @@ pub const WMDMID_LENGTH: u32 = 128u32;
 pub const WMDMLogger: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x110a3202_5a79_11d3_8d78_444553540000);
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMDMMessage(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_MSG_DEVICE_ARRIVAL: WMDMMessage = WMDMMessage(0i32);
@@ -6465,7 +6465,7 @@ pub const WMDM_DEVICE_TYPE_VIEW_PREF_METADATAVIEW: u32 = 1024u32;
 pub const WMDM_DEVICE_TYPE_VIRTUAL: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMDM_ENUM_PROP_VALID_VALUES_FORM(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_ENUM_PROP_VALID_VALUES_ANY: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(0i32);
@@ -6570,7 +6570,7 @@ pub const WMDM_FILE_ATTR_VIDEO: u32 = 64u32;
 pub const WMDM_FILE_CREATE_OVERWRITE: u32 = 1048576u32;
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMDM_FIND_SCOPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FIND_SCOPE_GLOBAL: WMDM_FIND_SCOPE = WMDM_FIND_SCOPE(0i32);
@@ -6597,7 +6597,7 @@ impl ::core::fmt::Debug for WMDM_FIND_SCOPE {
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMDM_FORMATCODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_FORMATCODE_NOTUSED: WMDM_FORMATCODE = WMDM_FORMATCODE(0i32);
@@ -7116,7 +7116,7 @@ pub const WMDM_SEEK_STREAMINGAUDIO: u32 = 2u32;
 pub const WMDM_SERVICE_PROVIDER_VENDOR_MICROSOFT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7de8686d_78ee_43ea_a496_c625ac91cc5d);
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMDM_SESSION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_SESSION_NONE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(0i32);
@@ -7225,7 +7225,7 @@ pub const WMDM_STORAGE_ATTR_VIRTUAL: u32 = 536870912u32;
 pub const WMDM_STORAGE_CONTAINS_DEFAULT: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMDM_STORAGE_ENUM_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const ENUM_MODE_RAW: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(0i32);
@@ -7260,7 +7260,7 @@ pub const WMDM_S_NOT_ALL_PROPERTIES_APPLIED: i32 = 282625i32;
 pub const WMDM_S_NOT_ALL_PROPERTIES_RETRIEVED: i32 = 282626i32;
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMDM_TAG_DATATYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 pub const WMDM_TYPE_DWORD: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(0i32);

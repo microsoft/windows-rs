@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BROADCAST_SYSTEM_MESSAGE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSF_ALLOWSFW: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(128u32);
@@ -73,7 +73,7 @@ impl ::core::ops::Not for BROADCAST_SYSTEM_MESSAGE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BROADCAST_SYSTEM_MESSAGE_INFO(pub u32);
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSM_ALLCOMPONENTS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(0u32);
@@ -392,7 +392,7 @@ pub unsafe fn GetUserObjectInformationW<'a, Param0: ::windows::core::IntoParam<'
     ::core::mem::transmute(GetUserObjectInformationW(hobj.into_param().abi(), ::core::mem::transmute(nindex), ::core::mem::transmute(pvinfo), ::core::mem::transmute(nlength), ::core::mem::transmute(lpnlengthneeded)))
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDESK(pub isize);
 impl HDESK {
     pub fn is_invalid(&self) -> bool {
@@ -419,7 +419,7 @@ unsafe impl ::windows::core::Abi for HDESK {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HWINSTA(pub isize);
 impl HWINSTA {
     pub fn is_invalid(&self) -> bool {
@@ -592,7 +592,7 @@ impl ::core::default::Default for USEROBJECTFLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USER_OBJECT_INFORMATION_INDEX(pub u32);
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const UOI_FLAGS: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(1u32);

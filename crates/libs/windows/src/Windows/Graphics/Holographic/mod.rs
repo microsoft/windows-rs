@@ -671,7 +671,7 @@ unsafe impl ::core::marker::Send for HolographicCameraViewportParameters {}
 unsafe impl ::core::marker::Sync for HolographicCameraViewportParameters {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HolographicDepthReprojectionMethod(pub i32);
 impl HolographicDepthReprojectionMethod {
     pub const DepthReprojection: Self = Self(0i32);
@@ -1154,7 +1154,7 @@ unsafe impl ::core::marker::Send for HolographicFramePrediction {}
 unsafe impl ::core::marker::Sync for HolographicFramePrediction {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HolographicFramePresentResult(pub i32);
 impl HolographicFramePresentResult {
     pub const Success: Self = Self(0i32);
@@ -1188,7 +1188,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicFramePresentResult {
 }
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HolographicFramePresentWaitBehavior(pub i32);
 impl HolographicFramePresentWaitBehavior {
     pub const WaitForFrameToFinish: Self = Self(0i32);
@@ -2138,7 +2138,7 @@ unsafe impl ::core::marker::Send for HolographicQuadLayerUpdateParameters {}
 unsafe impl ::core::marker::Sync for HolographicQuadLayerUpdateParameters {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HolographicReprojectionMode(pub i32);
 impl HolographicReprojectionMode {
     pub const PositionAndOrientation: Self = Self(0i32);
@@ -2589,7 +2589,7 @@ unsafe impl ::core::marker::Send for HolographicSpaceCameraRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for HolographicSpaceCameraRemovedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HolographicSpaceUserPresence(pub i32);
 impl HolographicSpaceUserPresence {
     pub const Absent: Self = Self(0i32);
@@ -2853,7 +2853,7 @@ unsafe impl ::core::marker::Send for HolographicViewConfiguration {}
 unsafe impl ::core::marker::Sync for HolographicViewConfiguration {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HolographicViewConfigurationKind(pub i32);
 impl HolographicViewConfigurationKind {
     pub const Display: Self = Self(0i32);

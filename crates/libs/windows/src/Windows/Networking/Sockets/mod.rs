@@ -256,7 +256,7 @@ unsafe impl ::core::marker::Send for ControlChannelTrigger {}
 unsafe impl ::core::marker::Sync for ControlChannelTrigger {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ControlChannelTriggerResetReason(pub i32);
 impl ControlChannelTriggerResetReason {
     pub const FastUserSwitched: Self = Self(0i32);
@@ -292,7 +292,7 @@ unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerResetReason {
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ControlChannelTriggerResourceType(pub i32);
 impl ControlChannelTriggerResourceType {
     pub const RequestSoftwareSlot: Self = Self(0i32);
@@ -326,7 +326,7 @@ unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerResourceType {
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ControlChannelTriggerStatus(pub i32);
 impl ControlChannelTriggerStatus {
     pub const HardwareSlotRequested: Self = Self(0i32);
@@ -3862,7 +3862,7 @@ unsafe impl ::core::marker::Send for MessageWebSocketMessageReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MessageWebSocketMessageReceivedEventArgs {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MessageWebSocketReceiveMode(pub i32);
 impl MessageWebSocketReceiveMode {
     pub const FullMessage: Self = Self(0i32);
@@ -4552,7 +4552,7 @@ unsafe impl ::core::marker::Send for ServerStreamWebSocketInformation {}
 unsafe impl ::core::marker::Sync for ServerStreamWebSocketInformation {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SocketActivityConnectedStandbyAction(pub i32);
 impl SocketActivityConnectedStandbyAction {
     pub const DoNotWake: Self = Self(0i32);
@@ -4831,7 +4831,7 @@ unsafe impl ::core::marker::Send for SocketActivityInformation {}
 unsafe impl ::core::marker::Sync for SocketActivityInformation {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SocketActivityKind(pub i32);
 impl SocketActivityKind {
     pub const None: Self = Self(0i32);
@@ -4960,7 +4960,7 @@ unsafe impl ::core::marker::Send for SocketActivityTriggerDetails {}
 unsafe impl ::core::marker::Sync for SocketActivityTriggerDetails {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SocketActivityTriggerReason(pub i32);
 impl SocketActivityTriggerReason {
     pub const None: Self = Self(0i32);
@@ -5016,7 +5016,7 @@ impl ::windows::core::RuntimeName for SocketError {
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SocketErrorStatus(pub i32);
 impl SocketErrorStatus {
     pub const Unknown: Self = Self(0i32);
@@ -5079,7 +5079,7 @@ unsafe impl ::windows::core::RuntimeType for SocketErrorStatus {
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SocketMessageType(pub i32);
 impl SocketMessageType {
     pub const Binary: Self = Self(0i32);
@@ -5113,7 +5113,7 @@ unsafe impl ::windows::core::RuntimeType for SocketMessageType {
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SocketProtectionLevel(pub i32);
 impl SocketProtectionLevel {
     pub const PlainSocket: Self = Self(0i32);
@@ -5155,7 +5155,7 @@ unsafe impl ::windows::core::RuntimeType for SocketProtectionLevel {
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SocketQualityOfService(pub i32);
 impl SocketQualityOfService {
     pub const Normal: Self = Self(0i32);
@@ -5189,7 +5189,7 @@ unsafe impl ::windows::core::RuntimeType for SocketQualityOfService {
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SocketSslErrorSeverity(pub i32);
 impl SocketSslErrorSeverity {
     pub const None: Self = Self(0i32);

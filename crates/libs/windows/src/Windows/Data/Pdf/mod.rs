@@ -746,7 +746,7 @@ unsafe impl ::core::marker::Send for PdfPageRenderOptions {}
 unsafe impl ::core::marker::Sync for PdfPageRenderOptions {}
 #[doc = "*Required features: `\"Data_Pdf\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PdfPageRotation(pub i32);
 impl PdfPageRotation {
     pub const Normal: Self = Self(0i32);

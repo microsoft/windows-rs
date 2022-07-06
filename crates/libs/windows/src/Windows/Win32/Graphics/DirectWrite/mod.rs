@@ -2,7 +2,7 @@
 pub const DWRITE_ALPHA_MAX: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_AUTOMATIC_FONT_AXES(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_AUTOMATIC_FONT_AXES_NONE: DWRITE_AUTOMATIC_FONT_AXES = DWRITE_AUTOMATIC_FONT_AXES(0u32);
@@ -57,7 +57,7 @@ impl ::core::ops::Not for DWRITE_AUTOMATIC_FONT_AXES {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_BASELINE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_BASELINE_DEFAULT: DWRITE_BASELINE = DWRITE_BASELINE(0i32);
@@ -98,7 +98,7 @@ impl ::core::fmt::Debug for DWRITE_BASELINE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_BREAK_CONDITION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_BREAK_CONDITION_NEUTRAL: DWRITE_BREAK_CONDITION = DWRITE_BREAK_CONDITION(0i32);
@@ -312,7 +312,7 @@ impl ::core::default::Default for DWRITE_COLOR_GLYPH_RUN1 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_CONTAINER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_CONTAINER_TYPE_UNKNOWN: DWRITE_CONTAINER_TYPE = DWRITE_CONTAINER_TYPE(0i32);
@@ -351,7 +351,7 @@ pub const DWRITE_E_REMOTEFONT: ::windows::core::HRESULT = ::windows::core::HRESU
 pub const DWRITE_E_TOOMANYDOWNLOADS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283952i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_FACTORY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_FACTORY_TYPE_SHARED: DWRITE_FACTORY_TYPE = DWRITE_FACTORY_TYPE(0i32);
@@ -409,7 +409,7 @@ impl ::core::default::Default for DWRITE_FILE_FRAGMENT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_FLOW_DIRECTION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_FLOW_DIRECTION_TOP_TO_BOTTOM: DWRITE_FLOW_DIRECTION = DWRITE_FLOW_DIRECTION(0i32);
@@ -440,7 +440,7 @@ impl ::core::fmt::Debug for DWRITE_FLOW_DIRECTION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_FONT_AXIS_ATTRIBUTES(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_FONT_AXIS_ATTRIBUTES_NONE: DWRITE_FONT_AXIS_ATTRIBUTES = DWRITE_FONT_AXIS_ATTRIBUTES(0u32);
@@ -529,7 +529,7 @@ impl ::core::default::Default for DWRITE_FONT_AXIS_RANGE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_FONT_AXIS_TAG(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_FONT_AXIS_TAG_WEIGHT: DWRITE_FONT_AXIS_TAG = DWRITE_FONT_AXIS_TAG(1952999287u32);
@@ -593,7 +593,7 @@ impl ::core::default::Default for DWRITE_FONT_AXIS_VALUE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_FONT_FACE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_FONT_FACE_TYPE_CFF: DWRITE_FONT_FACE_TYPE = DWRITE_FONT_FACE_TYPE(0i32);
@@ -634,7 +634,7 @@ impl ::core::fmt::Debug for DWRITE_FONT_FACE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_FONT_FAMILY_MODEL(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_FONT_FAMILY_MODEL_TYPOGRAPHIC: DWRITE_FONT_FAMILY_MODEL = DWRITE_FONT_FAMILY_MODEL(0i32);
@@ -692,7 +692,7 @@ impl ::core::default::Default for DWRITE_FONT_FEATURE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_FONT_FEATURE_TAG(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_FONT_FEATURE_TAG_ALTERNATIVE_FRACTIONS: DWRITE_FONT_FEATURE_TAG = DWRITE_FONT_FEATURE_TAG(1668441697u32);
@@ -877,7 +877,7 @@ impl ::core::fmt::Debug for DWRITE_FONT_FEATURE_TAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_FONT_FILE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_FONT_FILE_TYPE_UNKNOWN: DWRITE_FONT_FILE_TYPE = DWRITE_FONT_FILE_TYPE(0i32);
@@ -918,7 +918,7 @@ impl ::core::fmt::Debug for DWRITE_FONT_FILE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_FONT_LINE_GAP_USAGE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_FONT_LINE_GAP_USAGE_DEFAULT: DWRITE_FONT_LINE_GAP_USAGE = DWRITE_FONT_LINE_GAP_USAGE(0i32);
@@ -1095,7 +1095,7 @@ impl ::core::default::Default for DWRITE_FONT_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_FONT_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_FONT_PROPERTY_ID_NONE: DWRITE_FONT_PROPERTY_ID = DWRITE_FONT_PROPERTY_ID(0i32);
@@ -1156,7 +1156,7 @@ impl ::core::fmt::Debug for DWRITE_FONT_PROPERTY_ID {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_FONT_SIMULATIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_FONT_SIMULATIONS_NONE: DWRITE_FONT_SIMULATIONS = DWRITE_FONT_SIMULATIONS(0u32);
@@ -1213,7 +1213,7 @@ impl ::core::ops::Not for DWRITE_FONT_SIMULATIONS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_FONT_SOURCE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_FONT_SOURCE_TYPE_UNKNOWN: DWRITE_FONT_SOURCE_TYPE = DWRITE_FONT_SOURCE_TYPE(0i32);
@@ -1246,7 +1246,7 @@ impl ::core::fmt::Debug for DWRITE_FONT_SOURCE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_FONT_STRETCH(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_FONT_STRETCH_UNDEFINED: DWRITE_FONT_STRETCH = DWRITE_FONT_STRETCH(0i32);
@@ -1291,7 +1291,7 @@ impl ::core::fmt::Debug for DWRITE_FONT_STRETCH {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_FONT_STYLE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_FONT_STYLE_NORMAL: DWRITE_FONT_STYLE = DWRITE_FONT_STYLE(0i32);
@@ -1320,7 +1320,7 @@ impl ::core::fmt::Debug for DWRITE_FONT_STYLE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_FONT_WEIGHT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_FONT_WEIGHT_THIN: DWRITE_FONT_WEIGHT = DWRITE_FONT_WEIGHT(100i32);
@@ -1423,7 +1423,7 @@ impl ::core::default::Default for DWRITE_GLYPH_IMAGE_DATA {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_GLYPH_IMAGE_FORMATS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_GLYPH_IMAGE_FORMATS_NONE: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(0u32);
@@ -1559,7 +1559,7 @@ impl ::core::default::Default for DWRITE_GLYPH_OFFSET {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_GLYPH_ORIENTATION_ANGLE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_GLYPH_ORIENTATION_ANGLE_0_DEGREES: DWRITE_GLYPH_ORIENTATION_ANGLE = DWRITE_GLYPH_ORIENTATION_ANGLE(0i32);
@@ -1676,7 +1676,7 @@ impl ::core::default::Default for DWRITE_GLYPH_RUN_DESCRIPTION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_GRID_FIT_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_GRID_FIT_MODE_DEFAULT: DWRITE_GRID_FIT_MODE = DWRITE_GRID_FIT_MODE(0i32);
@@ -1751,7 +1751,7 @@ impl ::core::default::Default for DWRITE_HIT_TEST_METRICS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_INFORMATIONAL_STRING_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_INFORMATIONAL_STRING_NONE: DWRITE_INFORMATIONAL_STRING_ID = DWRITE_INFORMATIONAL_STRING_ID(0i32);
@@ -2045,7 +2045,7 @@ impl ::core::default::Default for DWRITE_LINE_SPACING {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_LINE_SPACING_METHOD(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_LINE_SPACING_METHOD_DEFAULT: DWRITE_LINE_SPACING_METHOD = DWRITE_LINE_SPACING_METHOD(0i32);
@@ -2074,7 +2074,7 @@ impl ::core::fmt::Debug for DWRITE_LINE_SPACING_METHOD {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_LOCALITY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_LOCALITY_REMOTE: DWRITE_LOCALITY = DWRITE_LOCALITY(0i32);
@@ -2138,7 +2138,7 @@ impl ::core::default::Default for DWRITE_MATRIX {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_MEASURING_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_MEASURING_MODE_NATURAL: DWRITE_MEASURING_MODE = DWRITE_MEASURING_MODE(0i32);
@@ -2167,7 +2167,7 @@ impl ::core::fmt::Debug for DWRITE_MEASURING_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_NUMBER_SUBSTITUTION_METHOD(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_NUMBER_SUBSTITUTION_METHOD_FROM_CULTURE: DWRITE_NUMBER_SUBSTITUTION_METHOD = DWRITE_NUMBER_SUBSTITUTION_METHOD(0i32);
@@ -2200,7 +2200,7 @@ impl ::core::fmt::Debug for DWRITE_NUMBER_SUBSTITUTION_METHOD {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_OPTICAL_ALIGNMENT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_OPTICAL_ALIGNMENT_NONE: DWRITE_OPTICAL_ALIGNMENT = DWRITE_OPTICAL_ALIGNMENT(0i32);
@@ -2227,7 +2227,7 @@ impl ::core::fmt::Debug for DWRITE_OPTICAL_ALIGNMENT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_OUTLINE_THRESHOLD(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_OUTLINE_THRESHOLD_ANTIALIASED: DWRITE_OUTLINE_THRESHOLD = DWRITE_OUTLINE_THRESHOLD(0i32);
@@ -2473,7 +2473,7 @@ impl ::core::default::Default for DWRITE_PANOSE_3 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_ARM_STYLE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_ARM_STYLE_ANY: DWRITE_PANOSE_ARM_STYLE = DWRITE_PANOSE_ARM_STYLE(0i32);
@@ -2534,7 +2534,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_ARM_STYLE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_ASPECT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_ASPECT_ANY: DWRITE_PANOSE_ASPECT = DWRITE_PANOSE_ASPECT(0i32);
@@ -2577,7 +2577,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_ASPECT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_ASPECT_RATIO(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_ASPECT_RATIO_ANY: DWRITE_PANOSE_ASPECT_RATIO = DWRITE_PANOSE_ASPECT_RATIO(0i32);
@@ -2614,7 +2614,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_ASPECT_RATIO {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_CHARACTER_RANGES(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_CHARACTER_RANGES_ANY: DWRITE_PANOSE_CHARACTER_RANGES = DWRITE_PANOSE_CHARACTER_RANGES(0i32);
@@ -2649,7 +2649,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_CHARACTER_RANGES {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_CONTRAST(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_CONTRAST_ANY: DWRITE_PANOSE_CONTRAST = DWRITE_PANOSE_CONTRAST(0i32);
@@ -2700,7 +2700,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_CONTRAST {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_DECORATIVE_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_DECORATIVE_CLASS_ANY: DWRITE_PANOSE_DECORATIVE_CLASS = DWRITE_PANOSE_DECORATIVE_CLASS(0i32);
@@ -2749,7 +2749,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_DECORATIVE_CLASS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_DECORATIVE_TOPOLOGY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_DECORATIVE_TOPOLOGY_ANY: DWRITE_PANOSE_DECORATIVE_TOPOLOGY = DWRITE_PANOSE_DECORATIVE_TOPOLOGY(0i32);
@@ -2804,7 +2804,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_DECORATIVE_TOPOLOGY {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_FAMILY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_FAMILY_ANY: DWRITE_PANOSE_FAMILY = DWRITE_PANOSE_FAMILY(0i32);
@@ -2841,7 +2841,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_FAMILY {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_FILL(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_FILL_ANY: DWRITE_PANOSE_FILL = DWRITE_PANOSE_FILL(0i32);
@@ -2880,7 +2880,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_FILL {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_FINIALS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_FINIALS_ANY: DWRITE_PANOSE_FINIALS = DWRITE_PANOSE_FINIALS(0i32);
@@ -2931,7 +2931,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_FINIALS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_LETTERFORM(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_LETTERFORM_ANY: DWRITE_PANOSE_LETTERFORM = DWRITE_PANOSE_LETTERFORM(0i32);
@@ -2986,7 +2986,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_LETTERFORM {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_LINING(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_LINING_ANY: DWRITE_PANOSE_LINING = DWRITE_PANOSE_LINING(0i32);
@@ -3027,7 +3027,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_LINING {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_MIDLINE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_MIDLINE_ANY: DWRITE_PANOSE_MIDLINE = DWRITE_PANOSE_MIDLINE(0i32);
@@ -3078,7 +3078,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_MIDLINE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_PROPORTION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_PROPORTION_ANY: DWRITE_PANOSE_PROPORTION = DWRITE_PANOSE_PROPORTION(0i32);
@@ -3121,7 +3121,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_PROPORTION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_SCRIPT_FORM(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_SCRIPT_FORM_ANY: DWRITE_PANOSE_SCRIPT_FORM = DWRITE_PANOSE_SCRIPT_FORM(0i32);
@@ -3172,7 +3172,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_SCRIPT_FORM {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_SCRIPT_TOPOLOGY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_SCRIPT_TOPOLOGY_ANY: DWRITE_PANOSE_SCRIPT_TOPOLOGY = DWRITE_PANOSE_SCRIPT_TOPOLOGY(0i32);
@@ -3217,7 +3217,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_SCRIPT_TOPOLOGY {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_SERIF_STYLE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_SERIF_STYLE_ANY: DWRITE_PANOSE_SERIF_STYLE = DWRITE_PANOSE_SERIF_STYLE(0i32);
@@ -3278,7 +3278,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_SERIF_STYLE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_SPACING(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_SPACING_ANY: DWRITE_PANOSE_SPACING = DWRITE_PANOSE_SPACING(0i32);
@@ -3309,7 +3309,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_SPACING {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_STROKE_VARIATION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_STROKE_VARIATION_ANY: DWRITE_PANOSE_STROKE_VARIATION = DWRITE_PANOSE_STROKE_VARIATION(0i32);
@@ -3354,7 +3354,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_STROKE_VARIATION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_SYMBOL_ASPECT_RATIO(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_SYMBOL_ASPECT_RATIO_ANY: DWRITE_PANOSE_SYMBOL_ASPECT_RATIO = DWRITE_PANOSE_SYMBOL_ASPECT_RATIO(0i32);
@@ -3397,7 +3397,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_SYMBOL_ASPECT_RATIO {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_SYMBOL_KIND(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_SYMBOL_KIND_ANY: DWRITE_PANOSE_SYMBOL_KIND = DWRITE_PANOSE_SYMBOL_KIND(0i32);
@@ -3446,7 +3446,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_SYMBOL_KIND {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_TOOL_KIND(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_TOOL_KIND_ANY: DWRITE_PANOSE_TOOL_KIND = DWRITE_PANOSE_TOOL_KIND(0i32);
@@ -3489,7 +3489,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_TOOL_KIND {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_WEIGHT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_WEIGHT_ANY: DWRITE_PANOSE_WEIGHT = DWRITE_PANOSE_WEIGHT(0i32);
@@ -3538,7 +3538,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_WEIGHT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_XASCENT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_XASCENT_ANY: DWRITE_PANOSE_XASCENT = DWRITE_PANOSE_XASCENT(0i32);
@@ -3575,7 +3575,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_XASCENT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PANOSE_XHEIGHT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PANOSE_XHEIGHT_ANY: DWRITE_PANOSE_XHEIGHT = DWRITE_PANOSE_XHEIGHT(0i32);
@@ -3618,7 +3618,7 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_XHEIGHT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PARAGRAPH_ALIGNMENT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PARAGRAPH_ALIGNMENT_NEAR: DWRITE_PARAGRAPH_ALIGNMENT = DWRITE_PARAGRAPH_ALIGNMENT(0i32);
@@ -3647,7 +3647,7 @@ impl ::core::fmt::Debug for DWRITE_PARAGRAPH_ALIGNMENT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_PIXEL_GEOMETRY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_PIXEL_GEOMETRY_FLAT: DWRITE_PIXEL_GEOMETRY = DWRITE_PIXEL_GEOMETRY(0i32);
@@ -3676,7 +3676,7 @@ impl ::core::fmt::Debug for DWRITE_PIXEL_GEOMETRY {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_READING_DIRECTION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_READING_DIRECTION_LEFT_TO_RIGHT: DWRITE_READING_DIRECTION = DWRITE_READING_DIRECTION(0i32);
@@ -3707,7 +3707,7 @@ impl ::core::fmt::Debug for DWRITE_READING_DIRECTION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_RENDERING_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_RENDERING_MODE_DEFAULT: DWRITE_RENDERING_MODE = DWRITE_RENDERING_MODE(0i32);
@@ -3752,7 +3752,7 @@ impl ::core::fmt::Debug for DWRITE_RENDERING_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_RENDERING_MODE1(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_RENDERING_MODE1_DEFAULT: DWRITE_RENDERING_MODE1 = DWRITE_RENDERING_MODE1(0i32);
@@ -3856,7 +3856,7 @@ impl ::core::default::Default for DWRITE_SCRIPT_PROPERTIES {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_SCRIPT_SHAPES(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_SCRIPT_SHAPES_DEFAULT: DWRITE_SCRIPT_SHAPES = DWRITE_SCRIPT_SHAPES(0u32);
@@ -4007,7 +4007,7 @@ impl ::core::default::Default for DWRITE_STRIKETHROUGH {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_TEXTURE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_TEXTURE_ALIASED_1x1: DWRITE_TEXTURE_TYPE = DWRITE_TEXTURE_TYPE(0i32);
@@ -4034,7 +4034,7 @@ impl ::core::fmt::Debug for DWRITE_TEXTURE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_TEXT_ALIGNMENT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_TEXT_ALIGNMENT_LEADING: DWRITE_TEXT_ALIGNMENT = DWRITE_TEXT_ALIGNMENT(0i32);
@@ -4065,7 +4065,7 @@ impl ::core::fmt::Debug for DWRITE_TEXT_ALIGNMENT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_TEXT_ANTIALIAS_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_TEXT_ANTIALIAS_MODE_CLEARTYPE: DWRITE_TEXT_ANTIALIAS_MODE = DWRITE_TEXT_ANTIALIAS_MODE(0i32);
@@ -4224,7 +4224,7 @@ impl ::core::default::Default for DWRITE_TRIMMING {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_TRIMMING_GRANULARITY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_TRIMMING_GRANULARITY_NONE: DWRITE_TRIMMING_GRANULARITY = DWRITE_TRIMMING_GRANULARITY(0i32);
@@ -4352,7 +4352,7 @@ impl ::core::default::Default for DWRITE_UNICODE_RANGE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_VERTICAL_GLYPH_ORIENTATION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_VERTICAL_GLYPH_ORIENTATION_DEFAULT: DWRITE_VERTICAL_GLYPH_ORIENTATION = DWRITE_VERTICAL_GLYPH_ORIENTATION(0i32);
@@ -4379,7 +4379,7 @@ impl ::core::fmt::Debug for DWRITE_VERTICAL_GLYPH_ORIENTATION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWRITE_WORD_WRAPPING(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 pub const DWRITE_WORD_WRAPPING_WRAP: DWRITE_WORD_WRAPPING = DWRITE_WORD_WRAPPING(0i32);

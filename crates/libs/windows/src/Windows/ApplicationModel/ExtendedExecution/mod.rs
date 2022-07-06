@@ -2,7 +2,7 @@
 pub mod Foreground;
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ExtendedExecutionReason(pub i32);
 impl ExtendedExecutionReason {
     pub const Unspecified: Self = Self(0i32);
@@ -37,7 +37,7 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionReason {
 }
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ExtendedExecutionResult(pub i32);
 impl ExtendedExecutionResult {
     pub const Allowed: Self = Self(0i32);
@@ -156,7 +156,7 @@ unsafe impl ::core::marker::Send for ExtendedExecutionRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionRevokedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ExtendedExecutionRevokedReason(pub i32);
 impl ExtendedExecutionRevokedReason {
     pub const Resumed: Self = Self(0i32);

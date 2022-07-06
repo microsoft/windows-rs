@@ -106,7 +106,7 @@ impl ::core::default::Default for PRJ_CALLBACK_DATA {
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRJ_CALLBACK_DATA_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_CB_DATA_FLAG_ENUM_RESTART_SCAN: PRJ_CALLBACK_DATA_FLAGS = PRJ_CALLBACK_DATA_FLAGS(1i32);
@@ -247,7 +247,7 @@ impl ::core::default::Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRJ_COMPLETE_COMMAND_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_COMPLETE_COMMAND_TYPE_NOTIFICATION: PRJ_COMPLETE_COMMAND_TYPE = PRJ_COMPLETE_COMMAND_TYPE(1i32);
@@ -273,7 +273,7 @@ impl ::core::fmt::Debug for PRJ_COMPLETE_COMMAND_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRJ_DIR_ENTRY_BUFFER_HANDLE(pub isize);
 impl PRJ_DIR_ENTRY_BUFFER_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -385,7 +385,7 @@ impl ::core::default::Default for PRJ_EXTENDED_INFO_0_0 {
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRJ_EXT_INFO_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_EXT_INFO_TYPE_SYMLINK: PRJ_EXT_INFO_TYPE = PRJ_EXT_INFO_TYPE(1i32);
@@ -454,7 +454,7 @@ impl ::core::default::Default for PRJ_FILE_BASIC_INFO {
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRJ_FILE_STATE(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_FILE_STATE_PLACEHOLDER: PRJ_FILE_STATE = PRJ_FILE_STATE(1u32);
@@ -520,7 +520,7 @@ pub type PRJ_GET_FILE_DATA_CB = ::core::option::Option<unsafe extern "system" fn
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_GET_PLACEHOLDER_INFO_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows::core::HRESULT>;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT(pub isize);
 impl PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
     pub fn is_invalid(&self) -> bool {
@@ -548,7 +548,7 @@ unsafe impl ::windows::core::Abi for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRJ_NOTIFICATION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFICATION_FILE_OPENED: PRJ_NOTIFICATION = PRJ_NOTIFICATION(2i32);
@@ -777,7 +777,7 @@ impl ::core::default::Default for PRJ_NOTIFICATION_PARAMETERS_2 {
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRJ_NOTIFY_TYPES(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_NOTIFY_NONE: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(0u32);
@@ -858,7 +858,7 @@ impl ::core::ops::Not for PRJ_NOTIFY_TYPES {
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRJ_PLACEHOLDER_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_PLACEHOLDER_ID_LENGTH: PRJ_PLACEHOLDER_ID = PRJ_PLACEHOLDER_ID(128i32);
@@ -1076,7 +1076,7 @@ impl ::core::default::Default for PRJ_PLACEHOLDER_VERSION_INFO {
 pub type PRJ_QUERY_FILE_NAME_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRJ_STARTVIRTUALIZING_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_FLAG_NONE: PRJ_STARTVIRTUALIZING_FLAGS = PRJ_STARTVIRTUALIZING_FLAGS(0u32);
@@ -1167,7 +1167,7 @@ impl ::core::default::Default for PRJ_STARTVIRTUALIZING_OPTIONS {
 pub type PRJ_START_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::core::GUID) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRJ_UPDATE_FAILURE_CAUSES(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_UPDATE_FAILURE_CAUSE_NONE: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(0u32);
@@ -1228,7 +1228,7 @@ impl ::core::ops::Not for PRJ_UPDATE_FAILURE_CAUSES {
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRJ_UPDATE_TYPES(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub const PRJ_UPDATE_NONE: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(0u32);

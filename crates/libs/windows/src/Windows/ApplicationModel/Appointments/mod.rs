@@ -434,7 +434,7 @@ unsafe impl ::core::marker::Send for Appointment {}
 unsafe impl ::core::marker::Sync for Appointment {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppointmentBusyStatus(pub i32);
 impl AppointmentBusyStatus {
     pub const Busy: Self = Self(0i32);
@@ -944,7 +944,7 @@ unsafe impl ::core::marker::Send for AppointmentCalendar {}
 unsafe impl ::core::marker::Sync for AppointmentCalendar {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppointmentCalendarOtherAppReadAccess(pub i32);
 impl AppointmentCalendarOtherAppReadAccess {
     pub const SystemOnly: Self = Self(0i32);
@@ -980,7 +980,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendarOtherAppReadAcce
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppointmentCalendarOtherAppWriteAccess(pub i32);
 impl AppointmentCalendarOtherAppWriteAccess {
     pub const None: Self = Self(0i32);
@@ -1159,7 +1159,7 @@ unsafe impl ::core::marker::Send for AppointmentCalendarSyncManager {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarSyncManager {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppointmentCalendarSyncStatus(pub i32);
 impl AppointmentCalendarSyncStatus {
     pub const Idle: Self = Self(0i32);
@@ -1292,7 +1292,7 @@ unsafe impl ::core::marker::Send for AppointmentConflictResult {}
 unsafe impl ::core::marker::Sync for AppointmentConflictResult {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppointmentConflictType(pub i32);
 impl AppointmentConflictType {
     pub const None: Self = Self(0i32);
@@ -1327,7 +1327,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentConflictType {
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppointmentDaysOfWeek(pub u32);
 impl AppointmentDaysOfWeek {
     pub const None: Self = Self(0u32);
@@ -1395,7 +1395,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentDaysOfWeek {
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppointmentDetailsKind(pub i32);
 impl AppointmentDetailsKind {
     pub const PlainText: Self = Self(0i32);
@@ -2158,7 +2158,7 @@ unsafe impl ::core::marker::Send for AppointmentOrganizer {}
 unsafe impl ::core::marker::Sync for AppointmentOrganizer {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppointmentParticipantResponse(pub i32);
 impl AppointmentParticipantResponse {
     pub const None: Self = Self(0i32);
@@ -2195,7 +2195,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentParticipantResponse {
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppointmentParticipantRole(pub i32);
 impl AppointmentParticipantRole {
     pub const RequiredAttendee: Self = Self(0i32);
@@ -2651,7 +2651,7 @@ unsafe impl ::core::marker::Send for AppointmentRecurrence {}
 unsafe impl ::core::marker::Sync for AppointmentRecurrence {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppointmentRecurrenceUnit(pub i32);
 impl AppointmentRecurrenceUnit {
     pub const Daily: Self = Self(0i32);
@@ -2689,7 +2689,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentRecurrenceUnit {
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppointmentSensitivity(pub i32);
 impl AppointmentSensitivity {
     pub const Public: Self = Self(0i32);
@@ -3020,7 +3020,7 @@ unsafe impl ::core::marker::Send for AppointmentStore {}
 unsafe impl ::core::marker::Sync for AppointmentStore {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppointmentStoreAccessType(pub i32);
 impl AppointmentStoreAccessType {
     pub const AppCalendarsReadWrite: Self = Self(0i32);
@@ -3355,7 +3355,7 @@ unsafe impl ::core::marker::Send for AppointmentStoreChangeTracker {}
 unsafe impl ::core::marker::Sync for AppointmentStoreChangeTracker {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppointmentStoreChangeType(pub i32);
 impl AppointmentStoreChangeType {
     pub const AppointmentCreated: Self = Self(0i32);
@@ -3637,7 +3637,7 @@ unsafe impl ::core::marker::Send for AppointmentStoreNotificationTriggerDetails 
 unsafe impl ::core::marker::Sync for AppointmentStoreNotificationTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppointmentSummaryCardView(pub i32);
 impl AppointmentSummaryCardView {
     pub const System: Self = Self(0i32);
@@ -3671,7 +3671,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentSummaryCardView {
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppointmentWeekOfMonth(pub i32);
 impl AppointmentWeekOfMonth {
     pub const First: Self = Self(0i32);
@@ -3708,7 +3708,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentWeekOfMonth {
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FindAppointmentCalendarsOptions(pub u32);
 impl FindAppointmentCalendarsOptions {
     pub const None: Self = Self(0u32);
@@ -4932,7 +4932,7 @@ pub struct IFindAppointmentsOptions_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RecurrenceType(pub i32);
 impl RecurrenceType {
     pub const Master: Self = Self(0i32);

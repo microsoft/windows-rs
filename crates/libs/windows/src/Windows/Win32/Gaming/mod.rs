@@ -40,7 +40,7 @@ pub unsafe fn CheckGamingPrivilegeWithUIForUser<'a, Param0: ::windows::core::Int
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GAMESTATS_OPEN_RESULT(pub i32);
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GAMESTATS_OPEN_CREATED: GAMESTATS_OPEN_RESULT = GAMESTATS_OPEN_RESULT(0i32);
@@ -67,7 +67,7 @@ impl ::core::fmt::Debug for GAMESTATS_OPEN_RESULT {
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GAMESTATS_OPEN_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GAMESTATS_OPEN_OPENORCREATE: GAMESTATS_OPEN_TYPE = GAMESTATS_OPEN_TYPE(0i32);
@@ -94,7 +94,7 @@ impl ::core::fmt::Debug for GAMESTATS_OPEN_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GAME_INSTALL_SCOPE(pub i32);
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GIS_NOT_INSTALLED: GAME_INSTALL_SCOPE = GAME_INSTALL_SCOPE(1i32);
@@ -123,7 +123,7 @@ impl ::core::fmt::Debug for GAME_INSTALL_SCOPE {
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GAMING_DEVICE_DEVICE_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GAMING_DEVICE_DEVICE_ID_NONE: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(0i32);
@@ -187,7 +187,7 @@ impl ::core::default::Default for GAMING_DEVICE_MODEL_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GAMING_DEVICE_VENDOR_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GAMING_DEVICE_VENDOR_ID_NONE: GAMING_DEVICE_VENDOR_ID = GAMING_DEVICE_VENDOR_ID(0i32);
@@ -908,7 +908,7 @@ pub struct IXblIdpAuthTokenResult2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KnownGamingPrivileges(pub i32);
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XPRIVILEGE_BROADCAST: KnownGamingPrivileges = KnownGamingPrivileges(190i32);
@@ -1186,7 +1186,7 @@ pub unsafe fn TryCancelPendingGameUI() -> super::Foundation::BOOL {
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XBL_IDP_AUTH_TOKEN_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XBL_IDP_AUTH_TOKEN_STATUS_SUCCESS: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(0i32);

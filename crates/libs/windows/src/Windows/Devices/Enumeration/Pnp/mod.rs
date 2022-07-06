@@ -485,7 +485,7 @@ unsafe impl ::core::marker::Send for PnpObjectCollection {}
 unsafe impl ::core::marker::Sync for PnpObjectCollection {}
 #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PnpObjectType(pub i32);
 impl PnpObjectType {
     pub const Unknown: Self = Self(0i32);

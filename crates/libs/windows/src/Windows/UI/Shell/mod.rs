@@ -338,7 +338,7 @@ pub struct ITaskbarManagerStatics_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Shell\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SecurityAppKind(pub i32);
 impl SecurityAppKind {
     pub const WebProtection: Self = Self(0i32);
@@ -475,7 +475,7 @@ unsafe impl ::core::marker::Send for SecurityAppManager {}
 unsafe impl ::core::marker::Sync for SecurityAppManager {}
 #[doc = "*Required features: `\"UI_Shell\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SecurityAppState(pub i32);
 impl SecurityAppState {
     pub const Disabled: Self = Self(0i32);
@@ -509,7 +509,7 @@ unsafe impl ::windows::core::RuntimeType for SecurityAppState {
 }
 #[doc = "*Required features: `\"UI_Shell\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SecurityAppSubstatus(pub i32);
 impl SecurityAppSubstatus {
     pub const Undetermined: Self = Self(0i32);
@@ -545,7 +545,7 @@ unsafe impl ::windows::core::RuntimeType for SecurityAppSubstatus {
 }
 #[doc = "*Required features: `\"UI_Shell\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ShareWindowCommand(pub i32);
 impl ShareWindowCommand {
     pub const None: Self = Self(0i32);

@@ -167,7 +167,7 @@ pub const FILE_CACHE_MIN_HARD_DISABLE: u32 = 8u32;
 pub const FILE_CACHE_MIN_HARD_ENABLE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_MAP(pub u32);
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const FILE_MAP_WRITE: FILE_MAP = FILE_MAP(2u32);
@@ -254,7 +254,7 @@ pub unsafe fn FreeUserPhysicalPages<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GLOBAL_ALLOC_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const GHND: GLOBAL_ALLOC_FLAGS = GLOBAL_ALLOC_FLAGS(66u32);
@@ -455,7 +455,7 @@ pub unsafe fn GlobalUnlock(hmem: isize) -> super::super::Foundation::BOOL {
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEAP_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const HEAP_NONE: HEAP_FLAGS = HEAP_FLAGS(0u32);
@@ -540,7 +540,7 @@ impl ::core::ops::Not for HEAP_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEAP_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const HeapCompatibilityInformation: HEAP_INFORMATION_CLASS = HEAP_INFORMATION_CLASS(0i32);
@@ -652,7 +652,7 @@ pub unsafe fn HeapFree<'a, Param0: ::windows::core::IntoParam<'a, HeapHandle>>(h
     ::core::mem::transmute(HeapFree(hheap.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpmem)))
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HeapHandle(pub isize);
 impl HeapHandle {
     pub fn is_invalid(&self) -> bool {
@@ -818,7 +818,7 @@ pub unsafe fn IsBadWritePtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOCAL_ALLOC_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const LHND: LOCAL_ALLOC_FLAGS = LOCAL_ALLOC_FLAGS(66u32);
@@ -1121,7 +1121,7 @@ impl ::core::default::Default for MEMORY_BASIC_INFORMATION64 {
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEMORY_RESOURCE_NOTIFICATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const LowMemoryResourceNotification: MEMORY_RESOURCE_NOTIFICATION_TYPE = MEMORY_RESOURCE_NOTIFICATION_TYPE(0i32);
@@ -1287,7 +1287,7 @@ impl ::core::default::Default for MEM_EXTENDED_PARAMETER_1 {
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEM_EXTENDED_PARAMETER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const MemExtendedParameterInvalidType: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(0i32);
@@ -1416,7 +1416,7 @@ pub unsafe fn MapViewOfFileNuma2<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFER_PRIORITY(pub i32);
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const VmOfferPriorityVeryLow: OFFER_PRIORITY = OFFER_PRIORITY(1i32);
@@ -1499,7 +1499,7 @@ pub unsafe fn OpenFileMappingW<'a, Param1: ::windows::core::IntoParam<'a, super:
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAGE_PROTECTION_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const PAGE_NOACCESS: PAGE_PROTECTION_FLAGS = PAGE_PROTECTION_FLAGS(1u32);
@@ -1628,7 +1628,7 @@ impl ::core::ops::Not for PAGE_PROTECTION_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAGE_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const MEM_PRIVATE: PAGE_TYPE = PAGE_TYPE(131072u32);
@@ -1994,7 +1994,7 @@ pub unsafe fn SetSystemFileCacheSize(minimumfilecachesize: usize, maximumfilecac
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNMAP_VIEW_OF_FILE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const MEM_UNMAP_NONE: UNMAP_VIEW_OF_FILE_FLAGS = UNMAP_VIEW_OF_FILE_FLAGS(0u32);
@@ -2063,7 +2063,7 @@ pub unsafe fn UnregisterBadMemoryNotification(registrationhandle: *const ::core:
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VIRTUAL_ALLOCATION_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const MEM_COMMIT: VIRTUAL_ALLOCATION_TYPE = VIRTUAL_ALLOCATION_TYPE(4096u32);
@@ -2130,7 +2130,7 @@ impl ::core::ops::Not for VIRTUAL_ALLOCATION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VIRTUAL_FREE_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const MEM_DECOMMIT: VIRTUAL_FREE_TYPE = VIRTUAL_FREE_TYPE(16384u32);
@@ -2314,7 +2314,7 @@ pub unsafe fn VirtualUnlockEx<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WIN32_MEMORY_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const MemoryRegionInfo: WIN32_MEMORY_INFORMATION_CLASS = WIN32_MEMORY_INFORMATION_CLASS(0i32);
@@ -2403,7 +2403,7 @@ impl ::core::default::Default for WIN32_MEMORY_PARTITION_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WIN32_MEMORY_PARTITION_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub const MemoryPartitionInfo: WIN32_MEMORY_PARTITION_INFORMATION_CLASS = WIN32_MEMORY_PARTITION_INFORMATION_CLASS(0i32);

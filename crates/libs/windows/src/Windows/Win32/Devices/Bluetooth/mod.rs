@@ -20,7 +20,7 @@ pub const AF_BTH: u16 = 32u16;
 pub const ATT_PROTOCOL_UUID16: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHENTICATION_REQUIREMENTS(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const MITMProtectionNotRequired: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(0i32);
@@ -345,7 +345,7 @@ impl ::core::default::Default for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BLUETOOTH_AUTHENTICATION_METHOD(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const BLUETOOTH_AUTHENTICATION_METHOD_LEGACY: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(1i32);
@@ -378,7 +378,7 @@ impl ::core::fmt::Debug for BLUETOOTH_AUTHENTICATION_METHOD {
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BLUETOOTH_AUTHENTICATION_REQUIREMENTS(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const BLUETOOTH_MITM_ProtectionNotRequired: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(0i32);
@@ -644,7 +644,7 @@ impl ::core::default::Default for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATIO
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BLUETOOTH_IO_CAPABILITY(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const BLUETOOTH_IO_CAPABILITY_DISPLAYONLY: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(0i32);
@@ -1634,7 +1634,7 @@ impl ::core::default::Default for BTH_LE_GATT_DESCRIPTOR {
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BTH_LE_GATT_DESCRIPTOR_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const CharacteristicExtendedProperties: BTH_LE_GATT_DESCRIPTOR_TYPE = BTH_LE_GATT_DESCRIPTOR_TYPE(0i32);
@@ -1894,7 +1894,7 @@ impl ::core::default::Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BTH_LE_GATT_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const CharacteristicValueChangedEvent: BTH_LE_GATT_EVENT_TYPE = BTH_LE_GATT_EVENT_TYPE(0i32);
@@ -3081,7 +3081,7 @@ pub const GenericNetworkingServiceClassID_UUID16: u32 = 4609u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const GenericTelephonyServiceClassID_UUID16: u32 = 4612u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HANDLE_SDP_TYPE(pub u64);
 impl HANDLE_SDP_TYPE {
     pub fn is_invalid(&self) -> bool {
@@ -3155,7 +3155,7 @@ pub const HealthDeviceProfileSourceServiceClassID_UUID16: u32 = 5121u32;
 pub const HumanInterfaceDeviceServiceClassID_UUID16: u32 = 4388u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IO_CAPABILITY(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const IoCaps_DisplayOnly: IO_CAPABILITY = IO_CAPABILITY(0i32);
@@ -3250,7 +3250,7 @@ pub const NAPServiceClassID_UUID16: u32 = 4374u32;
 pub const NS_BTH: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NodeContainerType(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const NodeContainerTypeSequence: NodeContainerType = NodeContainerType(0i32);
@@ -4057,7 +4057,7 @@ pub const SDP_SERVICE_SEARCH_ATTRIBUTE_REQUEST: u32 = 3u32;
 pub const SDP_SERVICE_SEARCH_REQUEST: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SDP_SPECIFICTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const SDP_ST_NONE: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(0i32);
@@ -4140,7 +4140,7 @@ impl ::core::default::Default for SDP_STRING_TYPE_DATA {
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SDP_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const SDP_TYPE_NIL: SDP_TYPE = SDP_TYPE(0i32);

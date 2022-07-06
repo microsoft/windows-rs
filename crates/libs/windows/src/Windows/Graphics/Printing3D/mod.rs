@@ -1147,7 +1147,7 @@ unsafe impl ::core::marker::Send for Print3DTaskCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskCompletedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Print3DTaskCompletion(pub i32);
 impl Print3DTaskCompletion {
     pub const Abandoned: Self = Self(0i32);
@@ -1184,7 +1184,7 @@ unsafe impl ::windows::core::RuntimeType for Print3DTaskCompletion {
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Print3DTaskDetail(pub i32);
 impl Print3DTaskDetail {
     pub const Unknown: Self = Self(0i32);
@@ -2107,7 +2107,7 @@ impl ::core::default::Default for Printing3DBufferDescription {
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Printing3DBufferFormat(pub i32);
 impl Printing3DBufferFormat {
     pub const Unknown: Self = Self(0i32);
@@ -3352,7 +3352,7 @@ unsafe impl ::core::marker::Send for Printing3DMesh {}
 unsafe impl ::core::marker::Sync for Printing3DMesh {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Printing3DMeshVerificationMode(pub i32);
 impl Printing3DMeshVerificationMode {
     pub const FindFirstError: Self = Self(0i32);
@@ -3864,7 +3864,7 @@ unsafe impl ::core::marker::Send for Printing3DModelTexture {}
 unsafe impl ::core::marker::Sync for Printing3DModelTexture {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Printing3DModelUnit(pub i32);
 impl Printing3DModelUnit {
     pub const Meter: Self = Self(0i32);
@@ -4110,7 +4110,7 @@ unsafe impl ::core::marker::Send for Printing3DMultiplePropertyMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DMultiplePropertyMaterialGroup {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Printing3DObjectType(pub i32);
 impl Printing3DObjectType {
     pub const Model: Self = Self(0i32);
@@ -4145,7 +4145,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DObjectType {
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Printing3DPackageCompression(pub i32);
 impl Printing3DPackageCompression {
     pub const Low: Self = Self(0i32);
@@ -4422,7 +4422,7 @@ unsafe impl ::core::marker::Send for Printing3DTexture2CoordMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DTexture2CoordMaterialGroup {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Printing3DTextureEdgeBehavior(pub i32);
 impl Printing3DTextureEdgeBehavior {
     pub const None: Self = Self(0i32);

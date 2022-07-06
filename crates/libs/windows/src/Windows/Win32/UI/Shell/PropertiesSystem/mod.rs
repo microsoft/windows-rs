@@ -20,7 +20,7 @@ pub unsafe fn ClearVariantArray(pvars: &mut [super::super::super::System::Com::V
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAWPROGRESSFLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const DPF_NONE: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(0u32);
@@ -83,7 +83,7 @@ impl ::core::ops::Not for DRAWPROGRESSFLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GETPROPERTYSTOREFLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const GPS_DEFAULT: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(0u32);
@@ -3164,7 +3164,7 @@ pub unsafe fn InitVariantFromVariantArrayElem(varin: *const super::super::super:
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PDOPSTATUS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDOPS_RUNNING: PDOPSTATUS = PDOPSTATUS(1i32);
@@ -3197,7 +3197,7 @@ impl ::core::fmt::Debug for PDOPSTATUS {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PKA_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PKA_SET: PKA_FLAGS = PKA_FLAGS(0u32);
@@ -3256,7 +3256,7 @@ impl ::core::ops::Not for PKA_FLAGS {
 pub const PKEY_PIDSTR_MAX: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PLACEHOLDER_STATES(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PS_NONE: PLACEHOLDER_STATES = PLACEHOLDER_STATES(0u32);
@@ -3321,7 +3321,7 @@ impl ::core::ops::Not for PLACEHOLDER_STATES {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_AGGREGATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDAT_DEFAULT: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(0i32);
@@ -3360,7 +3360,7 @@ impl ::core::fmt::Debug for PROPDESC_AGGREGATION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_COLUMNINDEX_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDCIT_NONE: PROPDESC_COLUMNINDEX_TYPE = PROPDESC_COLUMNINDEX_TYPE(0i32);
@@ -3395,7 +3395,7 @@ impl ::core::fmt::Debug for PROPDESC_COLUMNINDEX_TYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_CONDITION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDCOT_NONE: PROPDESC_CONDITION_TYPE = PROPDESC_CONDITION_TYPE(0i32);
@@ -3430,7 +3430,7 @@ impl ::core::fmt::Debug for PROPDESC_CONDITION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_DISPLAYTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDDT_STRING: PROPDESC_DISPLAYTYPE = PROPDESC_DISPLAYTYPE(0i32);
@@ -3463,7 +3463,7 @@ impl ::core::fmt::Debug for PROPDESC_DISPLAYTYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_ENUMFILTER(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDEF_ALL: PROPDESC_ENUMFILTER = PROPDESC_ENUMFILTER(0i32);
@@ -3500,7 +3500,7 @@ impl ::core::fmt::Debug for PROPDESC_ENUMFILTER {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_FORMAT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDFF_DEFAULT: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(0u32);
@@ -3581,7 +3581,7 @@ impl ::core::ops::Not for PROPDESC_FORMAT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_GROUPING_RANGE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDGR_DISCRETE: PROPDESC_GROUPING_RANGE = PROPDESC_GROUPING_RANGE(0i32);
@@ -3618,7 +3618,7 @@ impl ::core::fmt::Debug for PROPDESC_GROUPING_RANGE {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_RELATIVEDESCRIPTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDRDT_GENERAL: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(0i32);
@@ -3663,7 +3663,7 @@ impl ::core::fmt::Debug for PROPDESC_RELATIVEDESCRIPTION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_SEARCHINFO_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDSIF_DEFAULT: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(0u32);
@@ -3726,7 +3726,7 @@ impl ::core::ops::Not for PROPDESC_SEARCHINFO_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_SORTDESCRIPTION(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDSD_GENERAL: PROPDESC_SORTDESCRIPTION = PROPDESC_SORTDESCRIPTION(0i32);
@@ -3759,7 +3759,7 @@ impl ::core::fmt::Debug for PROPDESC_SORTDESCRIPTION {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_TYPE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDTF_DEFAULT: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(0u32);
@@ -3842,7 +3842,7 @@ impl ::core::ops::Not for PROPDESC_TYPE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_VIEW_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDVF_DEFAULT: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(0u32);
@@ -3921,7 +3921,7 @@ impl ::core::ops::Not for PROPDESC_VIEW_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPENUMTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PET_DISCRETEVALUE: PROPENUMTYPE = PROPENUMTYPE(0i32);
@@ -3983,7 +3983,7 @@ impl ::core::default::Default for PROPERTYKEY {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPERTYUI_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PUIF_DEFAULT: PROPERTYUI_FLAGS = PROPERTYUI_FLAGS(0u32);
@@ -4040,7 +4040,7 @@ impl ::core::ops::Not for PROPERTYUI_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPERTYUI_FORMAT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PUIFFDF_DEFAULT: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(0u32);
@@ -4101,7 +4101,7 @@ impl ::core::ops::Not for PROPERTYUI_FORMAT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPERTYUI_NAME_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PUIFNF_DEFAULT: PROPERTYUI_NAME_FLAGS = PROPERTYUI_NAME_FLAGS(0u32);
@@ -4199,7 +4199,7 @@ impl ::core::default::Default for PROPPRG {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPVAR_CHANGE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCHF_DEFAULT: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(0u32);
@@ -4262,7 +4262,7 @@ impl ::core::ops::Not for PROPVAR_CHANGE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPVAR_COMPARE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCF_DEFAULT: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(0u32);
@@ -4327,7 +4327,7 @@ impl ::core::ops::Not for PROPVAR_COMPARE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPVAR_COMPARE_UNIT(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCU_DEFAULT: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(0i32);
@@ -4364,7 +4364,7 @@ impl ::core::fmt::Debug for PROPVAR_COMPARE_UNIT {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSC_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PSC_NORMAL: PSC_STATE = PSC_STATE(0i32);
@@ -5041,7 +5041,7 @@ pub unsafe fn PSStringFromPropertyKey(pkey: *const PROPERTYKEY, psz: &mut [u16])
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSTIME_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PSTF_UTC: PSTIME_FLAGS = PSTIME_FLAGS(0u32);
@@ -5832,7 +5832,7 @@ pub unsafe fn SHPropStgWriteMultiple<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_ENGINE_STATE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const SESF_NONE: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(0u32);
@@ -5905,7 +5905,7 @@ impl ::core::ops::Not for SYNC_ENGINE_STATE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_TRANSFER_STATUS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const STS_NONE: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(0u32);
@@ -6553,7 +6553,7 @@ pub unsafe fn WinRTPropertyValueToPropVariant<'a, Param0: ::windows::core::IntoP
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _PERSIST_SPROPSTORE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const FPSPS_DEFAULT: _PERSIST_SPROPSTORE_FLAGS = _PERSIST_SPROPSTORE_FLAGS(0i32);

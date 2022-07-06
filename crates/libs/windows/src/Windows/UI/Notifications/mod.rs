@@ -2,7 +2,7 @@
 pub mod Management;
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AdaptiveNotificationContentKind(pub i32);
 impl AdaptiveNotificationContentKind {
     pub const Text: Self = Self(0i32);
@@ -298,7 +298,7 @@ unsafe impl ::core::marker::Send for BadgeNotification {}
 unsafe impl ::core::marker::Sync for BadgeNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BadgeTemplateType(pub i32);
 impl BadgeTemplateType {
     pub const BadgeGlyph: Self = Self(0i32);
@@ -2525,7 +2525,7 @@ unsafe impl ::core::marker::Send for NotificationData {}
 unsafe impl ::core::marker::Sync for NotificationData {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NotificationKinds(pub u32);
 impl NotificationKinds {
     pub const Unknown: Self = Self(0u32);
@@ -2587,7 +2587,7 @@ unsafe impl ::windows::core::RuntimeType for NotificationKinds {
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NotificationMirroring(pub i32);
 impl NotificationMirroring {
     pub const Allowed: Self = Self(0i32);
@@ -2621,7 +2621,7 @@ unsafe impl ::windows::core::RuntimeType for NotificationMirroring {
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NotificationSetting(pub i32);
 impl NotificationSetting {
     pub const Enabled: Self = Self(0i32);
@@ -2658,7 +2658,7 @@ unsafe impl ::windows::core::RuntimeType for NotificationSetting {
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NotificationUpdateResult(pub i32);
 impl NotificationUpdateResult {
     pub const Succeeded: Self = Self(0i32);
@@ -2800,7 +2800,7 @@ unsafe impl ::core::marker::Send for NotificationVisual {}
 unsafe impl ::core::marker::Sync for NotificationVisual {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PeriodicUpdateRecurrence(pub i32);
 impl PeriodicUpdateRecurrence {
     pub const HalfHour: Self = Self(0i32);
@@ -3518,7 +3518,7 @@ unsafe impl ::core::marker::Send for TileFlyoutNotification {}
 unsafe impl ::core::marker::Sync for TileFlyoutNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TileFlyoutTemplateType(pub i32);
 impl TileFlyoutTemplateType {
     pub const TileFlyoutTemplate01: Self = Self(0i32);
@@ -3829,7 +3829,7 @@ unsafe impl ::core::marker::Send for TileNotification {}
 unsafe impl ::core::marker::Sync for TileNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TileTemplateType(pub i32);
 impl TileTemplateType {
     pub const TileSquareImage: Self = Self(0i32);
@@ -4684,7 +4684,7 @@ unsafe impl ::core::marker::Send for ToastCollectionManager {}
 unsafe impl ::core::marker::Sync for ToastCollectionManager {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ToastDismissalReason(pub i32);
 impl ToastDismissalReason {
     pub const UserCanceled: Self = Self(0i32);
@@ -4889,7 +4889,7 @@ unsafe impl ::core::marker::Send for ToastFailedEventArgs {}
 unsafe impl ::core::marker::Sync for ToastFailedEventArgs {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ToastHistoryChangedType(pub i32);
 impl ToastHistoryChangedType {
     pub const Cleared: Self = Self(0i32);
@@ -5718,7 +5718,7 @@ unsafe impl ::core::marker::Send for ToastNotificationManagerForUser {}
 unsafe impl ::core::marker::Sync for ToastNotificationManagerForUser {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ToastNotificationPriority(pub i32);
 impl ToastNotificationPriority {
     pub const Default: Self = Self(0i32);
@@ -5897,7 +5897,7 @@ unsafe impl ::core::marker::Send for ToastNotifier {}
 unsafe impl ::core::marker::Sync for ToastNotifier {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ToastTemplateType(pub i32);
 impl ToastTemplateType {
     pub const ToastImageAndText01: Self = Self(0i32);
@@ -6141,7 +6141,7 @@ unsafe impl ::core::marker::Send for UserNotificationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserNotificationChangedEventArgs {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserNotificationChangedKind(pub i32);
 impl UserNotificationChangedKind {
     pub const Added: Self = Self(0i32);

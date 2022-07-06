@@ -603,7 +603,7 @@ impl ::core::default::Default for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
 pub const CameraUIControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16d5a2be_b1c5_47b3_8eae_ccbcf452c7e8);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CameraUIControlCaptureMode(pub i32);
 impl CameraUIControlCaptureMode {
     pub const PhotoOrVideo: Self = Self(0i32);
@@ -631,7 +631,7 @@ impl ::core::fmt::Debug for CameraUIControlCaptureMode {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CameraUIControlLinearSelectionMode(pub i32);
 impl CameraUIControlLinearSelectionMode {
     pub const Single: Self = Self(0i32);
@@ -658,7 +658,7 @@ impl ::core::fmt::Debug for CameraUIControlLinearSelectionMode {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CameraUIControlMode(pub i32);
 impl CameraUIControlMode {
     pub const Browse: Self = Self(0i32);
@@ -685,7 +685,7 @@ impl ::core::fmt::Debug for CameraUIControlMode {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CameraUIControlPhotoFormat(pub i32);
 impl CameraUIControlPhotoFormat {
     pub const Jpeg: Self = Self(0i32);
@@ -713,7 +713,7 @@ impl ::core::fmt::Debug for CameraUIControlPhotoFormat {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CameraUIControlVideoFormat(pub i32);
 impl CameraUIControlVideoFormat {
     pub const Mp4: Self = Self(0i32);
@@ -740,7 +740,7 @@ impl ::core::fmt::Debug for CameraUIControlVideoFormat {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CameraUIControlViewType(pub i32);
 impl CameraUIControlViewType {
     pub const SingleItem: Self = Self(0i32);
@@ -1339,7 +1339,7 @@ pub const DCI_WRITEONLY: u32 = 512u32;
 pub const DEACTIVATE_ACTCTX_FLAG_FORCE_EARLY_DEACTIVATION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DECISION_LOCATION(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const DECISION_LOCATION_REFRESH_GLOBAL_DATA: DECISION_LOCATION = DECISION_LOCATION(0i32);
@@ -1684,7 +1684,7 @@ pub const FAIL_FAST_GENERATE_EXCEPTION_ADDRESS: u32 = 1u32;
 pub const FAIL_FAST_NO_HARD_ERROR_DLG: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEATURE_CHANGE_TIME(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FEATURE_CHANGE_TIME_READ: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(0i32);
@@ -1715,7 +1715,7 @@ impl ::core::fmt::Debug for FEATURE_CHANGE_TIME {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEATURE_ENABLED_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FEATURE_ENABLED_STATE_DEFAULT: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(0i32);
@@ -1801,7 +1801,7 @@ impl ::core::default::Default for FEATURE_ERROR {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEATURE_STATE_CHANGE_SUBSCRIPTION(pub isize);
 impl FEATURE_STATE_CHANGE_SUBSCRIPTION {
     pub fn is_invalid(&self) -> bool {
@@ -1828,7 +1828,7 @@ unsafe impl ::windows::core::Abi for FEATURE_STATE_CHANGE_SUBSCRIPTION {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FH_SERVICE_PIPE_HANDLE(pub isize);
 impl FH_SERVICE_PIPE_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -1950,7 +1950,7 @@ pub const FILE_EXISTS: u32 = 4u32;
 pub const FILE_FLAG_OPEN_REQUIRING_OPLOCK: u32 = 262144u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FileDirectoryInformation: FILE_INFORMATION_CLASS = FILE_INFORMATION_CLASS(1i32);
@@ -2584,7 +2584,7 @@ pub const HANJA_WINDOW: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const HINSTANCE_ERROR: u32 = 32u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HWINWATCH(pub isize);
 impl HWINWATCH {
     pub fn is_invalid(&self) -> bool {
@@ -4105,7 +4105,7 @@ impl ::core::default::Default for JIT_DEBUG_INFO {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KEY_SET_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const KeyWriteTimeInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(0i32);
@@ -4522,7 +4522,7 @@ impl ::core::default::Default for OBJECT_ATTRIBUTES {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OBJECT_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const ObjectBasicInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_CLASS(0i32);
@@ -5661,7 +5661,7 @@ impl ::core::default::Default for SYSTEM_EXCEPTION_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEM_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const SystemBasicInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(0i32);
@@ -6251,7 +6251,7 @@ pub const TC_NORMAL: u32 = 0u32;
 pub const TC_SIGNAL: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TDIENTITY_ENTITY_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const GENERIC_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(0u32);
@@ -6411,7 +6411,7 @@ impl ::core::default::Default for TDI_TL_IO_CONTROL_ENDPOINT_0 {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TDI_TL_IO_CONTROL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const EndpointIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(0i32);
@@ -6627,7 +6627,7 @@ pub unsafe fn UserUnInstStubWrapperW<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VALUENAME(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const VALUENAME_UNKNOWN: VALUENAME = VALUENAME(0i32);
@@ -6694,7 +6694,7 @@ pub unsafe fn WINNLSGetIMEHotkey<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINSTATIONINFOCLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WinStationInformation: WINSTATIONINFOCLASS = WINSTATIONINFOCLASS(8i32);
@@ -6803,7 +6803,7 @@ pub const WLDP_FLAGS_SKIPSIGNATUREVALIDATION: u32 = 256u32;
 pub const WLDP_GETLOCKDOWNPOLICY_FN: &str = "WldpGetLockdownPolicy";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLDP_HOST(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_HOST_RUNDLL32: WLDP_HOST = WLDP_HOST(0i32);
@@ -6832,7 +6832,7 @@ impl ::core::fmt::Debug for WLDP_HOST {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLDP_HOST_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_HOST_ID_UNKNOWN: WLDP_HOST_ID = WLDP_HOST_ID(0i32);
@@ -6926,7 +6926,7 @@ pub const WLDP_ISPRODUCTIONCONFIGURATION_FN: &str = "WldpIsProductionConfigurati
 pub const WLDP_ISWCOSPRODUCTIONCONFIGURATION_FN: &str = "WldpIsWcosProductionConfiguration";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLDP_KEY(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const KEY_UNKNOWN: WLDP_KEY = WLDP_KEY(0i32);
@@ -6971,7 +6971,7 @@ pub const WLDP_LOCKDOWN_UMCIENFORCE_FLAG: u32 = 4u32;
 pub const WLDP_LOCKDOWN_UNDEFINED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLDP_POLICY_SETTING(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_POLICY_SETTING_AV_PERF_MODE: WLDP_POLICY_SETTING = WLDP_POLICY_SETTING(1000i32);
@@ -7018,7 +7018,7 @@ pub const WLDP_SETDYNAMICCODETRUST_FN: &str = "WldpSetDynamicCodeTrust";
 pub const WLDP_SETWINDOWSLOCKDOWNRESTRICTION_FN: &str = "WldpSetWindowsLockdownRestriction";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLDP_WINDOWS_LOCKDOWN_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_WINDOWS_LOCKDOWN_MODE_UNLOCKED: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(0i32);
@@ -7049,7 +7049,7 @@ impl ::core::fmt::Debug for WLDP_WINDOWS_LOCKDOWN_MODE {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLDP_WINDOWS_LOCKDOWN_RESTRICTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NONE: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(0i32);

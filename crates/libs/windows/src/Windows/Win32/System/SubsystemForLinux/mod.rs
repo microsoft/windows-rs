@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSL_DISTRIBUTION_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 pub const WSL_DISTRIBUTION_FLAGS_NONE: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION_FLAGS(0u32);

@@ -2,7 +2,7 @@
 pub mod Geofencing;
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AltitudeReferenceSystem(pub i32);
 impl AltitudeReferenceSystem {
     pub const Unspecified: Self = Self(0i32);
@@ -890,7 +890,7 @@ unsafe impl ::core::marker::Send for GeocoordinateSatelliteData {}
 unsafe impl ::core::marker::Sync for GeocoordinateSatelliteData {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GeolocationAccessStatus(pub i32);
 impl GeolocationAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -1597,7 +1597,7 @@ unsafe impl ::core::marker::Send for Geoposition {}
 unsafe impl ::core::marker::Sync for Geoposition {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GeoshapeType(pub i32);
 impl GeoshapeType {
     pub const Geopoint: Self = Self(0i32);
@@ -2728,7 +2728,7 @@ pub struct IVenueData_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PositionAccuracy(pub i32);
 impl PositionAccuracy {
     pub const Default: Self = Self(0i32);
@@ -2847,7 +2847,7 @@ unsafe impl ::core::marker::Send for PositionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PositionChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PositionSource(pub i32);
 impl PositionSource {
     pub const Cellular: Self = Self(0i32);
@@ -2886,7 +2886,7 @@ unsafe impl ::windows::core::RuntimeType for PositionSource {
 }
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PositionStatus(pub i32);
 impl PositionStatus {
     pub const Ready: Self = Self(0i32);
@@ -3102,7 +3102,7 @@ unsafe impl ::core::marker::Send for VenueData {}
 unsafe impl ::core::marker::Sync for VenueData {}
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VisitMonitoringScope(pub i32);
 impl VisitMonitoringScope {
     pub const Venue: Self = Self(0i32);
@@ -3136,7 +3136,7 @@ unsafe impl ::windows::core::RuntimeType for VisitMonitoringScope {
 }
 #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VisitStateChange(pub i32);
 impl VisitStateChange {
     pub const TrackingLost: Self = Self(0i32);

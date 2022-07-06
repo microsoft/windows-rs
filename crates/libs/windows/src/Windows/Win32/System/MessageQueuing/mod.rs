@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FOREIGN_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQ_STATUS_FOREIGN: FOREIGN_STATUS = FOREIGN_STATUS(0i32);
@@ -9233,7 +9233,7 @@ pub const MO_MACHINE_TOKEN: &str = "MACHINE";
 pub const MO_QUEUE_TOKEN: &str = "QUEUE";
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQACCESS(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQ_RECEIVE_ACCESS: MQACCESS = MQACCESS(1i32);
@@ -9264,7 +9264,7 @@ impl ::core::fmt::Debug for MQACCESS {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQAUTHENTICATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQ_AUTHENTICATE_NONE: MQAUTHENTICATE = MQAUTHENTICATE(0i32);
@@ -9291,7 +9291,7 @@ impl ::core::fmt::Debug for MQAUTHENTICATE {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQCALG(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQMSG_CALG_MD2: MQCALG = MQCALG(32769i32);
@@ -9340,7 +9340,7 @@ impl ::core::fmt::Debug for MQCALG {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQCERT_REGISTER(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQCERT_REGISTER_ALWAYS: MQCERT_REGISTER = MQCERT_REGISTER(1i32);
@@ -9367,7 +9367,7 @@ impl ::core::fmt::Debug for MQCERT_REGISTER {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQDEFAULT(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const DEFAULT_M_PRIORITY: MQDEFAULT = MQDEFAULT(3i32);
@@ -9422,7 +9422,7 @@ impl ::core::fmt::Debug for MQDEFAULT {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQERROR(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQ_ERROR: MQERROR = MQERROR(-1072824319i32);
@@ -9711,7 +9711,7 @@ impl ::core::fmt::Debug for MQERROR {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQJOURNAL(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQ_JOURNAL_NONE: MQJOURNAL = MQJOURNAL(0i32);
@@ -9738,7 +9738,7 @@ impl ::core::fmt::Debug for MQJOURNAL {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQMAX(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQ_MAX_Q_NAME_LEN: MQMAX = MQMAX(124i32);
@@ -9765,7 +9765,7 @@ impl ::core::fmt::Debug for MQMAX {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQMSGACKNOWLEDGEMENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQMSG_ACKNOWLEDGMENT_NONE: MQMSGACKNOWLEDGEMENT = MQMSGACKNOWLEDGEMENT(0i32);
@@ -9806,7 +9806,7 @@ impl ::core::fmt::Debug for MQMSGACKNOWLEDGEMENT {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQMSGAUTHENTICATION(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQMSG_AUTHENTICATION_NOT_REQUESTED: MQMSGAUTHENTICATION = MQMSGAUTHENTICATION(0i32);
@@ -9843,7 +9843,7 @@ impl ::core::fmt::Debug for MQMSGAUTHENTICATION {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQMSGAUTHLEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQMSG_AUTH_LEVEL_NONE: MQMSGAUTHLEVEL = MQMSGAUTHLEVEL(0i32);
@@ -9880,7 +9880,7 @@ impl ::core::fmt::Debug for MQMSGAUTHLEVEL {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQMSGCLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQMSG_CLASS_NORMAL: MQMSGCLASS = MQMSGCLASS(0i32);
@@ -9945,7 +9945,7 @@ impl ::core::fmt::Debug for MQMSGCLASS {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQMSGCURSOR(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQMSG_FIRST: MQMSGCURSOR = MQMSGCURSOR(0i32);
@@ -9974,7 +9974,7 @@ impl ::core::fmt::Debug for MQMSGCURSOR {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQMSGDELIVERY(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQMSG_DELIVERY_EXPRESS: MQMSGDELIVERY = MQMSGDELIVERY(0i32);
@@ -10001,7 +10001,7 @@ impl ::core::fmt::Debug for MQMSGDELIVERY {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQMSGIDSIZE(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQMSG_MSGID_SIZE: MQMSGIDSIZE = MQMSGIDSIZE(20i32);
@@ -10030,7 +10030,7 @@ impl ::core::fmt::Debug for MQMSGIDSIZE {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQMSGJOURNAL(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQMSG_JOURNAL_NONE: MQMSGJOURNAL = MQMSGJOURNAL(0i32);
@@ -10059,7 +10059,7 @@ impl ::core::fmt::Debug for MQMSGJOURNAL {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQMSGMAX(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQ_MAX_MSG_LABEL_LEN: MQMSGMAX = MQMSGMAX(249i32);
@@ -10084,7 +10084,7 @@ impl ::core::fmt::Debug for MQMSGMAX {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQMSGPRIVLEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQMSG_PRIV_LEVEL_NONE: MQMSGPRIVLEVEL = MQMSGPRIVLEVEL(0i32);
@@ -10113,7 +10113,7 @@ impl ::core::fmt::Debug for MQMSGPRIVLEVEL {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQMSGSENDERIDTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQMSG_SENDERID_TYPE_NONE: MQMSGSENDERIDTYPE = MQMSGSENDERIDTYPE(0i32);
@@ -10140,7 +10140,7 @@ impl ::core::fmt::Debug for MQMSGSENDERIDTYPE {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQMSGTRACE(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQMSG_TRACE_NONE: MQMSGTRACE = MQMSGTRACE(0i32);
@@ -10179,7 +10179,7 @@ pub const MQMSG_NOT_LAST_IN_XACT: u32 = 0u32;
 pub const MQMSG_PRIV_LEVEL_BODY_AES: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQPRIORITY(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQ_MIN_PRIORITY: MQPRIORITY = MQPRIORITY(0i32);
@@ -10206,7 +10206,7 @@ impl ::core::fmt::Debug for MQPRIORITY {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQPRIVLEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQ_PRIV_LEVEL_NONE: MQPRIVLEVEL = MQPRIVLEVEL(0i32);
@@ -10255,7 +10255,7 @@ pub const MQSEC_TAKE_QUEUE_OWNERSHIP: u32 = 524288u32;
 pub const MQSEC_WRITE_MESSAGE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQSHARE(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQ_DENY_NONE: MQSHARE = MQSHARE(0i32);
@@ -10282,7 +10282,7 @@ impl ::core::fmt::Debug for MQSHARE {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQTRANSACTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQ_NO_TRANSACTION: MQTRANSACTION = MQTRANSACTION(0i32);
@@ -10313,7 +10313,7 @@ impl ::core::fmt::Debug for MQTRANSACTION {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQTRANSACTIONAL(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQ_TRANSACTIONAL_NONE: MQTRANSACTIONAL = MQTRANSACTIONAL(0i32);
@@ -10340,7 +10340,7 @@ impl ::core::fmt::Debug for MQTRANSACTIONAL {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQWARNING(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQ_INFORMATION_PROPERTY: MQWARNING = MQWARNING(1074659329i32);
@@ -10742,7 +10742,7 @@ pub const QUEUE_ACTION_PAUSE: &str = "PAUSE";
 pub const QUEUE_ACTION_RESUME: &str = "RESUME";
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QUEUE_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQ_QUEUE_STATE_LOCAL_CONNECTION: QUEUE_STATE = QUEUE_STATE(0i32);
@@ -10783,7 +10783,7 @@ impl ::core::fmt::Debug for QUEUE_STATE {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QUEUE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQ_TYPE_PUBLIC: QUEUE_TYPE = QUEUE_TYPE(0i32);
@@ -10816,7 +10816,7 @@ impl ::core::fmt::Debug for QUEUE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RELOPS(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const REL_NOP: RELOPS = RELOPS(0i32);
@@ -10853,7 +10853,7 @@ impl ::core::fmt::Debug for RELOPS {
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XACT_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQ_XACT_STATUS_XACT: XACT_STATUS = XACT_STATUS(0i32);

@@ -560,7 +560,7 @@ unsafe impl ::core::marker::Send for ResourceCandidate {}
 unsafe impl ::core::marker::Sync for ResourceCandidate {}
 #[doc = "*Required features: `\"ApplicationModel_Resources_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ResourceCandidateKind(pub i32);
 impl ResourceCandidateKind {
     pub const String: Self = Self(0i32);
@@ -2741,7 +2741,7 @@ unsafe impl ::core::marker::Send for ResourceQualifierObservableMap {}
 unsafe impl ::core::marker::Sync for ResourceQualifierObservableMap {}
 #[doc = "*Required features: `\"ApplicationModel_Resources_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ResourceQualifierPersistence(pub i32);
 impl ResourceQualifierPersistence {
     pub const None: Self = Self(0i32);

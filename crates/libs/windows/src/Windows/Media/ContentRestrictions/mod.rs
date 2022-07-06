@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContentAccessRestrictionLevel(pub i32);
 impl ContentAccessRestrictionLevel {
     pub const Allow: Self = Self(0i32);
@@ -252,7 +252,7 @@ pub struct IRatedContentRestrictionsFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RatedContentCategory(pub i32);
 impl RatedContentCategory {
     pub const General: Self = Self(0i32);

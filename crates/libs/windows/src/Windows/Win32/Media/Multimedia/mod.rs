@@ -2818,7 +2818,7 @@ pub unsafe fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Di
     ::core::mem::transmute(GetSaveFileNamePreviewW(::core::mem::transmute(lpofn)))
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDRVR(pub isize);
 impl HDRVR {
     pub fn is_invalid(&self) -> bool {
@@ -2845,7 +2845,7 @@ unsafe impl ::windows::core::Abi for HDRVR {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HIC(pub isize);
 impl HIC {
     pub fn is_invalid(&self) -> bool {
@@ -2872,7 +2872,7 @@ unsafe impl ::windows::core::Abi for HIC {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HMMIO(pub isize);
 impl HMMIO {
     pub fn is_invalid(&self) -> bool {
@@ -2899,7 +2899,7 @@ unsafe impl ::windows::core::Abi for HMMIO {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HVIDEO(pub isize);
 impl HVIDEO {
     pub fn is_invalid(&self) -> bool {

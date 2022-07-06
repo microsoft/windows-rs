@@ -24,7 +24,7 @@ pub unsafe fn D3D11CreateDeviceAndSwapChain<'a, Param0: ::windows::core::IntoPar
 pub const D3D11_16BIT_INDEX_STRIP_CUT_VALUE: u32 = 65535u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_1_CREATE_DEVICE_CONTEXT_STATE_SINGLETHREADED: D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG = D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG(1i32);
@@ -102,7 +102,7 @@ pub const D3D11_APPSIZE_STRING: &str = "Size";
 pub const D3D11_ARRAY_AXIS_ADDRESS_RANGE_BIT_COUNT: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_ASYNC_GETDATA_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_ASYNC_GETDATA_DONOTFLUSH: D3D11_ASYNC_GETDATA_FLAG = D3D11_ASYNC_GETDATA_FLAG(1i32);
@@ -127,7 +127,7 @@ impl ::core::fmt::Debug for D3D11_ASYNC_GETDATA_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_AUTHENTICATED_CHANNEL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_AUTHENTICATED_CHANNEL_D3D11: D3D11_AUTHENTICATED_CHANNEL_TYPE = D3D11_AUTHENTICATED_CHANNEL_TYPE(1i32);
@@ -438,7 +438,7 @@ impl ::core::default::Default for D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_PROCESSIDTYPE_UNKNOWN: D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE = D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE(0i32);
@@ -1329,7 +1329,7 @@ impl ::core::default::Default for D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECT
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_BIND_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_BIND_VERTEX_BUFFER: D3D11_BIND_FLAG = D3D11_BIND_FLAG(1u32);
@@ -1400,7 +1400,7 @@ impl ::core::ops::Not for D3D11_BIND_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_BLEND(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_BLEND_ZERO: D3D11_BLEND = D3D11_BLEND(1i32);
@@ -1537,7 +1537,7 @@ impl ::core::default::Default for D3D11_BLEND_DESC1 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_BLEND_OP(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_BLEND_OP_ADD: D3D11_BLEND_OP = D3D11_BLEND_OP(1i32);
@@ -1645,7 +1645,7 @@ impl ::core::default::Default for D3D11_BUFFEREX_SRV {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_BUFFEREX_SRV_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_BUFFEREX_SRV_FLAG_RAW: D3D11_BUFFEREX_SRV_FLAG = D3D11_BUFFEREX_SRV_FLAG(1i32);
@@ -1893,7 +1893,7 @@ impl ::core::default::Default for D3D11_BUFFER_UAV {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_BUFFER_UAV_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_BUFFER_UAV_FLAG_RAW: D3D11_BUFFER_UAV_FLAG = D3D11_BUFFER_UAV_FLAG(1i32);
@@ -1922,7 +1922,7 @@ impl ::core::fmt::Debug for D3D11_BUFFER_UAV_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_BUS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_BUS_TYPE_OTHER: D3D11_BUS_TYPE = D3D11_BUS_TYPE(0i32);
@@ -1967,7 +1967,7 @@ impl ::core::fmt::Debug for D3D11_BUS_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_TILED_RESOURCE: D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG = D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG(1i32);
@@ -2037,7 +2037,7 @@ impl ::core::default::Default for D3D11_CLASS_INSTANCE_DESC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_CLEAR_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_CLEAR_DEPTH: D3D11_CLEAR_FLAG = D3D11_CLEAR_FLAG(1i32);
@@ -2068,7 +2068,7 @@ pub const D3D11_CLIP_OR_CULL_DISTANCE_COUNT: u32 = 8u32;
 pub const D3D11_CLIP_OR_CULL_DISTANCE_ELEMENT_COUNT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_COLOR_WRITE_ENABLE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_COLOR_WRITE_ENABLE_RED: D3D11_COLOR_WRITE_ENABLE = D3D11_COLOR_WRITE_ENABLE(1i32);
@@ -2173,7 +2173,7 @@ pub const D3D11_COMMONSHADER_TEXEL_OFFSET_MAX_POSITIVE: u32 = 7u32;
 pub const D3D11_COMPARISON_FILTERING_BIT: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_COMPARISON_FUNC(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_COMPARISON_NEVER: D3D11_COMPARISON_FUNC = D3D11_COMPARISON_FUNC(1i32);
@@ -2244,7 +2244,7 @@ impl ::core::default::Default for D3D11_COMPUTE_SHADER_TRACE_DESC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_CONSERVATIVE_RASTERIZATION_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_CONSERVATIVE_RASTERIZATION_MODE_OFF: D3D11_CONSERVATIVE_RASTERIZATION_MODE = D3D11_CONSERVATIVE_RASTERIZATION_MODE(0i32);
@@ -2271,7 +2271,7 @@ impl ::core::fmt::Debug for D3D11_CONSERVATIVE_RASTERIZATION_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_CONSERVATIVE_RASTERIZATION_TIER(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_CONSERVATIVE_RASTERIZATION_NOT_SUPPORTED: D3D11_CONSERVATIVE_RASTERIZATION_TIER = D3D11_CONSERVATIVE_RASTERIZATION_TIER(0i32);
@@ -2302,7 +2302,7 @@ impl ::core::fmt::Debug for D3D11_CONSERVATIVE_RASTERIZATION_TIER {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_CONTENT_PROTECTION_CAPS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_CONTENT_PROTECTION_CAPS_SOFTWARE: D3D11_CONTENT_PROTECTION_CAPS = D3D11_CONTENT_PROTECTION_CAPS(1i32);
@@ -2357,7 +2357,7 @@ impl ::core::fmt::Debug for D3D11_CONTENT_PROTECTION_CAPS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_CONTEXT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_CONTEXT_TYPE_ALL: D3D11_CONTEXT_TYPE = D3D11_CONTEXT_TYPE(0i32);
@@ -2390,7 +2390,7 @@ impl ::core::fmt::Debug for D3D11_CONTEXT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_COPY_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_COPY_NO_OVERWRITE: D3D11_COPY_FLAGS = D3D11_COPY_FLAGS(1i32);
@@ -2417,7 +2417,7 @@ impl ::core::fmt::Debug for D3D11_COPY_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_COUNTER(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_COUNTER_DEVICE_DEPENDENT_0: D3D11_COUNTER = D3D11_COUNTER(1073741824i32);
@@ -2505,7 +2505,7 @@ impl ::core::default::Default for D3D11_COUNTER_INFO {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_COUNTER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_COUNTER_TYPE_FLOAT32: D3D11_COUNTER_TYPE = D3D11_COUNTER_TYPE(0i32);
@@ -2536,7 +2536,7 @@ impl ::core::fmt::Debug for D3D11_COUNTER_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_CPU_ACCESS_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_CPU_ACCESS_WRITE: D3D11_CPU_ACCESS_FLAG = D3D11_CPU_ACCESS_FLAG(65536u32);
@@ -2591,7 +2591,7 @@ impl ::core::ops::Not for D3D11_CPU_ACCESS_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_CREATE_DEVICE_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_CREATE_DEVICE_SINGLETHREADED: D3D11_CREATE_DEVICE_FLAG = D3D11_CREATE_DEVICE_FLAG(1u32);
@@ -2660,7 +2660,7 @@ impl ::core::ops::Not for D3D11_CREATE_DEVICE_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAG_NONE: D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS = D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS(0u32);
@@ -2713,7 +2713,7 @@ impl ::core::ops::Not for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_CRYPTO_SESSION_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_CRYPTO_SESSION_STATUS_OK: D3D11_CRYPTO_SESSION_STATUS = D3D11_CRYPTO_SESSION_STATUS(0i32);
@@ -2861,7 +2861,7 @@ pub const D3D11_CS_THREAD_GROUP_MIN_Z: u32 = 1u32;
 pub const D3D11_CS_THREAD_LOCAL_TEMP_REGISTER_POOL: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_CULL_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_CULL_NONE: D3D11_CULL_MODE = D3D11_CULL_MODE(1i32);
@@ -3147,7 +3147,7 @@ impl ::core::default::Default for D3D11_DEPTH_STENCIL_VIEW_DESC_0 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_DEPTH_WRITE_MASK(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_DEPTH_WRITE_MASK_ZERO: D3D11_DEPTH_WRITE_MASK = D3D11_DEPTH_WRITE_MASK(0i32);
@@ -3174,7 +3174,7 @@ impl ::core::fmt::Debug for D3D11_DEPTH_WRITE_MASK {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_DEVICE_CONTEXT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_DEVICE_CONTEXT_IMMEDIATE: D3D11_DEVICE_CONTEXT_TYPE = D3D11_DEVICE_CONTEXT_TYPE(0i32);
@@ -3298,7 +3298,7 @@ impl ::core::default::Default for D3D11_DRAW_INSTANCED_INDIRECT_ARGS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_DSV_DIMENSION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_DSV_DIMENSION_UNKNOWN: D3D11_DSV_DIMENSION = D3D11_DSV_DIMENSION(0i32);
@@ -3335,7 +3335,7 @@ impl ::core::fmt::Debug for D3D11_DSV_DIMENSION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_DSV_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_DSV_READ_ONLY_DEPTH: D3D11_DSV_FLAG = D3D11_DSV_FLAG(1i32);
@@ -3444,7 +3444,7 @@ impl ::core::default::Default for D3D11_ENCRYPTED_BLOCK_INFO {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_FEATURE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_FEATURE_THREADING: D3D11_FEATURE = D3D11_FEATURE(0i32);
@@ -4372,7 +4372,7 @@ impl ::core::default::Default for D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_FEATURE_VIDEO(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_FEATURE_VIDEO_DECODER_HISTOGRAM: D3D11_FEATURE_VIDEO = D3D11_FEATURE_VIDEO(0i32);
@@ -4397,7 +4397,7 @@ impl ::core::fmt::Debug for D3D11_FEATURE_VIDEO {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_FENCE_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_FENCE_FLAG_NONE: D3D11_FENCE_FLAG = D3D11_FENCE_FLAG(0u32);
@@ -4456,7 +4456,7 @@ impl ::core::ops::Not for D3D11_FENCE_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_FILL_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_FILL_WIREFRAME: D3D11_FILL_MODE = D3D11_FILL_MODE(2i32);
@@ -4483,7 +4483,7 @@ impl ::core::fmt::Debug for D3D11_FILL_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_FILTER(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_FILTER_MIN_MAG_MIP_POINT: D3D11_FILTER = D3D11_FILTER(0i32);
@@ -4578,7 +4578,7 @@ impl ::core::fmt::Debug for D3D11_FILTER {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_FILTER_REDUCTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_FILTER_REDUCTION_TYPE_STANDARD: D3D11_FILTER_REDUCTION_TYPE = D3D11_FILTER_REDUCTION_TYPE(0i32);
@@ -4613,7 +4613,7 @@ pub const D3D11_FILTER_REDUCTION_TYPE_MASK: u32 = 3u32;
 pub const D3D11_FILTER_REDUCTION_TYPE_SHIFT: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_FILTER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_FILTER_TYPE_POINT: D3D11_FILTER_TYPE = D3D11_FILTER_TYPE(0i32);
@@ -4664,7 +4664,7 @@ pub const D3D11_FORCE_DEBUGGABLE: &str = "ForceDebuggable";
 pub const D3D11_FORCE_SHADER_SKIP_OPTIMIZATION: &str = "ForceShaderSkipOptimization";
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_FORMAT_SUPPORT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_FORMAT_SUPPORT_BUFFER: D3D11_FORMAT_SUPPORT = D3D11_FORMAT_SUPPORT(1i32);
@@ -4749,7 +4749,7 @@ impl ::core::fmt::Debug for D3D11_FORMAT_SUPPORT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_FORMAT_SUPPORT2(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_FORMAT_SUPPORT2_UAV_ATOMIC_ADD: D3D11_FORMAT_SUPPORT2 = D3D11_FORMAT_SUPPORT2(1i32);
@@ -5180,7 +5180,7 @@ impl ::core::default::Default for D3D11_INFO_QUEUE_FILTER_DESC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_INPUT_CLASSIFICATION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_INPUT_PER_VERTEX_DATA: D3D11_INPUT_CLASSIFICATION = D3D11_INPUT_CLASSIFICATION(0i32);
@@ -5395,7 +5395,7 @@ impl ::core::default::Default for D3D11_LIBRARY_DESC {
 pub const D3D11_LINEAR_GAMMA: f32 = 1f32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_LOGIC_OP(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_LOGIC_OP_CLEAR: D3D11_LOGIC_OP = D3D11_LOGIC_OP(0i32);
@@ -5454,7 +5454,7 @@ pub const D3D11_MAG_FILTER_SHIFT: u32 = 2u32;
 pub const D3D11_MAJOR_VERSION: u32 = 11u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_MAP(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_MAP_READ: D3D11_MAP = D3D11_MAP(1i32);
@@ -5519,7 +5519,7 @@ impl ::core::default::Default for D3D11_MAPPED_SUBRESOURCE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_MAP_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_MAP_FLAG_DO_NOT_WAIT: D3D11_MAP_FLAG = D3D11_MAP_FLAG(1048576i32);
@@ -5590,7 +5590,7 @@ impl ::core::default::Default for D3D11_MESSAGE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_MESSAGE_CATEGORY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_MESSAGE_CATEGORY_APPLICATION_DEFINED: D3D11_MESSAGE_CATEGORY = D3D11_MESSAGE_CATEGORY(0i32);
@@ -5635,7 +5635,7 @@ impl ::core::fmt::Debug for D3D11_MESSAGE_CATEGORY {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_MESSAGE_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_MESSAGE_ID_UNKNOWN: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(0i32);
@@ -8330,7 +8330,7 @@ impl ::core::fmt::Debug for D3D11_MESSAGE_ID {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_MESSAGE_SEVERITY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_MESSAGE_SEVERITY_CORRUPTION: D3D11_MESSAGE_SEVERITY = D3D11_MESSAGE_SEVERITY(0i32);
@@ -8607,7 +8607,7 @@ pub const D3D11_PS_OUTPUT_REGISTER_COUNT: u32 = 8u32;
 pub const D3D11_PS_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.5f32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_QUERY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_QUERY_EVENT: D3D11_QUERY = D3D11_QUERY(0i32);
@@ -8847,7 +8847,7 @@ impl ::core::default::Default for D3D11_QUERY_DESC1 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_QUERY_MISC_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_QUERY_MISC_PREDICATEHINT: D3D11_QUERY_MISC_FLAG = D3D11_QUERY_MISC_FLAG(1i32);
@@ -8872,7 +8872,7 @@ impl ::core::fmt::Debug for D3D11_QUERY_MISC_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_RAISE_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_RAISE_FLAG_DRIVER_INTERNAL_ERROR: D3D11_RAISE_FLAG = D3D11_RAISE_FLAG(1i32);
@@ -9371,7 +9371,7 @@ pub const D3D11_REQ_TEXTURECUBE_DIMENSION: u32 = 16384u32;
 pub const D3D11_RESINFO_INSTRUCTION_MISSING_COMPONENT_RETVAL: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_RESOURCE_DIMENSION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_RESOURCE_DIMENSION_UNKNOWN: D3D11_RESOURCE_DIMENSION = D3D11_RESOURCE_DIMENSION(0i32);
@@ -9404,7 +9404,7 @@ impl ::core::fmt::Debug for D3D11_RESOURCE_DIMENSION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_RESOURCE_MISC_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_RESOURCE_MISC_GENERATE_MIPS: D3D11_RESOURCE_MISC_FLAG = D3D11_RESOURCE_MISC_FLAG(1u32);
@@ -9493,7 +9493,7 @@ impl ::core::ops::Not for D3D11_RESOURCE_MISC_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_RLDO_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_RLDO_SUMMARY: D3D11_RLDO_FLAGS = D3D11_RLDO_FLAGS(1i32);
@@ -9522,7 +9522,7 @@ impl ::core::fmt::Debug for D3D11_RLDO_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_RTV_DIMENSION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_RTV_DIMENSION_UNKNOWN: D3D11_RTV_DIMENSION = D3D11_RTV_DIMENSION(0i32);
@@ -9648,7 +9648,7 @@ impl ::core::default::Default for D3D11_SHADER_BUFFER_DESC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_SHADER_CACHE_SUPPORT_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_SHADER_CACHE_SUPPORT_NONE: D3D11_SHADER_CACHE_SUPPORT_FLAGS = D3D11_SHADER_CACHE_SUPPORT_FLAGS(0i32);
@@ -9848,7 +9848,7 @@ pub const D3D11_SHADER_MAX_TYPES: u32 = 65535u32;
 pub const D3D11_SHADER_MINOR_VERSION: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_SHADER_MIN_PRECISION_SUPPORT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_SHADER_MIN_PRECISION_10_BIT: D3D11_SHADER_MIN_PRECISION_SUPPORT = D3D11_SHADER_MIN_PRECISION_SUPPORT(1i32);
@@ -10088,7 +10088,7 @@ pub const D3D11_SHADER_TRACE_FLAG_RECORD_REGISTER_READS: u32 = 2u32;
 pub const D3D11_SHADER_TRACE_FLAG_RECORD_REGISTER_WRITES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_SHADER_TRACKING_OPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_SHADER_TRACKING_OPTION_IGNORE: D3D11_SHADER_TRACKING_OPTIONS = D3D11_SHADER_TRACKING_OPTIONS(0i32);
@@ -10141,7 +10141,7 @@ impl ::core::fmt::Debug for D3D11_SHADER_TRACKING_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_SHADER_TRACKING_RESOURCE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_SHADER_TRACKING_RESOURCE_TYPE_NONE: D3D11_SHADER_TRACKING_RESOURCE_TYPE = D3D11_SHADER_TRACKING_RESOURCE_TYPE(0i32);
@@ -10180,7 +10180,7 @@ impl ::core::fmt::Debug for D3D11_SHADER_TRACKING_RESOURCE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_SHADER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VERTEX_SHADER: D3D11_SHADER_TYPE = D3D11_SHADER_TYPE(1i32);
@@ -10298,7 +10298,7 @@ impl ::core::default::Default for D3D11_SHADER_VARIABLE_DESC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_SHADER_VERSION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_SHVER_PIXEL_SHADER: D3D11_SHADER_VERSION_TYPE = D3D11_SHADER_VERSION_TYPE(0i32);
@@ -10335,7 +10335,7 @@ impl ::core::fmt::Debug for D3D11_SHADER_VERSION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_SHARED_RESOURCE_TIER(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_SHARED_RESOURCE_TIER_0: D3D11_SHARED_RESOURCE_TIER = D3D11_SHARED_RESOURCE_TIER(0i32);
@@ -10495,7 +10495,7 @@ pub const D3D11_STANDARD_COMPONENT_BIT_COUNT_DOUBLED: u32 = 64u32;
 pub const D3D11_STANDARD_MAXIMUM_ELEMENT_ALIGNMENT_BYTE_MULTIPLE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_STANDARD_MULTISAMPLE_PATTERN: D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS = D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS(-1i32);
@@ -10532,7 +10532,7 @@ pub const D3D11_STANDARD_VERTEX_ELEMENT_COUNT: u32 = 32u32;
 pub const D3D11_STANDARD_VERTEX_TOTAL_COMPONENT_COUNT: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_STENCIL_OP(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_STENCIL_OP_KEEP: D3D11_STENCIL_OP = D3D11_STENCIL_OP(1i32);
@@ -12048,7 +12048,7 @@ impl ::core::default::Default for D3D11_TEXTURE3D_DESC1 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_TEXTURECUBE_FACE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_TEXTURECUBE_FACE_POSITIVE_X: D3D11_TEXTURECUBE_FACE = D3D11_TEXTURECUBE_FACE(0i32);
@@ -12083,7 +12083,7 @@ impl ::core::fmt::Debug for D3D11_TEXTURECUBE_FACE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_TEXTURE_ADDRESS_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_TEXTURE_ADDRESS_WRAP: D3D11_TEXTURE_ADDRESS_MODE = D3D11_TEXTURE_ADDRESS_MODE(1i32);
@@ -12116,7 +12116,7 @@ impl ::core::fmt::Debug for D3D11_TEXTURE_ADDRESS_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_TEXTURE_LAYOUT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_TEXTURE_LAYOUT_UNDEFINED: D3D11_TEXTURE_LAYOUT = D3D11_TEXTURE_LAYOUT(0i32);
@@ -12145,7 +12145,7 @@ impl ::core::fmt::Debug for D3D11_TEXTURE_LAYOUT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_TILED_RESOURCES_TIER(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_TILED_RESOURCES_NOT_SUPPORTED: D3D11_TILED_RESOURCES_TIER = D3D11_TILED_RESOURCES_TIER(0i32);
@@ -12209,7 +12209,7 @@ impl ::core::default::Default for D3D11_TILED_RESOURCE_COORDINATE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_TILE_COPY_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_TILE_COPY_NO_OVERWRITE: D3D11_TILE_COPY_FLAG = D3D11_TILE_COPY_FLAG(1i32);
@@ -12238,7 +12238,7 @@ impl ::core::fmt::Debug for D3D11_TILE_COPY_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_TILE_MAPPING_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_TILE_MAPPING_NO_OVERWRITE: D3D11_TILE_MAPPING_FLAG = D3D11_TILE_MAPPING_FLAG(1i32);
@@ -12263,7 +12263,7 @@ impl ::core::fmt::Debug for D3D11_TILE_MAPPING_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_TILE_RANGE_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_TILE_RANGE_NULL: D3D11_TILE_RANGE_FLAG = D3D11_TILE_RANGE_FLAG(1i32);
@@ -12374,7 +12374,7 @@ pub const D3D11_TRACE_COMPONENT_Y: u32 = 2u32;
 pub const D3D11_TRACE_COMPONENT_Z: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_TRACE_GS_INPUT_PRIMITIVE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_TRACE_GS_INPUT_PRIMITIVE_UNDEFINED: D3D11_TRACE_GS_INPUT_PRIMITIVE = D3D11_TRACE_GS_INPUT_PRIMITIVE(0i32);
@@ -12479,7 +12479,7 @@ impl ::core::default::Default for D3D11_TRACE_REGISTER_0 {
 pub const D3D11_TRACE_REGISTER_FLAGS_RELATIVE_INDEXING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_TRACE_REGISTER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_TRACE_OUTPUT_NULL_REGISTER: D3D11_TRACE_REGISTER_TYPE = D3D11_TRACE_REGISTER_TYPE(0i32);
@@ -12703,7 +12703,7 @@ impl ::core::default::Default for D3D11_TRACE_VALUE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_UAV_DIMENSION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_UAV_DIMENSION_UNKNOWN: D3D11_UAV_DIMENSION = D3D11_UAV_DIMENSION(0i32);
@@ -12886,7 +12886,7 @@ impl ::core::default::Default for D3D11_UNORDERED_ACCESS_VIEW_DESC1_0 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_USAGE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_USAGE_DEFAULT: D3D11_USAGE = D3D11_USAGE(0i32);
@@ -12917,7 +12917,7 @@ impl ::core::fmt::Debug for D3D11_USAGE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VDOV_DIMENSION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VDOV_DIMENSION_UNKNOWN: D3D11_VDOV_DIMENSION = D3D11_VDOV_DIMENSION(0i32);
@@ -13305,7 +13305,7 @@ impl ::core::default::Default for D3D11_VIDEO_DECODER_BUFFER_DESC2 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_DECODER_BUFFER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_DECODER_BUFFER_PICTURE_PARAMETERS: D3D11_VIDEO_DECODER_BUFFER_TYPE = D3D11_VIDEO_DECODER_BUFFER_TYPE(0i32);
@@ -13346,7 +13346,7 @@ impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_BUFFER_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_DECODER_CAPS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_DECODER_CAPS_DOWNSAMPLE: D3D11_VIDEO_DECODER_CAPS = D3D11_VIDEO_DECODER_CAPS(1i32);
@@ -13520,7 +13520,7 @@ impl ::core::default::Default for D3D11_VIDEO_DECODER_EXTENSION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_Y: D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT = D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT(0i32);
@@ -13557,7 +13557,7 @@ impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_NONE: D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS = D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS(0u32);
@@ -13707,7 +13707,7 @@ impl ::core::default::Default for D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_FRAME_FORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_FRAME_FORMAT_PROGRESSIVE: D3D11_VIDEO_FRAME_FORMAT = D3D11_VIDEO_FRAME_FORMAT(0i32);
@@ -13736,7 +13736,7 @@ impl ::core::fmt::Debug for D3D11_VIDEO_FRAME_FORMAT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE_OPAQUE: D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE = D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE(0i32);
@@ -13767,7 +13767,7 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS_DENOISE: D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS = D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS(1i32);
@@ -13806,7 +13806,7 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINT_MULTIPLANE_OVERLAY_ROTATION: D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS = D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS(1i32);
@@ -13991,7 +13991,7 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_CUSTOM_RATE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_PROCESSOR_DEVICE_CAPS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_PROCESSOR_DEVICE_CAPS_LINEAR_SPACE: D3D11_VIDEO_PROCESSOR_DEVICE_CAPS = D3D11_VIDEO_PROCESSOR_DEVICE_CAPS(1i32);
@@ -14024,7 +14024,7 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_DEVICE_CAPS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_PROCESSOR_FEATURE_CAPS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_PROCESSOR_FEATURE_CAPS_ALPHA_FILL: D3D11_VIDEO_PROCESSOR_FEATURE_CAPS = D3D11_VIDEO_PROCESSOR_FEATURE_CAPS(1i32);
@@ -14071,7 +14071,7 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_FEATURE_CAPS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_PROCESSOR_FILTER(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_PROCESSOR_FILTER_BRIGHTNESS: D3D11_VIDEO_PROCESSOR_FILTER = D3D11_VIDEO_PROCESSOR_FILTER(0i32);
@@ -14110,7 +14110,7 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_FILTER {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_PROCESSOR_FILTER_CAPS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_PROCESSOR_FILTER_CAPS_BRIGHTNESS: D3D11_VIDEO_PROCESSOR_FILTER_CAPS = D3D11_VIDEO_PROCESSOR_FILTER_CAPS(1i32);
@@ -14182,7 +14182,7 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_FILTER_RANGE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_PROCESSOR_FORMAT_CAPS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_PROCESSOR_FORMAT_CAPS_RGB_INTERLACED: D3D11_VIDEO_PROCESSOR_FORMAT_CAPS = D3D11_VIDEO_PROCESSOR_FORMAT_CAPS(1i32);
@@ -14213,7 +14213,7 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_FORMAT_CAPS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT_INPUT: D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT = D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT(1i32);
@@ -14292,7 +14292,7 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC_0 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_PROCESSOR_ITELECINE_CAPS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_PROCESSOR_ITELECINE_CAPS_32: D3D11_VIDEO_PROCESSOR_ITELECINE_CAPS = D3D11_VIDEO_PROCESSOR_ITELECINE_CAPS(1i32);
@@ -14335,7 +14335,7 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_ITELECINE_CAPS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_PROCESSOR_NOMINAL_RANGE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_PROCESSOR_NOMINAL_RANGE_UNDEFINED: D3D11_VIDEO_PROCESSOR_NOMINAL_RANGE = D3D11_VIDEO_PROCESSOR_NOMINAL_RANGE(0i32);
@@ -14364,7 +14364,7 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_NOMINAL_RANGE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_PROCESSOR_OUTPUT_RATE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_PROCESSOR_OUTPUT_RATE_NORMAL: D3D11_VIDEO_PROCESSOR_OUTPUT_RATE = D3D11_VIDEO_PROCESSOR_OUTPUT_RATE(0i32);
@@ -14445,7 +14445,7 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC_0 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS_DEINTERLACE_BLEND: D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS = D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS(1i32);
@@ -14514,7 +14514,7 @@ impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_PROCESSOR_ROTATION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_PROCESSOR_ROTATION_IDENTITY: D3D11_VIDEO_PROCESSOR_ROTATION = D3D11_VIDEO_PROCESSOR_ROTATION(0i32);
@@ -14545,7 +14545,7 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_ROTATION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_PROCESSOR_STEREO_CAPS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_PROCESSOR_STEREO_CAPS_MONO_OFFSET: D3D11_VIDEO_PROCESSOR_STEREO_CAPS = D3D11_VIDEO_PROCESSOR_STEREO_CAPS(1i32);
@@ -14578,7 +14578,7 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_STEREO_CAPS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_PROCESSOR_STEREO_FLIP_NONE: D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE = D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE(0i32);
@@ -14607,7 +14607,7 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_PROCESSOR_STEREO_FORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_PROCESSOR_STEREO_FORMAT_MONO: D3D11_VIDEO_PROCESSOR_STEREO_FORMAT = D3D11_VIDEO_PROCESSOR_STEREO_FORMAT(0i32);
@@ -14798,7 +14798,7 @@ impl ::core::default::Default for D3D11_VIDEO_SAMPLE_DESC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VIDEO_USAGE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VIDEO_USAGE_PLAYBACK_NORMAL: D3D11_VIDEO_USAGE = D3D11_VIDEO_USAGE(0i32);
@@ -14870,7 +14870,7 @@ pub const D3D11_VIEWPORT_BOUNDS_MAX: u32 = 32767u32;
 pub const D3D11_VIEWPORT_BOUNDS_MIN: i32 = -32768i32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VPIV_DIMENSION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VPIV_DIMENSION_UNKNOWN: D3D11_VPIV_DIMENSION = D3D11_VPIV_DIMENSION(0i32);
@@ -14897,7 +14897,7 @@ impl ::core::fmt::Debug for D3D11_VPIV_DIMENSION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D11_VPOV_DIMENSION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_VPOV_DIMENSION_UNKNOWN: D3D11_VPOV_DIMENSION = D3D11_VPOV_DIMENSION(0i32);
@@ -15081,7 +15081,7 @@ impl ::core::default::Default for D3DX11_FFT_BUFFER_INFO {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DX11_FFT_CREATE_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3DX11_FFT_CREATE_FLAG_NO_PRECOMPUTE_BUFFERS: D3DX11_FFT_CREATE_FLAG = D3DX11_FFT_CREATE_FLAG(1i32);
@@ -15106,7 +15106,7 @@ impl ::core::fmt::Debug for D3DX11_FFT_CREATE_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DX11_FFT_DATA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3DX11_FFT_DATA_TYPE_REAL: D3DX11_FFT_DATA_TYPE = D3DX11_FFT_DATA_TYPE(0i32);
@@ -15166,7 +15166,7 @@ impl ::core::default::Default for D3DX11_FFT_DESC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DX11_FFT_DIM_MASK(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3DX11_FFT_DIM_MASK_1D: D3DX11_FFT_DIM_MASK = D3DX11_FFT_DIM_MASK(1i32);
@@ -15201,7 +15201,7 @@ pub const D3DX11_FFT_MAX_PRECOMPUTE_BUFFERS: u32 = 4u32;
 pub const D3DX11_FFT_MAX_TEMP_BUFFERS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DX11_SCAN_DATA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3DX11_SCAN_DATA_TYPE_FLOAT: D3DX11_SCAN_DATA_TYPE = D3DX11_SCAN_DATA_TYPE(1i32);
@@ -15230,7 +15230,7 @@ impl ::core::fmt::Debug for D3DX11_SCAN_DATA_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DX11_SCAN_DIRECTION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3DX11_SCAN_DIRECTION_FORWARD: D3DX11_SCAN_DIRECTION = D3DX11_SCAN_DIRECTION(1i32);
@@ -15257,7 +15257,7 @@ impl ::core::fmt::Debug for D3DX11_SCAN_DIRECTION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DX11_SCAN_OPCODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3DX11_SCAN_OPCODE_ADD: D3DX11_SCAN_OPCODE = D3DX11_SCAN_OPCODE(1i32);

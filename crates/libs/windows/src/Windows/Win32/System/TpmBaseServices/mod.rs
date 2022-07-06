@@ -20,7 +20,7 @@ pub unsafe fn GetDeviceIDString(pszwindowsaik: &mut [u16], pcchresult: *mut u32,
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TBS_COMMAND_LOCALITY(pub u32);
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 pub const TBS_COMMAND_LOCALITY_ZERO: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(0u32);
@@ -53,7 +53,7 @@ impl ::core::fmt::Debug for TBS_COMMAND_LOCALITY {
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TBS_COMMAND_PRIORITY(pub u32);
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 pub const TBS_COMMAND_PRIORITY_LOW: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(100u32);

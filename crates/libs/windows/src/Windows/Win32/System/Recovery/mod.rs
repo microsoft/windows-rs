@@ -41,7 +41,7 @@ pub unsafe fn GetApplicationRestartSettings<'a, Param0: ::windows::core::IntoPar
 }
 #[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REGISTER_APPLICATION_RESTART_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
 pub const RESTART_NO_CRASH: REGISTER_APPLICATION_RESTART_FLAGS = REGISTER_APPLICATION_RESTART_FLAGS(1u32);

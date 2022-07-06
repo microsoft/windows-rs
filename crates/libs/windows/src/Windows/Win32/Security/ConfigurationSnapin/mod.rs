@@ -369,7 +369,7 @@ impl ::core::default::Default for SCESVC_CONFIGURATION_LINE {
 pub const SCESVC_ENUMERATION_MAX: i32 = 100i32;
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCESVC_INFO_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SceSvcConfigurationInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(0i32);
@@ -400,7 +400,7 @@ impl ::core::fmt::Debug for SCESVC_INFO_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCE_LOG_ERR_LEVEL(pub u32);
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCE_LOG_LEVEL_ALWAYS: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(0u32);

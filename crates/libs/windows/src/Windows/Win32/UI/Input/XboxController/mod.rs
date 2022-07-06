@@ -301,7 +301,7 @@ impl ::core::default::Default for XINPUT_VIBRATION {
 }
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XINPUT_VIRTUAL_KEY(pub u16);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 pub const VK_PAD_A: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22528u16);

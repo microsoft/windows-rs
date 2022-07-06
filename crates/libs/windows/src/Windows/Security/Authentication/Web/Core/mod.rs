@@ -102,7 +102,7 @@ unsafe impl ::core::marker::Send for FindAllAccountsResult {}
 unsafe impl ::core::marker::Sync for FindAllAccountsResult {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FindAllWebAccountsStatus(pub i32);
 impl FindAllWebAccountsStatus {
     pub const Success: Self = Self(0i32);
@@ -1163,7 +1163,7 @@ unsafe impl ::core::marker::Send for WebTokenRequest {}
 unsafe impl ::core::marker::Sync for WebTokenRequest {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WebTokenRequestPromptType(pub i32);
 impl WebTokenRequestPromptType {
     pub const Default: Self = Self(0i32);
@@ -1308,7 +1308,7 @@ unsafe impl ::core::marker::Send for WebTokenRequestResult {}
 unsafe impl ::core::marker::Sync for WebTokenRequestResult {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WebTokenRequestStatus(pub i32);
 impl WebTokenRequestStatus {
     pub const Success: Self = Self(0i32);

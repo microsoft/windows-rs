@@ -303,7 +303,7 @@ unsafe impl ::core::marker::Send for Print3DWorkflow {}
 unsafe impl ::core::marker::Sync for Print3DWorkflow {}
 #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Print3DWorkflowDetail(pub i32);
 impl Print3DWorkflowDetail {
     pub const Unknown: Self = Self(0i32);
@@ -527,7 +527,7 @@ unsafe impl ::core::marker::Send for Print3DWorkflowPrinterChangedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DWorkflowPrinterChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Print3DWorkflowStatus(pub i32);
 impl Print3DWorkflowStatus {
     pub const Abandoned: Self = Self(0i32);

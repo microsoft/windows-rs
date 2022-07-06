@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Storage_Compression\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompressAlgorithm(pub i32);
 impl CompressAlgorithm {
     pub const InvalidAlgorithm: Self = Self(0i32);

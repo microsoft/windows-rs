@@ -92,7 +92,7 @@ impl ::core::default::Default for HTTPAPI_VERSION {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_503_RESPONSE_VERBOSITY(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const Http503ResponseVerbosityBasic: HTTP_503_RESPONSE_VERBOSITY = HTTP_503_RESPONSE_VERBOSITY(0i32);
@@ -121,7 +121,7 @@ impl ::core::fmt::Debug for HTTP_503_RESPONSE_VERBOSITY {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_AUTHENTICATION_HARDENING_LEVELS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpAuthenticationHardeningLegacy: HTTP_AUTHENTICATION_HARDENING_LEVELS = HTTP_AUTHENTICATION_HARDENING_LEVELS(0i32);
@@ -164,7 +164,7 @@ pub const HTTP_AUTH_EX_FLAG_CAPTURE_CREDENTIAL: u32 = 2u32;
 pub const HTTP_AUTH_EX_FLAG_ENABLE_KERBEROS_CREDENTIAL_CACHING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_AUTH_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpAuthStatusSuccess: HTTP_AUTH_STATUS = HTTP_AUTH_STATUS(0i32);
@@ -325,7 +325,7 @@ impl ::core::default::Default for HTTP_CACHE_POLICY {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_CACHE_POLICY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpCachePolicyNocache: HTTP_CACHE_POLICY_TYPE = HTTP_CACHE_POLICY_TYPE(0i32);
@@ -475,7 +475,7 @@ pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_DELEGATION: u32 = 8u32;
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_OPEN_EXISTING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const CreateRequestQueueExternalIdProperty: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(1i32);
@@ -798,7 +798,7 @@ impl ::core::default::Default for HTTP_DATA_CHUNK_0_4 {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_DATA_CHUNK_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpDataChunkFromMemory: HTTP_DATA_CHUNK_TYPE = HTTP_DATA_CHUNK_TYPE(0i32);
@@ -833,7 +833,7 @@ impl ::core::fmt::Debug for HTTP_DATA_CHUNK_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_DELEGATE_REQUEST_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const DelegateRequestReservedProperty: HTTP_DELEGATE_REQUEST_PROPERTY_ID = HTTP_DELEGATE_REQUEST_PROPERTY_ID(0i32);
@@ -894,7 +894,7 @@ impl ::core::default::Default for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
 pub const HTTP_DEMAND_CBT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_ENABLED_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpEnabledStateActive: HTTP_ENABLED_STATE = HTTP_ENABLED_STATE(0i32);
@@ -953,7 +953,7 @@ impl ::core::default::Default for HTTP_ERROR_HEADERS_PARAM {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_FEATURE_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpFeatureUnknown: HTTP_FEATURE_ID = HTTP_FEATURE_ID(0i32);
@@ -1023,7 +1023,7 @@ impl ::core::default::Default for HTTP_FLOWRATE_INFO {
 pub const HTTP_FLUSH_RESPONSE_FLAG_RECURSIVE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_HEADER_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpHeaderCacheControl: HTTP_HEADER_ID = HTTP_HEADER_ID(0i32);
@@ -1154,7 +1154,7 @@ impl ::core::fmt::Debug for HTTP_HEADER_ID {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_INITIALIZE(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_INITIALIZE_CONFIG: HTTP_INITIALIZE = HTTP_INITIALIZE(2u32);
@@ -1353,7 +1353,7 @@ impl ::core::default::Default for HTTP_LOGGING_INFO {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_LOGGING_ROLLOVER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpLoggingRolloverSize: HTTP_LOGGING_ROLLOVER_TYPE = HTTP_LOGGING_ROLLOVER_TYPE(0i32);
@@ -1386,7 +1386,7 @@ impl ::core::fmt::Debug for HTTP_LOGGING_ROLLOVER_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_LOGGING_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpLoggingTypeW3C: HTTP_LOGGING_TYPE = HTTP_LOGGING_TYPE(0i32);
@@ -1447,7 +1447,7 @@ impl ::core::default::Default for HTTP_LOG_DATA {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_LOG_DATA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpLogDataTypeFields: HTTP_LOG_DATA_TYPE = HTTP_LOG_DATA_TYPE(0i32);
@@ -1693,7 +1693,7 @@ impl ::core::default::Default for HTTP_PERFORMANCE_PARAM {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_PERFORMANCE_PARAM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const PerformanceParamSendBufferingFlags: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(0i32);
@@ -1791,7 +1791,7 @@ impl ::core::default::Default for HTTP_PROTECTION_LEVEL_INFO {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_PROTECTION_LEVEL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpProtectionLevelUnrestricted: HTTP_PROTECTION_LEVEL_TYPE = HTTP_PROTECTION_LEVEL_TYPE(0i32);
@@ -1851,7 +1851,7 @@ impl ::core::default::Default for HTTP_QOS_SETTING_INFO {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_QOS_SETTING_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpQosSettingTypeBandwidth: HTTP_QOS_SETTING_TYPE = HTTP_QOS_SETTING_TYPE(0i32);
@@ -2095,7 +2095,7 @@ impl ::core::default::Default for HTTP_QUIC_STREAM_API_TIMINGS {
 pub const HTTP_RECEIVE_FULL_CHAIN: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_RECEIVE_HTTP_REQUEST_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_RECEIVE_REQUEST_FLAG_COPY_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS = HTTP_RECEIVE_HTTP_REQUEST_FLAGS(1u32);
@@ -2192,7 +2192,7 @@ impl ::core::default::Default for HTTP_REQUEST_AUTH_INFO {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_REQUEST_AUTH_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpRequestAuthTypeNone: HTTP_REQUEST_AUTH_TYPE = HTTP_REQUEST_AUTH_TYPE(0i32);
@@ -2334,7 +2334,7 @@ impl ::core::default::Default for HTTP_REQUEST_INFO {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_REQUEST_INFO_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpRequestInfoTypeAuth: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(0i32);
@@ -2377,7 +2377,7 @@ impl ::core::fmt::Debug for HTTP_REQUEST_INFO_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_REQUEST_PROPERTY(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpRequestPropertyIsb: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(0i32);
@@ -2524,7 +2524,7 @@ pub const HTTP_REQUEST_SIZING_INFO_FLAG_TLS_FALSE_START: u32 = 4u32;
 pub const HTTP_REQUEST_SIZING_INFO_FLAG_TLS_SESSION_RESUMPTION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_REQUEST_SIZING_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpRequestSizingTypeTlsHandshakeLeg1ClientData: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(0i32);
@@ -2590,7 +2590,7 @@ impl ::core::default::Default for HTTP_REQUEST_TIMING_INFO {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_REQUEST_TIMING_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpRequestTimingTypeConnectionStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(0i32);
@@ -2895,7 +2895,7 @@ impl ::core::default::Default for HTTP_RESPONSE_INFO {
 pub const HTTP_RESPONSE_INFO_FLAGS_PRESERVE_ORDER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_RESPONSE_INFO_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpResponseInfoTypeMultipleKnownHeaders: HTTP_RESPONSE_INFO_TYPE = HTTP_RESPONSE_INFO_TYPE(0i32);
@@ -3011,7 +3011,7 @@ impl ::core::default::Default for HTTP_RESPONSE_V2 {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_SCHEME(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpSchemeHttp: HTTP_SCHEME = HTTP_SCHEME(0i32);
@@ -3163,7 +3163,7 @@ impl ::core::default::Default for HTTP_SERVER_AUTHENTICATION_INFO {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_SERVER_PROPERTY(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpServerAuthenticationProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(0i32);
@@ -3274,7 +3274,7 @@ impl ::core::default::Default for HTTP_SERVICE_BINDING_BASE {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_SERVICE_BINDING_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpServiceBindingTypeNone: HTTP_SERVICE_BINDING_TYPE = HTTP_SERVICE_BINDING_TYPE(0i32);
@@ -3335,7 +3335,7 @@ impl ::core::default::Default for HTTP_SERVICE_BINDING_W {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_SERVICE_CONFIG_CACHE_KEY(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const MaxCacheResponseSize: HTTP_SERVICE_CONFIG_CACHE_KEY = HTTP_SERVICE_CONFIG_CACHE_KEY(0i32);
@@ -3393,7 +3393,7 @@ impl ::core::default::Default for HTTP_SERVICE_CONFIG_CACHE_SET {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_SERVICE_CONFIG_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpServiceConfigIPListenList: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(0i32);
@@ -3522,7 +3522,7 @@ impl ::core::default::Default for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_SERVICE_CONFIG_QUERY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpServiceConfigQueryExact: HTTP_SERVICE_CONFIG_QUERY_TYPE = HTTP_SERVICE_CONFIG_QUERY_TYPE(0i32);
@@ -3551,7 +3551,7 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_QUERY_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_SERVICE_CONFIG_SETTING_KEY(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpNone: HTTP_SERVICE_CONFIG_SETTING_KEY = HTTP_SERVICE_CONFIG_SETTING_KEY(0i32);
@@ -4356,7 +4356,7 @@ impl ::core::default::Default for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_SERVICE_CONFIG_TIMEOUT_KEY(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const IdleConnectionTimeout: HTTP_SERVICE_CONFIG_TIMEOUT_KEY = HTTP_SERVICE_CONFIG_TIMEOUT_KEY(0i32);
@@ -4660,7 +4660,7 @@ impl ::core::default::Default for HTTP_SSL_PROTOCOL_INFO {
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const ExParamTypeHttp2Window: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(0i32);
@@ -4900,7 +4900,7 @@ impl ::core::default::Default for HTTP_UNKNOWN_HEADER {
 pub const HTTP_URL_FLAG_REMOVE_ALL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_VERB(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpVerbUnparsed: HTTP_VERB = HTTP_VERB(0i32);

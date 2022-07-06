@@ -324,7 +324,7 @@ unsafe impl ::core::marker::Sync for CortanaActionableInsightsOptions {}
 #[doc = "*Required features: `\"Services_Cortana\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CortanaPermission(pub i32);
 #[cfg(feature = "deprecated")]
 impl CortanaPermission {
@@ -375,7 +375,7 @@ unsafe impl ::windows::core::RuntimeType for CortanaPermission {
 #[doc = "*Required features: `\"Services_Cortana\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CortanaPermissionsChangeResult(pub i32);
 #[cfg(feature = "deprecated")]
 impl CortanaPermissionsChangeResult {

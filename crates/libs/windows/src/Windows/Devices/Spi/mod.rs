@@ -773,7 +773,7 @@ unsafe impl ::core::marker::Send for SpiDevice {}
 unsafe impl ::core::marker::Sync for SpiDevice {}
 #[doc = "*Required features: `\"Devices_Spi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpiMode(pub i32);
 impl SpiMode {
     pub const Mode0: Self = Self(0i32);
@@ -809,7 +809,7 @@ unsafe impl ::windows::core::RuntimeType for SpiMode {
 }
 #[doc = "*Required features: `\"Devices_Spi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpiSharingMode(pub i32);
 impl SpiSharingMode {
     pub const Exclusive: Self = Self(0i32);

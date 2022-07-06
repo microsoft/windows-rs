@@ -89,7 +89,7 @@ pub const AppEventsDHTMLConnector: ::windows::core::GUID = ::windows::core::GUID
 pub const Application: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49b2791a_b1ae_4c90_9b8e_e860ba07f889);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CCM_COMMANDID_MASK_CONSTANTS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const CCM_COMMANDID_MASK_RESERVED: CCM_COMMANDID_MASK_CONSTANTS = CCM_COMMANDID_MASK_CONSTANTS(4294901760u32);
@@ -114,7 +114,7 @@ impl ::core::fmt::Debug for CCM_COMMANDID_MASK_CONSTANTS {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CCM_INSERTIONALLOWED(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const CCM_INSERTIONALLOWED_TOP: CCM_INSERTIONALLOWED = CCM_INSERTIONALLOWED(1i32);
@@ -145,7 +145,7 @@ impl ::core::fmt::Debug for CCM_INSERTIONALLOWED {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CCM_INSERTIONPOINTID(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const CCM_INSERTIONPOINTID_MASK_SPECIAL: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-65536i32);
@@ -198,7 +198,7 @@ impl ::core::fmt::Debug for CCM_INSERTIONPOINTID {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CCM_SPECIAL(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const CCM_SPECIAL_SEPARATOR: CCM_SPECIAL = CCM_SPECIAL(1i32);
@@ -671,7 +671,7 @@ pub struct ContextMenu_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DATA_OBJECT_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const CCT_SCOPE: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(32768i32);
@@ -5323,7 +5323,7 @@ pub struct IViewExtensionCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IconIdentifier(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const Icon_None: IconIdentifier = IconIdentifier(0i32);
@@ -5450,7 +5450,7 @@ pub const MMCLV_VIEWSTYLE_SMALLICON: u32 = 2u32;
 pub const MMCVersionInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6fedb1d_cf21_4bd9_af3b_c5468e9c6684);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MMC_ACTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const MMC_ACTION_UNINITIALIZED: MMC_ACTION_TYPE = MMC_ACTION_TYPE(-1i32);
@@ -5481,7 +5481,7 @@ impl ::core::fmt::Debug for MMC_ACTION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MMC_BUTTON_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const ENABLED: MMC_BUTTON_STATE = MMC_BUTTON_STATE(1i32);
@@ -5579,7 +5579,7 @@ impl ::core::default::Default for MMC_COLUMN_SET_DATA {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MMC_CONSOLE_VERB(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const MMC_VERB_NONE: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(0i32);
@@ -5628,7 +5628,7 @@ impl ::core::fmt::Debug for MMC_CONSOLE_VERB {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MMC_CONTROL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const TOOLBAR: MMC_CONTROL_TYPE = MMC_CONTROL_TYPE(0i32);
@@ -5773,7 +5773,7 @@ impl ::core::default::Default for MMC_FILTERDATA {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MMC_FILTER_CHANGE_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const MFCC_DISABLE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(0i32);
@@ -5802,7 +5802,7 @@ impl ::core::fmt::Debug for MMC_FILTER_CHANGE_CODE {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MMC_FILTER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const MMC_STRING_FILTER: MMC_FILTER_TYPE = MMC_FILTER_TYPE(0i32);
@@ -5871,7 +5871,7 @@ impl ::core::default::Default for MMC_LISTPAD_INFO {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MMC_MENU_COMMAND_IDS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const MMCC_STANDARD_VIEW_SELECT: MMC_MENU_COMMAND_IDS = MMC_MENU_COMMAND_IDS(-1i32);
@@ -5900,7 +5900,7 @@ pub const MMC_MULTI_SELECT_COOKIE: i32 = -2i32;
 pub const MMC_NODEID_SLOW_RETRIEVAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MMC_NOTIFY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const MMCN_ACTIVATE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32769i32);
@@ -6007,7 +6007,7 @@ pub const MMC_NW_OPTION_NOTOOLBARS: u32 = 2u32;
 pub const MMC_NW_OPTION_SHORTTITLE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MMC_PROPERTY_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const MMC_PROPACT_DELETING: MMC_PROPERTY_ACTION = MMC_PROPERTY_ACTION(1i32);
@@ -6085,7 +6085,7 @@ impl ::core::default::Default for MMC_RESTORE_VIEW {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MMC_RESULT_VIEW_STYLE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const MMC_SINGLESEL: MMC_RESULT_VIEW_STYLE = MMC_RESULT_VIEW_STYLE(1i32);
@@ -6116,7 +6116,7 @@ impl ::core::fmt::Debug for MMC_RESULT_VIEW_STYLE {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MMC_SCOPE_ITEM_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const MMC_SCOPE_ITEM_STATE_NORMAL: MMC_SCOPE_ITEM_STATE = MMC_SCOPE_ITEM_STATE(1i32);
@@ -6412,7 +6412,7 @@ impl ::core::default::Default for MMC_TASK_DISPLAY_SYMBOL {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MMC_TASK_DISPLAY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const MMC_TASK_DISPLAY_UNINITIALIZED: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(0i32);
@@ -6465,7 +6465,7 @@ pub const MMC_VIEW_OPTIONS_OWNERDATALIST: u32 = 4u32;
 pub const MMC_VIEW_OPTIONS_USEFONTLINKING: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MMC_VIEW_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const MMC_VIEW_TYPE_LIST: MMC_VIEW_TYPE = MMC_VIEW_TYPE(0i32);
@@ -9001,7 +9001,7 @@ pub struct _Application_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _ColumnSortOrder(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const SortOrder_Ascending: _ColumnSortOrder = _ColumnSortOrder(0i32);
@@ -9028,7 +9028,7 @@ impl ::core::fmt::Debug for _ColumnSortOrder {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DocumentMode(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const DocumentMode_Author: _DocumentMode = _DocumentMode(0i32);
@@ -9159,7 +9159,7 @@ pub struct _EventConnector_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _ExportListOptions(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const ExportListOptions_Default: _ExportListOptions = _ExportListOptions(0i32);
@@ -9190,7 +9190,7 @@ impl ::core::fmt::Debug for _ExportListOptions {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _ListViewMode(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const ListMode_Small_Icons: _ListViewMode = _ListViewMode(0i32);
@@ -9223,7 +9223,7 @@ impl ::core::fmt::Debug for _ListViewMode {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _ViewOptions(pub i32);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const ViewOption_Default: _ViewOptions = _ViewOptions(0i32);

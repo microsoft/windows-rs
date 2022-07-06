@@ -915,7 +915,7 @@ pub struct IStandardPrintTaskOptionsStatic3_Vtbl {
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintBinding(pub i32);
 impl PrintBinding {
     pub const Default: Self = Self(0i32);
@@ -964,7 +964,7 @@ unsafe impl ::windows::core::RuntimeType for PrintBinding {
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintBordering(pub i32);
 impl PrintBordering {
     pub const Default: Self = Self(0i32);
@@ -1001,7 +1001,7 @@ unsafe impl ::windows::core::RuntimeType for PrintBordering {
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintCollation(pub i32);
 impl PrintCollation {
     pub const Default: Self = Self(0i32);
@@ -1038,7 +1038,7 @@ unsafe impl ::windows::core::RuntimeType for PrintCollation {
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintColorMode(pub i32);
 impl PrintColorMode {
     pub const Default: Self = Self(0i32);
@@ -1076,7 +1076,7 @@ unsafe impl ::windows::core::RuntimeType for PrintColorMode {
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintDuplex(pub i32);
 impl PrintDuplex {
     pub const Default: Self = Self(0i32);
@@ -1114,7 +1114,7 @@ unsafe impl ::windows::core::RuntimeType for PrintDuplex {
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintHolePunch(pub i32);
 impl PrintHolePunch {
     pub const Default: Self = Self(0i32);
@@ -1278,7 +1278,7 @@ unsafe impl ::core::marker::Send for PrintManager {}
 unsafe impl ::core::marker::Sync for PrintManager {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintMediaSize(pub i32);
 impl PrintMediaSize {
     pub const Default: Self = Self(0i32);
@@ -1483,7 +1483,7 @@ unsafe impl ::windows::core::RuntimeType for PrintMediaSize {
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintMediaType(pub i32);
 impl PrintMediaType {
     pub const Default: Self = Self(0i32);
@@ -1547,7 +1547,7 @@ unsafe impl ::windows::core::RuntimeType for PrintMediaType {
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintOrientation(pub i32);
 impl PrintOrientation {
     pub const Default: Self = Self(0i32);
@@ -2014,7 +2014,7 @@ unsafe impl ::core::marker::Send for PrintPageRangeOptions {}
 unsafe impl ::core::marker::Sync for PrintPageRangeOptions {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintQuality(pub i32);
 impl PrintQuality {
     pub const Default: Self = Self(0i32);
@@ -2056,7 +2056,7 @@ unsafe impl ::windows::core::RuntimeType for PrintQuality {
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintStaple(pub i32);
 impl PrintStaple {
     pub const Default: Self = Self(0i32);
@@ -2387,7 +2387,7 @@ unsafe impl ::core::marker::Send for PrintTaskCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskCompletedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintTaskCompletion(pub i32);
 impl PrintTaskCompletion {
     pub const Abandoned: Self = Self(0i32);

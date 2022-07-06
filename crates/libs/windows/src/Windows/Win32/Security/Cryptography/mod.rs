@@ -362,7 +362,7 @@ impl ::core::default::Default for BCRYPT_ALGORITHM_IDENTIFIER {
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_ALGORITHM_NAME: &str = "AlgorithmName";
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_ALG_HANDLE(pub isize);
 impl BCRYPT_ALG_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -537,7 +537,7 @@ impl ::core::default::Default for BCRYPT_DH_KEY_BLOB {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_DH_KEY_BLOB_MAGIC(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_DH_PUBLIC_MAGIC: BCRYPT_DH_KEY_BLOB_MAGIC = BCRYPT_DH_KEY_BLOB_MAGIC(1112557636u32);
@@ -678,7 +678,7 @@ impl ::core::default::Default for BCRYPT_DSA_KEY_BLOB_V2 {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_DSA_MAGIC(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_DSA_PUBLIC_MAGIC: BCRYPT_DSA_MAGIC = BCRYPT_DSA_MAGIC(1112560452u32);
@@ -1080,7 +1080,7 @@ pub const BCRYPT_HASH_LENGTH: &str = "HashDigestLength";
 pub const BCRYPT_HASH_OID_LIST: &str = "HashOIDList";
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_HASH_OPERATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_HASH_OPERATION_HASH_DATA: BCRYPT_HASH_OPERATION_TYPE = BCRYPT_HASH_OPERATION_TYPE(1i32);
@@ -1133,7 +1133,7 @@ pub const BCRYPT_HMAC_SHA512_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(2
 pub const BCRYPT_INITIALIZATION_VECTOR: &str = "IV";
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_INTERFACE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(3u32);
@@ -1294,7 +1294,7 @@ pub const BCRYPT_KEY_DERIVATION_INTERFACE: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_KEY_DERIVATION_OPERATION: u32 = 64u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_KEY_HANDLE(pub isize);
 impl BCRYPT_KEY_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -1450,7 +1450,7 @@ impl ::core::default::Default for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_MULTI_OPERATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_OPERATION_TYPE_HASH: BCRYPT_MULTI_OPERATION_TYPE = BCRYPT_MULTI_OPERATION_TYPE(1i32);
@@ -1577,7 +1577,7 @@ impl ::core::default::Default for BCRYPT_OID_LIST {
 pub const BCRYPT_OPAQUE_KEY_BLOB: &str = "OpaqueKeyBlob";
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_ALG_HANDLE_HMAC_FLAG: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS = BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(8u32);
@@ -1634,7 +1634,7 @@ impl ::core::ops::Not for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_OPERATION(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_CIPHER_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(1u32);
@@ -1816,7 +1816,7 @@ pub const BCRYPT_PUBLIC_KEY_FLAG: u32 = 1u32;
 pub const BCRYPT_PUBLIC_KEY_LENGTH: &str = "PublicKeyLength";
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_QUERY_PROVIDER_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_ANY: BCRYPT_QUERY_PROVIDER_MODE = BCRYPT_QUERY_PROVIDER_MODE(4u32);
@@ -1859,7 +1859,7 @@ pub const BCRYPT_RC4_ALGORITHM: &str = "RC4";
 pub const BCRYPT_RC4_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(113u32 as _);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_RESOLVE_PROVIDERS_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_ALL_FUNCTIONS: BCRYPT_RESOLVE_PROVIDERS_FLAGS = BCRYPT_RESOLVE_PROVIDERS_FLAGS(1u32);
@@ -1961,7 +1961,7 @@ impl ::core::default::Default for BCRYPT_RSAKEY_BLOB {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_RSAKEY_BLOB_MAGIC(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_RSAPUBLIC_MAGIC: BCRYPT_RSAKEY_BLOB_MAGIC = BCRYPT_RSAKEY_BLOB_MAGIC(826364754u32);
@@ -2038,7 +2038,7 @@ pub const BCRYPT_SUPPORTED_PAD_PSS: u32 = 16u32;
 pub const BCRYPT_SUPPORTED_PAD_ROUTER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_TABLE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_LOCAL: BCRYPT_TABLE = BCRYPT_TABLE(1u32);
@@ -2678,7 +2678,7 @@ pub const CALG_OID_INFO_CNG_ONLY: u32 = 4294967295u32;
 pub const CALG_OID_INFO_PARAMETERS: u32 = 4294967294u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CASetupProperty(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const ENUM_SETUPPROP_INVALID: CASetupProperty = CASetupProperty(-1i32);
@@ -2741,7 +2741,7 @@ pub const CCertificateEnrollmentPolicyServerSetup: ::windows::core::GUID = ::win
 pub const CCertificateEnrollmentServerSetup: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9902f3bc_88af_4cf8_ae62_7140531552b6);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CEPSetupProperty(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const ENUM_CEPSETUPPROP_AUTHENTICATION: CEPSetupProperty = CEPSetupProperty(0i32);
@@ -3217,7 +3217,7 @@ impl ::core::default::Default for CERT_BIOMETRIC_DATA_0 {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_BIOMETRIC_DATA_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_BIOMETRIC_PREDEFINED_DATA_CHOICE: CERT_BIOMETRIC_DATA_TYPE = CERT_BIOMETRIC_DATA_TYPE(1u32);
@@ -3749,7 +3749,7 @@ pub const CERT_CHAIN_POLICY_BASIC_CONSTRAINTS: ::windows::core::PCSTR = ::window
 pub const CERT_CHAIN_POLICY_EV: ::windows::core::PCSTR = ::windows::core::PCSTR(8i32 as _);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_CHAIN_POLICY_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CHAIN_POLICY_IGNORE_NOT_TIME_VALID_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(1u32);
@@ -4068,7 +4068,7 @@ impl ::core::default::Default for CERT_CONTEXT {
 pub const CERT_CONTEXT_REVOCATION_TYPE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_CONTROL_STORE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_CTRL_COMMIT_FORCE_FLAG: CERT_CONTROL_STORE_FLAGS = CERT_CONTROL_STORE_FLAGS(1u32);
@@ -4147,7 +4147,7 @@ impl ::core::default::Default for CERT_CREATE_CONTEXT_PARA {
 pub const CERT_CREATE_CONTEXT_SORTED_FLAG: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_CREATE_SELFSIGN_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CREATE_SELFSIGN_NO_KEY_INFO: CERT_CREATE_SELFSIGN_FLAGS = CERT_CREATE_SELFSIGN_FLAGS(2u32);
@@ -4484,7 +4484,7 @@ pub const CERT_FILE_HASH_USE_TYPE: u32 = 1u32;
 pub const CERT_FILE_STORE_COMMIT_ENABLE_FLAG: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_FIND_CHAIN_IN_STORE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CHAIN_FIND_BY_ISSUER_COMPARE_KEY_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(1u32);
@@ -4547,7 +4547,7 @@ impl ::core::ops::Not for CERT_FIND_CHAIN_IN_STORE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_FIND_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_FIND_ANY: CERT_FIND_FLAGS = CERT_FIND_FLAGS(0u32);
@@ -4682,7 +4682,7 @@ impl ::core::ops::Not for CERT_FIND_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_FIND_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CTL_FIND_ANY: CERT_FIND_TYPE = CERT_FIND_TYPE(0u32);
@@ -4887,7 +4887,7 @@ impl ::core::default::Default for CERT_ID_0 {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_ID_OPTION(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_ID_ISSUER_SERIAL_NUMBER: CERT_ID_OPTION = CERT_ID_OPTION(1u32);
@@ -5192,7 +5192,7 @@ pub const CERT_KEY_PROV_INFO_PROP_ID: u32 = 2u32;
 pub const CERT_KEY_REPAIR_ATTEMPTED_PROP_ID: u32 = 103u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_KEY_SPEC(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const AT_KEYEXCHANGE: CERT_KEY_SPEC = CERT_KEY_SPEC(1u32);
@@ -5365,7 +5365,7 @@ impl ::core::default::Default for CERT_LOGOTYPE_AUDIO_INFO {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_LOGOTYPE_CHOICE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_LOGOTYPE_NO_IMAGE_RESOLUTION_CHOICE: CERT_LOGOTYPE_CHOICE = CERT_LOGOTYPE_CHOICE(0u32);
@@ -5582,7 +5582,7 @@ impl ::core::default::Default for CERT_LOGOTYPE_IMAGE_INFO_0 {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_LOGOTYPE_IMAGE_INFO_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_LOGOTYPE_GRAY_SCALE_IMAGE_INFO_CHOICE: CERT_LOGOTYPE_IMAGE_INFO_TYPE = CERT_LOGOTYPE_IMAGE_INFO_TYPE(1u32);
@@ -5661,7 +5661,7 @@ impl ::core::default::Default for CERT_LOGOTYPE_INFO_0 {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_LOGOTYPE_OPTION(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_LOGOTYPE_DIRECT_INFO_CHOICE: CERT_LOGOTYPE_OPTION = CERT_LOGOTYPE_OPTION(1u32);
@@ -5904,7 +5904,7 @@ pub const CERT_OCSP_RESPONSE_PROP_ID: u32 = 70u32;
 pub const CERT_OFFLINE_CRL_SIGN_KEY_USAGE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_OPEN_STORE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_BACKUP_RESTORE_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(2048u32);
@@ -6667,7 +6667,7 @@ impl ::core::default::Default for CERT_QC_STATEMENTS_EXT_INFO {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_QUERY_CONTENT_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_QUERY_CONTENT_CERT: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(1u32);
@@ -6718,7 +6718,7 @@ impl ::core::fmt::Debug for CERT_QUERY_CONTENT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_QUERY_CONTENT_TYPE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_QUERY_CONTENT_FLAG_CERT: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(2u32);
@@ -6773,7 +6773,7 @@ impl ::core::fmt::Debug for CERT_QUERY_CONTENT_TYPE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_QUERY_ENCODING_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const X509_ASN_ENCODING: CERT_QUERY_ENCODING_TYPE = CERT_QUERY_ENCODING_TYPE(1u32);
@@ -6800,7 +6800,7 @@ impl ::core::fmt::Debug for CERT_QUERY_ENCODING_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_QUERY_FORMAT_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_QUERY_FORMAT_BINARY: CERT_QUERY_FORMAT_TYPE = CERT_QUERY_FORMAT_TYPE(1u32);
@@ -6829,7 +6829,7 @@ impl ::core::fmt::Debug for CERT_QUERY_FORMAT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_QUERY_FORMAT_TYPE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_QUERY_FORMAT_FLAG_BINARY: CERT_QUERY_FORMAT_TYPE_FLAGS = CERT_QUERY_FORMAT_TYPE_FLAGS(2u32);
@@ -6860,7 +6860,7 @@ impl ::core::fmt::Debug for CERT_QUERY_FORMAT_TYPE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_QUERY_OBJECT_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_QUERY_OBJECT_FILE: CERT_QUERY_OBJECT_TYPE = CERT_QUERY_OBJECT_TYPE(1u32);
@@ -6950,7 +6950,7 @@ impl ::core::default::Default for CERT_RDN_ATTR {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_RDN_ATTR_VALUE_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_RDN_ANY_TYPE: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(0u32);
@@ -7390,7 +7390,7 @@ impl ::core::default::Default for CERT_REVOCATION_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_REVOCATION_STATUS_REASON(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRL_REASON_UNSPECIFIED: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(0u32);
@@ -7433,7 +7433,7 @@ pub const CERT_ROOT_PROGRAM_CERT_POLICIES_PROP_ID: u32 = 83u32;
 pub const CERT_ROOT_PROGRAM_CHAIN_POLICIES_PROP_ID: u32 = 105u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_ROOT_PROGRAM_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_ROOT_PROGRAM_FLAG_LSC: CERT_ROOT_PROGRAM_FLAGS = CERT_ROOT_PROGRAM_FLAGS(64u32);
@@ -7604,7 +7604,7 @@ impl ::core::default::Default for CERT_SELECT_CRITERIA {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_SELECT_CRITERIA_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_SELECT_BY_ENHKEY_USAGE: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(1u32);
@@ -7970,7 +7970,7 @@ impl ::core::default::Default for CERT_STORE_PROV_FIND_INFO {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_STORE_PROV_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_PROV_EXTERNAL_FLAG: CERT_STORE_PROV_FLAGS = CERT_STORE_PROV_FLAGS(1u32);
@@ -8140,7 +8140,7 @@ pub const CERT_STORE_PROV_WRITE_CTL_FUNC: u32 = 10u32;
 pub const CERT_STORE_REVOCATION_FLAG: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_STORE_SAVE_AS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_SAVE_AS_PKCS7: CERT_STORE_SAVE_AS = CERT_STORE_SAVE_AS(2u32);
@@ -8169,7 +8169,7 @@ impl ::core::fmt::Debug for CERT_STORE_SAVE_AS {
 pub const CERT_STORE_SAVE_AS_PKCS12: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_STORE_SAVE_TO(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_SAVE_TO_FILE: CERT_STORE_SAVE_TO = CERT_STORE_SAVE_TO(1u32);
@@ -8210,7 +8210,7 @@ pub const CERT_STORE_TIME_VALIDITY_FLAG: u32 = 2u32;
 pub const CERT_STORE_UNSAFE_PHYSICAL_FLAG: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_STRING_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_SIMPLE_NAME_STR: CERT_STRING_TYPE = CERT_STRING_TYPE(1u32);
@@ -8241,7 +8241,7 @@ impl ::core::fmt::Debug for CERT_STRING_TYPE {
 pub const CERT_STRONG_SIGN_ECDSA_ALGORITHM: &str = "ECDSA";
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_STRONG_SIGN_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STRONG_SIGN_ENABLE_CRL_CHECK: CERT_STRONG_SIGN_FLAGS = CERT_STRONG_SIGN_FLAGS(1u32);
@@ -8438,7 +8438,7 @@ pub const CERT_SYSTEM_STORE_CURRENT_USER_ID: u32 = 1u32;
 pub const CERT_SYSTEM_STORE_DEFER_READ_FLAG: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_SYSTEM_STORE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_SYSTEM_STORE_LOCATION_MASK: CERT_SYSTEM_STORE_FLAGS = CERT_SYSTEM_STORE_FLAGS(16711680u32);
@@ -9013,7 +9013,7 @@ impl ::core::default::Default for CERT_X942_DH_VALIDATION_PARAMS {
 pub const CERT_XML_NAME_STR: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CESSetupProperty(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const ENUM_CESSETUPPROP_USE_IISAPPPOOLIDENTITY: CESSetupProperty = CESSetupProperty(0i32);
@@ -10492,7 +10492,7 @@ impl ::core::default::Default for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CMSG_KEY_AGREE_OPTION(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CMSG_KEY_AGREE_EPHEMERAL_KEY_CHOICE: CMSG_KEY_AGREE_OPTION = CMSG_KEY_AGREE_OPTION(1u32);
@@ -10519,7 +10519,7 @@ impl ::core::fmt::Debug for CMSG_KEY_AGREE_OPTION {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CMSG_KEY_AGREE_ORIGINATOR(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CMSG_KEY_AGREE_ORIGINATOR_CERT: CMSG_KEY_AGREE_ORIGINATOR = CMSG_KEY_AGREE_ORIGINATOR(1u32);
@@ -12475,7 +12475,7 @@ pub const CRYPT_ACCUMULATIVE_TIMEOUT: u32 = 2048u32;
 pub const CRYPT_ACQUIRE_ALLOW_NCRYPT_KEY_FLAG: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_ACQUIRE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_ACQUIRE_CACHE_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(1u32);
@@ -12968,7 +12968,7 @@ impl ::core::default::Default for CRYPT_CONTEXT_CONFIG {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_CONTEXT_CONFIG_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_EXCLUSIVE: CRYPT_CONTEXT_CONFIG_FLAGS = CRYPT_CONTEXT_CONFIG_FLAGS(1u32);
@@ -13269,7 +13269,7 @@ pub const CRYPT_DEFAULT_CONTAINER_OPTIONAL: u32 = 128u32;
 pub const CRYPT_DEFAULT_CONTEXT: &str = "Default";
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_DEFAULT_CONTEXT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_DEFAULT_CONTEXT_AUTO_RELEASE_FLAG: CRYPT_DEFAULT_CONTEXT_FLAGS = CRYPT_DEFAULT_CONTEXT_FLAGS(1u32);
@@ -13355,7 +13355,7 @@ impl ::core::default::Default for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_DEFAULT_CONTEXT_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_DEFAULT_CONTEXT_CERT_SIGN_OID: CRYPT_DEFAULT_CONTEXT_TYPE = CRYPT_DEFAULT_CONTEXT_TYPE(1u32);
@@ -13507,7 +13507,7 @@ pub const CRYPT_ENCODE_ENABLE_UTF8PERCENT_FLAG: u32 = 262144u32;
 pub const CRYPT_ENCODE_NO_SIGNATURE_BYTE_REVERSAL_FLAG: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_ENCODE_OBJECT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_ENCODE_ALLOC_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = CRYPT_ENCODE_OBJECT_FLAGS(32768u32);
@@ -13714,7 +13714,7 @@ pub const CRYPT_FAILED: u32 = 0u32;
 pub const CRYPT_FASTSGC: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_FIND_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_FIND_USER_KEYSET_FLAG: CRYPT_FIND_FLAGS = CRYPT_FIND_FLAGS(1u32);
@@ -13829,7 +13829,7 @@ impl ::core::default::Default for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_GET_URL_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_GET_URL_FROM_PROPERTY: CRYPT_GET_URL_FLAGS = CRYPT_GET_URL_FLAGS(1u32);
@@ -13988,7 +13988,7 @@ impl ::core::default::Default for CRYPT_IMAGE_REF {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_IMAGE_REF_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_MIN_DEPENDENCIES: CRYPT_IMAGE_REF_FLAGS = CRYPT_IMAGE_REF_FLAGS(1u32);
@@ -14087,7 +14087,7 @@ pub const CRYPT_IMPL_UNKNOWN: u32 = 4u32;
 pub const CRYPT_IMPORT_KEY: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_IMPORT_PUBLIC_KEY_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_OID_INFO_PUBKEY_SIGN_KEY_FLAG: CRYPT_IMPORT_PUBLIC_KEY_FLAGS = CRYPT_IMPORT_PUBLIC_KEY_FLAGS(2147483648u32);
@@ -14191,7 +14191,7 @@ pub const CRYPT_KEYID_MACHINE_FLAG: u32 = 32u32;
 pub const CRYPT_KEYID_SET_NEW_FLAG: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_KEY_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_EXPORTABLE: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(1u32);
@@ -14304,7 +14304,7 @@ impl ::core::ops::Not for CRYPT_KEY_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_KEY_PARAM_ID(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const KP_ALGID: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(7u32);
@@ -14586,7 +14586,7 @@ pub const CRYPT_MODE_OFB: u32 = 3u32;
 pub const CRYPT_MODE_OFBP: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_MSG_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CMSG_DATA: CRYPT_MSG_TYPE = CRYPT_MSG_TYPE(1u32);
@@ -14682,7 +14682,7 @@ impl ::core::default::Default for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_OBJECT_LOCATOR_RELEASE_REASON(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_OBJECT_LOCATOR_RELEASE_SYSTEM_SHUTDOWN: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = CRYPT_OBJECT_LOCATOR_RELEASE_REASON(1u32);
@@ -15645,7 +15645,7 @@ impl ::core::default::Default for CRYPT_SEQUENCE_OF_ANY {
 pub const CRYPT_SERVER: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_SET_HASH_PARAM(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const HP_HMAC_INFO: CRYPT_SET_HASH_PARAM = CRYPT_SET_HASH_PARAM(5u32);
@@ -15672,7 +15672,7 @@ impl ::core::fmt::Debug for CRYPT_SET_HASH_PARAM {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_SET_PROV_PARAM_ID(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_CLIENT_HWND: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(1u32);
@@ -15902,7 +15902,7 @@ pub const CRYPT_SORTED_CTL_ENCODE_HASHED_SUBJECT_IDENTIFIER_FLAG: u32 = 65536u32
 pub const CRYPT_STICKY_CACHE_RETRIEVAL: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_STRING(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_STRING_BASE64HEADER: CRYPT_STRING = CRYPT_STRING(0u32);
@@ -16228,7 +16228,7 @@ impl ::core::default::Default for CRYPT_TIMESTAMP_RESPONSE {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_TIMESTAMP_RESPONSE_STATUS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const TIMESTAMP_STATUS_GRANTED: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(0u32);
@@ -16263,7 +16263,7 @@ impl ::core::fmt::Debug for CRYPT_TIMESTAMP_RESPONSE_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_TIMESTAMP_VERSION(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const TIMESTAMP_VERSION: CRYPT_TIMESTAMP_VERSION = CRYPT_TIMESTAMP_VERSION(1u32);
@@ -16404,7 +16404,7 @@ pub const CRYPT_USER_PROTECTED_STRONG: u32 = 1048576u32;
 pub const CRYPT_VERIFYCONTEXT: u32 = 4026531840u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_VERIFY_CERT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_VERIFY_CERT_SIGN_DISABLE_MD2_MD4_FLAG: CRYPT_VERIFY_CERT_FLAGS = CRYPT_VERIFY_CERT_FLAGS(1u32);
@@ -16716,7 +16716,7 @@ impl ::core::default::Default for CRYPT_XML_BLOB {
 pub const CRYPT_XML_BLOB_MAX: u32 = 2147483640u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_CHARSET(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_CHARSET_AUTO: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(0i32);
@@ -16937,7 +16937,7 @@ pub const CRYPT_XML_E_UNRESOLVED_REFERENCE: ::windows::core::HRESULT = ::windows
 pub const CRYPT_XML_E_VERIFY_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146885363i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_FLAG_DISABLE_EXTENSIONS: CRYPT_XML_FLAGS = CRYPT_XML_FLAGS(268435456u32);
@@ -16978,7 +16978,7 @@ pub const CRYPT_XML_FLAG_ENFORCE_ID_NAME_FORMAT: u32 = 134217728u32;
 pub const CRYPT_XML_FLAG_ENFORCE_ID_NCNAME_FORMAT: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_GROUP_ID(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_GROUP_ID_HASH: CRYPT_XML_GROUP_ID = CRYPT_XML_GROUP_ID(1u32);
@@ -17075,7 +17075,7 @@ impl ::core::default::Default for CRYPT_XML_KEYINFO_PARAM {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_KEYINFO_SPEC(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_KEYINFO_SPEC_NONE: CRYPT_XML_KEYINFO_SPEC = CRYPT_XML_KEYINFO_SPEC(0i32);
@@ -17104,7 +17104,7 @@ impl ::core::fmt::Debug for CRYPT_XML_KEYINFO_SPEC {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_KEYINFO_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_KEYINFO_TYPE_KEYNAME: CRYPT_XML_KEYINFO_TYPE = CRYPT_XML_KEYINFO_TYPE(1u32);
@@ -17380,7 +17380,7 @@ impl ::core::default::Default for CRYPT_XML_KEY_VALUE_0 {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_KEY_VALUE_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_KEY_VALUE_TYPE_DSA: CRYPT_XML_KEY_VALUE_TYPE = CRYPT_XML_KEY_VALUE_TYPE(1u32);
@@ -17481,7 +17481,7 @@ impl ::core::default::Default for CRYPT_XML_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_PROPERTY_MAX_HEAP_SIZE: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(1i32);
@@ -17694,7 +17694,7 @@ impl ::core::default::Default for CRYPT_XML_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_STATUS_ERROR_STATUS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_STATUS_ERROR_NOT_RESOLVED: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(1u32);
@@ -17729,7 +17729,7 @@ impl ::core::fmt::Debug for CRYPT_XML_STATUS_ERROR_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_STATUS_INFO_STATUS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_STATUS_INTERNAL_REFERENCE: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(1u32);
@@ -17798,7 +17798,7 @@ impl ::core::default::Default for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_TRANSFORM_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_TRANSFORM_ON_STREAM: CRYPT_XML_TRANSFORM_FLAGS = CRYPT_XML_TRANSFORM_FLAGS(1u32);
@@ -17978,7 +17978,7 @@ impl ::core::default::Default for CRYPT_XML_X509DATA_ITEM_0 {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_X509DATA_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_X509DATA_TYPE_ISSUER_SERIAL: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(1u32);
@@ -19255,7 +19255,7 @@ pub unsafe fn CertIsWeakHash<'a, Param1: ::windows::core::IntoParam<'a, ::window
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CertKeyType(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const KeyTypeOther: CertKeyType = CertKeyType(0u32);
@@ -21286,7 +21286,7 @@ pub unsafe fn CryptXmlVerifySignature<'a, Param1: ::windows::core::IntoParam<'a,
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DSAFIPSVERSION_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const DSA_FIPS186_2: DSAFIPSVERSION_ENUM = DSAFIPSVERSION_ENUM(0i32);
@@ -21354,7 +21354,7 @@ pub unsafe fn Decrypt<'a, Param1: ::windows::core::IntoParam<'a, super::super::F
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Direction(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const DirectionEncrypt: Direction = Direction(1i32);
@@ -21383,7 +21383,7 @@ impl ::core::fmt::Debug for Direction {
 pub const ECC_CMS_SHARED_INFO: ::windows::core::PCSTR = ::windows::core::PCSTR(77i32 as _);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ECC_CURVE_ALG_ID_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_NO_CURVE_GENERATION_ALG_ID: ECC_CURVE_ALG_ID_ENUM = ECC_CURVE_ALG_ID_ENUM(0i32);
@@ -21408,7 +21408,7 @@ impl ::core::fmt::Debug for ECC_CURVE_ALG_ID_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ECC_CURVE_TYPE_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_ECC_PRIME_SHORT_WEIERSTRASS_CURVE: ECC_CURVE_TYPE_ENUM = ECC_CURVE_TYPE_ENUM(1i32);
@@ -21740,7 +21740,7 @@ pub unsafe fn GetToken(ppolicychain: &[POLICY_ELEMENT], securitytoken: *mut *mut
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HASHALGORITHM_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const DSA_HASH_ALGORITHM_SHA1: HASHALGORITHM_ENUM = HASHALGORITHM_ENUM(0i32);
@@ -21768,7 +21768,7 @@ impl ::core::fmt::Debug for HASHALGORITHM_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCERTCHAINENGINE(pub isize);
 impl HCERTCHAINENGINE {
     pub fn is_invalid(&self) -> bool {
@@ -21795,7 +21795,7 @@ unsafe impl ::windows::core::Abi for HCERTCHAINENGINE {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCERTSTORE(pub *mut ::core::ffi::c_void);
 impl HCERTSTORE {
     pub fn is_invalid(&self) -> bool {
@@ -21822,7 +21822,7 @@ unsafe impl ::windows::core::Abi for HCERTSTORE {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCERTSTOREPROV(pub *mut ::core::ffi::c_void);
 impl HCERTSTOREPROV {
     pub fn is_invalid(&self) -> bool {
@@ -21849,7 +21849,7 @@ unsafe impl ::windows::core::Abi for HCERTSTOREPROV {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCRYPTASYNC(pub isize);
 impl HCRYPTASYNC {
     pub fn is_invalid(&self) -> bool {
@@ -21876,7 +21876,7 @@ unsafe impl ::windows::core::Abi for HCRYPTASYNC {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCRYPTPROV_LEGACY(pub usize);
 impl HCRYPTPROV_LEGACY {
     pub fn is_invalid(&self) -> bool {
@@ -21903,7 +21903,7 @@ unsafe impl ::windows::core::Abi for HCRYPTPROV_LEGACY {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCRYPTPROV_OR_NCRYPT_KEY_HANDLE(pub usize);
 impl HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -21973,7 +21973,7 @@ pub const HP_TLS1PRF_LABEL: u32 = 6u32;
 pub const HP_TLS1PRF_SEED: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const AUTHTYPE_CLIENT: HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE = HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE(1u32);
@@ -22054,7 +22054,7 @@ impl ::core::default::Default for HTTPSPolicyCallbackData_0 {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HandleType(pub i32);
 impl HandleType {
     pub const Asymmetric: Self = Self(1i32);
@@ -23477,7 +23477,7 @@ pub const MICROSOFT_ROOT_CERT_CHAIN_POLICY_DISABLE_FLIGHT_ROOT_FLAG: u32 = 26214
 pub const MICROSOFT_ROOT_CERT_CHAIN_POLICY_ENABLE_TEST_ROOT_FLAG: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSCEPSetupProperty(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const ENUM_CEPSETUPPROP_USELOCALSYSTEM: MSCEPSetupProperty = MSCEPSetupProperty(0i32);
@@ -23703,7 +23703,7 @@ pub const NCRYPT_AES_ALGORITHM_GROUP: &str = "AES";
 pub const NCRYPT_ALGORITHM_GROUP_PROPERTY: &str = "Algorithm Group";
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NCRYPT_ALGORITHM_NAME_CLASS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: NCRYPT_ALGORITHM_NAME_CLASS = NCRYPT_ALGORITHM_NAME_CLASS(3u32);
@@ -23992,7 +23992,7 @@ pub const NCRYPT_EXPORT_LEGACY_FLAG: u32 = 2048u32;
 pub const NCRYPT_EXPORT_POLICY_PROPERTY: &str = "Export Policy";
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NCRYPT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_PAD_NONE: NCRYPT_FLAGS = NCRYPT_FLAGS(1u32);
@@ -24078,7 +24078,7 @@ impl ::core::ops::Not for NCRYPT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NCRYPT_HANDLE(pub usize);
 impl NCRYPT_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -24105,7 +24105,7 @@ unsafe impl ::windows::core::Abi for NCRYPT_HANDLE {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NCRYPT_HASH_HANDLE(pub usize);
 impl NCRYPT_HASH_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -24310,7 +24310,7 @@ pub const NCRYPT_KEY_DERIVATION_INTERFACE: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_KEY_DERIVATION_OPERATION: u32 = 64u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NCRYPT_KEY_HANDLE(pub usize);
 impl NCRYPT_KEY_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -24398,7 +24398,7 @@ pub const NCRYPT_NO_CACHED_PASSWORD: u32 = 16384u32;
 pub const NCRYPT_OPAQUETRANSPORT_BLOB: &str = "OpaqueTransport";
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NCRYPT_OPERATION(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_CIPHER_OPERATION: NCRYPT_OPERATION = NCRYPT_OPERATION(1u32);
@@ -24866,7 +24866,7 @@ pub const NCRYPT_PROTECT_TO_LOCAL_SYSTEM: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_PROVIDER_HANDLE_PROPERTY: &str = "Provider Handle";
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NCRYPT_PROV_HANDLE(pub usize);
 impl NCRYPT_PROV_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -24919,7 +24919,7 @@ pub const NCRYPT_SCARD_PIN_INFO: &str = "SmartCardPinInfo";
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_SEALING_FLAG: u32 = 256u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NCRYPT_SECRET_HANDLE(pub usize);
 impl NCRYPT_SECRET_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -26950,7 +26950,7 @@ impl ::core::default::Default for PUBLICKEYSTRUC {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PaddingMode(pub i32);
 impl PaddingMode {
     pub const None: Self = Self(1i32);

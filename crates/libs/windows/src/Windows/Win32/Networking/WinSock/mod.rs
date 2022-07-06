@@ -127,7 +127,7 @@ impl ::core::default::Default for AAL_PARAMETERS_IE_0 {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AAL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const AALTYPE_5: AAL_TYPE = AAL_TYPE(5i32);
@@ -154,7 +154,7 @@ impl ::core::fmt::Debug for AAL_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ADDRESS_FAMILY(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const AF_INET: ADDRESS_FAMILY = ADDRESS_FAMILY(2u32);
@@ -391,7 +391,7 @@ pub const AI_SECURE_WITH_FALLBACK: u32 = 1048576u32;
 pub const AI_V4MAPPED: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ARP_HARDWARE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const ARP_HW_ENET: ARP_HARDWARE_TYPE = ARP_HARDWARE_TYPE(1i32);
@@ -453,7 +453,7 @@ impl ::core::default::Default for ARP_HEADER {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ARP_OPCODE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const ARP_REQUEST: ARP_OPCODE = ARP_OPCODE(1i32);
@@ -1218,7 +1218,7 @@ pub const CLIP_NOT: u32 = 0u32;
 pub const CLIP_SUS: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONTROL_CHANNEL_TRIGGER_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const CONTROL_CHANNEL_TRIGGER_STATUS_INVALID: CONTROL_CHANNEL_TRIGGER_STATUS = CONTROL_CHANNEL_TRIGGER_STATUS(0i32);
@@ -1853,7 +1853,7 @@ pub unsafe fn EnumProtocolsW(lpiprotocols: *const i32, lpprotocolbuffer: *mut ::
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FALLBACK_INDEX(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const FallbackIndexTcpFastopen: FALLBACK_INDEX = FALLBACK_INDEX(0i32);
@@ -2268,7 +2268,7 @@ pub unsafe fn GetTypeByNameW<'a, Param0: ::windows::core::IntoParam<'a, ::window
     ::core::mem::transmute(GetTypeByNameW(lpservicename.into_param().abi(), ::core::mem::transmute(lpservicetype)))
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HWSAEVENT(pub isize);
 impl HWSAEVENT {
     pub fn is_invalid(&self) -> bool {
@@ -2314,7 +2314,7 @@ pub const IAS_MAX_OCTET_STRING: u32 = 1024u32;
 pub const IAS_MAX_USER_STRING: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ICMP4_TIME_EXCEED_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const ICMP4_TIME_EXCEED_TRANSIT: ICMP4_TIME_EXCEED_CODE = ICMP4_TIME_EXCEED_CODE(0i32);
@@ -2341,7 +2341,7 @@ impl ::core::fmt::Debug for ICMP4_TIME_EXCEED_CODE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ICMP4_UNREACH_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const ICMP4_UNREACH_NET: ICMP4_UNREACH_CODE = ICMP4_UNREACH_CODE(0i32);
@@ -2994,7 +2994,7 @@ impl ::core::default::Default for IGMP_HEADER_1 {
 pub const IGMP_LEAVE_GROUP_TYPE: u32 = 23u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IGMP_MAX_RESP_CODE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const IGMP_MAX_RESP_CODE_TYPE_NORMAL: IGMP_MAX_RESP_CODE_TYPE = IGMP_MAX_RESP_CODE_TYPE(0i32);
@@ -3729,7 +3729,7 @@ pub const IPPORT_WHOIS: u32 = 43u32;
 pub const IPPORT_WHOSERVER: u32 = 513u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IPPROTO(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const IPPROTO_HOPOPTS: IPPROTO = IPPROTO(0i32);
@@ -4141,7 +4141,7 @@ impl ::core::default::Default for IPV4_OPTION_HEADER_0_0 {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IPV4_OPTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const IP_OPT_EOL: IPV4_OPTION_TYPE = IPV4_OPTION_TYPE(0i32);
@@ -4722,7 +4722,7 @@ impl ::core::default::Default for IPV6_OPTION_ROUTER_ALERT {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IPV6_OPTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const IP6OPT_PAD1: IPV6_OPTION_TYPE = IPV6_OPTION_TYPE(0i32);
@@ -5189,7 +5189,7 @@ pub const IP_NRT_INTERFACE: u32 = 74u32;
 pub const IP_OPTIONS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IP_OPTION_TIMESTAMP_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const IP_OPTION_TIMESTAMP_ONLY: IP_OPTION_TIMESTAMP_FLAGS = IP_OPTION_TIMESTAMP_FLAGS(0i32);
@@ -6064,7 +6064,7 @@ impl ::core::default::Default for MLD_HEADER {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MLD_MAX_RESP_CODE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const MLD_MAX_RESP_CODE_TYPE_NORMAL: MLD_MAX_RESP_CODE_TYPE = MLD_MAX_RESP_CODE_TYPE(0i32);
@@ -6107,7 +6107,7 @@ pub const MSG_PARTIAL: u32 = 32768u32;
 pub const MSG_TRUNC: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MULTICAST_MODE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const MCAST_INCLUDE: MULTICAST_MODE_TYPE = MULTICAST_MODE_TYPE(0i32);
@@ -6201,7 +6201,7 @@ impl ::core::default::Default for NAPI_PROVIDER_INSTALLATION_BLOB {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NAPI_PROVIDER_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const ProviderLevel_None: NAPI_PROVIDER_LEVEL = NAPI_PROVIDER_LEVEL(0i32);
@@ -6230,7 +6230,7 @@ impl ::core::fmt::Debug for NAPI_PROVIDER_LEVEL {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NAPI_PROVIDER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const ProviderType_Application: NAPI_PROVIDER_TYPE = NAPI_PROVIDER_TYPE(1i32);
@@ -6263,7 +6263,7 @@ pub const ND_NA_FLAG_ROUTER: u32 = 2147483648u32;
 pub const ND_NA_FLAG_SOLICITED: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ND_OPTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const ND_OPT_SOURCE_LINKADDR: ND_OPTION_TYPE = ND_OPTION_TYPE(1i32);
@@ -6748,7 +6748,7 @@ impl ::core::default::Default for NLA_BLOB_1 {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLA_BLOB_DATA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NLA_RAW_DATA: NLA_BLOB_DATA_TYPE = NLA_BLOB_DATA_TYPE(0i32);
@@ -6781,7 +6781,7 @@ impl ::core::fmt::Debug for NLA_BLOB_DATA_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLA_CONNECTIVITY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NLA_NETWORK_AD_HOC: NLA_CONNECTIVITY_TYPE = NLA_CONNECTIVITY_TYPE(0i32);
@@ -6814,7 +6814,7 @@ impl ::core::fmt::Debug for NLA_CONNECTIVITY_TYPE {
 pub const NLA_FRIENDLY_NAME: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLA_INTERNET(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NLA_INTERNET_UNKNOWN: NLA_INTERNET = NLA_INTERNET(0i32);
@@ -6843,7 +6843,7 @@ impl ::core::fmt::Debug for NLA_INTERNET {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NL_ADDRESS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NlatUnspecified: NL_ADDRESS_TYPE = NL_ADDRESS_TYPE(0i32);
@@ -6878,7 +6878,7 @@ impl ::core::fmt::Debug for NL_ADDRESS_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NL_BANDWIDTH_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NlbwDisabled: NL_BANDWIDTH_FLAG = NL_BANDWIDTH_FLAG(0i32);
@@ -6947,7 +6947,7 @@ impl ::core::default::Default for NL_BANDWIDTH_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NL_DAD_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NldsInvalid: NL_DAD_STATE = NL_DAD_STATE(0i32);
@@ -6990,7 +6990,7 @@ impl ::core::fmt::Debug for NL_DAD_STATE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NL_INTERFACE_NETWORK_CATEGORY_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NlincCategoryUnknown: NL_INTERFACE_NETWORK_CATEGORY_STATE = NL_INTERFACE_NETWORK_CATEGORY_STATE(0i32);
@@ -7053,7 +7053,7 @@ impl ::core::default::Default for NL_INTERFACE_OFFLOAD_ROD {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NL_LINK_LOCAL_ADDRESS_BEHAVIOR(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const LinkLocalAlwaysOff: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = NL_LINK_LOCAL_ADDRESS_BEHAVIOR(0i32);
@@ -7084,7 +7084,7 @@ impl ::core::fmt::Debug for NL_LINK_LOCAL_ADDRESS_BEHAVIOR {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NL_NEIGHBOR_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NlnsUnreachable: NL_NEIGHBOR_STATE = NL_NEIGHBOR_STATE(0i32);
@@ -7123,7 +7123,7 @@ impl ::core::fmt::Debug for NL_NEIGHBOR_STATE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NL_NETWORK_CATEGORY(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NetworkCategoryPublic: NL_NETWORK_CATEGORY = NL_NETWORK_CATEGORY(0i32);
@@ -7156,7 +7156,7 @@ impl ::core::fmt::Debug for NL_NETWORK_CATEGORY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NL_NETWORK_CONNECTIVITY_COST_HINT(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NetworkConnectivityCostHintUnknown: NL_NETWORK_CONNECTIVITY_COST_HINT = NL_NETWORK_CONNECTIVITY_COST_HINT(0i32);
@@ -7229,7 +7229,7 @@ impl ::core::default::Default for NL_NETWORK_CONNECTIVITY_HINT {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NL_NETWORK_CONNECTIVITY_LEVEL_HINT(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NetworkConnectivityLevelHintUnknown: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = NL_NETWORK_CONNECTIVITY_LEVEL_HINT(0i32);
@@ -7304,7 +7304,7 @@ impl ::core::default::Default for NL_PATH_BANDWIDTH_ROD {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NL_PREFIX_ORIGIN(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const IpPrefixOriginOther: NL_PREFIX_ORIGIN = NL_PREFIX_ORIGIN(0i32);
@@ -7339,7 +7339,7 @@ impl ::core::fmt::Debug for NL_PREFIX_ORIGIN {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NL_ROUTER_DISCOVERY_BEHAVIOR(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const RouterDiscoveryDisabled: NL_ROUTER_DISCOVERY_BEHAVIOR = NL_ROUTER_DISCOVERY_BEHAVIOR(0i32);
@@ -7370,7 +7370,7 @@ impl ::core::fmt::Debug for NL_ROUTER_DISCOVERY_BEHAVIOR {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NL_ROUTE_ORIGIN(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NlroManual: NL_ROUTE_ORIGIN = NL_ROUTE_ORIGIN(0i32);
@@ -7403,7 +7403,7 @@ impl ::core::fmt::Debug for NL_ROUTE_ORIGIN {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NL_ROUTE_PROTOCOL(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const RouteProtocolOther: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(1i32);
@@ -7552,7 +7552,7 @@ impl ::core::fmt::Debug for NL_ROUTE_PROTOCOL {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NL_SUFFIX_ORIGIN(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NlsoOther: NL_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN(0i32);
@@ -7668,7 +7668,7 @@ impl ::core::default::Default for NPI_MODULEID_0 {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NPI_MODULEID_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const MIT_GUID: NPI_MODULEID_TYPE = NPI_MODULEID_TYPE(1i32);
@@ -8085,7 +8085,7 @@ pub const PI_NUMBER_NOT_AVAILABLE: u32 = 128u32;
 pub const PI_RESTRICTED: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PMTUD_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const IP_PMTUDISC_NOT_SET: PMTUD_STATE = PMTUD_STATE(0i32);
@@ -8313,7 +8313,7 @@ impl ::core::default::Default for Q2931_IE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Q2931_IE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const IE_AALParameters: Q2931_IE_TYPE = Q2931_IE_TYPE(0i32);
@@ -8433,7 +8433,7 @@ impl ::core::default::Default for RCVALL_IF {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RCVALL_VALUE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const RCVALL_OFF: RCVALL_VALUE = RCVALL_VALUE(0i32);
@@ -8567,7 +8567,7 @@ impl ::core::default::Default for REAL_TIME_NOTIFICATION_SETTING_OUTPUT {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RESOURCE_DISPLAY_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const RESOURCEDISPLAYTYPE_DOMAIN: RESOURCE_DISPLAY_TYPE = RESOURCE_DISPLAY_TYPE(1u32);
@@ -8944,7 +8944,7 @@ impl ::core::default::Default for RIO_NOTIFICATION_COMPLETION_0_1 {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RIO_NOTIFICATION_COMPLETION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const RIO_EVENT_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = RIO_NOTIFICATION_COMPLETION_TYPE(1i32);
@@ -9509,7 +9509,7 @@ impl ::core::default::Default for SCOPE_ID_0_0 {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCOPE_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const ScopeLevelInterface: SCOPE_LEVEL = SCOPE_LEVEL(1i32);
@@ -9564,7 +9564,7 @@ pub const SENDER_DEFAULT_WINDOW_ADV_PERCENTAGE: u32 = 15u32;
 pub const SENDER_MAX_LATE_JOINER_PERCENTAGE: u32 = 75u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SEND_RECV_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const MSG_OOB: SEND_RECV_FLAGS = SEND_RECV_FLAGS(1i32);
@@ -10075,7 +10075,7 @@ pub const SERVICE_TYPE_VALUE_UDPPORTA: &str = "UdpPort";
 pub const SERVICE_TYPE_VALUE_UDPPORTW: &str = "UdpPort";
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SET_SERVICE_OPERATION(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SERVICE_REGISTER: SET_SERVICE_OPERATION = SET_SERVICE_OPERATION(1u32);
@@ -10755,7 +10755,7 @@ impl ::core::default::Default for SOCKADDR_STORAGE_XP {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SOCKET(pub usize);
 impl ::core::default::Default for SOCKET {
     fn default() -> Self {
@@ -10906,7 +10906,7 @@ impl ::core::default::Default for SOCKET_PEER_TARGET_NAME {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SOCKET_PRIORITY_HINT(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SocketPriorityHintVeryLow: SOCKET_PRIORITY_HINT = SOCKET_PRIORITY_HINT(0i32);
@@ -10983,7 +10983,7 @@ pub const SOCKET_QUERY_IPSEC2_FIELD_MASK_MM_SA_ID: u32 = 1u32;
 pub const SOCKET_QUERY_IPSEC2_FIELD_MASK_QM_SA_ID: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SOCKET_SECURITY_PROTOCOL(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SOCKET_SECURITY_PROTOCOL_DEFAULT: SOCKET_SECURITY_PROTOCOL = SOCKET_SECURITY_PROTOCOL(0i32);
@@ -11261,7 +11261,7 @@ pub const SOCKET_SETTINGS_IPSEC_PEER_NAME_IS_RAW_FORMAT: u32 = 8u32;
 pub const SOCKET_SETTINGS_IPSEC_SKIP_FILTER_INSTANTIATION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SOCKET_USAGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SYSTEM_CRITICAL_SOCKET: SOCKET_USAGE_TYPE = SOCKET_USAGE_TYPE(1i32);
@@ -11521,7 +11521,7 @@ pub unsafe fn SetSocketMediaStreamingMode<'a, Param0: ::windows::core::IntoParam
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCPSTATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const TCPSTATE_CLOSED: TCPSTATE = TCPSTATE(0i32);
@@ -11614,7 +11614,7 @@ pub const TCP_FASTOPEN: u32 = 15u32;
 pub const TCP_ICMP_ERROR_INFO: u32 = 19u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCP_ICW_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const TCP_ICW_LEVEL_DEFAULT: TCP_ICW_LEVEL = TCP_ICW_LEVEL(0i32);
@@ -12202,7 +12202,7 @@ pub const TT_NOIND: u32 = 0u32;
 pub const TT_VBR: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TUNNEL_SUB_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const TUNNEL_SUB_TYPE_NONE: TUNNEL_SUB_TYPE = TUNNEL_SUB_TYPE(0i32);
@@ -13188,7 +13188,7 @@ impl ::core::default::Default for WSACOMPLETION_0_3 {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSACOMPLETIONTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NSP_NOTIFY_IMMEDIATELY: WSACOMPLETIONTYPE = WSACOMPLETIONTYPE(0i32);
@@ -13444,7 +13444,7 @@ pub unsafe fn WSADuplicateSocketW<'a, Param0: ::windows::core::IntoParam<'a, SOC
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSAECOMPARATOR(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const COMP_EQUAL: WSAECOMPARATOR = WSAECOMPARATOR(0i32);
@@ -13471,7 +13471,7 @@ impl ::core::fmt::Debug for WSAECOMPARATOR {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSAESETSERVICEOP(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const RNRSERVICE_REGISTER: WSAESETSERVICEOP = WSAESETSERVICEOP(0i32);
@@ -15094,7 +15094,7 @@ pub unsafe fn WSAWaitForMultipleEvents<'a, Param2: ::windows::core::IntoParam<'a
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSA_COMPATIBILITY_BEHAVIOR_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const WsaBehaviorAll: WSA_COMPATIBILITY_BEHAVIOR_ID = WSA_COMPATIBILITY_BEHAVIOR_ID(0i32);
@@ -15154,7 +15154,7 @@ impl ::core::default::Default for WSA_COMPATIBILITY_MODE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSA_ERROR(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const WSA_IO_PENDING: WSA_ERROR = WSA_ERROR(997i32);
@@ -15731,7 +15731,7 @@ impl ::core::default::Default for WSC_PROVIDER_AUDIT_INFO {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSC_PROVIDER_INFO_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const ProviderInfoLspCategories: WSC_PROVIDER_INFO_TYPE = WSC_PROVIDER_INFO_TYPE(0i32);
@@ -16735,7 +16735,7 @@ pub unsafe fn connect<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Par
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eWINDOW_ADVANCE_METHOD(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const E_WINDOW_ADVANCE_BY_TIME: eWINDOW_ADVANCE_METHOD = eWINDOW_ADVANCE_METHOD(1i32);

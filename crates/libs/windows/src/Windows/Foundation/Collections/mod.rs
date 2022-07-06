@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CollectionChange(pub i32);
 impl CollectionChange {
     pub const Reset: Self = Self(0i32);

@@ -1,5 +1,5 @@
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCS_CALLBACK(pub isize);
 impl HCS_CALLBACK {
     pub fn is_invalid(&self) -> bool {

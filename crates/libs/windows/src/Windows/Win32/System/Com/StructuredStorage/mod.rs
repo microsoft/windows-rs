@@ -2051,7 +2051,7 @@ pub struct IStorage_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOCKTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub const LOCK_WRITE: LOCKTYPE = LOCKTYPE(1i32);
@@ -2229,7 +2229,7 @@ pub const PIDMSI_SOURCE: i32 = 4i32;
 pub const PIDMSI_STATUS: i32 = 7i32;
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PIDMSI_STATUS_VALUE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub const PIDMSI_STATUS_NORMAL: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(0i32);
@@ -2435,7 +2435,7 @@ impl ::core::default::Default for PROPSPEC_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPSPEC_KIND(pub u32);
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub const PRSPEC_LPWSTR: PROPSPEC_KIND = PROPSPEC_KIND(0u32);
@@ -2783,7 +2783,7 @@ impl ::core::default::Default for SERIALIZEDPROPERTYVALUE {
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STATFLAG(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub const STATFLAG_DEFAULT: STATFLAG = STATFLAG(0i32);
@@ -2888,7 +2888,7 @@ impl ::core::default::Default for STATPROPSTG {
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STGFMT(pub u32);
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub const STGFMT_STORAGE: STGFMT = STGFMT(0u32);
@@ -2923,7 +2923,7 @@ impl ::core::fmt::Debug for STGFMT {
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STGM(pub u32);
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub const STGM_DIRECT: STGM = STGM(0u32);
@@ -3010,7 +3010,7 @@ impl ::core::ops::Not for STGM {
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STGMOVE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub const STGMOVE_MOVE: STGMOVE = STGMOVE(0i32);

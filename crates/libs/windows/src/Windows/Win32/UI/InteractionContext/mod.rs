@@ -19,7 +19,7 @@ pub unsafe fn BufferPointerPacketsInteractionContext<'a, Param0: ::windows::core
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CROSS_SLIDE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const CROSS_SLIDE_FLAGS_NONE: CROSS_SLIDE_FLAGS = CROSS_SLIDE_FLAGS(0u32);
@@ -111,7 +111,7 @@ impl ::core::default::Default for CROSS_SLIDE_PARAMETER {
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CROSS_SLIDE_THRESHOLD(pub i32);
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const CROSS_SLIDE_THRESHOLD_SELECT_START: CROSS_SLIDE_THRESHOLD = CROSS_SLIDE_THRESHOLD(0i32);
@@ -254,7 +254,7 @@ pub unsafe fn GetTranslationParameterInteractionContext<'a, Param0: ::windows::c
     GetTranslationParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(parameter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HINTERACTIONCONTEXT(pub isize);
 impl HINTERACTIONCONTEXT {
     pub fn is_invalid(&self) -> bool {
@@ -282,7 +282,7 @@ unsafe impl ::windows::core::Abi for HINTERACTIONCONTEXT {
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HOLD_PARAMETER(pub i32);
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const HOLD_PARAMETER_MIN_CONTACT_COUNT: HOLD_PARAMETER = HOLD_PARAMETER(0i32);
@@ -315,7 +315,7 @@ impl ::core::fmt::Debug for HOLD_PARAMETER {
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INERTIA_PARAMETER(pub i32);
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INERTIA_PARAMETER_TRANSLATION_DECELERATION: INERTIA_PARAMETER = INERTIA_PARAMETER(1i32);
@@ -445,7 +445,7 @@ impl ::core::default::Default for INTERACTION_ARGUMENTS_TAP {
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERACTION_CONFIGURATION_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONFIGURATION_FLAG_NONE: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(0u32);
@@ -733,7 +733,7 @@ pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK = ::core::option::Option<unsafe ext
 pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK2 = ::core::option::Option<unsafe extern "system" fn(clientdata: *const ::core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT2)>;
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERACTION_CONTEXT_PROPERTY(pub i32);
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_CONTEXT_PROPERTY_MEASUREMENT_UNITS: INTERACTION_CONTEXT_PROPERTY = INTERACTION_CONTEXT_PROPERTY(1i32);
@@ -764,7 +764,7 @@ impl ::core::fmt::Debug for INTERACTION_CONTEXT_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERACTION_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_FLAG_NONE: INTERACTION_FLAGS = INTERACTION_FLAGS(0u32);
@@ -827,7 +827,7 @@ impl ::core::ops::Not for INTERACTION_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERACTION_ID(pub i32);
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_ID_NONE: INTERACTION_ID = INTERACTION_ID(0i32);
@@ -866,7 +866,7 @@ impl ::core::fmt::Debug for INTERACTION_ID {
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERACTION_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const INTERACTION_STATE_IDLE: INTERACTION_STATE = INTERACTION_STATE(0i32);
@@ -897,7 +897,7 @@ impl ::core::fmt::Debug for INTERACTION_STATE {
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MANIPULATION_RAILS_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const MANIPULATION_RAILS_STATE_UNDECIDED: MANIPULATION_RAILS_STATE = MANIPULATION_RAILS_STATE(0i32);
@@ -995,7 +995,7 @@ impl ::core::default::Default for MANIPULATION_VELOCITY {
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MOUSE_WHEEL_PARAMETER(pub i32);
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const MOUSE_WHEEL_PARAMETER_CHAR_TRANSLATION_X: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(1i32);
@@ -1188,7 +1188,7 @@ pub unsafe fn StopInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAP_PARAMETER(pub i32);
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const TAP_PARAMETER_MIN_CONTACT_COUNT: TAP_PARAMETER = TAP_PARAMETER(0i32);
@@ -1217,7 +1217,7 @@ impl ::core::fmt::Debug for TAP_PARAMETER {
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSLATION_PARAMETER(pub i32);
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const TRANSLATION_PARAMETER_MIN_CONTACT_COUNT: TRANSLATION_PARAMETER = TRANSLATION_PARAMETER(0i32);

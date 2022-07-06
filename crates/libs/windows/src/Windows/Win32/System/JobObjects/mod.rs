@@ -61,7 +61,7 @@ pub unsafe fn IsProcessInJob<'a, Param0: ::windows::core::IntoParam<'a, super::s
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JOBOBJECTINFOCLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 pub const JobObjectBasicAccountingInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(1i32);
@@ -571,7 +571,7 @@ impl ::core::default::Default for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_ENABLE: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(1i32);
@@ -1245,7 +1245,7 @@ impl ::core::default::Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE(pub i32);
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 pub const ToleranceLow: JOBOBJECT_RATE_CONTROL_TOLERANCE = JOBOBJECT_RATE_CONTROL_TOLERANCE(1i32);
@@ -1274,7 +1274,7 @@ impl ::core::fmt::Debug for JOBOBJECT_RATE_CONTROL_TOLERANCE {
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(pub i32);
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 pub const ToleranceIntervalShort: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(1i32);
@@ -1345,7 +1345,7 @@ impl ::core::default::Default for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JOB_OBJECT_CPU_RATE_CONTROL(pub u32);
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 pub const JOB_OBJECT_CPU_RATE_CONTROL_ENABLE: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(1u32);
@@ -1408,7 +1408,7 @@ impl ::core::ops::Not for JOB_OBJECT_CPU_RATE_CONTROL {
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JOB_OBJECT_IO_RATE_CONTROL_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 pub const JOB_OBJECT_IO_RATE_CONTROL_ENABLE: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(1i32);
@@ -1441,7 +1441,7 @@ impl ::core::fmt::Debug for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JOB_OBJECT_LIMIT(pub u32);
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 pub const JOB_OBJECT_LIMIT_WORKINGSET: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(1u32);
@@ -1546,7 +1546,7 @@ impl ::core::ops::Not for JOB_OBJECT_LIMIT {
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JOB_OBJECT_NET_RATE_CONTROL_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 pub const JOB_OBJECT_NET_RATE_CONTROL_ENABLE: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = JOB_OBJECT_NET_RATE_CONTROL_FLAGS(1u32);
@@ -1605,7 +1605,7 @@ impl ::core::ops::Not for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JOB_OBJECT_SECURITY(pub u32);
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 pub const JOB_OBJECT_SECURITY_NO_ADMIN: JOB_OBJECT_SECURITY = JOB_OBJECT_SECURITY(1u32);
@@ -1666,7 +1666,7 @@ impl ::core::ops::Not for JOB_OBJECT_SECURITY {
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JOB_OBJECT_TERMINATE_AT_END_ACTION(pub u32);
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 pub const JOB_OBJECT_TERMINATE_AT_END_OF_JOB: JOB_OBJECT_TERMINATE_AT_END_ACTION = JOB_OBJECT_TERMINATE_AT_END_ACTION(0u32);
@@ -1693,7 +1693,7 @@ impl ::core::fmt::Debug for JOB_OBJECT_TERMINATE_AT_END_ACTION {
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JOB_OBJECT_UILIMIT(pub u32);
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 pub const JOB_OBJECT_UILIMIT_NONE: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(0u32);

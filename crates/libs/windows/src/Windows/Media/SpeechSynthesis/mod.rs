@@ -151,7 +151,7 @@ pub struct IVoiceInformation_Vtbl {
 }
 #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechAppendedSilence(pub i32);
 impl SpeechAppendedSilence {
     pub const Default: Self = Self(0i32);
@@ -185,7 +185,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechAppendedSilence {
 }
 #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechPunctuationSilence(pub i32);
 impl SpeechPunctuationSilence {
     pub const Default: Self = Self(0i32);
@@ -969,7 +969,7 @@ unsafe impl ::core::marker::Send for SpeechSynthesizerOptions {}
 unsafe impl ::core::marker::Sync for SpeechSynthesizerOptions {}
 #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VoiceGender(pub i32);
 impl VoiceGender {
     pub const Male: Self = Self(0i32);

@@ -329,7 +329,7 @@ unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorAuthenticationMa
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorAuthenticationManager {}
 #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MicrosoftAccountMultiFactorAuthenticationType(pub i32);
 impl MicrosoftAccountMultiFactorAuthenticationType {
     pub const User: Self = Self(0i32);
@@ -568,7 +568,7 @@ unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorOneTimeCodedInfo
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
 #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MicrosoftAccountMultiFactorServiceResponse(pub i32);
 impl MicrosoftAccountMultiFactorServiceResponse {
     pub const Success: Self = Self(0i32);
@@ -622,7 +622,7 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorServiceR
 }
 #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MicrosoftAccountMultiFactorSessionApprovalStatus(pub i32);
 impl MicrosoftAccountMultiFactorSessionApprovalStatus {
     pub const Pending: Self = Self(0i32);
@@ -657,7 +657,7 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorSessionA
 }
 #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MicrosoftAccountMultiFactorSessionAuthenticationStatus(pub i32);
 impl MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     pub const Authenticated: Self = Self(0i32);

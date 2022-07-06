@@ -99,7 +99,7 @@ impl ::core::default::Default for RESTOREPOINTINFOW {
 }
 #[doc = "*Required features: `\"Win32_System_Restore\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RESTOREPOINTINFO_EVENT_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Restore\"`*"]
 pub const BEGIN_NESTED_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = RESTOREPOINTINFO_EVENT_TYPE(102u32);
@@ -130,7 +130,7 @@ impl ::core::fmt::Debug for RESTOREPOINTINFO_EVENT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Restore\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RESTOREPOINTINFO_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Restore\"`*"]
 pub const APPLICATION_INSTALL: RESTOREPOINTINFO_TYPE = RESTOREPOINTINFO_TYPE(0u32);

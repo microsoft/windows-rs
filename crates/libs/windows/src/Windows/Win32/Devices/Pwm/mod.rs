@@ -324,7 +324,7 @@ impl ::core::default::Default for PWM_PIN_SET_POLARITY_INPUT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PWM_POLARITY(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
 pub const PWM_ACTIVE_HIGH: PWM_POLARITY = PWM_POLARITY(0i32);

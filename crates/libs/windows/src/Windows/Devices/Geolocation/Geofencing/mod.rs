@@ -324,7 +324,7 @@ unsafe impl ::core::marker::Send for GeofenceMonitor {}
 unsafe impl ::core::marker::Sync for GeofenceMonitor {}
 #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GeofenceMonitorStatus(pub i32);
 impl GeofenceMonitorStatus {
     pub const Ready: Self = Self(0i32);
@@ -362,7 +362,7 @@ unsafe impl ::windows::core::RuntimeType for GeofenceMonitorStatus {
 }
 #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GeofenceRemovalReason(pub i32);
 impl GeofenceRemovalReason {
     pub const Used: Self = Self(0i32);
@@ -396,7 +396,7 @@ unsafe impl ::windows::core::RuntimeType for GeofenceRemovalReason {
 }
 #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GeofenceState(pub u32);
 impl GeofenceState {
     pub const None: Self = Self(0u32);
@@ -686,7 +686,7 @@ pub struct IGeofenceStateChangeReport_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MonitoredGeofenceStates(pub u32);
 impl MonitoredGeofenceStates {
     pub const None: Self = Self(0u32);
