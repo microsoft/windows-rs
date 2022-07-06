@@ -125,8 +125,8 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_component &&
           cargo test --target ${{ matrix.target }} -p test_component_client &&
           cargo test --target ${{ matrix.target }} -p test_const_fields &&
-          cargo clean &&
           cargo test --target ${{ matrix.target }} -p test_core &&
+          cargo clean &&
           cargo test --target ${{ matrix.target }} -p test_data_object &&
           cargo test --target ${{ matrix.target }} -p test_debug &&
           cargo test --target ${{ matrix.target }} -p test_deprecated &&
@@ -144,6 +144,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_interop &&
           cargo test --target ${{ matrix.target }} -p test_lib &&
           cargo test --target ${{ matrix.target }} -p test_map &&
+          cargo test --target ${{ matrix.target }} -p test_match &&
           cargo test --target ${{ matrix.target }} -p test_matrix3x2 &&
           cargo test --target ${{ matrix.target }} -p test_metadata &&
           cargo test --target ${{ matrix.target }} -p test_mshtml &&

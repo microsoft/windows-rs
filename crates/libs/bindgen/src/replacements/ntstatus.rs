@@ -3,6 +3,7 @@ use super::*;
 pub fn gen() -> TokenStream {
     quote! {
         #[repr(transparent)]
+        #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
         pub struct NTSTATUS(pub i32);
         impl NTSTATUS {
             #[inline]
@@ -47,12 +48,6 @@ pub fn gen() -> TokenStream {
             }
         }
         impl ::core::marker::Copy for NTSTATUS {}
-        impl ::core::cmp::PartialEq for NTSTATUS {
-            fn eq(&self, other: &Self) -> bool {
-                    self.0 == other.0
-            }
-        }
-        impl ::core::cmp::Eq for NTSTATUS {}
         impl ::core::fmt::Debug for NTSTATUS {
             fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                 f.write_fmt(format_args!("NTSTATUS(0x{:08X})", self.0))

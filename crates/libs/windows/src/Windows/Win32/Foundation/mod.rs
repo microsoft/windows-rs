@@ -4985,6 +4985,7 @@ pub const NTE_USER_CANCELLED: ::windows::core::HRESULT = ::windows::core::HRESUL
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const NTE_VALIDATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146893774i32);
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NTSTATUS(pub i32);
 impl NTSTATUS {
     #[inline]
@@ -5029,12 +5030,6 @@ impl ::core::clone::Clone for NTSTATUS {
     }
 }
 impl ::core::marker::Copy for NTSTATUS {}
-impl ::core::cmp::PartialEq for NTSTATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NTSTATUS {}
 impl ::core::fmt::Debug for NTSTATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.write_fmt(format_args!("NTSTATUS(0x{:08X})", self.0))

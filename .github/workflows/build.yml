@@ -160,6 +160,7 @@ jobs:
           cargo clippy -p test_interop &&
           cargo clippy -p test_lib &&
           cargo clippy -p test_map &&
+          cargo clippy -p test_match &&
           cargo clippy -p test_matrix3x2 &&
           cargo clippy -p test_metadata &&
           cargo clippy -p test_mshtml &&
