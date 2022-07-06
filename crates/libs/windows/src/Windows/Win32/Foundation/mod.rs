@@ -4985,7 +4985,7 @@ pub const NTE_USER_CANCELLED: ::windows::core::HRESULT = ::windows::core::HRESUL
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const NTE_VALIDATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146893774i32);
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NTSTATUS(pub i32);
 impl NTSTATUS {
     #[inline]
