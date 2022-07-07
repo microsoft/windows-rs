@@ -139,7 +139,7 @@ impl Window {
     }
 
     fn present(&self, sync: u32, flags: u32) -> Result<()> {
-        unsafe { self.swapchain.as_ref().unwrap().Present(sync, flags) }
+        unsafe { self.swapchain.as_ref().unwrap().Present(sync, flags).ok() }
     }
 
     fn draw(&self, target: &ID2D1DeviceContext) -> Result<()> {
@@ -407,9 +407,7 @@ fn create_factory() -> Result<ID2D1Factory1> {
         options.debugLevel = D2D1_DEBUG_LEVEL_INFORMATION;
     }
 
-    let mut result = None;
-
-    unsafe { D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &ID2D1Factory1::IID, &options, &mut result as *mut _ as _).map(|()| result.unwrap()) }
+    unsafe { D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &options) }
 }
 
 fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle> {

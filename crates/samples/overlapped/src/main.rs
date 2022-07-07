@@ -23,7 +23,7 @@ fn main() -> Result<()> {
         }
 
         let wait_ok = WaitForSingleObject(overlapped.hEvent, 2000);
-        assert!(wait_ok == WAIT_OBJECT_0);
+        assert!(wait_ok == WAIT_OBJECT_0.0);
 
         let mut bytes_copied = 0;
         let overlapped_ok = GetOverlappedResult(file, &overlapped, &mut bytes_copied, false);
