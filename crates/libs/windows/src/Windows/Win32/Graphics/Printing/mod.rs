@@ -7185,7 +7185,7 @@ impl IImgCreateErrorInfo {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AttachToErrorInfo(&self, perrorinfo: *mut __MIDL___MIDL_itf_imgerror_0000_0000_0001) -> ::windows::core::Result<()> {
+    pub unsafe fn AttachToErrorInfo(&self, perrorinfo: *mut ImgErrorInfo) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AttachToErrorInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(perrorinfo)).ok()
     }
 }
@@ -7268,7 +7268,7 @@ unsafe impl ::windows::core::Interface for IImgCreateErrorInfo {
 pub struct IImgCreateErrorInfo_Vtbl {
     pub base__: super::super::System::Ole::ICreateErrorInfo_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub AttachToErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorinfo: *mut __MIDL___MIDL_itf_imgerror_0000_0000_0001) -> ::windows::core::HRESULT,
+    pub AttachToErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorinfo: *mut ImgErrorInfo) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     AttachToErrorInfo: usize,
 }
@@ -7343,9 +7343,9 @@ impl IImgErrorInfo {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DetachErrorInfo(&self) -> ::windows::core::Result<__MIDL___MIDL_itf_imgerror_0000_0000_0001> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<__MIDL___MIDL_itf_imgerror_0000_0000_0001>>::zeroed();
-        (::windows::core::Interface::vtable(self).DetachErrorInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<__MIDL___MIDL_itf_imgerror_0000_0000_0001>(result__)
+    pub unsafe fn DetachErrorInfo(&self) -> ::windows::core::Result<ImgErrorInfo> {
+        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<ImgErrorInfo>>::zeroed();
+        (::windows::core::Interface::vtable(self).DetachErrorInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ImgErrorInfo>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7442,7 +7442,7 @@ pub struct IImgErrorInfo_Vtbl {
     GetUserFallback: usize,
     pub GetExceptionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexceptionid: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub DetachErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorinfo: *mut __MIDL___MIDL_itf_imgerror_0000_0000_0001) -> ::windows::core::HRESULT,
+    pub DetachErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorinfo: *mut ImgErrorInfo) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     DetachErrorInfo: usize,
 }
@@ -16953,6 +16953,64 @@ pub struct IXpsRasterizerNotificationCallback_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Continue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ImgErrorInfo {
+    pub description: super::super::Foundation::BSTR,
+    pub guid: ::windows::core::GUID,
+    pub helpContext: u32,
+    pub helpFile: super::super::Foundation::BSTR,
+    pub source: super::super::Foundation::BSTR,
+    pub devDescription: super::super::Foundation::BSTR,
+    pub errorID: ::windows::core::GUID,
+    pub cUserParameters: u32,
+    pub aUserParameters: *mut super::super::Foundation::BSTR,
+    pub userFallback: super::super::Foundation::BSTR,
+    pub exceptionID: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ImgErrorInfo {
+    fn clone(&self) -> Self {
+        Self {
+            description: self.description.clone(),
+            guid: self.guid,
+            helpContext: self.helpContext,
+            helpFile: self.helpFile.clone(),
+            source: self.source.clone(),
+            devDescription: self.devDescription.clone(),
+            errorID: self.errorID,
+            cUserParameters: self.cUserParameters,
+            aUserParameters: self.aUserParameters,
+            userFallback: self.userFallback.clone(),
+            exceptionID: self.exceptionID,
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ImgErrorInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ImgErrorInfo").field("description", &self.description).field("guid", &self.guid).field("helpContext", &self.helpContext).field("helpFile", &self.helpFile).field("source", &self.source).field("devDescription", &self.devDescription).field("errorID", &self.errorID).field("cUserParameters", &self.cUserParameters).field("aUserParameters", &self.aUserParameters).field("userFallback", &self.userFallback).field("exceptionID", &self.exceptionID).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ImgErrorInfo {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ImgErrorInfo {
+    fn eq(&self, other: &Self) -> bool {
+        self.description == other.description && self.guid == other.guid && self.helpContext == other.helpContext && self.helpFile == other.helpFile && self.source == other.source && self.devDescription == other.devDescription && self.errorID == other.errorID && self.cUserParameters == other.cUserParameters && self.aUserParameters == other.aUserParameters && self.userFallback == other.userFallback && self.exceptionID == other.exceptionID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ImgErrorInfo {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ImgErrorInfo {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -24858,76 +24916,6 @@ impl ::core::cmp::PartialEq for _SPLCLIENT_INFO_2_V3 {
 }
 impl ::core::cmp::Eq for _SPLCLIENT_INFO_2_V3 {}
 impl ::core::default::Default for _SPLCLIENT_INFO_2_V3 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct __MIDL___MIDL_itf_imgerror_0000_0000_0001 {
-    pub description: super::super::Foundation::BSTR,
-    pub guid: ::windows::core::GUID,
-    pub helpContext: u32,
-    pub helpFile: super::super::Foundation::BSTR,
-    pub source: super::super::Foundation::BSTR,
-    pub devDescription: super::super::Foundation::BSTR,
-    pub errorID: ::windows::core::GUID,
-    pub cUserParameters: u32,
-    pub aUserParameters: *mut super::super::Foundation::BSTR,
-    pub userFallback: super::super::Foundation::BSTR,
-    pub exceptionID: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for __MIDL___MIDL_itf_imgerror_0000_0000_0001 {
-    fn clone(&self) -> Self {
-        Self {
-            description: self.description.clone(),
-            guid: self.guid,
-            helpContext: self.helpContext,
-            helpFile: self.helpFile.clone(),
-            source: self.source.clone(),
-            devDescription: self.devDescription.clone(),
-            errorID: self.errorID,
-            cUserParameters: self.cUserParameters,
-            aUserParameters: self.aUserParameters,
-            userFallback: self.userFallback.clone(),
-            exceptionID: self.exceptionID,
-        }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for __MIDL___MIDL_itf_imgerror_0000_0000_0001 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("__MIDL___MIDL_itf_imgerror_0000_0000_0001")
-            .field("description", &self.description)
-            .field("guid", &self.guid)
-            .field("helpContext", &self.helpContext)
-            .field("helpFile", &self.helpFile)
-            .field("source", &self.source)
-            .field("devDescription", &self.devDescription)
-            .field("errorID", &self.errorID)
-            .field("cUserParameters", &self.cUserParameters)
-            .field("aUserParameters", &self.aUserParameters)
-            .field("userFallback", &self.userFallback)
-            .field("exceptionID", &self.exceptionID)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for __MIDL___MIDL_itf_imgerror_0000_0000_0001 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for __MIDL___MIDL_itf_imgerror_0000_0000_0001 {
-    fn eq(&self, other: &Self) -> bool {
-        self.description == other.description && self.guid == other.guid && self.helpContext == other.helpContext && self.helpFile == other.helpFile && self.source == other.source && self.devDescription == other.devDescription && self.errorID == other.errorID && self.cUserParameters == other.cUserParameters && self.aUserParameters == other.aUserParameters && self.userFallback == other.userFallback && self.exceptionID == other.exceptionID
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for __MIDL___MIDL_itf_imgerror_0000_0000_0001 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for __MIDL___MIDL_itf_imgerror_0000_0000_0001 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

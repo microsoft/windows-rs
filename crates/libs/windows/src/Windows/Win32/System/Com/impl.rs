@@ -3587,7 +3587,7 @@ impl IRunnableObject_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRunningObjectTable_Impl: Sized {
-    fn Register(&self, grfflags: u32, punkobject: &::core::option::Option<::windows::core::IUnknown>, pmkobjectname: &::core::option::Option<IMoniker>) -> ::windows::core::Result<u32>;
+    fn Register(&self, grfflags: ROT_FLAGS, punkobject: &::core::option::Option<::windows::core::IUnknown>, pmkobjectname: &::core::option::Option<IMoniker>) -> ::windows::core::Result<u32>;
     fn Revoke(&self, dwregister: u32) -> ::windows::core::Result<()>;
     fn IsRunning(&self, pmkobjectname: &::core::option::Option<IMoniker>) -> ::windows::core::Result<()>;
     fn GetObject(&self, pmkobjectname: &::core::option::Option<IMoniker>) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -3600,7 +3600,7 @@ impl ::windows::core::RuntimeName for IRunningObjectTable {}
 #[cfg(feature = "Win32_Foundation")]
 impl IRunningObjectTable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRunningObjectTable_Impl, const OFFSET: isize>() -> IRunningObjectTable_Vtbl {
-        unsafe extern "system" fn Register<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRunningObjectTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfflags: u32, punkobject: *mut ::core::ffi::c_void, pmkobjectname: *mut ::core::ffi::c_void, pdwregister: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Register<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRunningObjectTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfflags: ROT_FLAGS, punkobject: *mut ::core::ffi::c_void, pmkobjectname: *mut ::core::ffi::c_void, pdwregister: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Register(::core::mem::transmute_copy(&grfflags), ::core::mem::transmute(&punkobject), ::core::mem::transmute(&pmkobjectname)) {

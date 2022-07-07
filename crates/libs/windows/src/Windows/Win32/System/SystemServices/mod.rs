@@ -5771,7 +5771,7 @@ impl ::core::default::Default for IMAGE_LINENUMBER_0 {
     }
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMAGE_NT_SIGNATURE: u16 = 17744u16;
+pub const IMAGE_NT_SIGNATURE: u32 = 17744u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_NUMBEROF_DIRECTORY_ENTRIES: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -13064,10 +13064,6 @@ impl ::core::default::Default for RESUME_PERFORMANCE {
     }
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ROTFLAGS_ALLOWANYCLIENT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ROTFLAGS_REGISTRATIONKEEPSALIVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const ROT_COMPARE_MAX: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const RTL_CONDITION_VARIABLE_LOCKMODE_SHARED: u32 = 1u32;
@@ -14805,6 +14801,87 @@ pub const SIZEOF_RFPO_DATA: u32 = 16u32;
 pub const SIZE_OF_80387_REGISTERS: u32 = 80u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SMB_CCF_APP_INSTANCE_EA_NAME: &str = "ClusteredApplicationInstance";
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SND_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SND_APPLICATION: SND_FLAGS = SND_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SND_ALIAS: SND_FLAGS = SND_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SND_ALIAS_ID: SND_FLAGS = SND_FLAGS(1114112u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SND_FILENAME: SND_FLAGS = SND_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SND_RESOURCE: SND_FLAGS = SND_FLAGS(262148u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SND_ASYNC: SND_FLAGS = SND_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SND_NODEFAULT: SND_FLAGS = SND_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SND_LOOP: SND_FLAGS = SND_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SND_MEMORY: SND_FLAGS = SND_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SND_NOSTOP: SND_FLAGS = SND_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SND_NOWAIT: SND_FLAGS = SND_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SND_PURGE: SND_FLAGS = SND_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SND_SENTRY: SND_FLAGS = SND_FLAGS(524288u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SND_SYNC: SND_FLAGS = SND_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SND_SYSTEM: SND_FLAGS = SND_FLAGS(2097152u32);
+impl ::core::marker::Copy for SND_FLAGS {}
+impl ::core::clone::Clone for SND_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SND_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SND_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SND_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SND_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SND_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SND_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SND_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SND_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SND_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SORT_CHINESE_BIG5: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]

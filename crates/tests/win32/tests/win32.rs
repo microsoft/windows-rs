@@ -1,6 +1,6 @@
 use windows::{
     core::*,
-    Win32::Foundation::{CloseHandle, BOOL, HANDLE, HWND, RECT},
+    Win32::Foundation::{CloseHandle, BOOL, HANDLE, HWND, RECT, WAIT_OBJECT_0},
     Win32::Gaming::HasExpandedResources,
     Win32::Graphics::{Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace, Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA, Dxgi::Common::*, Dxgi::*, Hlsl::D3DCOMPILER_DLL},
     Win32::Networking::Ldap::ldapsearch,
@@ -96,7 +96,7 @@ fn function() -> windows::core::Result<()> {
         SetEvent(event).ok()?;
 
         let result = WaitForSingleObject(event, 0);
-        assert!(result == WAIT_OBJECT_0);
+        assert!(result == WAIT_OBJECT_0.0);
 
         CloseHandle(event).ok()?;
         Ok(())

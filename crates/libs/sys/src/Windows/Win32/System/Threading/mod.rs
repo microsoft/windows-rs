@@ -496,9 +496,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsWow64Process(hprocess: super::super::Foundation::HANDLE, wow64process: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsWow64Process2(hprocess: super::super::Foundation::HANDLE, pprocessmachine: *mut u16, pnativemachine: *mut u16) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
+    pub fn IsWow64Process2(hprocess: super::super::Foundation::HANDLE, pprocessmachine: *mut super::SystemInformation::IMAGE_FILE_MACHINE, pnativemachine: *mut super::SystemInformation::IMAGE_FILE_MACHINE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
     pub fn LeaveCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
@@ -1344,13 +1344,16 @@ pub const PROCESS_LEAP_SECOND_INFO_FLAG_ENABLE_SIXTY_SECOND: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const PROCESS_LEAP_SECOND_INFO_VALID_FLAGS: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_SystemInformation\"`*"]
+#[cfg(feature = "Win32_System_SystemInformation")]
 pub struct PROCESS_MACHINE_INFORMATION {
-    pub ProcessMachine: u16,
+    pub ProcessMachine: super::SystemInformation::IMAGE_FILE_MACHINE,
     pub Res0: u16,
     pub MachineAttributes: MACHINE_ATTRIBUTES,
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::marker::Copy for PROCESS_MACHINE_INFORMATION {}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::clone::Clone for PROCESS_MACHINE_INFORMATION {
     fn clone(&self) -> Self {
         *self
@@ -2120,14 +2123,6 @@ impl ::core::clone::Clone for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WAITORTIMERCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::BOOLEAN)>;
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const WAIT_ABANDONED: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const WAIT_ABANDONED_0: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const WAIT_IO_COMPLETION: u32 = 192u32;
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const WAIT_OBJECT_0: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type WORKER_THREAD_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]

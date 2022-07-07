@@ -20,11 +20,13 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CheckRemoteDebuggerPresent(hprocess: super::super::super::Foundation::HANDLE, pbdebuggerpresent: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
     #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+    #[cfg(feature = "Win32_System_SystemInformation")]
     pub fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filelength: u32, headersum: *mut u32, checksum: *mut u32) -> *mut IMAGE_NT_HEADERS64;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
     #[cfg(target_arch = "x86")]
+    #[cfg(feature = "Win32_System_SystemInformation")]
     pub fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filelength: u32, headersum: *mut u32, checksum: *mut u32) -> *mut IMAGE_NT_HEADERS32;
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
     pub fn CloseThreadWaitChainSession(wcthandle: *const ::core::ffi::c_void);
@@ -142,16 +144,16 @@ extern "system" {
     pub fn GetEnabledXStateFeatures() -> u64;
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
     pub fn GetErrorMode() -> u32;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
     #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
     pub fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imageconfiginformation: *mut IMAGE_LOAD_CONFIG_DIRECTORY64) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
     #[cfg(target_arch = "x86")]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
     pub fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imageconfiginformation: *mut IMAGE_LOAD_CONFIG_DIRECTORY32) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
     pub fn GetImageUnusedHeaderBytes(loadedimage: *const LOADED_IMAGE, sizeunusedheaderbytes: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
     pub fn GetSymLoadError() -> u32;
@@ -194,32 +196,38 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageGetDigestStream(filehandle: super::super::super::Foundation::HANDLE, digestlevel: u32, digestfunction: DIGEST_FUNCTION, digesthandle: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
     pub fn ImageLoad(dllname: ::windows_sys::core::PCSTR, dllpath: ::windows_sys::core::PCSTR) -> *mut LOADED_IMAGE;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
     #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+    #[cfg(feature = "Win32_System_SystemInformation")]
     pub fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_HEADERS64;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
     #[cfg(target_arch = "x86")]
+    #[cfg(feature = "Win32_System_SystemInformation")]
     pub fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_HEADERS32;
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageRemoveCertificate(filehandle: super::super::super::Foundation::HANDLE, index: u32) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
     #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+    #[cfg(feature = "Win32_System_SystemInformation")]
     pub fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS64, base: *const ::core::ffi::c_void, rva: u32) -> *mut IMAGE_SECTION_HEADER;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
     #[cfg(target_arch = "x86")]
+    #[cfg(feature = "Win32_System_SystemInformation")]
     pub fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS32, base: *const ::core::ffi::c_void, rva: u32) -> *mut IMAGE_SECTION_HEADER;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
     #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+    #[cfg(feature = "Win32_System_SystemInformation")]
     pub fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS64, base: *const ::core::ffi::c_void, rva: u32, lastrvasection: *const *const IMAGE_SECTION_HEADER) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
     #[cfg(target_arch = "x86")]
+    #[cfg(feature = "Win32_System_SystemInformation")]
     pub fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS32, base: *const ::core::ffi::c_void, rva: u32, lastrvasection: *const *const IMAGE_SECTION_HEADER) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
     pub fn ImageUnload(loadedimage: *mut LOADED_IMAGE) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
     pub fn ImagehlpApiVersion() -> *mut API_VERSION;
@@ -241,8 +249,8 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MakeSureDirectoryPathExists(dirpath: ::windows_sys::core::PCSTR) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
     pub fn MapAndLoad(imagename: ::windows_sys::core::PCSTR, dllpath: ::windows_sys::core::PCSTR, loadedimage: *mut LOADED_IMAGE, dotdll: super::super::super::Foundation::BOOL, readonly: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
     pub fn MapFileAndCheckSumA(filename: ::windows_sys::core::PCSTR, headersum: *mut u32, checksum: *mut u32) -> u32;
@@ -386,13 +394,13 @@ extern "system" {
     pub fn SetCheckUserInterruptShared(lpstartaddress: LPCALL_BACK_USER_INTERRUPT_ROUTINE);
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
     pub fn SetErrorMode(umode: THREAD_ERROR_MODE) -> u32;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
     #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
     pub fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imageconfiginformation: *const IMAGE_LOAD_CONFIG_DIRECTORY64) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
     #[cfg(target_arch = "x86")]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
     pub fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imageconfiginformation: *const IMAGE_LOAD_CONFIG_DIRECTORY32) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
     pub fn SetSymLoadError(error: u32);
@@ -951,17 +959,17 @@ extern "system" {
     pub fn UnDecorateSymbolName(name: ::windows_sys::core::PCSTR, outputstring: ::windows_sys::core::PSTR, maxstringlength: u32, flags: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
     pub fn UnDecorateSymbolNameW(name: ::windows_sys::core::PCWSTR, outputstring: ::windows_sys::core::PWSTR, maxstringlength: u32, flags: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
     pub fn UnMapAndLoad(loadedimage: *mut LOADED_IMAGE) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
     pub fn UnhandledExceptionFilter(exceptioninfo: *const EXCEPTION_POINTERS) -> i32;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
     pub fn UpdateDebugInfoFile(imagefilename: ::windows_sys::core::PCSTR, symbolpath: ::windows_sys::core::PCSTR, debugfilepath: ::windows_sys::core::PSTR, ntheaders: *const IMAGE_NT_HEADERS32) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
     pub fn UpdateDebugInfoFileEx(imagefilename: ::windows_sys::core::PCSTR, symbolpath: ::windows_sys::core::PCSTR, debugfilepath: ::windows_sys::core::PSTR, ntheaders: *const IMAGE_NT_HEADERS32, oldchecksum: u32) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
@@ -7857,9 +7865,10 @@ pub const IMAGE_FILE_UP_SYSTEM_ONLY_2: IMAGE_FILE_CHARACTERISTICS2 = 16384u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const IMAGE_FILE_BYTES_REVERSED_HI_2: IMAGE_FILE_CHARACTERISTICS2 = 32768u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
+#[cfg(feature = "Win32_System_SystemInformation")]
 pub struct IMAGE_FILE_HEADER {
-    pub Machine: IMAGE_FILE_MACHINE,
+    pub Machine: super::super::SystemInformation::IMAGE_FILE_MACHINE,
     pub NumberOfSections: u16,
     pub TimeDateStamp: u32,
     pub PointerToSymbolTable: u32,
@@ -7867,78 +7876,14 @@ pub struct IMAGE_FILE_HEADER {
     pub SizeOfOptionalHeader: u16,
     pub Characteristics: IMAGE_FILE_CHARACTERISTICS,
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::marker::Copy for IMAGE_FILE_HEADER {}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::clone::Clone for IMAGE_FILE_HEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub type IMAGE_FILE_MACHINE = u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_AXP64: IMAGE_FILE_MACHINE = 644u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_I386: IMAGE_FILE_MACHINE = 332u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_IA64: IMAGE_FILE_MACHINE = 512u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_AMD64: IMAGE_FILE_MACHINE = 34404u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_UNKNOWN: IMAGE_FILE_MACHINE = 0u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_TARGET_HOST: IMAGE_FILE_MACHINE = 1u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_R3000: IMAGE_FILE_MACHINE = 354u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_R4000: IMAGE_FILE_MACHINE = 358u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_R10000: IMAGE_FILE_MACHINE = 360u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_WCEMIPSV2: IMAGE_FILE_MACHINE = 361u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_ALPHA: IMAGE_FILE_MACHINE = 388u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_SH3: IMAGE_FILE_MACHINE = 418u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_SH3DSP: IMAGE_FILE_MACHINE = 419u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_SH3E: IMAGE_FILE_MACHINE = 420u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_SH4: IMAGE_FILE_MACHINE = 422u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_SH5: IMAGE_FILE_MACHINE = 424u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_ARM: IMAGE_FILE_MACHINE = 448u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_THUMB: IMAGE_FILE_MACHINE = 450u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_ARMNT: IMAGE_FILE_MACHINE = 452u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_AM33: IMAGE_FILE_MACHINE = 467u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_POWERPC: IMAGE_FILE_MACHINE = 496u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_POWERPCFP: IMAGE_FILE_MACHINE = 497u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_MIPS16: IMAGE_FILE_MACHINE = 614u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_ALPHA64: IMAGE_FILE_MACHINE = 644u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_MIPSFPU: IMAGE_FILE_MACHINE = 870u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_MIPSFPU16: IMAGE_FILE_MACHINE = 1126u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_TRICORE: IMAGE_FILE_MACHINE = 1312u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_CEF: IMAGE_FILE_MACHINE = 3311u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_EBC: IMAGE_FILE_MACHINE = 3772u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_M32R: IMAGE_FILE_MACHINE = 36929u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_ARM64: IMAGE_FILE_MACHINE = 43620u16;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const IMAGE_FILE_MACHINE_CEE: IMAGE_FILE_MACHINE = 49390u16;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct IMAGE_FUNCTION_ENTRY {
@@ -8108,26 +8053,32 @@ impl ::core::clone::Clone for IMAGE_LOAD_CONFIG_DIRECTORY64 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
+#[cfg(feature = "Win32_System_SystemInformation")]
 pub struct IMAGE_NT_HEADERS32 {
     pub Signature: u32,
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_OPTIONAL_HEADER32,
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::marker::Copy for IMAGE_NT_HEADERS32 {}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::clone::Clone for IMAGE_NT_HEADERS32 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
+#[cfg(feature = "Win32_System_SystemInformation")]
 pub struct IMAGE_NT_HEADERS64 {
     pub Signature: u32,
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_OPTIONAL_HEADER64,
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::marker::Copy for IMAGE_NT_HEADERS64 {}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::clone::Clone for IMAGE_NT_HEADERS64 {
     fn clone(&self) -> Self {
         *self
@@ -8225,12 +8176,15 @@ pub const IMAGE_NT_OPTIONAL_HDR64_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = 523u16;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const IMAGE_ROM_OPTIONAL_HDR_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = 263u16;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_SystemInformation\"`*"]
+#[cfg(feature = "Win32_System_SystemInformation")]
 pub struct IMAGE_ROM_HEADERS {
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_ROM_OPTIONAL_HEADER,
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::marker::Copy for IMAGE_ROM_HEADERS {}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::clone::Clone for IMAGE_ROM_HEADERS {
     fn clone(&self) -> Self {
         *self
@@ -8663,6 +8617,20 @@ pub const IntrinsicHRESULT: IntrinsicKind = 9i32;
 pub const IntrinsicChar16: IntrinsicKind = 10i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub const IntrinsicChar32: IntrinsicKind = 11i32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
+pub struct JS_NATIVE_FRAME {
+    pub InstructionOffset: u64,
+    pub ReturnOffset: u64,
+    pub FrameOffset: u64,
+    pub StackOffset: u64,
+}
+impl ::core::marker::Copy for JS_NATIVE_FRAME {}
+impl ::core::clone::Clone for JS_NATIVE_FRAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub type JS_PROPERTY_ATTRIBUTES = i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -9231,9 +9199,9 @@ impl ::core::clone::Clone for LDT_ENTRY_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 pub struct LOADED_IMAGE {
     pub ModuleName: ::windows_sys::core::PSTR,
     pub hFile: super::super::super::Foundation::HANDLE,
@@ -9251,19 +9219,19 @@ pub struct LOADED_IMAGE {
     pub SizeOfImage: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 impl ::core::marker::Copy for LOADED_IMAGE {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 impl ::core::clone::Clone for LOADED_IMAGE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 pub struct LOADED_IMAGE {
     pub ModuleName: ::windows_sys::core::PSTR,
     pub hFile: super::super::super::Foundation::HANDLE,
@@ -9281,10 +9249,10 @@ pub struct LOADED_IMAGE {
     pub SizeOfImage: u32,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 impl ::core::marker::Copy for LOADED_IMAGE {}
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 impl ::core::clone::Clone for LOADED_IMAGE {
     fn clone(&self) -> Self {
         *self
@@ -15096,20 +15064,6 @@ pub struct _IMAGEHLP_JIT_SYMBOL_MAP {
 }
 impl ::core::marker::Copy for _IMAGEHLP_JIT_SYMBOL_MAP {}
 impl ::core::clone::Clone for _IMAGEHLP_JIT_SYMBOL_MAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub struct __MIDL___MIDL_itf_jscript9diag_0000_0007_0001 {
-    pub InstructionOffset: u64,
-    pub ReturnOffset: u64,
-    pub FrameOffset: u64,
-    pub StackOffset: u64,
-}
-impl ::core::marker::Copy for __MIDL___MIDL_itf_jscript9diag_0000_0007_0001 {}
-impl ::core::clone::Clone for __MIDL___MIDL_itf_jscript9diag_0000_0007_0001 {
     fn clone(&self) -> Self {
         *self
     }

@@ -8974,6 +8974,8 @@ pub unsafe fn LsnRecordSequence(plsn: *const CLS_LSN) -> u32 {
     ::core::mem::transmute(LsnRecordSequence(::core::mem::transmute(plsn)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const MAXIMUM_REPARSE_DATA_BUFFER_SIZE: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type MAXMEDIALABEL = ::core::option::Option<unsafe extern "system" fn(pmaxsize: *mut u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const MAX_RESOURCEMANAGER_DESCRIPTION_LENGTH: u32 = 64u32;

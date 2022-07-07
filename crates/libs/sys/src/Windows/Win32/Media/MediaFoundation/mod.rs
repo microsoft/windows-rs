@@ -312,7 +312,7 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
     pub fn MFCreateVideoSampleFromSurface(punksurface: ::windows_sys::core::IUnknown, ppsample: *mut IMFSample) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-    pub fn MFCreateVirtualCamera(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, lifetime: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002, access: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003, friendlyname: ::windows_sys::core::PCWSTR, sourceid: ::windows_sys::core::PCWSTR, categories: *const ::windows_sys::core::GUID, categorycount: u32, virtualcamera: *mut IMFVirtualCamera) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateVirtualCamera(r#type: MFVirtualCameraType, lifetime: MFVirtualCameraLifetime, access: MFVirtualCameraAccess, friendlyname: ::windows_sys::core::PCWSTR, sourceid: ::windows_sys::core::PCWSTR, categories: *const ::windows_sys::core::GUID, categorycount: u32, virtualcamera: *mut IMFVirtualCamera) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
     pub fn MFCreateWAVEMediaSink(ptargetbytestream: IMFByteStream, paudiomediatype: IMFMediaType, ppmediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -429,7 +429,7 @@ extern "system" {
     pub fn MFIsFormatYUV(format: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFIsVirtualCameraTypeSupported(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, supported: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    pub fn MFIsVirtualCameraTypeSupported(r#type: MFVirtualCameraType, supported: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
     pub fn MFLoadSignedLibrary(pszname: ::windows_sys::core::PCWSTR, pplib: *mut IMFSignedLibrary) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -9490,6 +9490,22 @@ pub const MFVideoTransferMatrix_Last: MFVideoTransferMatrix = 6i32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideoTransferMatrix_ForceDWORD: MFVideoTransferMatrix = 2147483647i32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub type MFVirtualCameraAccess = i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFVirtualCameraAccess_CurrentUser: MFVirtualCameraAccess = 0i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFVirtualCameraAccess_AllUsers: MFVirtualCameraAccess = 1i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub type MFVirtualCameraLifetime = i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFVirtualCameraLifetime_Session: MFVirtualCameraLifetime = 0i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFVirtualCameraLifetime_System: MFVirtualCameraLifetime = 1i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub type MFVirtualCameraType = i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFVirtualCameraType_SoftwareCameraSource: MFVirtualCameraType = 0i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub type MFWaveFormatExConvertFlags = i32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFWaveFormatExConvertFlag_Normal: MFWaveFormatExConvertFlags = 0i32;
@@ -13279,22 +13295,6 @@ pub const MFT_PROCESS_OUTPUT_STATUS_NEW_STREAMS: _MFT_PROCESS_OUTPUT_STATUS = 25
 pub type _MFT_SET_TYPE_FLAGS = i32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFT_SET_TYPE_TEST_ONLY: _MFT_SET_TYPE_FLAGS = 1i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub type __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 = i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFVirtualCameraType_SoftwareCameraSource: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 = 0i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub type __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 = i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFVirtualCameraLifetime_Session: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 = 0i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFVirtualCameraLifetime_System: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub type __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 = i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFVirtualCameraAccess_CurrentUser: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 = 0i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFVirtualCameraAccess_AllUsers: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 = 1i32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub type eAVAudioChannelConfig = i32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]

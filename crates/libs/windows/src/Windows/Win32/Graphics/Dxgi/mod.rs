@@ -4083,8 +4083,8 @@ pub struct IDXGIDebug1_Vtbl {
 pub struct IDXGIDecodeSwapChain(::windows::core::IUnknown);
 impl IDXGIDecodeSwapChain {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn PresentBuffer(&self, buffertopresent: u32, syncinterval: u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PresentBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffertopresent), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)).ok()
+    pub unsafe fn PresentBuffer(&self, buffertopresent: u32, syncinterval: u32, flags: u32) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).PresentBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffertopresent), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5261,9 +5261,8 @@ impl IDXGIFactory {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChain)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDXGISwapChain>(result__)
+    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).CreateSwapChain)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(ppswapchain)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5393,9 +5392,8 @@ impl IDXGIFactory1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateSwapChain)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDXGISwapChain>(result__)
+    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.CreateSwapChain)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(ppswapchain)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5543,9 +5541,8 @@ impl IDXGIFactory2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateSwapChain)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDXGISwapChain>(result__)
+    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.CreateSwapChain)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(ppswapchain)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5807,9 +5804,8 @@ impl IDXGIFactory3 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CreateSwapChain)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDXGISwapChain>(result__)
+    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.CreateSwapChain)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(ppswapchain)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6058,9 +6054,8 @@ impl IDXGIFactory4 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CreateSwapChain)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDXGISwapChain>(result__)
+    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.CreateSwapChain)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(ppswapchain)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6344,9 +6339,8 @@ impl IDXGIFactory5 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateSwapChain)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDXGISwapChain>(result__)
+    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateSwapChain)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(ppswapchain)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6650,9 +6644,8 @@ impl IDXGIFactory6 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CreateSwapChain)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDXGISwapChain>(result__)
+    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CreateSwapChain)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(ppswapchain)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6981,9 +6974,8 @@ impl IDXGIFactory7 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CreateSwapChain)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDXGISwapChain>(result__)
+    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CreateSwapChain)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(ppswapchain)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10509,8 +10501,8 @@ impl IDXGISwapChain {
         (::windows::core::Interface::vtable(self).base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Present)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)).ok()
+    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).Present)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     pub unsafe fn GetBuffer<T: ::windows::core::Interface>(&self, buffer: u32) -> ::windows::core::Result<T> {
@@ -10696,8 +10688,8 @@ impl IDXGISwapChain1 {
         (::windows::core::Interface::vtable(self).base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Present)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)).ok()
+    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.Present)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     pub unsafe fn GetBuffer<T: ::windows::core::Interface>(&self, buffer: u32) -> ::windows::core::Result<T> {
@@ -10770,8 +10762,8 @@ impl IDXGISwapChain1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Present1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(presentflags), ::core::mem::transmute(ppresentparameters)).ok()
+    pub unsafe fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).Present1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(presentflags), ::core::mem::transmute(ppresentparameters)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10968,8 +10960,8 @@ impl IDXGISwapChain2 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Present)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)).ok()
+    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.Present)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     pub unsafe fn GetBuffer<T: ::windows::core::Interface>(&self, buffer: u32) -> ::windows::core::Result<T> {
@@ -11042,8 +11034,8 @@ impl IDXGISwapChain2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Present1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(presentflags), ::core::mem::transmute(ppresentparameters)).ok()
+    pub unsafe fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.Present1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(presentflags), ::core::mem::transmute(ppresentparameters)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11269,8 +11261,8 @@ impl IDXGISwapChain3 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.Present)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)).ok()
+    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.Present)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     pub unsafe fn GetBuffer<T: ::windows::core::Interface>(&self, buffer: u32) -> ::windows::core::Result<T> {
@@ -11343,8 +11335,8 @@ impl IDXGISwapChain3 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Present1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(presentflags), ::core::mem::transmute(ppresentparameters)).ok()
+    pub unsafe fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.Present1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(presentflags), ::core::mem::transmute(ppresentparameters)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11613,8 +11605,8 @@ impl IDXGISwapChain4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.Present)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)).ok()
+    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.base__.Present)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     pub unsafe fn GetBuffer<T: ::windows::core::Interface>(&self, buffer: u32) -> ::windows::core::Result<T> {
@@ -11687,8 +11679,8 @@ impl IDXGISwapChain4 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.Present1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(presentflags), ::core::mem::transmute(ppresentparameters)).ok()
+    pub unsafe fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.base__.Present1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(presentflags), ::core::mem::transmute(ppresentparameters)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

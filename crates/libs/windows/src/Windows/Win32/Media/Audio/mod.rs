@@ -1655,6 +1655,37 @@ impl ::core::fmt::Debug for AUDIO_STREAM_CATEGORY {
         f.debug_tuple("AUDIO_STREAM_CATEGORY").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE(3i32);
+impl ::core::marker::Copy for AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE {}
+impl ::core::clone::Clone for AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5469,7 +5500,7 @@ pub struct IAudioSystemEffectsPropertyChangeNotificationClient(::windows::core::
 impl IAudioSystemEffectsPropertyChangeNotificationClient {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn OnPropertyChanged<'a, Param1: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>>(&self, r#type: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002, key: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn OnPropertyChanged<'a, Param1: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>>(&self, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnPropertyChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), key.into_param().abi()).ok()
     }
 }
@@ -5518,7 +5549,7 @@ unsafe impl ::windows::core::Interface for IAudioSystemEffectsPropertyChangeNoti
 pub struct IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub OnPropertyChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002, key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::HRESULT,
+    pub OnPropertyChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     OnPropertyChanged: usize,
 }
@@ -10771,39 +10802,9 @@ pub unsafe fn PlaySoundW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::c
     ::core::mem::transmute(PlaySoundW(pszsound.into_param().abi(), hmod.into_param().abi(), ::core::mem::transmute(fdwsound)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_ALIAS: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_ALIAS_ID: i32 = 1114112i32;
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SND_ALIAS_START: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_APPLICATION: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_ASYNC: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_FILENAME: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_LOOP: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_MEMORY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_NODEFAULT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_NOSTOP: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_NOWAIT: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_PURGE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_RESOURCE: i32 = 262148i32;
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SND_RING: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_SENTRY: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_SYNC: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_SYSTEM: i32 = 2097152i32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SPATIAL_AUDIO_POSITION: u32 = 200u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -12109,37 +12110,6 @@ unsafe impl ::windows::core::Abi for _AUDCLNT_BUFFERFLAGS {
 impl ::core::fmt::Debug for _AUDCLNT_BUFFERFLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("_AUDCLNT_BUFFERFLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(2i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(3i32);
-impl ::core::marker::Copy for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 {}
-impl ::core::clone::Clone for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("__MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]

@@ -108,8 +108,9 @@ impl IMDSPDevice {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).EnumStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPEnumStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetFormatSupport(&self, pformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn GetFormatSupport(&self, pformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFormatSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pformatex), ::core::mem::transmute(pnformatcount), ::core::mem::transmute(pppwszmimetype), ::core::mem::transmute(pnmimetypecount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -170,7 +171,10 @@ pub struct IMDSPDevice_Vtbl {
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
     pub GetDeviceIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hicon: *mut u32) -> ::windows::core::HRESULT,
     pub EnumStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetFormatSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub GetFormatSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Media_Audio"))]
+    GetFormatSupport: usize,
     pub SendOpaqueCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -218,8 +222,9 @@ impl IMDSPDevice2 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPEnumStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetFormatSupport(&self, pformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn GetFormatSupport(&self, pformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetFormatSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pformatex), ::core::mem::transmute(pnformatcount), ::core::mem::transmute(pppwszmimetype), ::core::mem::transmute(pnmimetypecount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -231,9 +236,9 @@ impl IMDSPDevice2 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFormatSupport2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppaudioformatex), ::core::mem::transmute(pnaudioformatcount), ::core::mem::transmute(ppvideoformatex), ::core::mem::transmute(pnvideoformatcount), ::core::mem::transmute(ppfiletype), ::core::mem::transmute(pnfiletypecount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_System_Ole\"`*"]
@@ -311,9 +316,9 @@ unsafe impl ::windows::core::Interface for IMDSPDevice2 {
 pub struct IMDSPDevice2_Vtbl {
     pub base__: IMDSPDevice_Vtbl,
     pub GetStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstoragename: ::windows::core::PCWSTR, ppstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetFormatSupport2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub GetFormatSupport2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation")))]
     GetFormatSupport2: usize,
     #[cfg(feature = "Win32_System_Ole")]
     pub GetSpecifyPropertyPages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppspecifyproppages: *mut *mut ::core::ffi::c_void, pppunknowns: *mut *mut *mut ::core::ffi::c_void, pcunks: *mut u32) -> ::windows::core::HRESULT,
@@ -366,8 +371,9 @@ impl IMDSPDevice3 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.EnumStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPEnumStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetFormatSupport(&self, pformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn GetFormatSupport(&self, pformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetFormatSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pformatex), ::core::mem::transmute(pnformatcount), ::core::mem::transmute(pppwszmimetype), ::core::mem::transmute(pnmimetypecount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -379,9 +385,9 @@ impl IMDSPDevice3 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetFormatSupport2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppaudioformatex), ::core::mem::transmute(pnaudioformatcount), ::core::mem::transmute(ppvideoformatex), ::core::mem::transmute(pnvideoformatcount), ::core::mem::transmute(ppfiletype), ::core::mem::transmute(pnfiletypecount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_System_Ole\"`*"]
@@ -537,8 +543,9 @@ impl IMDSPDeviceControl {
     pub unsafe fn Play(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Play)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Record(&self, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn Record(&self, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Record)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -605,7 +612,10 @@ pub struct IMDSPDeviceControl_Vtbl {
     pub GetDCStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcapabilitiesmask: *mut u32) -> ::windows::core::HRESULT,
     pub Play: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Record: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformat: *const _WAVEFORMATEX) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub Record: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Media_Audio"))]
+    Record: usize,
     pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1162,8 +1172,9 @@ pub struct IMDSPRevoked_Vtbl {
 #[repr(transparent)]
 pub struct IMDSPStorage(::windows::core::IUnknown);
 impl IMDSPStorage {
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -1171,8 +1182,9 @@ impl IMDSPStorage {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetStorageGlobals)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorageGlobals>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -1192,8 +1204,9 @@ impl IMDSPStorage {
     pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRights)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn CreateStorage<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: Param2) -> ::windows::core::Result<IMDSPStorage> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn CreateStorage<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX, pwszname: Param2) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat), pwszname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
@@ -1251,14 +1264,23 @@ unsafe impl ::windows::core::Interface for IMDSPStorage {
 #[doc(hidden)]
 pub struct IMDSPStorage_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub SetAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub SetAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Media_Audio"))]
+    SetAttributes: usize,
     pub GetStorageGlobals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstorageglobals: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub GetAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Media_Audio"))]
+    GetAttributes: usize,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::HRESULT,
     pub GetDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdatetimeutc: *mut WMDMDATETIME) -> ::windows::core::HRESULT,
     pub GetSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::HRESULT,
     pub GetRights: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
-    pub CreateStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: ::windows::core::PCWSTR, ppnewstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub CreateStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX, pwszname: ::windows::core::PCWSTR, ppnewstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Media_Audio"))]
+    CreateStorage: usize,
     pub EnumStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SendOpaqueCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT,
 }
@@ -1266,8 +1288,9 @@ pub struct IMDSPStorage_Vtbl {
 #[repr(transparent)]
 pub struct IMDSPStorage2(::windows::core::IUnknown);
 impl IMDSPStorage2 {
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -1275,8 +1298,9 @@ impl IMDSPStorage2 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetStorageGlobals)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorageGlobals>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -1296,8 +1320,9 @@ impl IMDSPStorage2 {
     pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetRights)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn CreateStorage<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: Param2) -> ::windows::core::Result<IMDSPStorage> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn CreateStorage<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX, pwszname: Param2) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat), pwszname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
@@ -1315,20 +1340,20 @@ impl IMDSPStorage2 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateStorage2<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER, pwszname: Param4, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn CreateStorage2<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER, pwszname: Param4, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateStorage2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat), pwszname.into_param().abi(), ::core::mem::transmute(qwfilesize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAttributes2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAttributes2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pdwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
     }
 }
@@ -1397,25 +1422,26 @@ unsafe impl ::windows::core::Interface for IMDSPStorage2 {
 pub struct IMDSPStorage2_Vtbl {
     pub base__: IMDSPStorage_Vtbl,
     pub GetStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstoragename: ::windows::core::PCWSTR, ppstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub CreateStorage2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER, pwszname: ::windows::core::PCWSTR, qwfilesize: u64, ppnewstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub CreateStorage2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER, pwszname: ::windows::core::PCWSTR, qwfilesize: u64, ppnewstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation")))]
     CreateStorage2: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetAttributes2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub SetAttributes2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation")))]
     SetAttributes2: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetAttributes2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub GetAttributes2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation")))]
     GetAttributes2: usize,
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IMDSPStorage3(::windows::core::IUnknown);
 impl IMDSPStorage3 {
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -1423,8 +1449,9 @@ impl IMDSPStorage3 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetStorageGlobals)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorageGlobals>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -1444,8 +1471,9 @@ impl IMDSPStorage3 {
     pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetRights)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn CreateStorage<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: Param2) -> ::windows::core::Result<IMDSPStorage> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn CreateStorage<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX, pwszname: Param2) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CreateStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat), pwszname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
@@ -1463,20 +1491,20 @@ impl IMDSPStorage3 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateStorage2<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER, pwszname: Param4, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn CreateStorage2<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER, pwszname: Param4, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateStorage2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat), pwszname.into_param().abi(), ::core::mem::transmute(qwfilesize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetAttributes2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetAttributes2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pdwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -1579,8 +1607,9 @@ pub struct IMDSPStorage3_Vtbl {
 #[repr(transparent)]
 pub struct IMDSPStorage4(::windows::core::IUnknown);
 impl IMDSPStorage4 {
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -1588,8 +1617,9 @@ impl IMDSPStorage4 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetStorageGlobals)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorageGlobals>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -1609,8 +1639,9 @@ impl IMDSPStorage4 {
     pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetRights)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn CreateStorage<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: Param2) -> ::windows::core::Result<IMDSPStorage> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn CreateStorage<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX, pwszname: Param2) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.CreateStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat), pwszname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
@@ -1628,20 +1659,20 @@ impl IMDSPStorage4 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateStorage2<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER, pwszname: Param4, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn CreateStorage2<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER, pwszname: Param4, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CreateStorage2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat), pwszname.into_param().abi(), ::core::mem::transmute(qwfilesize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetAttributes2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetAttributes2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pdwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -3014,8 +3045,9 @@ impl IWMDMDevice {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).EnumStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMEnumStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetFormatSupport(&self, ppformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn GetFormatSupport(&self, ppformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFormatSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppformatex), ::core::mem::transmute(pnformatcount), ::core::mem::transmute(pppwszmimetype), ::core::mem::transmute(pnmimetypecount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -3076,7 +3108,10 @@ pub struct IWMDMDevice_Vtbl {
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
     pub GetDeviceIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hicon: *mut u32) -> ::windows::core::HRESULT,
     pub EnumStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetFormatSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub GetFormatSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Media_Audio"))]
+    GetFormatSupport: usize,
     pub SendOpaqueCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -3124,8 +3159,9 @@ impl IWMDMDevice2 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMEnumStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetFormatSupport(&self, ppformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn GetFormatSupport(&self, ppformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetFormatSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppformatex), ::core::mem::transmute(pnformatcount), ::core::mem::transmute(pppwszmimetype), ::core::mem::transmute(pnmimetypecount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -3137,9 +3173,9 @@ impl IWMDMDevice2 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFormatSupport2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppaudioformatex), ::core::mem::transmute(pnaudioformatcount), ::core::mem::transmute(ppvideoformatex), ::core::mem::transmute(pnvideoformatcount), ::core::mem::transmute(ppfiletype), ::core::mem::transmute(pnfiletypecount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_System_Ole\"`*"]
@@ -3217,9 +3253,9 @@ unsafe impl ::windows::core::Interface for IWMDMDevice2 {
 pub struct IWMDMDevice2_Vtbl {
     pub base__: IWMDMDevice_Vtbl,
     pub GetStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstoragename: ::windows::core::PCWSTR, ppstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetFormatSupport2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub GetFormatSupport2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation")))]
     GetFormatSupport2: usize,
     #[cfg(feature = "Win32_System_Ole")]
     pub GetSpecifyPropertyPages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppspecifyproppages: *mut *mut ::core::ffi::c_void, pppunknowns: *mut *mut *mut ::core::ffi::c_void, pcunks: *mut u32) -> ::windows::core::HRESULT,
@@ -3272,8 +3308,9 @@ impl IWMDMDevice3 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.EnumStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMEnumStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetFormatSupport(&self, ppformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn GetFormatSupport(&self, ppformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetFormatSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppformatex), ::core::mem::transmute(pnformatcount), ::core::mem::transmute(pppwszmimetype), ::core::mem::transmute(pnmimetypecount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -3285,9 +3322,9 @@ impl IWMDMDevice3 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetFormatSupport2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppaudioformatex), ::core::mem::transmute(pnaudioformatcount), ::core::mem::transmute(ppvideoformatex), ::core::mem::transmute(pnvideoformatcount), ::core::mem::transmute(ppfiletype), ::core::mem::transmute(pnfiletypecount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_System_Ole\"`*"]
@@ -3443,8 +3480,9 @@ impl IWMDMDeviceControl {
     pub unsafe fn Play(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Play)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn Record(&self, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn Record(&self, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Record)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -3511,7 +3549,10 @@ pub struct IWMDMDeviceControl_Vtbl {
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
     pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcapabilitiesmask: *mut u32) -> ::windows::core::HRESULT,
     pub Play: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Record: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformat: *const _WAVEFORMATEX) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub Record: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Media_Audio"))]
+    Record: usize,
     pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4061,12 +4102,14 @@ impl IWMDMOperation {
     pub unsafe fn SetObjectName(&self, pwszname: &[u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetObjectName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetObjectAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn SetObjectAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn SetObjectAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetObjectAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -4134,8 +4177,14 @@ pub struct IWMDMOperation_Vtbl {
     pub BeginWrite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetObjectName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::HRESULT,
     pub SetObjectName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, nmaxchars: u32) -> ::windows::core::HRESULT,
-    pub GetObjectAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::HRESULT,
-    pub SetObjectAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub GetObjectAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Media_Audio"))]
+    GetObjectAttributes: usize,
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub SetObjectAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Media_Audio"))]
+    SetObjectAttributes: usize,
     pub GetObjectTotalSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::HRESULT,
     pub SetObjectTotalSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsize: u32, dwsizehigh: u32) -> ::windows::core::HRESULT,
     pub TransferObjectData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
@@ -4161,12 +4210,14 @@ impl IWMDMOperation2 {
     pub unsafe fn SetObjectName(&self, pwszname: &[u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetObjectName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetObjectAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn SetObjectAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn SetObjectAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetObjectAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -4185,14 +4236,14 @@ impl IWMDMOperation2 {
     pub unsafe fn End<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.End)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phcompletioncode), pnewobject.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetObjectAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn SetObjectAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetObjectAttributes2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(pformat), ::core::mem::transmute(pvideoformat)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetObjectAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn GetObjectAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetObjectAttributes2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pdwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
     }
 }
@@ -4260,13 +4311,13 @@ unsafe impl ::windows::core::Interface for IWMDMOperation2 {
 #[doc(hidden)]
 pub struct IWMDMOperation2_Vtbl {
     pub base__: IWMDMOperation_Vtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetObjectAttributes2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub SetObjectAttributes2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, dwattributesex: u32, pformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation")))]
     SetObjectAttributes2: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetObjectAttributes2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub GetObjectAttributes2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation")))]
     GetObjectAttributes2: usize,
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -4289,12 +4340,14 @@ impl IWMDMOperation3 {
     pub unsafe fn SetObjectName(&self, pwszname: &[u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetObjectName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszname)), pwszname.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetObjectAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn SetObjectAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn SetObjectAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetObjectAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -4716,8 +4769,9 @@ pub struct IWMDMRevoked_Vtbl {
 #[repr(transparent)]
 pub struct IWMDMStorage(::windows::core::IUnknown);
 impl IWMDMStorage {
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -4725,8 +4779,9 @@ impl IWMDMStorage {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetStorageGlobals)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorageGlobals>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -4800,9 +4855,15 @@ unsafe impl ::windows::core::Interface for IWMDMStorage {
 #[doc(hidden)]
 pub struct IWMDMStorage_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub SetAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub SetAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Media_Audio"))]
+    SetAttributes: usize,
     pub GetStorageGlobals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstorageglobals: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub GetAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Media_Audio"))]
+    GetAttributes: usize,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::HRESULT,
     pub GetDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdatetimeutc: *mut WMDMDATETIME) -> ::windows::core::HRESULT,
     pub GetSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::HRESULT,
@@ -4814,8 +4875,9 @@ pub struct IWMDMStorage_Vtbl {
 #[repr(transparent)]
 pub struct IWMDMStorage2(::windows::core::IUnknown);
 impl IWMDMStorage2 {
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -4823,8 +4885,9 @@ impl IWMDMStorage2 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetStorageGlobals)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorageGlobals>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -4858,14 +4921,14 @@ impl IWMDMStorage2 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAttributes2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(pformat), ::core::mem::transmute(pvideoformat)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAttributes2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pdwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
     }
 }
@@ -4934,21 +4997,22 @@ unsafe impl ::windows::core::Interface for IWMDMStorage2 {
 pub struct IWMDMStorage2_Vtbl {
     pub base__: IWMDMStorage_Vtbl,
     pub GetStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstoragename: ::windows::core::PCWSTR, ppstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub SetAttributes2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub SetAttributes2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, dwattributesex: u32, pformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation")))]
     SetAttributes2: usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetAttributes2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub GetAttributes2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation")))]
     GetAttributes2: usize,
 }
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
 #[repr(transparent)]
 pub struct IWMDMStorage3(::windows::core::IUnknown);
 impl IWMDMStorage3 {
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -4956,8 +5020,9 @@ impl IWMDMStorage3 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetStorageGlobals)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorageGlobals>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -4991,14 +5056,14 @@ impl IWMDMStorage3 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetAttributes2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(pformat), ::core::mem::transmute(pvideoformat)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetAttributes2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pdwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -5113,8 +5178,9 @@ pub struct IWMDMStorage3_Vtbl {
 #[repr(transparent)]
 pub struct IWMDMStorage4(::windows::core::IUnknown);
 impl IWMDMStorage4 {
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -5122,8 +5188,9 @@ impl IWMDMStorage4 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetStorageGlobals)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorageGlobals>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Media_Audio\"`*"]
+    #[cfg(feature = "Win32_Media_Audio")]
+    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -5157,14 +5224,14 @@ impl IWMDMStorage4 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetStorage)(::windows::core::Interface::as_raw(self), pszstoragename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetAttributes2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwattributes), ::core::mem::transmute(dwattributesex), ::core::mem::transmute(pformat), ::core::mem::transmute(pvideoformat)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetAttributes2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pdwattributesex), ::core::mem::transmute(paudioformat), ::core::mem::transmute(pvideoformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
@@ -7326,125 +7393,6 @@ impl ::core::cmp::PartialEq for WMFILECAPABILITIES {
 }
 impl ::core::cmp::Eq for WMFILECAPABILITIES {}
 impl ::core::default::Default for WMFILECAPABILITIES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub struct _BITMAPINFOHEADER {
-    pub biSize: u32,
-    pub biWidth: i32,
-    pub biHeight: i32,
-    pub biPlanes: u16,
-    pub biBitCount: u16,
-    pub biCompression: u32,
-    pub biSizeImage: u32,
-    pub biXPelsPerMeter: i32,
-    pub biYPelsPerMeter: i32,
-    pub biClrUsed: u32,
-    pub biClrImportant: u32,
-}
-impl ::core::marker::Copy for _BITMAPINFOHEADER {}
-impl ::core::clone::Clone for _BITMAPINFOHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _BITMAPINFOHEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_BITMAPINFOHEADER").field("biSize", &self.biSize).field("biWidth", &self.biWidth).field("biHeight", &self.biHeight).field("biPlanes", &self.biPlanes).field("biBitCount", &self.biBitCount).field("biCompression", &self.biCompression).field("biSizeImage", &self.biSizeImage).field("biXPelsPerMeter", &self.biXPelsPerMeter).field("biYPelsPerMeter", &self.biYPelsPerMeter).field("biClrUsed", &self.biClrUsed).field("biClrImportant", &self.biClrImportant).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _BITMAPINFOHEADER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _BITMAPINFOHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_BITMAPINFOHEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _BITMAPINFOHEADER {}
-impl ::core::default::Default for _BITMAPINFOHEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct _VIDEOINFOHEADER {
-    pub rcSource: super::super::Foundation::RECT,
-    pub rcTarget: super::super::Foundation::RECT,
-    pub dwBitRate: u32,
-    pub dwBitErrorRate: u32,
-    pub AvgTimePerFrame: i64,
-    pub bmiHeader: _BITMAPINFOHEADER,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for _VIDEOINFOHEADER {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for _VIDEOINFOHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for _VIDEOINFOHEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_VIDEOINFOHEADER").field("rcSource", &self.rcSource).field("rcTarget", &self.rcTarget).field("dwBitRate", &self.dwBitRate).field("dwBitErrorRate", &self.dwBitErrorRate).field("AvgTimePerFrame", &self.AvgTimePerFrame).field("bmiHeader", &self.bmiHeader).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for _VIDEOINFOHEADER {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for _VIDEOINFOHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_VIDEOINFOHEADER>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for _VIDEOINFOHEADER {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for _VIDEOINFOHEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub struct _WAVEFORMATEX {
-    pub wFormatTag: u16,
-    pub nChannels: u16,
-    pub nSamplesPerSec: u32,
-    pub nAvgBytesPerSec: u32,
-    pub nBlockAlign: u16,
-    pub wBitsPerSample: u16,
-    pub cbSize: u16,
-}
-impl ::core::marker::Copy for _WAVEFORMATEX {}
-impl ::core::clone::Clone for _WAVEFORMATEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _WAVEFORMATEX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_WAVEFORMATEX").field("wFormatTag", &self.wFormatTag).field("nChannels", &self.nChannels).field("nSamplesPerSec", &self.nSamplesPerSec).field("nAvgBytesPerSec", &self.nAvgBytesPerSec).field("nBlockAlign", &self.nBlockAlign).field("wBitsPerSample", &self.wBitsPerSample).field("cbSize", &self.cbSize).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _WAVEFORMATEX {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _WAVEFORMATEX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_WAVEFORMATEX>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _WAVEFORMATEX {}
-impl ::core::default::Default for _WAVEFORMATEX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

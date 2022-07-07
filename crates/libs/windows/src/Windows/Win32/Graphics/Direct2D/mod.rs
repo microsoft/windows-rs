@@ -109,12 +109,13 @@ pub unsafe fn D2D1CreateDeviceContext<'a, Param0: ::windows::core::IntoParam<'a,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[inline]
-pub unsafe fn D2D1CreateFactory(factorytype: D2D1_FACTORY_TYPE, riid: *const ::windows::core::GUID, pfactoryoptions: *const D2D1_FACTORY_OPTIONS, ppifactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn D2D1CreateFactory<T: ::windows::core::Interface>(factorytype: D2D1_FACTORY_TYPE, pfactoryoptions: *const D2D1_FACTORY_OPTIONS) -> ::windows::core::Result<T> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D2D1CreateFactory(factorytype: D2D1_FACTORY_TYPE, riid: *const ::windows::core::GUID, pfactoryoptions: *const D2D1_FACTORY_OPTIONS, ppifactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    D2D1CreateFactory(::core::mem::transmute(factorytype), ::core::mem::transmute(riid), ::core::mem::transmute(pfactoryoptions), ::core::mem::transmute(ppifactory)).ok()
+    let mut result__ = ::core::option::Option::None;
+    D2D1CreateFactory(::core::mem::transmute(factorytype), &<T as ::windows::core::Interface>::IID, ::core::mem::transmute(pfactoryoptions), &mut result__ as *mut _ as *mut _).and_some(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]

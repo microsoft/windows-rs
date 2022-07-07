@@ -25,6 +25,7 @@ impl IComponentAuthenticate_Vtbl {
         iid == &<IComponentAuthenticate as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 pub trait IMDSPDevice_Impl: Sized {
     fn GetName(&self, pwszname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
     fn GetManufacturer(&self, pwszname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
@@ -35,10 +36,12 @@ pub trait IMDSPDevice_Impl: Sized {
     fn GetStatus(&self) -> ::windows::core::Result<u32>;
     fn GetDeviceIcon(&self) -> ::windows::core::Result<u32>;
     fn EnumStorage(&self) -> ::windows::core::Result<IMDSPEnumStorage>;
-    fn GetFormatSupport(&self, pformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()>;
+    fn GetFormatSupport(&self, pformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()>;
     fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::windows::core::RuntimeName for IMDSPDevice {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl IMDSPDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPDevice_Impl, const OFFSET: isize>() -> IMDSPDevice_Vtbl {
         unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::HRESULT {
@@ -116,7 +119,7 @@ impl IMDSPDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFormatSupport<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFormatSupport<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetFormatSupport(::core::mem::transmute_copy(&pformatex), ::core::mem::transmute_copy(&pnformatcount), ::core::mem::transmute_copy(&pppwszmimetype), ::core::mem::transmute_copy(&pnmimetypecount)).into()
@@ -145,16 +148,16 @@ impl IMDSPDevice_Vtbl {
         iid == &<IMDSPDevice as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
 pub trait IMDSPDevice2_Impl: Sized + IMDSPDevice_Impl {
     fn GetStorage(&self, pszstoragename: &::windows::core::PCWSTR) -> ::windows::core::Result<IMDSPStorage>;
-    fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()>;
+    fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()>;
     fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::core::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::core::option::Option<::windows::core::IUnknown>, pcunks: *mut u32) -> ::windows::core::Result<()>;
     fn GetCanonicalName(&self, pwszpnpname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMDSPDevice2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
 impl IMDSPDevice2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPDevice2_Impl, const OFFSET: isize>() -> IMDSPDevice2_Vtbl {
         unsafe extern "system" fn GetStorage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszstoragename: ::windows::core::PCWSTR, ppstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -168,7 +171,7 @@ impl IMDSPDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFormatSupport2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFormatSupport2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetFormatSupport2(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&ppaudioformatex), ::core::mem::transmute_copy(&pnaudioformatcount), ::core::mem::transmute_copy(&ppvideoformatex), ::core::mem::transmute_copy(&pnvideoformatcount), ::core::mem::transmute_copy(&ppfiletype), ::core::mem::transmute_copy(&pnfiletypecount)).into()
@@ -195,7 +198,7 @@ impl IMDSPDevice2_Vtbl {
         iid == &<IMDSPDevice2 as ::windows::core::Interface>::IID || iid == &<IMDSPDevice as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub trait IMDSPDevice3_Impl: Sized + IMDSPDevice_Impl + IMDSPDevice2_Impl {
     fn GetProperty(&self, pwszpropname: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
     fn SetProperty(&self, pwszpropname: &::windows::core::PCWSTR, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
@@ -203,9 +206,9 @@ pub trait IMDSPDevice3_Impl: Sized + IMDSPDevice_Impl + IMDSPDevice2_Impl {
     fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::core::Result<()>;
     fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &::windows::core::PCWSTR) -> ::windows::core::Result<IMDSPStorage>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMDSPDevice3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl IMDSPDevice3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPDevice3_Impl, const OFFSET: isize>() -> IMDSPDevice3_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszpropname: ::windows::core::PCWSTR, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
@@ -264,17 +267,20 @@ impl IMDSPDevice3_Vtbl {
         iid == &<IMDSPDevice3 as ::windows::core::Interface>::IID || iid == &<IMDSPDevice as ::windows::core::Interface>::IID || iid == &<IMDSPDevice2 as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 pub trait IMDSPDeviceControl_Impl: Sized {
     fn GetDCStatus(&self) -> ::windows::core::Result<u32>;
     fn GetCapabilities(&self) -> ::windows::core::Result<u32>;
     fn Play(&self) -> ::windows::core::Result<()>;
-    fn Record(&self, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn Record(&self, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()>;
     fn Pause(&self) -> ::windows::core::Result<()>;
     fn Resume(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
     fn Seek(&self, fumode: u32, noffset: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::windows::core::RuntimeName for IMDSPDeviceControl {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl IMDSPDeviceControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPDeviceControl_Impl, const OFFSET: isize>() -> IMDSPDeviceControl_Vtbl {
         unsafe extern "system" fn GetDCStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPDeviceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT {
@@ -304,7 +310,7 @@ impl IMDSPDeviceControl_Vtbl {
             let this = (*this).get_impl();
             this.Play().into()
         }
-        unsafe extern "system" fn Record<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPDeviceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pformat: *const _WAVEFORMATEX) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Record<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPDeviceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Record(::core::mem::transmute_copy(&pformat)).into()
@@ -679,22 +685,25 @@ impl IMDSPRevoked_Vtbl {
         iid == &<IMDSPRevoked as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 pub trait IMDSPStorage_Impl: Sized {
-    fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn SetAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()>;
     fn GetStorageGlobals(&self) -> ::windows::core::Result<IMDSPStorageGlobals>;
-    fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()>;
     fn GetName(&self, pwszname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
     fn GetDate(&self) -> ::windows::core::Result<WMDMDATETIME>;
     fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()>;
     fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
-    fn CreateStorage(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: &::windows::core::PCWSTR) -> ::windows::core::Result<IMDSPStorage>;
+    fn CreateStorage(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX, pwszname: &::windows::core::PCWSTR) -> ::windows::core::Result<IMDSPStorage>;
     fn EnumStorage(&self) -> ::windows::core::Result<IMDSPEnumStorage>;
     fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::windows::core::RuntimeName for IMDSPStorage {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl IMDSPStorage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage_Impl, const OFFSET: isize>() -> IMDSPStorage_Vtbl {
-        unsafe extern "system" fn SetAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAttributes(::core::mem::transmute_copy(&dwattributes), ::core::mem::transmute_copy(&pformat)).into()
@@ -710,7 +719,7 @@ impl IMDSPStorage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetAttributes(::core::mem::transmute_copy(&pdwattributes), ::core::mem::transmute_copy(&pformat)).into()
@@ -741,7 +750,7 @@ impl IMDSPStorage_Vtbl {
             let this = (*this).get_impl();
             this.GetRights(::core::mem::transmute_copy(&pprights), ::core::mem::transmute_copy(&pnrightscount), ::core::mem::transmute_copy(&abmac)).into()
         }
-        unsafe extern "system" fn CreateStorage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: ::windows::core::PCWSTR, ppnewstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateStorage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX, pwszname: ::windows::core::PCWSTR, ppnewstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateStorage(::core::mem::transmute_copy(&dwattributes), ::core::mem::transmute_copy(&pformat), ::core::mem::transmute(&pwszname)) {
@@ -786,16 +795,16 @@ impl IMDSPStorage_Vtbl {
         iid == &<IMDSPStorage as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IMDSPStorage2_Impl: Sized + IMDSPStorage_Impl {
     fn GetStorage(&self, pszstoragename: &::windows::core::PCWSTR) -> ::windows::core::Result<IMDSPStorage>;
-    fn CreateStorage2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER, pwszname: &::windows::core::PCWSTR, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage>;
-    fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()>;
-    fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()>;
+    fn CreateStorage2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER, pwszname: &::windows::core::PCWSTR, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage>;
+    fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()>;
+    fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl ::windows::core::RuntimeName for IMDSPStorage2 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl IMDSPStorage2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage2_Impl, const OFFSET: isize>() -> IMDSPStorage2_Vtbl {
         unsafe extern "system" fn GetStorage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszstoragename: ::windows::core::PCWSTR, ppstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -809,7 +818,7 @@ impl IMDSPStorage2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateStorage2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER, pwszname: ::windows::core::PCWSTR, qwfilesize: u64, ppnewstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateStorage2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER, pwszname: ::windows::core::PCWSTR, qwfilesize: u64, ppnewstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateStorage2(::core::mem::transmute_copy(&dwattributes), ::core::mem::transmute_copy(&dwattributesex), ::core::mem::transmute_copy(&paudioformat), ::core::mem::transmute_copy(&pvideoformat), ::core::mem::transmute(&pwszname), ::core::mem::transmute_copy(&qwfilesize)) {
@@ -820,12 +829,12 @@ impl IMDSPStorage2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAttributes2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAttributes2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAttributes2(::core::mem::transmute_copy(&dwattributes), ::core::mem::transmute_copy(&dwattributesex), ::core::mem::transmute_copy(&paudioformat), ::core::mem::transmute_copy(&pvideoformat)).into()
         }
-        unsafe extern "system" fn GetAttributes2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributes2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetAttributes2(::core::mem::transmute_copy(&pdwattributes), ::core::mem::transmute_copy(&pdwattributesex), ::core::mem::transmute_copy(&paudioformat), ::core::mem::transmute_copy(&pvideoformat)).into()
@@ -842,14 +851,14 @@ impl IMDSPStorage2_Vtbl {
         iid == &<IMDSPStorage2 as ::windows::core::Interface>::IID || iid == &<IMDSPStorage as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IMDSPStorage3_Impl: Sized + IMDSPStorage_Impl + IMDSPStorage2_Impl {
     fn GetMetadata(&self, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
     fn SetMetadata(&self, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl ::windows::core::RuntimeName for IMDSPStorage3 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl IMDSPStorage3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage3_Impl, const OFFSET: isize>() -> IMDSPStorage3_Vtbl {
         unsafe extern "system" fn GetMetadata<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmetadata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -872,7 +881,7 @@ impl IMDSPStorage3_Vtbl {
         iid == &<IMDSPStorage3 as ::windows::core::Interface>::IID || iid == &<IMDSPStorage as ::windows::core::Interface>::IID || iid == &<IMDSPStorage2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IMDSPStorage4_Impl: Sized + IMDSPStorage_Impl + IMDSPStorage2_Impl + IMDSPStorage3_Impl {
     fn SetReferences(&self, dwrefs: u32, ppispstorage: *const ::core::option::Option<IMDSPStorage>) -> ::windows::core::Result<()>;
     fn GetReferences(&self, pdwrefs: *mut u32, pppispstorage: *mut *mut ::core::option::Option<IMDSPStorage>) -> ::windows::core::Result<()>;
@@ -881,9 +890,9 @@ pub trait IMDSPStorage4_Impl: Sized + IMDSPStorage_Impl + IMDSPStorage2_Impl + I
     fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &::windows::core::PCWSTR) -> ::windows::core::Result<IMDSPStorage>;
     fn GetParent(&self) -> ::windows::core::Result<IMDSPStorage>;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl ::windows::core::RuntimeName for IMDSPStorage4 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl IMDSPStorage4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage4_Impl, const OFFSET: isize>() -> IMDSPStorage4_Vtbl {
         unsafe extern "system" fn SetReferences<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDSPStorage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwrefs: u32, ppispstorage: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1423,6 +1432,7 @@ impl ISCPSession_Vtbl {
         iid == &<ISCPSession as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 pub trait IWMDMDevice_Impl: Sized {
     fn GetName(&self, pwszname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
     fn GetManufacturer(&self, pwszname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
@@ -1433,10 +1443,12 @@ pub trait IWMDMDevice_Impl: Sized {
     fn GetStatus(&self) -> ::windows::core::Result<u32>;
     fn GetDeviceIcon(&self) -> ::windows::core::Result<u32>;
     fn EnumStorage(&self) -> ::windows::core::Result<IWMDMEnumStorage>;
-    fn GetFormatSupport(&self, ppformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()>;
+    fn GetFormatSupport(&self, ppformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()>;
     fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::windows::core::RuntimeName for IWMDMDevice {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl IWMDMDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMDevice_Impl, const OFFSET: isize>() -> IWMDMDevice_Vtbl {
         unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::HRESULT {
@@ -1514,7 +1526,7 @@ impl IWMDMDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFormatSupport<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFormatSupport<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut ::windows::core::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetFormatSupport(::core::mem::transmute_copy(&ppformatex), ::core::mem::transmute_copy(&pnformatcount), ::core::mem::transmute_copy(&pppwszmimetype), ::core::mem::transmute_copy(&pnmimetypecount)).into()
@@ -1543,16 +1555,16 @@ impl IWMDMDevice_Vtbl {
         iid == &<IWMDMDevice as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
 pub trait IWMDMDevice2_Impl: Sized + IWMDMDevice_Impl {
     fn GetStorage(&self, pszstoragename: &::windows::core::PCWSTR) -> ::windows::core::Result<IWMDMStorage>;
-    fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()>;
+    fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()>;
     fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::core::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::core::option::Option<::windows::core::IUnknown>, pcunks: *mut u32) -> ::windows::core::Result<()>;
     fn GetCanonicalName(&self, pwszpnpname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IWMDMDevice2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
 impl IWMDMDevice2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMDevice2_Impl, const OFFSET: isize>() -> IWMDMDevice2_Vtbl {
         unsafe extern "system" fn GetStorage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszstoragename: ::windows::core::PCWSTR, ppstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1566,7 +1578,7 @@ impl IWMDMDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFormatSupport2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFormatSupport2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetFormatSupport2(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&ppaudioformatex), ::core::mem::transmute_copy(&pnaudioformatcount), ::core::mem::transmute_copy(&ppvideoformatex), ::core::mem::transmute_copy(&pnvideoformatcount), ::core::mem::transmute_copy(&ppfiletype), ::core::mem::transmute_copy(&pnfiletypecount)).into()
@@ -1593,7 +1605,7 @@ impl IWMDMDevice2_Vtbl {
         iid == &<IWMDMDevice2 as ::windows::core::Interface>::IID || iid == &<IWMDMDevice as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub trait IWMDMDevice3_Impl: Sized + IWMDMDevice_Impl + IWMDMDevice2_Impl {
     fn GetProperty(&self, pwszpropname: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
     fn SetProperty(&self, pwszpropname: &::windows::core::PCWSTR, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
@@ -1601,9 +1613,9 @@ pub trait IWMDMDevice3_Impl: Sized + IWMDMDevice_Impl + IWMDMDevice2_Impl {
     fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::core::Result<()>;
     fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &::windows::core::PCWSTR) -> ::windows::core::Result<IWMDMStorage>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IWMDMDevice3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl IWMDMDevice3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMDevice3_Impl, const OFFSET: isize>() -> IWMDMDevice3_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszpropname: ::windows::core::PCWSTR, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
@@ -1662,17 +1674,20 @@ impl IWMDMDevice3_Vtbl {
         iid == &<IWMDMDevice3 as ::windows::core::Interface>::IID || iid == &<IWMDMDevice as ::windows::core::Interface>::IID || iid == &<IWMDMDevice2 as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 pub trait IWMDMDeviceControl_Impl: Sized {
     fn GetStatus(&self) -> ::windows::core::Result<u32>;
     fn GetCapabilities(&self) -> ::windows::core::Result<u32>;
     fn Play(&self) -> ::windows::core::Result<()>;
-    fn Record(&self, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn Record(&self, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()>;
     fn Pause(&self) -> ::windows::core::Result<()>;
     fn Resume(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
     fn Seek(&self, fumode: u32, noffset: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::windows::core::RuntimeName for IWMDMDeviceControl {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl IWMDMDeviceControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMDeviceControl_Impl, const OFFSET: isize>() -> IWMDMDeviceControl_Vtbl {
         unsafe extern "system" fn GetStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMDeviceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT {
@@ -1702,7 +1717,7 @@ impl IWMDMDeviceControl_Vtbl {
             let this = (*this).get_impl();
             this.Play().into()
         }
-        unsafe extern "system" fn Record<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMDeviceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pformat: *const _WAVEFORMATEX) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Record<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMDeviceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Record(::core::mem::transmute_copy(&pformat)).into()
@@ -2117,19 +2132,22 @@ impl IWMDMObjectInfo_Vtbl {
         iid == &<IWMDMObjectInfo as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 pub trait IWMDMOperation_Impl: Sized {
     fn BeginRead(&self) -> ::windows::core::Result<()>;
     fn BeginWrite(&self) -> ::windows::core::Result<()>;
     fn GetObjectName(&self, pwszname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
     fn SetObjectName(&self, pwszname: &::windows::core::PCWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
-    fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()>;
-    fn SetObjectAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn SetObjectAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()>;
     fn GetObjectTotalSize(&self, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()>;
     fn SetObjectTotalSize(&self, dwsize: u32, dwsizehigh: u32) -> ::windows::core::Result<()>;
     fn TransferObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
     fn End(&self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::windows::core::RuntimeName for IWMDMOperation {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl IWMDMOperation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMOperation_Impl, const OFFSET: isize>() -> IWMDMOperation_Vtbl {
         unsafe extern "system" fn BeginRead<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2152,12 +2170,12 @@ impl IWMDMOperation_Vtbl {
             let this = (*this).get_impl();
             this.SetObjectName(::core::mem::transmute(&pwszname), ::core::mem::transmute_copy(&nmaxchars)).into()
         }
-        unsafe extern "system" fn GetObjectAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetObjectAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetObjectAttributes(::core::mem::transmute_copy(&pdwattributes), ::core::mem::transmute_copy(&pformat)).into()
         }
-        unsafe extern "system" fn SetObjectAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetObjectAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetObjectAttributes(::core::mem::transmute_copy(&dwattributes), ::core::mem::transmute_copy(&pformat)).into()
@@ -2200,22 +2218,22 @@ impl IWMDMOperation_Vtbl {
         iid == &<IWMDMOperation as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IWMDMOperation2_Impl: Sized + IWMDMOperation_Impl {
-    fn SetObjectAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()>;
-    fn GetObjectAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()>;
+    fn SetObjectAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()>;
+    fn GetObjectAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl ::windows::core::RuntimeName for IWMDMOperation2 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl IWMDMOperation2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMOperation2_Impl, const OFFSET: isize>() -> IWMDMOperation2_Vtbl {
-        unsafe extern "system" fn SetObjectAttributes2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMOperation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetObjectAttributes2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMOperation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwattributes: u32, dwattributesex: u32, pformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetObjectAttributes2(::core::mem::transmute_copy(&dwattributes), ::core::mem::transmute_copy(&dwattributesex), ::core::mem::transmute_copy(&pformat), ::core::mem::transmute_copy(&pvideoformat)).into()
         }
-        unsafe extern "system" fn GetObjectAttributes2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMOperation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetObjectAttributes2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMOperation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetObjectAttributes2(::core::mem::transmute_copy(&pdwattributes), ::core::mem::transmute_copy(&pdwattributesex), ::core::mem::transmute_copy(&paudioformat), ::core::mem::transmute_copy(&pvideoformat)).into()
@@ -2230,10 +2248,13 @@ impl IWMDMOperation2_Vtbl {
         iid == &<IWMDMOperation2 as ::windows::core::Interface>::IID || iid == &<IWMDMOperation as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 pub trait IWMDMOperation3_Impl: Sized + IWMDMOperation_Impl {
     fn TransferObjectDataOnClearChannel(&self, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::windows::core::RuntimeName for IWMDMOperation3 {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl IWMDMOperation3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMOperation3_Impl, const OFFSET: isize>() -> IWMDMOperation3_Vtbl {
         unsafe extern "system" fn TransferObjectDataOnClearChannel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMOperation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT {
@@ -2352,10 +2373,11 @@ impl IWMDMRevoked_Vtbl {
         iid == &<IWMDMRevoked as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Media_Audio")]
 pub trait IWMDMStorage_Impl: Sized {
-    fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn SetAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()>;
     fn GetStorageGlobals(&self) -> ::windows::core::Result<IWMDMStorageGlobals>;
-    fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::Result<()>;
     fn GetName(&self, pwszname: ::windows::core::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
     fn GetDate(&self) -> ::windows::core::Result<WMDMDATETIME>;
     fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()>;
@@ -2363,10 +2385,12 @@ pub trait IWMDMStorage_Impl: Sized {
     fn EnumStorage(&self) -> ::windows::core::Result<IWMDMEnumStorage>;
     fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Media_Audio")]
 impl ::windows::core::RuntimeName for IWMDMStorage {}
+#[cfg(feature = "Win32_Media_Audio")]
 impl IWMDMStorage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMStorage_Impl, const OFFSET: isize>() -> IWMDMStorage_Vtbl {
-        unsafe extern "system" fn SetAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAttributes(::core::mem::transmute_copy(&dwattributes), ::core::mem::transmute_copy(&pformat)).into()
@@ -2382,7 +2406,7 @@ impl IWMDMStorage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetAttributes(::core::mem::transmute_copy(&pdwattributes), ::core::mem::transmute_copy(&pformat)).into()
@@ -2446,15 +2470,15 @@ impl IWMDMStorage_Vtbl {
         iid == &<IWMDMStorage as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IWMDMStorage2_Impl: Sized + IWMDMStorage_Impl {
     fn GetStorage(&self, pszstoragename: &::windows::core::PCWSTR) -> ::windows::core::Result<IWMDMStorage>;
-    fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()>;
-    fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()>;
+    fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()>;
+    fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl ::windows::core::RuntimeName for IWMDMStorage2 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl IWMDMStorage2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMStorage2_Impl, const OFFSET: isize>() -> IWMDMStorage2_Vtbl {
         unsafe extern "system" fn GetStorage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMStorage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszstoragename: ::windows::core::PCWSTR, ppstorage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2468,12 +2492,12 @@ impl IWMDMStorage2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAttributes2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMStorage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAttributes2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMStorage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwattributes: u32, dwattributesex: u32, pformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAttributes2(::core::mem::transmute_copy(&dwattributes), ::core::mem::transmute_copy(&dwattributesex), ::core::mem::transmute_copy(&pformat), ::core::mem::transmute_copy(&pvideoformat)).into()
         }
-        unsafe extern "system" fn GetAttributes2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMStorage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributes2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMStorage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetAttributes2(::core::mem::transmute_copy(&pdwattributes), ::core::mem::transmute_copy(&pdwattributesex), ::core::mem::transmute_copy(&paudioformat), ::core::mem::transmute_copy(&pvideoformat)).into()
@@ -2489,16 +2513,16 @@ impl IWMDMStorage2_Vtbl {
         iid == &<IWMDMStorage2 as ::windows::core::Interface>::IID || iid == &<IWMDMStorage as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IWMDMStorage3_Impl: Sized + IWMDMStorage_Impl + IWMDMStorage2_Impl {
     fn GetMetadata(&self) -> ::windows::core::Result<IWMDMMetaData>;
     fn SetMetadata(&self, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
     fn CreateEmptyMetadataObject(&self) -> ::windows::core::Result<IWMDMMetaData>;
     fn SetEnumPreference(&self, pmode: *mut WMDM_STORAGE_ENUM_MODE, nviews: u32, pviews: *const WMDMMetadataView) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl ::windows::core::RuntimeName for IWMDMStorage3 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl IWMDMStorage3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMStorage3_Impl, const OFFSET: isize>() -> IWMDMStorage3_Vtbl {
         unsafe extern "system" fn GetMetadata<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMStorage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2545,7 +2569,7 @@ impl IWMDMStorage3_Vtbl {
         iid == &<IWMDMStorage3 as ::windows::core::Interface>::IID || iid == &<IWMDMStorage as ::windows::core::Interface>::IID || iid == &<IWMDMStorage2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IWMDMStorage4_Impl: Sized + IWMDMStorage_Impl + IWMDMStorage2_Impl + IWMDMStorage3_Impl {
     fn SetReferences(&self, dwrefs: u32, ppiwmdmstorage: *const ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
     fn GetReferences(&self, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
@@ -2554,9 +2578,9 @@ pub trait IWMDMStorage4_Impl: Sized + IWMDMStorage_Impl + IWMDMStorage2_Impl + I
     fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &::windows::core::PCWSTR) -> ::windows::core::Result<IWMDMStorage>;
     fn GetParent(&self) -> ::windows::core::Result<IWMDMStorage>;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl ::windows::core::RuntimeName for IWMDMStorage4 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl IWMDMStorage4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMStorage4_Impl, const OFFSET: isize>() -> IWMDMStorage4_Vtbl {
         unsafe extern "system" fn SetReferences<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMDMStorage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwrefs: u32, ppiwmdmstorage: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

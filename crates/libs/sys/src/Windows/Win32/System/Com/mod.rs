@@ -1551,6 +1551,12 @@ pub const REGCLS_SURROGATE: REGCLS = 8i32;
 pub const REGCLS_AGILE: REGCLS = 16i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const ROTREGFLAGS_ALLOWANYCLIENT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub type ROT_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ROTFLAGS_REGISTRATIONKEEPSALIVE: ROT_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ROTFLAGS_ALLOWANYCLIENT: ROT_FLAGS = 2u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct RPCOLEMESSAGE {
@@ -2280,8 +2286,6 @@ impl ::core::clone::Clone for WORD_BLOB {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const _CRT_INTERNAL_COMBASE_SYMBOL_PREFIX: &str = "_";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct uCLSSPEC {

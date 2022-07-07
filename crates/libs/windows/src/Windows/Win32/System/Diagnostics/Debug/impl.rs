@@ -19149,7 +19149,7 @@ impl IDebugDataSpaces2_Vtbl {
         iid == &<IDebugDataSpaces2 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Memory")]
+#[cfg(all(feature = "Win32_System_Memory", feature = "Win32_System_SystemInformation"))]
 pub trait IDebugDataSpaces3_Impl: Sized {
     fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows::core::Result<()>;
     fn WriteVirtual(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32>;
@@ -19183,9 +19183,9 @@ pub trait IDebugDataSpaces3_Impl: Sized {
     fn GetNextTagged(&self, handle: u64, tag: *mut ::windows::core::GUID, size: *mut u32) -> ::windows::core::Result<()>;
     fn EndEnumTagged(&self, handle: u64) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Memory")]
+#[cfg(all(feature = "Win32_System_Memory", feature = "Win32_System_SystemInformation"))]
 impl ::windows::core::RuntimeName for IDebugDataSpaces3 {}
-#[cfg(feature = "Win32_System_Memory")]
+#[cfg(all(feature = "Win32_System_Memory", feature = "Win32_System_SystemInformation"))]
 impl IDebugDataSpaces3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugDataSpaces3_Impl, const OFFSET: isize>() -> IDebugDataSpaces3_Vtbl {
         unsafe extern "system" fn ReadVirtual<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows::core::HRESULT {
@@ -19466,7 +19466,7 @@ impl IDebugDataSpaces3_Vtbl {
         iid == &<IDebugDataSpaces3 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Memory")]
+#[cfg(all(feature = "Win32_System_Memory", feature = "Win32_System_SystemInformation"))]
 pub trait IDebugDataSpaces4_Impl: Sized {
     fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows::core::Result<()>;
     fn WriteVirtual(&self, offset: u64, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32>;
@@ -19510,9 +19510,9 @@ pub trait IDebugDataSpaces4_Impl: Sized {
     fn ReadPhysical2(&self, offset: u64, flags: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows::core::Result<()>;
     fn WritePhysical2(&self, offset: u64, flags: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::Result<u32>;
 }
-#[cfg(feature = "Win32_System_Memory")]
+#[cfg(all(feature = "Win32_System_Memory", feature = "Win32_System_SystemInformation"))]
 impl ::windows::core::RuntimeName for IDebugDataSpaces4 {}
-#[cfg(feature = "Win32_System_Memory")]
+#[cfg(all(feature = "Win32_System_Memory", feature = "Win32_System_SystemInformation"))]
 impl IDebugDataSpaces4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugDataSpaces4_Impl, const OFFSET: isize>() -> IDebugDataSpaces4_Vtbl {
         unsafe extern "system" fn ReadVirtual<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows::core::HRESULT {
@@ -30382,13 +30382,13 @@ impl IEnumDebugStackFrames64_Vtbl {
     }
 }
 pub trait IEnumJsStackFrames_Impl: Sized {
-    fn Next(&self, cframecount: u32, pframes: *mut __MIDL___MIDL_itf_jscript9diag_0000_0007_0001, pcfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Next(&self, cframecount: u32, pframes: *mut JS_NATIVE_FRAME, pcfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IEnumJsStackFrames {}
 impl IEnumJsStackFrames_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumJsStackFrames_Impl, const OFFSET: isize>() -> IEnumJsStackFrames_Vtbl {
-        unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumJsStackFrames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cframecount: u32, pframes: *mut __MIDL___MIDL_itf_jscript9diag_0000_0007_0001, pcfetched: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumJsStackFrames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cframecount: u32, pframes: *mut JS_NATIVE_FRAME, pcfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&cframecount), ::core::mem::transmute_copy(&pframes), ::core::mem::transmute_copy(&pcfetched)).into()

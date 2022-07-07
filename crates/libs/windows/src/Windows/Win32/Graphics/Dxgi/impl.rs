@@ -263,7 +263,7 @@ impl IDXGIDebug1_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXGIDecodeSwapChain_Impl: Sized {
-    fn PresentBuffer(&self, buffertopresent: u32, syncinterval: u32, flags: u32) -> ::windows::core::Result<()>;
+    fn PresentBuffer(&self, buffertopresent: u32, syncinterval: u32, flags: u32) -> ::windows::core::HRESULT;
     fn SetSourceRect(&self, prect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn SetTargetRect(&self, prect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn SetDestSize(&self, width: u32, height: u32) -> ::windows::core::Result<()>;
@@ -281,7 +281,7 @@ impl IDXGIDecodeSwapChain_Vtbl {
         unsafe extern "system" fn PresentBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIDecodeSwapChain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffertopresent: u32, syncinterval: u32, flags: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PresentBuffer(::core::mem::transmute_copy(&buffertopresent), ::core::mem::transmute_copy(&syncinterval), ::core::mem::transmute_copy(&flags)).into()
+            this.PresentBuffer(::core::mem::transmute_copy(&buffertopresent), ::core::mem::transmute_copy(&syncinterval), ::core::mem::transmute_copy(&flags))
         }
         unsafe extern "system" fn SetSourceRect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIDecodeSwapChain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -602,7 +602,7 @@ pub trait IDXGIFactory_Impl: Sized + IDXGIObject_Impl {
     fn EnumAdapters(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter>;
     fn MakeWindowAssociation(&self, windowhandle: super::super::Foundation::HWND, flags: u32) -> ::windows::core::Result<()>;
     fn GetWindowAssociation(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
-    fn CreateSwapChain(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain>;
+    fn CreateSwapChain(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<IDXGISwapChain>) -> ::windows::core::HRESULT;
     fn CreateSoftwareAdapter(&self, module: super::super::Foundation::HINSTANCE) -> ::windows::core::Result<IDXGIAdapter>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -640,13 +640,7 @@ impl IDXGIFactory_Vtbl {
         unsafe extern "system" fn CreateSwapChain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: *mut ::core::ffi::c_void, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateSwapChain(::core::mem::transmute(&pdevice), ::core::mem::transmute_copy(&pdesc)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppswapchain, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.CreateSwapChain(::core::mem::transmute(&pdevice), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&ppswapchain))
         }
         unsafe extern "system" fn CreateSoftwareAdapter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, module: super::super::Foundation::HINSTANCE, ppadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1960,7 +1954,7 @@ impl IDXGISurface2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGISwapChain_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl {
-    fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::Result<()>;
+    fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::HRESULT;
     fn GetBuffer(&self, buffer: u32, riid: *const ::windows::core::GUID, ppsurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn SetFullscreenState(&self, fullscreen: super::super::Foundation::BOOL, ptarget: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<()>;
     fn GetFullscreenState(&self, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<()>;
@@ -1979,7 +1973,7 @@ impl IDXGISwapChain_Vtbl {
         unsafe extern "system" fn Present<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, syncinterval: u32, flags: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Present(::core::mem::transmute_copy(&syncinterval), ::core::mem::transmute_copy(&flags)).into()
+            this.Present(::core::mem::transmute_copy(&syncinterval), ::core::mem::transmute_copy(&flags))
         }
         unsafe extern "system" fn GetBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: u32, riid: *const ::windows::core::GUID, ppsurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2074,7 +2068,7 @@ pub trait IDXGISwapChain1_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_
     fn GetFullscreenDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_FULLSCREEN_DESC>;
     fn GetHwnd(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
     fn GetCoreWindow(&self, refiid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::Result<()>;
+    fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::HRESULT;
     fn IsTemporaryMonoSupported(&self) -> super::super::Foundation::BOOL;
     fn GetRestrictToOutput(&self) -> ::windows::core::Result<IDXGIOutput>;
     fn SetBackgroundColor(&self, pcolor: *const DXGI_RGBA) -> ::windows::core::Result<()>;
@@ -2128,7 +2122,7 @@ impl IDXGISwapChain1_Vtbl {
         unsafe extern "system" fn Present1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGISwapChain1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Present1(::core::mem::transmute_copy(&syncinterval), ::core::mem::transmute_copy(&presentflags), ::core::mem::transmute_copy(&ppresentparameters)).into()
+            this.Present1(::core::mem::transmute_copy(&syncinterval), ::core::mem::transmute_copy(&presentflags), ::core::mem::transmute_copy(&ppresentparameters))
         }
         unsafe extern "system" fn IsTemporaryMonoSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGISwapChain1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

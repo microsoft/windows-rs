@@ -495,14 +495,14 @@ impl IFixedPage_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IImgCreateErrorInfo_Impl: Sized + super::super::System::Ole::ICreateErrorInfo_Impl {
-    fn AttachToErrorInfo(&self, perrorinfo: *mut __MIDL___MIDL_itf_imgerror_0000_0000_0001) -> ::windows::core::Result<()>;
+    fn AttachToErrorInfo(&self, perrorinfo: *mut ImgErrorInfo) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IImgCreateErrorInfo {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl IImgCreateErrorInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImgCreateErrorInfo_Impl, const OFFSET: isize>() -> IImgCreateErrorInfo_Vtbl {
-        unsafe extern "system" fn AttachToErrorInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImgCreateErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, perrorinfo: *mut __MIDL___MIDL_itf_imgerror_0000_0000_0001) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AttachToErrorInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImgCreateErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, perrorinfo: *mut ImgErrorInfo) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AttachToErrorInfo(::core::mem::transmute_copy(&perrorinfo)).into()
@@ -524,7 +524,7 @@ pub trait IImgErrorInfo_Impl: Sized + super::super::System::Com::IErrorInfo_Impl
     fn GetUserParameter(&self, cparam: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetUserFallback(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetExceptionId(&self) -> ::windows::core::Result<u32>;
-    fn DetachErrorInfo(&self) -> ::windows::core::Result<__MIDL___MIDL_itf_imgerror_0000_0000_0001>;
+    fn DetachErrorInfo(&self) -> ::windows::core::Result<ImgErrorInfo>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IImgErrorInfo {}
@@ -597,7 +597,7 @@ impl IImgErrorInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DetachErrorInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImgErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, perrorinfo: *mut __MIDL___MIDL_itf_imgerror_0000_0000_0001) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DetachErrorInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImgErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, perrorinfo: *mut ImgErrorInfo) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DetachErrorInfo() {

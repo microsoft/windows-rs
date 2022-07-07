@@ -906,7 +906,7 @@ impl ::core::default::Default for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFI
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
     pub endpoint: ::core::option::Option<super::IMMDevice>,
     pub propertyStoreContext: ::windows::core::GUID,
-    pub propertyStoreType: super::__MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002,
+    pub propertyStoreType: super::AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE,
     pub propertyStore: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
     pub propertyKey: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
 }

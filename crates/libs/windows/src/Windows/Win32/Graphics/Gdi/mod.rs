@@ -13797,39 +13797,39 @@ pub const RGN_ERROR: u32 = 0u32;
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ROP_CODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SRCCOPY: ROP_CODE = ROP_CODE(13369376u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SRCPAINT: ROP_CODE = ROP_CODE(15597702u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SRCAND: ROP_CODE = ROP_CODE(8913094u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SRCINVERT: ROP_CODE = ROP_CODE(6684742u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SRCERASE: ROP_CODE = ROP_CODE(4457256u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const NOTSRCCOPY: ROP_CODE = ROP_CODE(3342344u32);
+pub const BLACKNESS: ROP_CODE = ROP_CODE(66u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NOTSRCERASE: ROP_CODE = ROP_CODE(1114278u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MERGECOPY: ROP_CODE = ROP_CODE(12583114u32);
+pub const NOTSRCCOPY: ROP_CODE = ROP_CODE(3342344u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SRCERASE: ROP_CODE = ROP_CODE(4457256u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DSTINVERT: ROP_CODE = ROP_CODE(5570569u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PATINVERT: ROP_CODE = ROP_CODE(5898313u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SRCINVERT: ROP_CODE = ROP_CODE(6684742u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SRCAND: ROP_CODE = ROP_CODE(8913094u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MERGEPAINT: ROP_CODE = ROP_CODE(12255782u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const MERGECOPY: ROP_CODE = ROP_CODE(12583114u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SRCCOPY: ROP_CODE = ROP_CODE(13369376u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SRCPAINT: ROP_CODE = ROP_CODE(15597702u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PATCOPY: ROP_CODE = ROP_CODE(15728673u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PATPAINT: ROP_CODE = ROP_CODE(16452105u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PATINVERT: ROP_CODE = ROP_CODE(5898313u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DSTINVERT: ROP_CODE = ROP_CODE(5570569u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BLACKNESS: ROP_CODE = ROP_CODE(66u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WHITENESS: ROP_CODE = ROP_CODE(16711778u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const NOMIRRORBITMAP: ROP_CODE = ROP_CODE(2147483648u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CAPTUREBLT: ROP_CODE = ROP_CODE(1073741824u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const NOMIRRORBITMAP: ROP_CODE = ROP_CODE(2147483648u32);
 impl ::core::marker::Copy for ROP_CODE {}
 impl ::core::clone::Clone for ROP_CODE {
     fn clone(&self) -> Self {
@@ -13847,6 +13847,34 @@ unsafe impl ::windows::core::Abi for ROP_CODE {
 impl ::core::fmt::Debug for ROP_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ROP_CODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ROP_CODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ROP_CODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ROP_CODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ROP_CODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ROP_CODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]

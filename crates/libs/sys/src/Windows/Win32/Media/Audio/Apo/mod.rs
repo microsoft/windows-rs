@@ -382,7 +382,7 @@ impl ::core::clone::Clone for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATI
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
     pub endpoint: super::IMMDevice,
     pub propertyStoreContext: ::windows_sys::core::GUID,
-    pub propertyStoreType: super::__MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002,
+    pub propertyStoreType: super::AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE,
     pub propertyStore: super::super::super::UI::Shell::PropertiesSystem::IPropertyStore,
     pub propertyKey: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
 }
