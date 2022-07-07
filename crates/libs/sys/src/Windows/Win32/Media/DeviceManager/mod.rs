@@ -974,63 +974,6 @@ impl ::core::clone::Clone for WMFILECAPABILITIES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub struct _BITMAPINFOHEADER {
-    pub biSize: u32,
-    pub biWidth: i32,
-    pub biHeight: i32,
-    pub biPlanes: u16,
-    pub biBitCount: u16,
-    pub biCompression: u32,
-    pub biSizeImage: u32,
-    pub biXPelsPerMeter: i32,
-    pub biYPelsPerMeter: i32,
-    pub biClrUsed: u32,
-    pub biClrImportant: u32,
-}
-impl ::core::marker::Copy for _BITMAPINFOHEADER {}
-impl ::core::clone::Clone for _BITMAPINFOHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct _VIDEOINFOHEADER {
-    pub rcSource: super::super::Foundation::RECT,
-    pub rcTarget: super::super::Foundation::RECT,
-    pub dwBitRate: u32,
-    pub dwBitErrorRate: u32,
-    pub AvgTimePerFrame: i64,
-    pub bmiHeader: _BITMAPINFOHEADER,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for _VIDEOINFOHEADER {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for _VIDEOINFOHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-pub struct _WAVEFORMATEX {
-    pub wFormatTag: u16,
-    pub nChannels: u16,
-    pub nSamplesPerSec: u32,
-    pub nAvgBytesPerSec: u32,
-    pub nBlockAlign: u16,
-    pub wBitsPerSample: u16,
-    pub cbSize: u16,
-}
-impl ::core::marker::Copy for _WAVEFORMATEX {}
-impl ::core::clone::Clone for _WAVEFORMATEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct __MACINFO {

@@ -3449,6 +3449,43 @@ impl ::core::fmt::Debug for RDPENCOMAPI_ATTENDEE_FLAGS {
         f.debug_tuple("RDPENCOMAPI_ATTENDEE_FLAGS").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RDPENCOMAPI_CONSTANTS(pub i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CONST_MAX_CHANNEL_MESSAGE_SIZE: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(1024i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CONST_MAX_CHANNEL_NAME_LEN: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(8i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CONST_MAX_LEGACY_CHANNEL_MESSAGE_SIZE: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(409600i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CONST_ATTENDEE_ID_EVERYONE: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(-1i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CONST_ATTENDEE_ID_HOST: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(0i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CONST_CONN_INTERVAL: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(50i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CONST_ATTENDEE_ID_DEFAULT: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(-1i32);
+impl ::core::marker::Copy for RDPENCOMAPI_CONSTANTS {}
+impl ::core::clone::Clone for RDPENCOMAPI_CONSTANTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RDPENCOMAPI_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RDPENCOMAPI_CONSTANTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RDPENCOMAPI_CONSTANTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RDPENCOMAPI_CONSTANTS").field(&self.0).finish()
+    }
+}
 pub const RDPSRAPIApplication: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc116a484_4b25_4b9f_8a54_b934b06e57fa);
 pub const RDPSRAPIApplicationFilter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe35ace89_c7e8_427e_a4f9_b9da072826bd);
 pub const RDPSRAPIApplicationList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e31c815_7433_4876_97fb_ed59fe2baa22);
@@ -3693,43 +3730,6 @@ unsafe impl ::windows::core::Interface for _IRDPSessionEvents {
 #[doc(hidden)]
 pub struct _IRDPSessionEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-}
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(pub i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CONST_MAX_CHANNEL_MESSAGE_SIZE: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(1024i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CONST_MAX_CHANNEL_NAME_LEN: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(8i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CONST_MAX_LEGACY_CHANNEL_MESSAGE_SIZE: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(409600i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CONST_ATTENDEE_ID_EVERYONE: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(-1i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CONST_ATTENDEE_ID_HOST: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(0i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CONST_CONN_INTERVAL: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(50i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CONST_ATTENDEE_ID_DEFAULT: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(-1i32);
-impl ::core::marker::Copy for __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 {}
-impl ::core::clone::Clone for __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("__MIDL___MIDL_itf_rdpencomapi_0000_0027_0001").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]

@@ -1310,14 +1310,14 @@ impl IAudioStreamVolume_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IAudioSystemEffectsPropertyChangeNotificationClient_Impl: Sized {
-    fn OnPropertyChanged(&self, r#type: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002, key: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()>;
+    fn OnPropertyChanged(&self, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::windows::core::RuntimeName for IAudioSystemEffectsPropertyChangeNotificationClient {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioSystemEffectsPropertyChangeNotificationClient_Impl, const OFFSET: isize>() -> IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
-        unsafe extern "system" fn OnPropertyChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioSystemEffectsPropertyChangeNotificationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002, key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnPropertyChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioSystemEffectsPropertyChangeNotificationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnPropertyChanged(::core::mem::transmute_copy(&r#type), ::core::mem::transmute(&key)).into()

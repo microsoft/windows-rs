@@ -842,15 +842,66 @@ impl ::core::fmt::Debug for DOCMISC {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DROPEFFECT_COPY: u32 = 1u32;
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DROPEFFECT(pub u32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DROPEFFECT_LINK: u32 = 4u32;
+pub const DROPEFFECT_NONE: DROPEFFECT = DROPEFFECT(0u32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DROPEFFECT_MOVE: u32 = 2u32;
+pub const DROPEFFECT_COPY: DROPEFFECT = DROPEFFECT(1u32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DROPEFFECT_NONE: u32 = 0u32;
+pub const DROPEFFECT_MOVE: DROPEFFECT = DROPEFFECT(2u32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DROPEFFECT_SCROLL: u32 = 2147483648u32;
+pub const DROPEFFECT_LINK: DROPEFFECT = DROPEFFECT(4u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DROPEFFECT_SCROLL: DROPEFFECT = DROPEFFECT(2147483648u32);
+impl ::core::marker::Copy for DROPEFFECT {}
+impl ::core::clone::Clone for DROPEFFECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DROPEFFECT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DROPEFFECT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DROPEFFECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DROPEFFECT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DROPEFFECT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DROPEFFECT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DROPEFFECT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DROPEFFECT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DROPEFFECT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -922,10 +973,10 @@ pub unsafe fn DispInvoke<'a, Param1: ::windows::core::IntoParam<'a, super::Com::
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn DoDragDrop<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param1: ::windows::core::IntoParam<'a, IDropSource>>(pdataobj: Param0, pdropsource: Param1, dwokeffects: u32, pdweffect: *mut u32) -> ::windows::core::HRESULT {
+pub unsafe fn DoDragDrop<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param1: ::windows::core::IntoParam<'a, IDropSource>>(pdataobj: Param0, pdropsource: Param1, dwokeffects: DROPEFFECT, pdweffect: *mut DROPEFFECT) -> ::windows::core::HRESULT {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn DoDragDrop(pdataobj: *mut ::core::ffi::c_void, pdropsource: *mut ::core::ffi::c_void, dwokeffects: u32, pdweffect: *mut u32) -> ::windows::core::HRESULT;
+        fn DoDragDrop(pdataobj: *mut ::core::ffi::c_void, pdropsource: *mut ::core::ffi::c_void, dwokeffects: DROPEFFECT, pdweffect: *mut DROPEFFECT) -> ::windows::core::HRESULT;
     }
     ::core::mem::transmute(DoDragDrop(pdataobj.into_param().abi(), pdropsource.into_param().abi(), ::core::mem::transmute(dwokeffects), ::core::mem::transmute(pdweffect)))
 }

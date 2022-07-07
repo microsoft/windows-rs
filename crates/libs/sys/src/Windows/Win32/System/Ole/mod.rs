@@ -36,7 +36,7 @@ extern "system" {
     pub fn DispInvoke(_this: *mut ::core::ffi::c_void, ptinfo: super::Com::ITypeInfo, dispidmember: i32, wflags: u16, pparams: *mut super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub fn DoDragDrop(pdataobj: super::Com::IDataObject, pdropsource: IDropSource, dwokeffects: u32, pdweffect: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn DoDragDrop(pdataobj: super::Com::IDataObject, pdropsource: IDropSource, dwokeffects: DROPEFFECT, pdweffect: *mut DROPEFFECT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn DosDateTimeToVariantTime(wdosdate: u16, wdostime: u16, pvtime: *mut f64) -> i32;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -1685,15 +1685,17 @@ pub const DOCMISC_CANTOPENEDIT: DOCMISC = 4i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DOCMISC_NOFILESUPPORT: DOCMISC = 8i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DROPEFFECT_COPY: u32 = 1u32;
+pub type DROPEFFECT = u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DROPEFFECT_LINK: u32 = 4u32;
+pub const DROPEFFECT_NONE: DROPEFFECT = 0u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DROPEFFECT_MOVE: u32 = 2u32;
+pub const DROPEFFECT_COPY: DROPEFFECT = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DROPEFFECT_NONE: u32 = 0u32;
+pub const DROPEFFECT_MOVE: DROPEFFECT = 2u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DROPEFFECT_SCROLL: u32 = 2147483648u32;
+pub const DROPEFFECT_LINK: DROPEFFECT = 4u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DROPEFFECT_SCROLL: DROPEFFECT = 2147483648u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type DVASPECT2 = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]

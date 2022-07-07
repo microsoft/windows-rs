@@ -3786,6 +3786,30 @@ pub type IXpsRasterizationFactory1 = *mut ::core::ffi::c_void;
 pub type IXpsRasterizationFactory2 = *mut ::core::ffi::c_void;
 pub type IXpsRasterizer = *mut ::core::ffi::c_void;
 pub type IXpsRasterizerNotificationCallback = *mut ::core::ffi::c_void;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ImgErrorInfo {
+    pub description: super::super::Foundation::BSTR,
+    pub guid: ::windows_sys::core::GUID,
+    pub helpContext: u32,
+    pub helpFile: super::super::Foundation::BSTR,
+    pub source: super::super::Foundation::BSTR,
+    pub devDescription: super::super::Foundation::BSTR,
+    pub errorID: ::windows_sys::core::GUID,
+    pub cUserParameters: u32,
+    pub aUserParameters: *mut super::super::Foundation::BSTR,
+    pub userFallback: super::super::Foundation::BSTR,
+    pub exceptionID: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ImgErrorInfo {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ImgErrorInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const JOB_ACCESS_ADMINISTER: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -7550,30 +7574,6 @@ pub struct _SPLCLIENT_INFO_2_V3 {
 }
 impl ::core::marker::Copy for _SPLCLIENT_INFO_2_V3 {}
 impl ::core::clone::Clone for _SPLCLIENT_INFO_2_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct __MIDL___MIDL_itf_imgerror_0000_0000_0001 {
-    pub description: super::super::Foundation::BSTR,
-    pub guid: ::windows_sys::core::GUID,
-    pub helpContext: u32,
-    pub helpFile: super::super::Foundation::BSTR,
-    pub source: super::super::Foundation::BSTR,
-    pub devDescription: super::super::Foundation::BSTR,
-    pub errorID: ::windows_sys::core::GUID,
-    pub cUserParameters: u32,
-    pub aUserParameters: *mut super::super::Foundation::BSTR,
-    pub userFallback: super::super::Foundation::BSTR,
-    pub exceptionID: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for __MIDL___MIDL_itf_imgerror_0000_0000_0001 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for __MIDL___MIDL_itf_imgerror_0000_0000_0001 {
     fn clone(&self) -> Self {
         *self
     }

@@ -80,9 +80,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
     pub fn GetSystemWindowsDirectoryW(lpbuffer: ::windows_sys::core::PWSTR, usize: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn GetSystemWow64Directory2A(lpbuffer: ::windows_sys::core::PSTR, usize: u32, imagefilemachinetype: u16) -> u32;
+    pub fn GetSystemWow64Directory2A(lpbuffer: ::windows_sys::core::PSTR, usize: u32, imagefilemachinetype: IMAGE_FILE_MACHINE) -> u32;
     #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn GetSystemWow64Directory2W(lpbuffer: ::windows_sys::core::PWSTR, usize: u32, imagefilemachinetype: u16) -> u32;
+    pub fn GetSystemWow64Directory2W(lpbuffer: ::windows_sys::core::PWSTR, usize: u32, imagefilemachinetype: IMAGE_FILE_MACHINE) -> u32;
     #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
     pub fn GetSystemWow64DirectoryA(lpbuffer: ::windows_sys::core::PSTR, usize: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
@@ -113,7 +113,7 @@ extern "system" {
     pub fn IsUserCetAvailableInEnvironment(usercetenvironment: USER_CET_ENVIRONMENT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsWow64GuestMachineSupported(wowguestmachine: u16, machineissupported: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    pub fn IsWow64GuestMachineSupported(wowguestmachine: IMAGE_FILE_MACHINE, machineissupported: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
     pub fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut u32, puldeviceformbuffersize: *mut u32, devicefamily: ::windows_sys::core::PWSTR, deviceform: ::windows_sys::core::PWSTR) -> u32;
     #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
@@ -426,6 +426,72 @@ impl ::core::clone::Clone for GROUP_RELATIONSHIP {
         *self
     }
 }
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub type IMAGE_FILE_MACHINE = u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_AXP64: IMAGE_FILE_MACHINE = 644u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_I386: IMAGE_FILE_MACHINE = 332u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_IA64: IMAGE_FILE_MACHINE = 512u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_AMD64: IMAGE_FILE_MACHINE = 34404u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_UNKNOWN: IMAGE_FILE_MACHINE = 0u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_TARGET_HOST: IMAGE_FILE_MACHINE = 1u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_R3000: IMAGE_FILE_MACHINE = 354u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_R4000: IMAGE_FILE_MACHINE = 358u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_R10000: IMAGE_FILE_MACHINE = 360u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_WCEMIPSV2: IMAGE_FILE_MACHINE = 361u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_ALPHA: IMAGE_FILE_MACHINE = 388u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_SH3: IMAGE_FILE_MACHINE = 418u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_SH3DSP: IMAGE_FILE_MACHINE = 419u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_SH3E: IMAGE_FILE_MACHINE = 420u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_SH4: IMAGE_FILE_MACHINE = 422u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_SH5: IMAGE_FILE_MACHINE = 424u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_ARM: IMAGE_FILE_MACHINE = 448u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_THUMB: IMAGE_FILE_MACHINE = 450u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_ARMNT: IMAGE_FILE_MACHINE = 452u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_AM33: IMAGE_FILE_MACHINE = 467u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_POWERPC: IMAGE_FILE_MACHINE = 496u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_POWERPCFP: IMAGE_FILE_MACHINE = 497u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_MIPS16: IMAGE_FILE_MACHINE = 614u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_ALPHA64: IMAGE_FILE_MACHINE = 644u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_MIPSFPU: IMAGE_FILE_MACHINE = 870u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_MIPSFPU16: IMAGE_FILE_MACHINE = 1126u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_TRICORE: IMAGE_FILE_MACHINE = 1312u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_CEF: IMAGE_FILE_MACHINE = 3311u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_EBC: IMAGE_FILE_MACHINE = 3772u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_M32R: IMAGE_FILE_MACHINE = 36929u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_ARM64: IMAGE_FILE_MACHINE = 43620u16;
+#[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
+pub const IMAGE_FILE_MACHINE_CEE: IMAGE_FILE_MACHINE = 49390u16;
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub type LOGICAL_PROCESSOR_RELATIONSHIP = i32;
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]

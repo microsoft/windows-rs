@@ -1021,7 +1021,7 @@ extern "system" {
     pub fn SHDestroyPropSheetExtArray(hpsxa: HPSXA);
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub fn SHDoDragDrop(hwnd: super::super::Foundation::HWND, pdata: super::super::System::Com::IDataObject, pdsrc: super::super::System::Ole::IDropSource, dweffect: u32, pdweffect: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn SHDoDragDrop(hwnd: super::super::Foundation::HWND, pdata: super::super::System::Com::IDataObject, pdsrc: super::super::System::Ole::IDropSource, dweffect: super::super::System::Ole::DROPEFFECT, pdweffect: *mut super::super::System::Ole::DROPEFFECT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHEmptyRecycleBinA(hwnd: super::super::Foundation::HWND, pszrootpath: ::windows_sys::core::PCSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
@@ -1324,9 +1324,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHRegDeleteUSValueW(huskey: isize, pwzvalue: ::windows_sys::core::PCWSTR, delregflags: SHREGDEL_FLAGS) -> super::super::Foundation::WIN32_ERROR;
-    #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHRegDuplicateHKey(hkey: super::super::System::Registry::HKEY) -> super::super::Foundation::WIN32_ERROR;
+    #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Registry\"`*"]
+    #[cfg(feature = "Win32_System_Registry")]
+    pub fn SHRegDuplicateHKey(hkey: super::super::System::Registry::HKEY) -> super::super::System::Registry::HKEY;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHRegEnumUSKeyA(huskey: isize, dwindex: u32, pszname: ::windows_sys::core::PSTR, pcchname: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::WIN32_ERROR;
@@ -1341,10 +1341,10 @@ extern "system" {
     pub fn SHRegEnumUSValueW(huskey: isize, dwindex: u32, pszvaluename: ::windows_sys::core::PWSTR, pcchvaluename: *mut u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegGetBoolUSValueA(pszsubkey: ::windows_sys::core::PCSTR, pszvalue: ::windows_sys::core::PCSTR, fignorehkcu: super::super::Foundation::BOOL, fdefault: super::super::Foundation::BOOL) -> super::super::Foundation::WIN32_ERROR;
+    pub fn SHRegGetBoolUSValueA(pszsubkey: ::windows_sys::core::PCSTR, pszvalue: ::windows_sys::core::PCSTR, fignorehkcu: super::super::Foundation::BOOL, fdefault: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegGetBoolUSValueW(pszsubkey: ::windows_sys::core::PCWSTR, pszvalue: ::windows_sys::core::PCWSTR, fignorehkcu: super::super::Foundation::BOOL, fdefault: super::super::Foundation::BOOL) -> super::super::Foundation::WIN32_ERROR;
+    pub fn SHRegGetBoolUSValueW(pszsubkey: ::windows_sys::core::PCWSTR, pszvalue: ::windows_sys::core::PCWSTR, fignorehkcu: super::super::Foundation::BOOL, fdefault: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     pub fn SHRegGetIntW(hk: super::super::System::Registry::HKEY, pwzkey: ::windows_sys::core::PCWSTR, idefault: i32) -> super::super::Foundation::WIN32_ERROR;
@@ -8739,15 +8739,9 @@ pub const SFBS_FLAGS_TRUNCATE_UNDISPLAYED_DECIMAL_DIGITS: SFBS_FLAGS = 2i32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const SFGAO_BROWSABLE: i32 = 134217728i32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SFGAO_CANCOPY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const SFGAO_CANDELETE: i32 = 32i32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SFGAO_CANLINK: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const SFGAO_CANMONIKER: i32 = 4194304i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SFGAO_CANMOVE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const SFGAO_CANRENAME: i32 = 16i32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]

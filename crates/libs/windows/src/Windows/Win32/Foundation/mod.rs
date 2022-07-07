@@ -14118,6 +14118,14 @@ pub struct WIN32_ERROR(pub u32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const NO_ERROR: WIN32_ERROR = WIN32_ERROR(0u32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WAIT_OBJECT_0: WIN32_ERROR = WIN32_ERROR(0u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WAIT_ABANDONED: WIN32_ERROR = WIN32_ERROR(128u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WAIT_ABANDONED_0: WIN32_ERROR = WIN32_ERROR(128u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WAIT_IO_COMPLETION: WIN32_ERROR = WIN32_ERROR(129u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const WAIT_TIMEOUT: WIN32_ERROR = WIN32_ERROR(258u32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const WAIT_FAILED: WIN32_ERROR = WIN32_ERROR(4294967295u32);

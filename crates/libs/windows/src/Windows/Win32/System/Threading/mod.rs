@@ -2037,13 +2037,13 @@ pub unsafe fn IsWow64Process<'a, Param0: ::windows::core::IntoParam<'a, super::s
     }
     ::core::mem::transmute(IsWow64Process(hprocess.into_param().abi(), ::core::mem::transmute(wow64process)))
 }
-#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
 #[inline]
-pub unsafe fn IsWow64Process2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, pprocessmachine: *mut u16, pnativemachine: *mut u16) -> super::super::Foundation::BOOL {
+pub unsafe fn IsWow64Process2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, pprocessmachine: *mut super::SystemInformation::IMAGE_FILE_MACHINE, pnativemachine: *mut super::SystemInformation::IMAGE_FILE_MACHINE) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn IsWow64Process2(hprocess: super::super::Foundation::HANDLE, pprocessmachine: *mut u16, pnativemachine: *mut u16) -> super::super::Foundation::BOOL;
+        fn IsWow64Process2(hprocess: super::super::Foundation::HANDLE, pprocessmachine: *mut super::SystemInformation::IMAGE_FILE_MACHINE, pnativemachine: *mut super::SystemInformation::IMAGE_FILE_MACHINE) -> super::super::Foundation::BOOL;
     }
     ::core::mem::transmute(IsWow64Process2(hprocess.into_param().abi(), ::core::mem::transmute(pprocessmachine), ::core::mem::transmute(pnativemachine)))
 }
@@ -3245,32 +3245,40 @@ pub const PROCESS_LEAP_SECOND_INFO_FLAG_ENABLE_SIXTY_SECOND: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const PROCESS_LEAP_SECOND_INFO_VALID_FLAGS: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+#[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_SystemInformation\"`*"]
+#[cfg(feature = "Win32_System_SystemInformation")]
 pub struct PROCESS_MACHINE_INFORMATION {
-    pub ProcessMachine: u16,
+    pub ProcessMachine: super::SystemInformation::IMAGE_FILE_MACHINE,
     pub Res0: u16,
     pub MachineAttributes: MACHINE_ATTRIBUTES,
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::marker::Copy for PROCESS_MACHINE_INFORMATION {}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::clone::Clone for PROCESS_MACHINE_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::fmt::Debug for PROCESS_MACHINE_INFORMATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("PROCESS_MACHINE_INFORMATION").field("ProcessMachine", &self.ProcessMachine).field("Res0", &self.Res0).field("MachineAttributes", &self.MachineAttributes).finish()
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 unsafe impl ::windows::core::Abi for PROCESS_MACHINE_INFORMATION {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::cmp::PartialEq for PROCESS_MACHINE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_MACHINE_INFORMATION>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::cmp::Eq for PROCESS_MACHINE_INFORMATION {}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl ::core::default::Default for PROCESS_MACHINE_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5846,14 +5854,6 @@ pub unsafe fn UpdateProcThreadAttribute<'a, Param0: ::windows::core::IntoParam<'
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WAITORTIMERCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::BOOLEAN)>;
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const WAIT_ABANDONED: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const WAIT_ABANDONED_0: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const WAIT_IO_COMPLETION: u32 = 192u32;
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const WAIT_OBJECT_0: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

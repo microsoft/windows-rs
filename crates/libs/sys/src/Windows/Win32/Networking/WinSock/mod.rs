@@ -7784,6 +7784,10 @@ pub const WSA_NOT_ENOUGH_MEMORY: WSA_ERROR = 8i32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const WSA_OPERATION_ABORTED: WSA_ERROR = 995i32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const WSA_WAIT_EVENT_0: WSA_ERROR = 0i32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const WSA_WAIT_IO_COMPLETION: WSA_ERROR = 129i32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const WSABASEERR: WSA_ERROR = 10000i32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const WSAEINTR: WSA_ERROR = 10004i32;
@@ -7988,11 +7992,7 @@ pub const WSA_INFINITE: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const WSA_MAXIMUM_WAIT_EVENTS: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const WSA_WAIT_EVENT_0: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const WSA_WAIT_FAILED: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const WSA_WAIT_IO_COMPLETION: u32 = 192u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub struct WSC_PROVIDER_AUDIT_INFO {

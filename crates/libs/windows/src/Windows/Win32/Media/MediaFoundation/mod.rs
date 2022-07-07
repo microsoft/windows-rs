@@ -53580,10 +53580,10 @@ pub unsafe fn MFCreateVideoSampleFromSurface<'a, Param0: ::windows::core::IntoPa
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
-pub unsafe fn MFCreateVirtualCamera<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, lifetime: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002, access: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003, friendlyname: Param3, sourceid: Param4, categories: &[::windows::core::GUID]) -> ::windows::core::Result<IMFVirtualCamera> {
+pub unsafe fn MFCreateVirtualCamera<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(r#type: MFVirtualCameraType, lifetime: MFVirtualCameraLifetime, access: MFVirtualCameraAccess, friendlyname: Param3, sourceid: Param4, categories: &[::windows::core::GUID]) -> ::windows::core::Result<IMFVirtualCamera> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn MFCreateVirtualCamera(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, lifetime: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002, access: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003, friendlyname: ::windows::core::PCWSTR, sourceid: ::windows::core::PCWSTR, categories: *const ::windows::core::GUID, categorycount: u32, virtualcamera: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+        fn MFCreateVirtualCamera(r#type: MFVirtualCameraType, lifetime: MFVirtualCameraLifetime, access: MFVirtualCameraAccess, friendlyname: ::windows::core::PCWSTR, sourceid: ::windows::core::PCWSTR, categories: *const ::windows::core::GUID, categorycount: u32, virtualcamera: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
     MFCreateVirtualCamera(::core::mem::transmute(r#type), ::core::mem::transmute(lifetime), ::core::mem::transmute(access), friendlyname.into_param().abi(), sourceid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(categories)), categories.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFVirtualCamera>(result__)
@@ -54265,10 +54265,10 @@ pub unsafe fn MFIsFormatYUV(format: u32) -> super::super::Foundation::BOOL {
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MFIsVirtualCameraTypeSupported(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+pub unsafe fn MFIsVirtualCameraTypeSupported(r#type: MFVirtualCameraType) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn MFIsVirtualCameraTypeSupported(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, supported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
+        fn MFIsVirtualCameraTypeSupported(r#type: MFVirtualCameraType, supported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
     MFIsVirtualCameraTypeSupported(::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -58547,6 +58547,85 @@ unsafe impl ::windows::core::Abi for MFVideoTransferMatrix {
 impl ::core::fmt::Debug for MFVideoTransferMatrix {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MFVideoTransferMatrix").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MFVirtualCameraAccess(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFVirtualCameraAccess_CurrentUser: MFVirtualCameraAccess = MFVirtualCameraAccess(0i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFVirtualCameraAccess_AllUsers: MFVirtualCameraAccess = MFVirtualCameraAccess(1i32);
+impl ::core::marker::Copy for MFVirtualCameraAccess {}
+impl ::core::clone::Clone for MFVirtualCameraAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MFVirtualCameraAccess {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MFVirtualCameraAccess {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MFVirtualCameraAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MFVirtualCameraAccess").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MFVirtualCameraLifetime(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFVirtualCameraLifetime_Session: MFVirtualCameraLifetime = MFVirtualCameraLifetime(0i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFVirtualCameraLifetime_System: MFVirtualCameraLifetime = MFVirtualCameraLifetime(1i32);
+impl ::core::marker::Copy for MFVirtualCameraLifetime {}
+impl ::core::clone::Clone for MFVirtualCameraLifetime {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MFVirtualCameraLifetime {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MFVirtualCameraLifetime {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MFVirtualCameraLifetime {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MFVirtualCameraLifetime").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MFVirtualCameraType(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFVirtualCameraType_SoftwareCameraSource: MFVirtualCameraType = MFVirtualCameraType(0i32);
+impl ::core::marker::Copy for MFVirtualCameraType {}
+impl ::core::clone::Clone for MFVirtualCameraType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MFVirtualCameraType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MFVirtualCameraType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MFVirtualCameraType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MFVirtualCameraType").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -65949,85 +66028,6 @@ unsafe impl ::windows::core::Abi for _MFT_SET_TYPE_FLAGS {
 impl ::core::fmt::Debug for _MFT_SET_TYPE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("_MFT_SET_TYPE_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001(pub i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFVirtualCameraType_SoftwareCameraSource: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 = __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001(0i32);
-impl ::core::marker::Copy for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 {}
-impl ::core::clone::Clone for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("__MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002(pub i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFVirtualCameraLifetime_Session: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 = __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002(0i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFVirtualCameraLifetime_System: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 = __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002(1i32);
-impl ::core::marker::Copy for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 {}
-impl ::core::clone::Clone for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("__MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003(pub i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFVirtualCameraAccess_CurrentUser: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 = __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003(0i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFVirtualCameraAccess_AllUsers: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 = __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003(1i32);
-impl ::core::marker::Copy for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 {}
-impl ::core::clone::Clone for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("__MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]

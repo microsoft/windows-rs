@@ -19218,6 +19218,14 @@ pub const TCS_TOOLTIPS: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TCS_VERTICAL: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TD_ERROR_ICON: ::windows::core::PCWSTR = ::windows::core::PCWSTR(-2i32 as _);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TD_INFORMATION_ICON: ::windows::core::PCWSTR = ::windows::core::PCWSTR(-3i32 as _);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TD_SHIELD_ICON: ::windows::core::PCWSTR = ::windows::core::PCWSTR(-4i32 as _);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TD_WARNING_ICON: ::windows::core::PCWSTR = ::windows::core::PCWSTR(-1i32 as _);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXTSHADOWTYPE(pub i32);
