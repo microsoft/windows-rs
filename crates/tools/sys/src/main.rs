@@ -30,7 +30,7 @@ edition = "2018"
 license = "MIT OR Apache-2.0"
 description = "Rust for Windows"
 repository = "https://github.com/microsoft/windows-rs"
-readme = "../../../.github/readme.md"
+readme = "../../../docs/readme.md"
 rust-version = "1.46"
 
 [package.metadata.docs.rs]
@@ -89,8 +89,8 @@ deprecated = []
         }
     }
 
-    std::fs::copy(".github/license-mit", "crates/libs/sys/license-mit").unwrap();
-    std::fs::copy(".github/license-apache", "crates/libs/sys/license-apache").unwrap();
+    std::fs::copy("docs/license-mit", "crates/libs/sys/license-mit").unwrap();
+    std::fs::copy("docs/license-apache", "crates/libs/sys/license-apache").unwrap();
 }
 
 fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &metadata::reader::Tree) {

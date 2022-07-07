@@ -7,7 +7,7 @@ edition = "2018"
 license = "MIT OR Apache-2.0"
 description = "Rust for Windows"
 repository = "https://github.com/microsoft/windows-rs"
-readme = "../../../.github/readme.md"
+readme = "../../../docs/readme.md"
 rust-version = "1.46"
 
 [package.metadata.docs.rs]
