@@ -7,4 +7,5 @@ publish = false
 [dependencies]
 metadata = { package = "windows-metadata", path = "../../libs/metadata" }
 bindgen = { package = "windows-bindgen", path = "../../libs/bindgen" }
+lib = { package = "tool_lib", path = "../lib" }
 rayon = "1.5.1"
