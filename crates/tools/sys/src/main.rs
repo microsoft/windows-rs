@@ -89,8 +89,8 @@ deprecated = []
         }
     }
 
-    std::fs::copy("docs/license-mit", "crates/libs/sys/license-mit").unwrap();
-    std::fs::copy("docs/license-apache", "crates/libs/sys/license-apache").unwrap();
+    std::fs::copy("license-mit", "crates/libs/sys/license-mit").unwrap();
+    std::fs::copy("license-apache-2.0", "crates/libs/sys/license-apache-2.0").unwrap();
 }
 
 fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &metadata::reader::Tree) {
