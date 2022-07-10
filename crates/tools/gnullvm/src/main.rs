@@ -115,7 +115,7 @@ fn build_mri(output: &std::path::Path, libraries: &BTreeMap<String, BTreeMap<Str
 
     mri.write_all(b"SAVE\nEND\n").unwrap();
 
-    let mut cmd = std::process::Command::new("ar");
+    let mut cmd = std::process::Command::new("llvm-ar");
     cmd.current_dir(&output);
     cmd.arg("-M");
     cmd.stdin(std::fs::File::open(&mri_path).unwrap());
