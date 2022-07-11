@@ -85,7 +85,6 @@ body:
         [dependencies.windows]
         version = "0.38.0"
         features = [
-            "alloc",
             "Win32_Foundation",
             "Win32_UI_WindowsAndMessaging",
         ]
